@@ -1827,7 +1827,7 @@ HorseaEvosAttacks:
 	dbw 12, LEER
 	dbw 19, TWISTER
 	dbw 22, AURORA_BEAM
-	dbw 25, OCTOZOOKA
+	dbw 25, OCTAZOOKA
 	dbw 26, SAFEGUARD
 	dbw 40, DRAGONBREATH
 	dbw 42, ICE_BEAM
@@ -1844,7 +1844,7 @@ SeadraEvosAttacks:
 	dbw 12, LEER
 	dbw 19, TWISTER
 	dbw 22, AURORA_BEAM
-	dbw 25, OCTOZOOKA
+	dbw 25, OCTAZOOKA
 	dbw 26, SAFEGUARD
 	dbw 40, DRAGONBREATH
 	dbw 42, ICE_BEAM
@@ -1965,7 +1965,8 @@ ElectabuzzEvosAttacks:
 	dbw 33, SCREECH
 	dbw 41, THUNDERBOLT
 	dwb 45, CROSS_CHOP
-	dbw 49, THUNDER	db 0 ; no more level-up moves
+	dbw 49, THUNDER	
+	db 0 ; no more level-up moves
 
 MagmarEvosAttacks:
 	db 0 ; no more evolutions
