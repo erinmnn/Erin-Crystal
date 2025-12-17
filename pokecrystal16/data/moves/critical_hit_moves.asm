@@ -1,0 +1,11 @@
+CriticalHitMoves:
+	dw KARATE_CHOP
+	dw RAZOR_WIND
+	dw RAZOR_LEAF
+	dw CRABHAMMER
+	dw SLASH
+	dw AEROBLAST
+	dw CROSS_CHOP
+	dw FURY_CUTTER
+	dw DRILL_PECK
+	dw -1
