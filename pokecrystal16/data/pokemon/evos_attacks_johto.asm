@@ -276,9 +276,10 @@ SentretEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, QUICK_ATTACK
 	dbw 5, DEFENSE_CURL
-	dbw 11, CHARM
-	dbw 17, FURY_SWIPES
-	dbw 25, BODY_SLAM
+	dbw 7, CHARM
+	dbw 11, FURY_SWIPES
+	dbw 16, LOVELY_KISS
+	dbw 23, BODY_SLAM
 	dbw 27, SHADOW_BALL
 	dbw 31, SWIFT
 	dbw 40, RETURN
@@ -290,9 +291,10 @@ FurretEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, QUICK_ATTACK
 	dbw 5, DEFENSE_CURL
-	dbw 11, CHARM
-	dbw 17, FURY_SWIPES
-	dbw 25, BODY_SLAM
+	dbw 7, CHARM
+	dbw 11, FURY_SWIPES
+	dbw 16, LOVELY_KISS
+	dbw 23, BODY_SLAM
 	dbw 27, SHADOW_BALL
 	dbw 31, SWIFT
 	dbw 40, RETURN
@@ -636,7 +638,7 @@ HoppipEvosAttacks:
 	dbw 17, SLEEP_POWDER
 	dbw 20, LEECH_SEED
 	dbw 25, COTTON_SPORE
-	dbw 30, GIGA_DRAIN
+	dbw 21, GIGA_DRAIN
 	dbw 38, EXPLOSION
 	dbw 44, PETAL_DANCE
 	db 0 ; no more level-up moves
@@ -653,7 +655,7 @@ SkiploomEvosAttacks:
 	dbw 17, SLEEP_POWDER
 	dbw 20, LEECH_SEED
 	dbw 25, COTTON_SPORE
-	dbw 30, GIGA_DRAIN
+	dbw 21, GIGA_DRAIN
 	dbw 38, EXPLOSION
 	dbw 44, PETAL_DANCE
 	db 0 ; no more level-up moves
@@ -669,7 +671,7 @@ JumpluffEvosAttacks:
 	dbw 17, SLEEP_POWDER
 	dbw 20, LEECH_SEED
 	dbw 25, COTTON_SPORE
-	dbw 30, GIGA_DRAIN
+	dbw 21, GIGA_DRAIN
 	dbw 38, EXPLOSION
 	dbw 44, PETAL_DANCE
 	db 0 ; no more level-up moves

@@ -20,7 +20,7 @@ TreeMonMaps::
 	treemon_map ROUTE_39,                  TREEMON_SET_ROUTE
 	treemon_map ROUTE_40,                  TREEMON_SET_CANYON
 	treemon_map ROUTE_41,                  TREEMON_SET_CANYON
-	treemon_map ROUTE_42,                  TREEMON_SET_CANYON
+	treemon_map ROUTE_42,                  TREEMON_SET_LAKE
 	treemon_map ROUTE_43,                  TREEMON_SET_LAKE
 	treemon_map ROUTE_44,                  TREEMON_SET_CANYON
 	treemon_map ROUTE_45,                  TREEMON_SET_CANYON
@@ -38,6 +38,7 @@ TreeMonMaps::
 	treemon_map BLACKTHORN_CITY,           TREEMON_SET_LAKE
 	treemon_map SILVER_CAVE_OUTSIDE,       TREEMON_SET_LAKE
 	treemon_map ILEX_FOREST,               TREEMON_SET_FOREST
+	treemon_map BATTLE_TOWER_OUTSIDE,      TREEMON_SET_FOREST
 	db -1
 
 RockMonMaps::

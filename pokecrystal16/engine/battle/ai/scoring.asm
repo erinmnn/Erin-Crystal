@@ -54,7 +54,7 @@ AI_Basic:
 	and a
 	jr nz, .discourage
 
-; Dismiss status moves if the player is Safeguarded.
+; Dismiss Safeguard if it's already active.
 	ld a, [wPlayerScreens]
 	bit SCREENS_SAFEGUARD, a
 	jr z, .checkmove
@@ -2801,8 +2801,7 @@ AI_Opportunist:
 	push de
 	push bc
 	ld hl, StallMoves
-	ld de, 1
-	call IsInArray
+	call AI_CheckMoveInList
 
 	pop bc
 	pop de
@@ -2817,8 +2816,15 @@ AI_Opportunist:
 
 INCLUDE "data/battle/ai/stall_moves.asm"
 
+
 AI_Aggressive:
-; Use whatever does the most damage... except exploding moves.
+; Use whatever does the most damage.
+
+; Discourage all damaging moves but the one that does the most damage.
+; If no damaging move deals damage to the player (immune),
+; no move will be discouraged
+
+; Figure out which attack does the most damage and put it in c.
 	ld hl, wEnemyMonMoves
 	ld bc, 0
 	ld de, 0
@@ -2953,6 +2959,15 @@ Aggressive_Got_Strongest_Move:
 	ld a, b
 	cp NUM_MOVES + 1
 	jr z, .done
+
+; Discourage this move if it is SPLASH.
+
+	ld a, [de]
+	cp SPLASH
+	inc hl
+	jr z, .splash
+
+	call AIGetEnemyMove
 	
 ; Ignore this move if it doesn't deal damage.
 
@@ -2990,10 +3005,130 @@ Aggressive_Got_Strongest_Move:
 .move_on
 	inc de
 	jr .checkmove2
+	
+.splash
+	inc de
+	inc [hl]
+	jr .discourage
 
 .done
 	ret
 
+AI_Aggressive_Except_Boom:
+; Use whatever does the most damage... except exploding moves.
+	ld hl, wEnemyMonMoves
+	ld bc, 0
+	ld de, 0
+	xor a
+	ld [wMovesThatOHKOPlayer], a
+.checkmove
+	inc b
+	ld a, b
+	cp NUM_MOVES + 1
+	jp z, Aggressive_Got_Strongest_Move
+
+	ld a, [hl]
+	and a
+	jp z, Aggressive_Got_Strongest_Move
+	cp SELFDESTRUCT
+	jr z, .next_move
+	cp EXPLOSION
+	jr z, .next_move
+
+	push hl
+	push de
+	push bc
+	ld a, [hl]
+	call AIGetEnemyMove
+	ld a, [wEnemyMoveStruct + MOVE_POWER]
+	and a
+	jr z, .no_damage
+	call AIDamageCalc
+	pop hl
+	push hl
+	ld a, [hl]
+	cp PURSUIT 
+	call z, PursuitDamage
+	pop bc
+	pop de
+	pop hl
+	
+	push hl
+	push de
+	push bc
+	call AIAggressiveCheckOHKO
+	pop bc
+	pop de
+	pop hl
+	
+; Encourage moves that can OHKO and have good accuracy.
+	cp 1
+	jr nz, .check_damage
+	
+	ld a, [wMovesThatOHKOPlayer]
+	inc a
+	ld [wMovesThatOHKOPlayer], a
+	
+	ld a, [wEnemyMoveStruct + MOVE_ACC]
+	cp 74 percent
+	jr c, .check_damage
+	
+	push hl
+	push bc
+	ld hl, wEnemyAIMoveScores - 1
+	ld c, b
+	ld b, 0
+	add hl, bc
+	dec [hl]
+	pop bc
+	pop hl
+	
+; Encourage moves that can OHKO and have perfect accuracy.
+
+	ld a, [wEnemyMoveStruct + MOVE_ACC]
+	cp 99 percent + 1
+	jr c, .check_damage
+	
+	push hl
+	push bc
+	ld hl, wEnemyAIMoveScores - 1
+	ld c, b
+	ld b, 0
+	add hl, bc
+	dec [hl]
+	pop bc
+	pop hl
+	
+	ld a, [hl]
+	cp SELFDESTRUCT
+	jr z, .next_move
+	cp EXPLOSION
+	jr z, .next_move
+	
+.check_damage
+	inc hl
+
+; Update current move if damage is highest so far
+	ld a, [wCurDamage + 1]
+	cp e
+	ld a, [wCurDamage]
+	sbc d
+	jp c, .checkmove
+
+	ld a, [wCurDamage + 1]
+	ld e, a
+	ld a, [wCurDamage]
+	ld d, a
+	ld c, b
+	jp .checkmove
+
+.no_damage
+	pop bc
+	pop de
+	pop hl
+.next_move
+	inc hl
+	jp .checkmove
 
 INCLUDE "data/battle/ai/reckless_moves.asm"
 
@@ -3009,6 +3144,8 @@ AIDamageCalc:
 	jr z, .magnitude
 	cp EFFECT_REVERSAL
 	jr z, .reversal
+	cp EFFECT_HIDDEN_POWER
+	jr z, .hidden_power
 	
 	ld de, 1
 	ld hl, ConstantDamageEffects
@@ -3036,6 +3173,10 @@ AIDamageCalc:
 .reversal
 	farcall BattleCommand_ConstantDamage
 	jr .stab
+
+.hidden_power
+	farcall HiddenPowerDamage
+	jr .damagecalc
 
 .magnitude
 	; Pretend that the base power is 70
@@ -3136,15 +3277,13 @@ AI_Cautious:
 	push de
 	push bc
 	ld hl, ResidualMoves
-	ld de, 1
-	call IsInArray
+	call AI_CheckMoveInList
 
 	pop bc
 	pop de
 	pop hl
 	jr nc, .loop
 
-; BUG: "Cautious" AI may fail to discourage residual moves (see docs/bugs_and_glitches.md)
 	call Random
 	cp 90 percent + 1
 	ret nc
@@ -3301,14 +3440,9 @@ AIGetEnemyMove:
 	push hl
 	push de
 	push bc
-	dec a
-	ld hl, Moves
-	ld bc, MOVE_LENGTH
-	call AddNTimes
 
 	ld de, wEnemyMoveStruct
-	ld a, BANK(Moves)
-	call FarCopyBytes
+	call GetMoveData
 
 	pop bc
 	pop de
@@ -3324,3 +3458,12 @@ AI_50_50:
 	call Random
 	cp 50 percent + 1
 	ret
+
+AI_CheckMoveInList:
+	push hl
+	call GetMoveIndexFromID
+	ld b, h
+	ld c, l
+	pop hl
+	ld de, 2
+	jp IsInWordArray

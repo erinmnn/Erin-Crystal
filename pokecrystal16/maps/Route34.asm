@@ -16,30 +16,26 @@
 
 Route34_MapScripts:
 	def_scene_scripts
-
+	
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route34SnorlaxCallback
 	callback MAPCALLBACK_OBJECTS, Route34EggCheckCallback
 
 Route34SnorlaxCallback:
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .DoesSnorlaxAppear
-
-.SnorlaxDisappears:
-	disappear ROUTE34_SNORLAX
+	setevent EVENT_ROUTE_34_SNORLAX_GONE
 	endcallback
 
-.DoesSnorlaxAppear:
+.DoesSnorlaxAppear
 	checkevent EVENT_BEAT_HIKER_RUSSELL
-	iftrue, .SnorlaxDisappears
-	appear ROUTE34_SNORLAX
+	iftrue .SnorlaxDisappears
+	clearevent EVENT_ROUTE_34_SNORLAX_GONE
 	endcallback
 
-Route34Snorlax:
-	opentext
-	writetext Route34SnorlaxSleepingText
-	waitbutton
-	closetext
-	end
+.SnorlaxDisappears
+	setevent EVENT_ROUTE_34_SNORLAX_GONE
+	endcallback
 
 Route34EggCheckCallback:
 	checkflag ENGINE_DAY_CARE_MAN_HAS_EGG
@@ -365,7 +361,6 @@ TrainerPicnickerGina1:
 .Gift:
 	jumpstd GiftFScript
 	end
-
 .PackFull:
 	jumpstd PackFullFScript
 	end
@@ -508,6 +503,14 @@ Route34MovementData_DayCareManWalksBackInside_WalkAroundPlayer:
 	slow_step UP
 	slow_step UP
 	step_end
+
+Route34Snorlax:
+	opentext
+	writetext Route34SnorlaxSleepingText
+	disappear ROUTE34_SNORLAX
+	waitbutton
+	closetext
+	end
 
 YoungsterSamuelSeenText:
 	text "This is where I do"
@@ -785,14 +788,13 @@ Route34_MapEvents:
 	object_event  9, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterSamuel, -1
 	object_event 11, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterIan, -1
 	object_event 15, 22, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerGina1, -1
-	object_event 11, 40, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerOfficerKeith, -1
+	object_event 11, 40, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerOfficerKeith, -1
 	object_event 16, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmBrandon, -1
 	object_event 15, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAY_CARE_MAN_ON_ROUTE_34
 	object_event 14, 18, SPRITE_DAY_CARE_MON_1, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon1Script, EVENT_DAY_CARE_MON_1
 	object_event 17, 19, SPRITE_DAY_CARE_MON_2, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon2Script, EVENT_DAY_CARE_MON_2
-	object_event 11, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfJenn, -1
-	object_event  3, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfIrene, -1
+	object_event 11, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfIrene, -1
+	object_event  3, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfJenn, -1
 	object_event  6, 51, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfKate, -1
 	object_event 19, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route34Nugget, EVENT_ROUTE_34_NUGGET
-	object_event 10, 44, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route34Snorlax, -1
-
+	object_event 10, 44, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM,  0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route34Snorlax, EVENT_ROUTE_34_SNORLAX_GONE

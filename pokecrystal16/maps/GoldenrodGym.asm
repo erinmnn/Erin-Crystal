@@ -40,6 +40,7 @@ GoldenrodGymWhitneyScript:
 	setevent EVENT_BEAT_LASS_BRIDGET
 .FightDone:
 	opentext
+	disappear ROUTE34_SNORLAX
 	checkevent EVENT_MADE_WHITNEY_CRY
 	iffalse .StoppedCrying
 	writetext WhitneyYouMeanieText

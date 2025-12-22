@@ -14,8 +14,8 @@
 
 AzaleaTown_MapScripts:
 	def_scene_scripts
+	scene_script AzaleaTownInitScene, SCENE_AZALEATOWN_RIVAL_BATTLE
 	scene_script AzaleaTownNoop1Scene, SCENE_AZALEATOWN_NOOP
-	scene_script AzaleaTownNoop2Scene, SCENE_AZALEATOWN_RIVAL_BATTLE
 	scene_script AzaleaTownNoop3Scene, SCENE_AZALEATOWN_KURT_RETURNS_GS_BALL
 
 	def_callbacks
@@ -24,7 +24,17 @@ AzaleaTown_MapScripts:
 AzaleaTownNoop1Scene:
 	end
 
-AzaleaTownNoop2Scene:
+AzaleaTownInitScene:
+	checkevent EVENT_BEAT_AZALEA_RIVAL
+	iftrue .done
+	setevent EVENT_RIVAL_AZALEA_TOWN
+	setscene SCENE_AZALEATOWN_RIVAL_BATTLE
+	end
+
+.done
+	setscene SCENE_AZALEATOWN_NOOP
+	opentext
+	writetext AzaleaTownSignText
 	end
 
 AzaleaTownNoop3Scene:
@@ -53,6 +63,7 @@ AzaleaTownRivalBattleScene2:
 	appear AZALEATOWN_RIVAL
 	applymovement AZALEATOWN_RIVAL, AzaleaTownRivalBattleApproachMovement2
 	turnobject PLAYER, UP
+
 AzaleaTownRivalBattleScript:
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
@@ -99,6 +110,7 @@ AzaleaTownRivalBattleScript:
 	turnobject PLAYER, LEFT
 	applymovement AZALEATOWN_RIVAL, AzaleaTownRivalBattleExitMovement
 	playsound SFX_EXIT_BUILDING
+	setevent EVENT_BEAT_AZALEA_RIVAL
 	disappear AZALEATOWN_RIVAL
 	setscene SCENE_AZALEATOWN_NOOP
 	waitsfx
@@ -244,16 +256,12 @@ AzaleaTownPlayerLeavesKurtsHouseMovement:
 	step_end
 
 AzaleaTownRivalBeforeText:
-	text "…Tell me some-"
-	line "thing."
+	text "… Hey, dipshit."
+	line "Did you really"
+	cont "earn two badges?"
 
-	para "Is it true that"
-	line "TEAM ROCKET has"
-	cont "returned?"
-
-	para "What? You beat"
-	line "them? Hah! Quit"
-	cont "lying."
+	para "What? Whitney?"
+	line "Hah! Quit lying."
 
 	para "You're not joking?"
 	line "Then let's see how"
@@ -288,17 +296,19 @@ AzaleaTownRivalAfterText:
 	para "They act big and"
 	line "tough in a group."
 
-	para "But get them"
-	line "alone, and they're"
-	cont "weak."
+	para "But alone?"
+	line "They're weak."
 
-	para "I hate them all."
+	para "They're running a"
+	line "scam in Slowpoke"
+	cont "Well right now."
 
-	para "You stay out of my"
-	line "way. A weakling"
-
-	para "like you is only a"
-	line "distraction."
+	para "You want to take"
+	line "them down? Hah!"
+	
+	para "A weakling like"
+	line "you is only a"
+	cont "distraction."
 	done
 
 AzaleaTownRivalLossText:
@@ -491,6 +501,6 @@ AzaleaTown_MapEvents:
 	object_event 29,  9, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event 15, 15, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event  8,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WhiteApricornTree, -1
-	object_event 11, 10, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_AZALEA_TOWN
+	object_event 11, 10, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_AZALEA_TOWN
 	object_event 10, 16, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownRocket2Script, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  6,  5, SPRITE_KURT_OUTSIDE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownKurtScript, EVENT_AZALEA_TOWN_KURT
