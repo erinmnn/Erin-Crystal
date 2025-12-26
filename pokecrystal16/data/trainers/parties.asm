@@ -2133,18 +2133,23 @@ PokemaniacGroup:
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (11)
-	db "ISSAC@", TRAINERTYPE_MOVES
-	db 12
+	db "ISSAC@", TRAINERTYPE_ITEM_MOVES
+	db 18
 	dw LICKITUNG
-	dw LICK, SUPERSONIC, CUT, NO_MOVE
+	db BERRY_JUICE
+	dw LICK, ROLLOUT, NO_MOVE, NO_MOVE
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (12)
 	db "DONALD@", TRAINERTYPE_NORMAL
-	db 10
+	db 17
+	dw MAGNEMITE
+	db PINK_BOW
+	dw SELFDESTRUCT, THUNDERBOLT, THUNDER_WAVE, NO_MOVE
+	db 19
 	dw SLOWPOKE
-	db 10
-	dw SLOWPOKE
+	db MYSTIC_WATER
+	dw HYDRO_PUMP, PSYCHIC_M, HEADBUTT, NO_MOVE
 	db -1 ; end
 
 	next_list_item ; POKEMANIAC (13)
@@ -3500,11 +3505,15 @@ SuperNerdGroup:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (2)
-	db "ERIC@", TRAINERTYPE_NORMAL
-	db 11
+	db "ERIC@", TRAINERTYPE_ITEM_MOVES
+	db 18
 	dw GRIMER
-	db 11
-	dw GRIMER
+	db LEFTOVERS
+	dw CURSE, PROTECT, ACID, NO_MOVE
+	db 19
+	dw GEODUDE
+	db HARD_STONE
+	dw ROCK_SLIDE, KARATE_CHOP, SELFDESTRUCT, NO_MOVE
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (3)
@@ -3566,15 +3575,15 @@ SuperNerdGroup:
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (10)
-	db "TERU@", TRAINERTYPE_NORMAL
-	db 7
-	dw MAGNEMITE
-	db 11
+	db "TERU@", TRAINERTYPE_ITEM_MOVES
+	db 18
 	dw VOLTORB
-	db 7
-	dw MAGNEMITE
-	db 9
-	dw MAGNEMITE
+	db PINK_BOW
+	dw SELFDESTRUCT, THUNDERBOLT, THUNDER_WAVE, NO_MOVE
+	db 16
+	dw AIPOM
+	db LEFTOVERS
+	dw SWIFT, THUNDER_WAVE, BUBBLEBEAM, NO_MOVE
 	db -1 ; end
 
 	next_list_item ; SUPER_NERD (11)
@@ -3812,11 +3821,19 @@ HikerGroup:
 	db -1 ; end
 
 	next_list_item ; HIKER (5)
-	db "ANTHONY@", TRAINERTYPE_NORMAL
-	db 11
-	dw GEODUDE
-	db 11
-	dw MACHOP
+	db "ANTHONY@", TRAINERTYPE_ITEM_MOVES
+	db 26
+	dw PRIMEAPE
+	db BLACKBELT_I
+	dw ENDURE, REVERSAL, CROSS_CHOP, ROCK_SLIDE
+	db 27
+	dw GRAVELER
+	db QUICK_CLAW
+	dw EARTHQUAKE, ROCK_SLIDE, BODY_SLAM, DYNAMICPUNCH
+	db 26
+	dw GIRAFARIG
+	db PINK_BOW
+	dw HEADBUTT, IRON_TAIL, ROCK_SLIDE, SHADOW_BALL
 	db -1 ; end
 
 	next_list_item ; HIKER (6)
@@ -5660,9 +5677,18 @@ BlueGroup:
 
 OfficerGroup:
 	next_list_item ; OFFICER (1)
-	db "KEITH@", TRAINERTYPE_NORMAL
-	db 17
-	dw GROWLITHE
+	db "KEITH@", TRAINERTYPE_ITEM_MOVES
+	db 22
+	dw GRANBULL
+	db BLACKGLASSES
+	dw CRUNCH, ROAR, HEADBUTT, SUBMISSION
+	db 24
+	dw MAGNEMITE
+	db MAGNET
+	dw THUNDERBOLT, THUNDER_WAVE, FLASH, PSYWAVE
+	db 23
+	dw CHARCOAL
+	db FLAME_WHEEL, STOMP, SPARK, DOUBLE_KICK
 	db -1 ; end
 
 	next_list_item ; OFFICER (2)

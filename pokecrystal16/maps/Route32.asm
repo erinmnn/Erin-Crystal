@@ -1,4 +1,5 @@
 	object_const_def
+	const ROUTE32_SCIENTIST
 	const ROUTE32_FISHER1
 	const ROUTE32_FISHER2
 	const ROUTE32_FISHER3
@@ -12,8 +13,6 @@
 	const ROUTE32_POKE_BALL1
 	const ROUTE32_FISHER5
 	const ROUTE32_FRIEDA
-	const ROUTE32_POKE_BALL2
-	const ROUTE32_SCIENTIST
 
 Route32_MapScripts:
 	def_scene_scripts
@@ -172,6 +171,8 @@ Route32ScientistScript:
 
 .Decline
 	writetext Route32ScientistDeclineText
+	waitbutton
+	closetext
 	end
 
 .PartyFullGift
@@ -183,6 +184,7 @@ Route32ScientistScript:
 .GiveBulbasaur
 	getmonname STRING_BUFFER_3, BULBASAUR
 	writetext Route32ReceivedStarterText
+	setevent EVENT_GOT_ROUTE_32_STARTER
 	promptbutton
 	givepoke BULBASAUR, 15, NO_ITEM
 	closetext
@@ -191,6 +193,7 @@ Route32ScientistScript:
 .GiveCharmander
 	getmonname STRING_BUFFER_3, CHARMANDER
 	writetext Route32ReceivedStarterText
+	setevent EVENT_GOT_ROUTE_32_STARTER
 	promptbutton
 	givepoke CHARMANDER, 15, NO_ITEM
 	closetext
@@ -199,6 +202,7 @@ Route32ScientistScript:
 .GiveSquirtle
 	getmonname STRING_BUFFER_3, SQUIRTLE
 	writetext Route32ReceivedStarterText
+	setevent EVENT_GOT_ROUTE_32_STARTER
 	promptbutton
 	givepoke SQUIRTLE, 15, NO_ITEM
 	closetext
@@ -666,8 +670,9 @@ Route32CooltrainerMText_ExperiencesShouldBeUseful:
 	done
 
 Route32ScientistText:
-	text "I have a few #MON"
-	line "I'm trying to rehome."
+	text "I have a few"
+	line "#MON I'm"
+	cont "trying to rehome."
 
 	para "You seem like a"
 	line "good trainer, how"
@@ -681,8 +686,8 @@ Route32ScientistDeclineText:
 	done
 
 PartyFullGiftText:
-	text "Looks like your party"
-	line "is currently full."
+	text "Looks like your"
+	line "party is full."
 	done
 
 Route32ReceivedStarterText:
@@ -697,7 +702,7 @@ StarterSelectionText:
 
 StarterSelection_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 8, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+	menu_coords 6, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
 	dw .MenuData
 	db 1 ; default option
 
@@ -1048,6 +1053,7 @@ Route32_MapEvents:
 	bg_event 11, 40, BGEVENT_ITEM, Route32HiddenSuperPotion
 
 	def_object_events
+	object_event 12, 83, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route32ScientistScript, -1
 	object_event 11, 50, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherJustin, -1
 	object_event 12, 56, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherRalph1, -1
 	object_event  9, 48, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherHenry, -1
@@ -1061,5 +1067,4 @@ Route32_MapEvents:
 	object_event  6, 53, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route32GreatBall, EVENT_ROUTE_32_GREAT_BALL
 	object_event 15, 13, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32RoarTMGuyScript, -1
 	object_event 12, 67, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FriedaScript, EVENT_ROUTE_32_FRIEDA_OF_FRIDAY
-	object_event  3, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route32Repel, EVENT_ROUTE_32_REPEL
-	object_event 12, 83, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route32ScientistScript, -1
+	

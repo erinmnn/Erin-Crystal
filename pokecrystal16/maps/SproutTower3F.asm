@@ -334,7 +334,7 @@ SproutTower3F_MapEvents:
 	warp_event 10, 14, SPROUT_TOWER_2F, 4
 
 	def_coord_events
-	coord_event 11,  7, SCENE_SPROUTTOWER3F_RIVAL_ENCOUNTER, SproutTower3FRivalScene
+	coord_event 11,  9, SCENE_SPROUTTOWER3F_RIVAL_ENCOUNTER, SproutTower3FRivalScene
 
 	def_bg_events
 	bg_event  8,  1, BGEVENT_READ, SproutTower3FStatue

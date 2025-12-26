@@ -391,6 +391,8 @@ MartUnderground:
 	db ENERGY_ROOT
 	db HEAL_POWDER
 	db REVIVAL_HERB
+	db TM_RETURN
+	db TM_FRUSTRATION
 	db -1 ; end
 
 DefaultMart:
