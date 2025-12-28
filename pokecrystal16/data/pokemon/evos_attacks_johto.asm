@@ -634,6 +634,7 @@ HoppipEvosAttacks:
 	dbw 5, TAIL_WHIP
 	dbw 10, LEECH_SEED
 	dbw 13, POISONPOWDER
+	dbw 14, MEGA_DRAIN
 	dbw 15, STUN_SPORE
 	dbw 17, SLEEP_POWDER
 	dbw 20, LEECH_SEED
@@ -851,9 +852,10 @@ GirafarigEvosAttacks:
 	dbw 41, PSYCHIC_M
 	dbw 43, HORN_ATTACK
 	dbw 51, EARTHQUAKE
+	dbw 53, REVERSAL
 	dbw 58, SHADOW_BALL
+	dbw 59, MEGAHORN
 	dbw 61, DOUBLE_EDGE
-	dbw 65, REVERSAL
 	db 0 ; no more level-up moves
 
 PinecoEvosAttacks:
@@ -994,9 +996,11 @@ ShuckleEvosAttacks:
 	dbw 1, WITHDRAW
 	dbw 9, WRAP
 	dbw 14, ENCORE
+	dbw 20, DISABLE
+	dbw 22, STRING_SHOT
 	dbw 23, SAFEGUARD
 	dbw 28, BIDE
-	dbw 37, REST
+	dbw 37, SWEET_KISS
 	db 0 ; no more level-up moves
 
 HeracrossEvosAttacks:
@@ -1382,6 +1386,7 @@ MiltankEvosAttacks:
 	dbw 34, ROLLOUT
 	dbw 43, BODY_SLAM
 	dbw 53, HEAL_BELL
+	dbw 55, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 BlisseyEvosAttacks:

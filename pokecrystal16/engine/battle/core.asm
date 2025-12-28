@@ -3517,11 +3517,6 @@ CheckWhetherToAskSwitch:
 	ld a, [wLinkMode]
 	and a
 	jp nz, .return_nc
-	ld a, [wOptions]
-	bit BATTLE_SHIFT, a
-	jr z, .return_nc
-	cp BATTLETYPE_SETNOITEMS
-	jr z, .return_nc
 	ld a, [wCurPartyMon]
 	push af
 	ld a, [wCurBattleMon]
