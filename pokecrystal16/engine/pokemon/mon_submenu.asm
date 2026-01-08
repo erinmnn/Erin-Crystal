@@ -126,8 +126,6 @@ GetMonSubmenuItems:
 	call CanUseDig
 	call Can_Use_Sweet_Scent
 	call CanUseTeleport
-	call CanUseSoftboiled
-	call CanUseMilkdrink
 
 .skip_moves
 	ld a, MONMENUITEM_STATS
@@ -546,23 +544,4 @@ CanUseTeleport:
 .yes
 	ld a, MONMENUITEM_TELEPORT
 	call AddMonMenuItem	
-	ret
-
-CanUseSoftboiled:
-	ld a, SOFTBOILED
-	call CheckMonKnowsMove
-	and a
-	ret nz
-	ld a, MONMENUITEM_SOFTBOILED
-	call AddMonMenuItem
-	ret
-
-CanUseMilkdrink:
-	ld a, MILK_DRINK
-	call CheckMonKnowsMove
-	and a
-	ret nz
-
-	ld a, MONMENUITEM_MILKDRINK
-	call AddMonMenuItem
 	ret

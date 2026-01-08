@@ -141,6 +141,10 @@ Jasmine_BadgeSpeech:
 	line "raises #MON's"
 	cont "DEFENSE."
 
+	para "It also lets your"
+	line "#MON SURF you"
+	cont "over water."
+
 	para "…Um… Please take"
 	line "this too…"
 	done

@@ -19,7 +19,6 @@ Route34_MapScripts:
 	
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, Route34SnorlaxCallback
-	callback MAPCALLBACK_OBJECTS, Route34EggCheckCallback
 
 Route34SnorlaxCallback:
 	checkevent EVENT_BEAT_BUGSY
@@ -35,38 +34,6 @@ Route34SnorlaxCallback:
 
 .SnorlaxDisappears
 	setevent EVENT_ROUTE_34_SNORLAX_GONE
-	endcallback
-
-Route34EggCheckCallback:
-	checkflag ENGINE_DAY_CARE_MAN_HAS_EGG
-	iftrue .PutDayCareManOutside
-	clearevent EVENT_DAY_CARE_MAN_IN_DAY_CARE
-	setevent EVENT_DAY_CARE_MAN_ON_ROUTE_34
-	sjump .CheckMon1
-
-.PutDayCareManOutside:
-	setevent EVENT_DAY_CARE_MAN_IN_DAY_CARE
-	clearevent EVENT_DAY_CARE_MAN_ON_ROUTE_34
-	sjump .CheckMon1
-
-.CheckMon1:
-	checkflag ENGINE_DAY_CARE_MAN_HAS_MON
-	iffalse .HideMon1
-	clearevent EVENT_DAY_CARE_MON_1
-	sjump .CheckMon2
-
-.HideMon1:
-	setevent EVENT_DAY_CARE_MON_1
-	sjump .CheckMon2
-
-.CheckMon2:
-	checkflag ENGINE_DAY_CARE_LADY_HAS_MON
-	iffalse .HideMon2
-	clearevent EVENT_DAY_CARE_MON_2
-	endcallback
-
-.HideMon2:
-	setevent EVENT_DAY_CARE_MON_2
 	endcallback
 
 DayCareManScript_Outside:
@@ -507,7 +474,6 @@ Route34MovementData_DayCareManWalksBackInside_WalkAroundPlayer:
 Route34Snorlax:
 	opentext
 	writetext Route34SnorlaxSleepingText
-	disappear ROUTE34_SNORLAX
 	waitbutton
 	closetext
 	end
@@ -791,8 +757,6 @@ Route34_MapEvents:
 	object_event 11, 40, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerOfficerKeith, -1
 	object_event 16, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmBrandon, -1
 	object_event 15, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAY_CARE_MAN_ON_ROUTE_34
-	object_event 14, 18, SPRITE_DAY_CARE_MON_1, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon1Script, EVENT_DAY_CARE_MON_1
-	object_event 17, 19, SPRITE_DAY_CARE_MON_2, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon2Script, EVENT_DAY_CARE_MON_2
 	object_event 11, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfIrene, -1
 	object_event  3, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfJenn, -1
 	object_event  6, 51, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfKate, -1

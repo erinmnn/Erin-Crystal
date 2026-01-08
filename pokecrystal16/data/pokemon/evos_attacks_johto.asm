@@ -342,14 +342,14 @@ LedybaEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, COMET_PUNCH
 	dbw 8, SUPERSONIC
+	dbw 10, PSYBEAM
 	dbw 16, LIGHT_SCREEN
 	dbw 16, REFLECT
-	dbw 22, SAFEGUARD
-	dbw 24, GIGA_DRAIN
-	dbw 29, BATON_PASS
-	dbw 33, ENCORE
-	dbw 36, TOXIC
-	dbw 40, PSYBEAM
+	dbw 18, SAFEGUARD
+	dbw 20, GIGA_DRAIN
+	dbw 23, BATON_PASS
+	dbw 26, ENCORE
+	dbw 31, TOXIC
 	db 0 ; no more level-up moves
 
 LedianEvosAttacks:
@@ -363,6 +363,7 @@ LedianEvosAttacks:
 	dbw 28, GIGA_DRAIN
 	dbw 36, ENCORE
 	dbw 40, PSYBEAM
+	dbw 46, MEGA_PUNCH
 	db 0 ; no more level-up moves
 
 SpinarakEvosAttacks:
@@ -421,10 +422,10 @@ ChinchouEvosAttacks:
 	dbw 17, BUBBLEBEAM
 	dbw 25, AURORA_BEAM
 	dbw 32, THUNDER_WAVE
+	dbw 39, THUNDER
 	dbw 41, ICE_BEAM
 	dbw 44, THUNDERBOLT
 	dbw 53, HYDRO_PUMP
-	dbw 60, THUNDER
 	db 0 ; no more level-up moves
 
 LanturnEvosAttacks:
@@ -436,10 +437,10 @@ LanturnEvosAttacks:
 	dbw 17, BUBBLEBEAM
 	dbw 25, AURORA_BEAM
 	dbw 32, THUNDER_WAVE
+	dbw 39, THUNDER
 	dbw 41, ICE_BEAM
 	dbw 44, THUNDERBOLT
 	dbw 53, HYDRO_PUMP
-	dbw 60, THUNDER
 	db 0 ; no more level-up moves
 
 PichuEvosAttacks:
@@ -553,7 +554,7 @@ FlaaffyEvosAttacks:
 	dbw 27, COTTON_SPORE
 	dbw 32, FIRE_PUNCH
 	dbw 36, THUNDERBOLT
-	dbw 45, THUNDER
+	dbw 39, THUNDER
 	db 0 ; no more level-up moves
 
 AmpharosEvosAttacks:
@@ -762,29 +763,35 @@ QuagsireEvosAttacks:
 EspeonEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
-	dbw 1, TAIL_WHIP
-	dbw 8, SAND_ATTACK
-	dbw 16, CONFUSION
-	dbw 23, QUICK_ATTACK
-	dbw 30, SWIFT
-	dbw 36, PSYBEAM
-	dbw 42, PSYCH_UP
-	dbw 47, PSYCHIC_M
-	dbw 52, MORNING_SUN
+	dbw 1, GROWL
+	dbw 5, SAND_ATTACK
+	dbw 9, QUICK_ATTACK
+	dbw 15, BITE
+	dbw 22, SWIFT
+	dbw 29, PSYBEAM
+	dbw 33, CONFUSE_RAY
+	dbw 37, PSYCHIC_M
+	dbw 41, MORNING_SUN
+	dbw 45, SOLARBEAM
+	dbw 49, FUTURE_SIGHT
+	dbw 52, DETECT
 	db 0 ; no more level-up moves
 
 UmbreonEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
-	dbw 1, TAIL_WHIP
-	dbw 8, SAND_ATTACK
-	dbw 16, PURSUIT
-	dbw 23, QUICK_ATTACK
-	dbw 30, CONFUSE_RAY
-	dbw 36, FAINT_ATTACK
-	dbw 42, MEAN_LOOK
-	dbw 47, SCREECH
-	dbw 52, MOONLIGHT
+	dbw 1, GROWL
+	dbw 5, SAND_ATTACK
+	dbw 9, QUICK_ATTACK
+	dbw 15, BITE
+	dbw 22, SWIFT
+	dbw 29, BODY_SLAM
+	dbw 33, THIEF
+	dbw 37, SHADOW_BALL
+	dbw 41, CONFUSE_RAY
+	dbw 45, CRUNCH
+	dbw 49, MOONLIGHT
+	dbw 52, SCREECH
 	db 0 ; no more level-up moves
 
 MurkrowEvosAttacks:
@@ -867,9 +874,11 @@ PinecoEvosAttacks:
 	dbw 15, PIN_MISSILE
 	dbw 22, RAPID_SPIN
 	dbw 29, BIDE
-	dbw 36, EXPLOSION
+	dbw 33, EXPLOSION
+	dbw 37, EARTHQUAKE
 	dbw 43, SPIKES
 	dbw 50, DOUBLE_EDGE
+	dbw 52, BATON_PASS
 	db 0 ; no more level-up moves
 
 ForretressEvosAttacks:
@@ -880,11 +889,13 @@ ForretressEvosAttacks:
 	dbw 15, PIN_MISSILE
 	dbw 22, RAPID_SPIN
 	dbw 29, BIDE
-	dbw 39, EXPLOSION
-	dbw 43, BODY_SLAM
+	dbw 34, EXPLOSION
+	dbw 35, EARTHQUAKE
+	dbw 38, BODY_SLAM
 	dbw 49, SPIKES
 	dbw 51, BARRIER
 	dbw 59, DOUBLE_EDGE
+	dbw 60, BATON_PASS
 	db 0 ; no more level-up moves
 
 DunsparceEvosAttacks:

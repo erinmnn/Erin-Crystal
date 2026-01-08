@@ -178,6 +178,7 @@ MartOlivine:
 
 MartEcruteak:
 	db 10 ; # items
+	db TM_ROCK_SMASH
 	db POKE_BALL
 	db GREAT_BALL
 	db POTION
@@ -187,7 +188,6 @@ MartEcruteak:
 	db AWAKENING
 	db BURN_HEAL
 	db ICE_HEAL
-	db REVIVE
 	db -1 ; end
 
 MartMahogany1:
@@ -386,7 +386,8 @@ MartIndigoPlateau:
 	db -1 ; end
 
 MartUnderground:
-	db 4 ; # items
+	db 7 ; # items
+	db BERRY_JUICE
 	db ENERGYPOWDER
 	db ENERGY_ROOT
 	db HEAL_POWDER

@@ -208,12 +208,8 @@ Route35GoldenrodGatePokefanFText_FoughtSudowoodo:
 	done
 
 Route35GoldenrodGateFishingGuruText_Question:
-	text "ROUTE 34 is a great"
-	line "fishing spot."
-
-	para "You saw people"
-	line "fishing? How"
-	cont "about you?"
+	text "ROUTE 34 is a"
+	line "hot fishing spot."
 
 	para "Would you like one"
 	line "of my RODS?"

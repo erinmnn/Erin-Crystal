@@ -456,7 +456,7 @@ SurfFunction:
 	dw .AlreadySurfing
 
 .TrySurf:
-	ld de, ENGINE_FOGBADGE
+	ld de, ENGINE_MINERALBADGE
 	call CheckBadge
 	jr c, .nofogbadge
 	ld hl, wBikeFlags
@@ -615,7 +615,7 @@ TrySurfOW::
 	jr c, .quit
 
 ; Step 1
-	ld de, ENGINE_FOGBADGE
+	ld de, ENGINE_MINERALBADGE
 	call CheckEngineFlag
 	jr c, .quit
 
@@ -1240,7 +1240,7 @@ WhirlpoolFunction:
 	dw .FailWhirlpool
 
 .TryWhirlpool:
-	ld de, ENGINE_GLACIERBADGE
+	ld de, ENGINE_STORMBADGE
 	call CheckBadge
 	jr c, .noglacierbadge
 	call TryWhirlpoolMenu
@@ -1332,7 +1332,7 @@ DisappearWhirlpool:
 
 TryWhirlpoolOW::
 ; Step 1
-	ld de, ENGINE_GLACIERBADGE
+	ld de, ENGINE_STORMBADGE
 	ld b, CHECK_FLAG
 	farcall EngineFlagAction
 	ld a, c

@@ -514,7 +514,7 @@ ArbokEvosAttacks:
 	db 0 ; no more level-up moves
 
 PikachuEvosAttacks:
-	dbbw EVOLVE_ITEM, THUNDERSTONE, RAICHU
+	dbbw EVOLVE_LEVEL, 22, RAICHU
 	db 0 ; no more evolutions
 	dbw 1, THUNDERSHOCK
 	dbw 1, GROWL
@@ -526,16 +526,24 @@ PikachuEvosAttacks:
 	dbw 20, HEADBUTT
 	dbw 26, THUNDERBOLT
 	dbw 33, IRON_TAIL
-	dbw 41, THUNDER
+	dbw 39, THUNDER
 	dbw 50, SURF
 	db 0 ; no more level-up moves
 
 RaichuEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, THUNDER
-	dbw 1, TAIL_WHIP
-	dbw 1, QUICK_ATTACK
-	dbw 1, THUNDERBOLT
+	dbw 1, THUNDERSHOCK
+	dbw 1, GROWL
+	dbw 6, TAIL_WHIP
+	dbw 8, THUNDER_WAVE
+	dbw 11, QUICK_ATTACK
+	dbw 15, DOUBLE_TEAM
+	dbw 16, SPARK
+	dbw 20, HEADBUTT
+	dbw 26, THUNDERBOLT
+	dbw 33, IRON_TAIL
+	dbw 39, THUNDER
+	dbw 50, SURF
 	db 0 ; no more level-up moves
 
 SandshrewEvosAttacks:
@@ -789,7 +797,7 @@ OddishEvosAttacks:
 
 GloomEvosAttacks:
 	dbbw EVOLVE_LEVEL, 38, VILEPLUME
-	dbbw EVOLVE_ITEM, SUN_STONE, BELLOSSOM
+	dbbw EVOLVE_ITEM, LEAF_STONE, BELLOSSOM
 	db 0 ; no more evolutions
 	dbw 1, ABSORB
 	dbw 1, SWEET_SCENT
@@ -883,10 +891,10 @@ DiglettEvosAttacks:
 	dbw 9, MAGNITUDE
 	dbw 16, DIG
 	dbw 18, SAND_ATTACK
+	dbw 20, ROCK_SLIDE
 	dbw 26, SLASH
-	dbw 29, ROCK_SLIDE
-	dbw 41, EARTHQUAKE
-	dbw 49, FISSURE
+	dbw 31, EARTHQUAKE
+	dbw 39, FISSURE
 	db 0 ; no more level-up moves
 
 DugtrioEvosAttacks:
@@ -895,13 +903,13 @@ DugtrioEvosAttacks:
 	dbw 1, SCRATCH
 	dbw 5, GROWL
 	dbw 9, MAGNITUDE
-	dbw 17, DIG
-	dbw 25, SAND_ATTACK
+	dbw 16, DIG
+	dbw 18, SAND_ATTACK
+	dbw 20, ROCK_SLIDE
 	dbw 26, TRI_ATTACK
 	dbw 28, SLASH
-	dbw 32, ROCK_SLIDE
-	dbw 49, EARTHQUAKE
-	dbw 61, FISSURE
+	dbw 39, EARTHQUAKE
+	dbw 51, FISSURE
 	db 0 ; no more level-up moves
 
 MeowthEvosAttacks:
@@ -1167,7 +1175,7 @@ BellsproutEvosAttacks:
 	db 0 ; no more level-up moves
 
 WeepinbellEvosAttacks:
-	dbbw EVOLVE_ITEM, LEAF_STONE, VICTREEBEL
+	dbbw EVOLVE_LEVEL, 31, VICTREEBEL
 	db 0 ; no more evolutions
 	dbw 1, VINE_WHIP
 	dbw 1, ACID
@@ -1360,6 +1368,7 @@ MagnetonEvosAttacks:
 	dbw 23, FLASH
 	dbw 29, THUNDERBOLT
 	dbw 30, TRI_ATTACK
+	dbw 39, THUNDER
 	dbw 48, ZAP_CANNON
 	dbw 58, EXPLOSION
 	db 0 ; no more level-up moves
@@ -1933,7 +1942,7 @@ SeakingEvosAttacks:
 	db 0 ; no more level-up moves
 
 StaryuEvosAttacks:
-	dbbw EVOLVE_ITEM, WATER_STONE, STARMIE
+	dbbw EVOLVE_LEVEL, 39, STARMIE
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
 	dbw 1, HARDEN
@@ -2009,9 +2018,9 @@ ElectabuzzEvosAttacks:
 	dbw 17, ICE_PUNCH
 	dbw 25, SWIFT
 	dbw 33, SCREECH
-	dbw 41, THUNDERBOLT
-	dwb 45, CROSS_CHOP
-	dbw 49, THUNDER	
+	dbw 39, THUNDERBOLT
+	dbw 41, THUNDER
+	dwb 45, CROSS_CHOP	
 	db 0 ; no more level-up moves
 
 MagmarEvosAttacks:
@@ -2101,59 +2110,70 @@ EeveeEvosAttacks:
 	dbbw EVOLVE_ITEM, THUNDERSTONE, JOLTEON
 	dbbw EVOLVE_ITEM, WATER_STONE, VAPOREON
 	dbbw EVOLVE_ITEM, FIRE_STONE, FLAREON
-	dbbw EVOLVE_HAPPINESS, TR_MORNDAY, ESPEON
-	dbbw EVOLVE_HAPPINESS, TR_NITE, UMBREON
+	dbbw EVOLVE_ITEM, SUN_STONE, ESPEON
+	dbbw EVOLVE_ITEM, MOON_STONE, UMBREON
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
-	dbw 1, TAIL_WHIP
-	dbw 8, SAND_ATTACK
-	dbw 16, GROWL
-	dbw 23, QUICK_ATTACK
-	dbw 30, BITE
-	dbw 36, BATON_PASS
-	dbw 42, TAKE_DOWN
+	dbw 1, GROWL
+	dbw 5, SAND_ATTACK
+	dbw 9, QUICK_ATTACK
+	dbw 15, BITE
+	dbw 22, SWIFT
+	dbw 32, BATON_PASS
+	dbw 45, TAKE_DOWN
+	dbw 49, CHARM
+	dbw 52, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 VaporeonEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
-	dbw 1, TAIL_WHIP
-	dbw 8, SAND_ATTACK
-	dbw 16, WATER_GUN
-	dbw 23, QUICK_ATTACK
-	dbw 30, BITE
-	dbw 36, AURORA_BEAM
-	dbw 42, HAZE
-	dbw 47, ACID_ARMOR
+	dbw 1, GROWL
+	dbw 5, SAND_ATTACK
+	dbw 9, QUICK_ATTACK
+	dbw 15, BITE
+	dbw 22, SWIFT
+	dbw 29, BUBBLEBEAM
+	dbw 33, HAZE
+	dbw 37, RECOVER
+	dbw 41, ICY_WIND
+	dbw 45, WHIRLPOOL
+	dbw 49, ACID_ARMOR
 	dbw 52, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
 JolteonEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
-	dbw 1, TAIL_WHIP
-	dbw 8, SAND_ATTACK
-	dbw 16, THUNDERSHOCK
-	dbw 23, QUICK_ATTACK
-	dbw 30, DOUBLE_KICK
-	dbw 36, PIN_MISSILE
-	dbw 42, THUNDER_WAVE
-	dbw 47, AGILITY
-	dbw 52, THUNDER
+	dbw 1, GROWL
+	dbw 5, SAND_ATTACK
+	dbw 9, QUICK_ATTACK
+	dbw 15, BITE
+	dbw 22, SWIFT
+	dbw 29, SPARK
+	dbw 33, THUNDER_WAVE
+	dbw 37, THUNDERBOLT
+	dbw 41, THUNDER
+	dbw 45, PIN_MISSILE
+	dbw 49, SHADOW_BALL
+	dbw 52, SING
 	db 0 ; no more level-up moves
 
 FlareonEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, TACKLE
-	dbw 1, TAIL_WHIP
-	dbw 8, SAND_ATTACK
-	dbw 16, EMBER
-	dbw 23, QUICK_ATTACK
-	dbw 30, BITE
-	dbw 36, FIRE_SPIN
-	dbw 42, SMOG
-	dbw 47, LEER
-	dbw 52, FLAMETHROWER
+	dbw 1, GROWL
+	dbw 5, SAND_ATTACK
+	dbw 9, QUICK_ATTACK
+	dbw 15, BITE
+	dbw 22, SWIFT
+	dbw 29, FIRE_SPIN
+	dbw 33, FLAME_WHEEL
+	dbw 37, SUBMISSION
+	dbw 41, SHADOW_BALL
+	dbw 45, FLAMETHROWER
+	dbw 49, EARTHQUAKE
+	dbw 52, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 PorygonEvosAttacks:

@@ -21,6 +21,14 @@ TrainerKimonoGirlNaoko:
 	endifjustbattled
 	opentext
 	writetext KimonoGirlNaokoAfterBattleText
+	checkitem FIRE_STONE
+	iffalse .GiveFStone
+	waitbutton
+	closetext
+	end
+
+.GiveFStone:
+	verbosegiveitem FIRE_STONE
 	waitbutton
 	closetext
 	end
@@ -32,6 +40,14 @@ TrainerKimonoGirlSayo:
 	endifjustbattled
 	opentext
 	writetext KimonoGirlSayoAfterBattleText
+	checkitem SUN_STONE
+	iffalse .GiveSStone
+	waitbutton
+	closetext
+	end
+
+.GiveSStone:
+	verbosegiveitem SUN_STONE
 	waitbutton
 	closetext
 	end
@@ -43,6 +59,14 @@ TrainerKimonoGirlZuki:
 	endifjustbattled
 	opentext
 	writetext KimonoGirlZukiAfterBattleText
+	checkitem MOON_STONE
+	iffalse .GiveMStone
+	waitbutton
+	closetext
+	end
+
+.GiveMStone
+	verbosegiveitem MOON_STONE
 	waitbutton
 	closetext
 	end
@@ -54,6 +78,14 @@ TrainerKimonoGirlKuni:
 	endifjustbattled
 	opentext
 	writetext KimonoGirlKuniAfterBattleText
+	checkitem WATER_STONE
+	iffalse .GiveWStone
+	waitbutton
+	closetext
+	end
+
+.GiveWStone:
+	verbosegiveitem WATER_STONE
 	waitbutton
 	closetext
 	end
@@ -65,6 +97,14 @@ TrainerKimonoGirlMiki:
 	endifjustbattled
 	opentext
 	writetext KimonoGirlMikiAfterBattleText
+	checkitem THUNDERSTONE
+	iffalse .GiveTStone
+	waitbutton
+	closetext
+	end
+
+.GiveTStone
+	verbosegiveitem THUNDERSTONE
 	waitbutton
 	closetext
 	end
@@ -77,16 +117,16 @@ DanceTheaterSurfGuy:
 	checkevent EVENT_GOT_HM03_SURF
 	iftrue SurfGuyAlreadyGaveSurf
 	checkevent EVENT_BEAT_KIMONO_GIRL_NAOKO
-	iffalse .KimonoGirlsUndefeated
+	iftrue .GetSurf
 	checkevent EVENT_BEAT_KIMONO_GIRL_SAYO
-	iffalse .KimonoGirlsUndefeated
+	iftrue .GetSurf
 	checkevent EVENT_BEAT_KIMONO_GIRL_ZUKI
-	iffalse .KimonoGirlsUndefeated
+	iftrue .GetSurf
 	checkevent EVENT_BEAT_KIMONO_GIRL_KUNI
-	iffalse .KimonoGirlsUndefeated
+	iftrue .GetSurf
 	checkevent EVENT_BEAT_KIMONO_GIRL_MIKI
-	iffalse .KimonoGirlsUndefeated
-	sjump .GetSurf
+	iftrue .GetSurf
+	sjump .KimonoGirlsUndefeated
 
 .KimonoGirlsUndefeated:
 	checkflag ENGINE_PLAYER_IS_FEMALE
@@ -150,6 +190,9 @@ KimonoGirlNaokoAfterBattleText:
 	text "I enjoyed that"
 	line "bout. I would like"
 	cont "to see you again."
+	
+	para "Take this stone"
+	line "as a parting gift."
 	done
 
 KimonoGirlSayoSeenText:
@@ -171,6 +214,10 @@ KimonoGirlSayoAfterBattleText:
 
 	para "dancing and #-"
 	line "MON."
+
+	para "This stone will"
+	line "help you get on"
+	cont "the beat."
 	done
 
 KimonoGirlZukiSeenText:
@@ -190,6 +237,10 @@ KimonoGirlZukiAfterBattleText:
 	text "I put a different"
 	line "flower in my bar-"
 	cont "rette every month."
+
+	para "Your #MON would"
+	line "look SO cute with"
+	cont "this stone."
 	done
 
 KimonoGirlKuniSeenText:
@@ -209,6 +260,10 @@ KimonoGirlKuniAfterBattleText:
 
 	para "a capable trainer."
 	line "I guess I'm not."
+	
+	para "This stone will"
+	line "help you hit"
+	cont "even harder."
 	done
 
 KimonoGirlMikiSeenText:
@@ -231,6 +286,10 @@ KimonoGirlMikiAfterBattleText:
 
 	para "My #MON keep my"
 	line "spirits up too."
+	
+	para "I had fun! Here's"
+	line "a little gift for"
+	cont "your #MON."
 	done
 
 SurfGuyNeverLeftAScratchText:
@@ -250,7 +309,7 @@ SurfGuyNeverLeftAScratchText:
 
 SurfGuyLadGiftText:
 	text "Lad! If you can"
-	line "defeat all the"
+	line "defeat one of the"
 
 	para "KIMONO GIRLS, I'll"
 	line "give you a gift."
@@ -258,7 +317,7 @@ SurfGuyLadGiftText:
 
 SurfGuyLassieGiftText:
 	text "Lassie, if you can"
-	line "defeat all the"
+	line "defeat one of the"
 
 	para "KIMONO GIRLS, I'll"
 	line "give you a gift."

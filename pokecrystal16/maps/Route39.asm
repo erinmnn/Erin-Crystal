@@ -136,31 +136,12 @@ TrainerPsychicNorman:
 	end
 
 TrainerPokefanfJaime:
-	faceplayer
+	trainer POKEFANF, JAIME, EVENT_BEAT_POKEFANF_JAIME, PokefanfJaimeSeenText, PokefanfJaimeBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
 	opentext
-	checktime NITE
-	iffalse .NotNight
-	checkevent EVENT_BEAT_POKEFANF_JAIME
-	iftrue .Beaten
-	writetext PokefanfJaimeSeenText
-	waitbutton
-	closetext
-	winlosstext PokefanfJaimeBeatenText, 0
-	loadtrainer POKEFANF, JAIME
-	startbattle
-	reloadmapafterbattle
-	setevent EVENT_BEAT_POKEFANF_JAIME
-	closetext
-	end
-
-.Beaten:
 	writetext PokefanfJaimeAfterBattleText
-	waitbutton
-	closetext
-	end
-
-.NotNight:
-	writetext PokefanfJaimeHopeItGetsDarkText
 	waitbutton
 	closetext
 	end
@@ -295,7 +276,7 @@ PokefanfJaimeBeatenText:
 	done
 
 PokefanfJaimeAfterBattleText:
-	text "I met my MEOWTH at"
+	text "I met my PERISAN at"
 	line "night, right here"
 	cont "on ROUTE 39."
 
@@ -357,13 +338,13 @@ Route39_MapEvents:
 	bg_event  5, 13, BGEVENT_ITEM, Route39HiddenNugget
 
 	def_object_events
-	object_event 13, 29, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSailorEugene, -1
-	object_event 10, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanmDerek, -1
-	object_event 11, 19, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerPokefanfRuth, -1
+	object_event  6, 28, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 7, TrainerSailorEugene, -1
+	object_event 15, 17, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerPokefanmDerek, -1
+	object_event 11, 26, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerPokefanfRuth, -1
 	object_event  3, 12, SPRITE_TAUROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event  6, 11, SPRITE_TAUROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event  4, 15, SPRITE_TAUROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
 	object_event  8, 13, SPRITE_TAUROS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39Miltank, -1
-	object_event 13,  7, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicNorman, -1
+	object_event  6, 24, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerPsychicNorman, -1
 	object_event  9,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39FruitTree, -1
-	object_event  4, 22, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerPokefanfJaime, -1
+	object_event 12, 14, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerPokefanfJaime, -1

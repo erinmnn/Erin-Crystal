@@ -59,7 +59,7 @@ Moves1:
 	move EFFECT_DEFENSE_DOWN,        0, NORMAL,        100, 30,   0      ;TAIL_WHIP
 	move EFFECT_POISON_HIT,         15, POISON,        100, 35,  50      ;POISON_STING
 	move EFFECT_POISON_MULTI_HIT,   25, BUG,           100, 20,  50      ;TWINEEDLE
-	move EFFECT_MULTI_HIT,          15, BUG,           100, 20,   0      ;PIN_MISSILE
+	move EFFECT_MULTI_HIT,          25, BUG,           100, 20,   0      ;PIN_MISSILE
 	move EFFECT_DEFENSE_DOWN,        0, NORMAL,        100, 30,   0      ;LEER
 	move EFFECT_FLINCH_HIT,         60, DARK,          100, 25,  30      ;BITE
 	move EFFECT_ATTACK_DOWN,         0, NORMAL,        100, 40,   0      ;GROWL
