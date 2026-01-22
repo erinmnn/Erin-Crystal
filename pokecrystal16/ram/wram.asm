@@ -3004,13 +3004,6 @@ endr
 
 wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
 
-; future sight
-wPlayerFutureSightUsersSpAtk:: ds 2 ; c727
-wEnemyFutureSightUsersSpAtk:: ds 2 ; c729
-
-wCurDamageFlags:: ds 1 ; c7ef - bit 7: fixed damage, bit 6: dirty, bit 5-4: x1.5 damage mods (crits), bit 3-2: x1.5 defense mods, bit 1-0: x1.5 attack mods
-wCurDamageFixedValue::
-
 ; berry pouch
 wNumBerries:: db
 wBerries:: ds MAX_BERRIES * 2 + 1
@@ -3022,6 +3015,13 @@ wDudeNumBerries::
 
 ; custom ai
 wMovesThatOHKOPlayer:: db
+
+; future sight
+wPlayerFutureSightUsersSpAtk:: ds 2 ; c727
+wEnemyFutureSightUsersSpAtk:: ds 2 ; c729
+
+wCurDamageFlags:: ds 1 ; c7ef - bit 7: fixed damage, bit 6: dirty, bit 5-4: x1.5 damage mods (crits), bit 3-2: x1.5 defense mods, bit 1-0: x1.5 attack mods
+wCurDamageFixedValue::
 
 	ds 2
 

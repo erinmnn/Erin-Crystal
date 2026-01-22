@@ -358,8 +358,8 @@ BeedrillEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, FURY_ATTACK
 	dbw 10, FURY_ATTACK
-	dbw 15, TWINEEDLE
-	dbw 17, GIGA_DRAIN
+	dbw 14, TWINEEDLE
+	dbw 16, GIGA_DRAIN
 	dbw 21, SLUDGE_BOMB
 	dbw 25, FURY_CUTTER
 	dbw 30, WING_ATTACK
@@ -427,9 +427,12 @@ RattataEvosAttacks:
 	dbw 7, QUICK_ATTACK
 	dbw 13, HYPER_FANG
 	dbw 20, FOCUS_ENERGY
+	dbw 23, SUBMISSION
 	dbw 27, CRUNCH
 	dbw 31, SHADOW_BALL
 	dbw 34, SUPER_FANG
+	dbw 38, IRON_TAIL
+	dbw 39, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 RaticateEvosAttacks:
@@ -440,9 +443,11 @@ RaticateEvosAttacks:
 	dbw 7, QUICK_ATTACK
 	dbw 13, HYPER_FANG
 	dbw 20, SCARY_FACE
+	dbw 24, SUBMISSION
 	dbw 27, CRUNCH
 	dbw 30, DOUBLE_EDGE
 	dbw 32, SHADOW_BALL
+	dbw 38, IRON_TAIL
 	dbw 40, SUPER_FANG
 	db 0 ; no more level-up moves
 
@@ -669,18 +674,28 @@ ClefairyEvosAttacks:
 	dbw 8, SING
 	dbw 13, DOUBLESLAP
 	dbw 19, MINIMIZE
+	dbw 21, BODY_SLAM
 	dbw 26, DEFENSE_CURL
+	dbw 27, COMET_PUNCH
 	dbw 34, METRONOME
 	dbw 43, MOONLIGHT
-	dbw 53, LIGHT_SCREEN
+	dbw 53, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
 ClefableEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, SING
-	dbw 1, DOUBLESLAP
-	dbw 1, METRONOME
-	dbw 1, MOONLIGHT
+	dbw 1, POUND
+	dbw 1, GROWL
+	dbw 4, ENCORE
+	dbw 8, SING
+	dbw 13, DOUBLESLAP
+	dbw 19, MINIMIZE
+	dbw 21, BODY_SLAM
+	dbw 26, DEFENSE_CURL
+	dbw 27, COMET_PUNCH
+	dbw 34, METRONOME
+	dbw 43, MOONLIGHT
+	dbw 53, STEEL_WING
 	db 0 ; no more level-up moves
 
 VulpixEvosAttacks:
@@ -689,6 +704,7 @@ VulpixEvosAttacks:
 	dbw 1, EMBER
 	dbw 1, TAIL_WHIP
 	dbw 7, QUICK_ATTACK
+	dbw 11, BITE
 	dbw 13, ROAR
 	dbw 15, FLAME_WHEEL
 	dbw 19, CONFUSE_RAY
@@ -714,6 +730,7 @@ NinetalesEvosAttacks:
 	dbw 31, FLAMETHROWER
 	dbw 34, SOLARBEAM
 	dbw 37, FIRE_BLAST
+	dbw 51, SACRED_FIRE
 	db 0 ; no more level-up moves
 
 JigglypuffEvosAttacks:
@@ -789,6 +806,7 @@ OddishEvosAttacks:
 	dbw 16, STUN_SPORE
 	dbw 18, SLEEP_POWDER
 	dbw 23, ACID
+	dbw 25, GIGA_DRAIN
 	dbw 27, SLUDGE_BOMB
 	dbw 29, LEECH_SEED
 	dbw 32, MOONLIGHT
@@ -800,24 +818,35 @@ GloomEvosAttacks:
 	dbbw EVOLVE_ITEM, LEAF_STONE, BELLOSSOM
 	db 0 ; no more evolutions
 	dbw 1, ABSORB
-	dbw 1, SWEET_SCENT
+	dbw 7, SWEET_SCENT
+	dbw 9, ACID
+	dbw 13, MEGA_DRAIN
 	dbw 14, POISONPOWDER
 	dbw 16, STUN_SPORE
 	dbw 18, SLEEP_POWDER
-	dbw 24, ACID
+	dbw 23, ACID
+	dbw 25, GIGA_DRAIN
 	dbw 27, SLUDGE_BOMB
 	dbw 29, LEECH_SEED
-	dbw 35, MOONLIGHT
-	dbw 40, SLUDGE_BOMB
-	dbw 44, PETAL_DANCE
+	dbw 32, MOONLIGHT
+	dbw 39, PETAL_DANCE
 	db 0 ; no more level-up moves
 
 VileplumeEvosAttacks:
 	db 0 ; no more evolutions
 	dbw 1, ABSORB
-	dbw 1, SWEET_SCENT
-	dbw 1, STUN_SPORE
-	dbw 1, PETAL_DANCE
+	dbw 7, SWEET_SCENT
+	dbw 9, ACID
+	dbw 13, MEGA_DRAIN
+	dbw 14, POISONPOWDER
+	dbw 16, STUN_SPORE
+	dbw 18, SLEEP_POWDER
+	dbw 23, ACID
+	dbw 25, GIGA_DRAIN
+	dbw 27, SLUDGE_BOMB
+	dbw 29, LEECH_SEED
+	dbw 32, MOONLIGHT
+	dbw 39, PETAL_DANCE
 	db 0 ; no more level-up moves
 
 ParasEvosAttacks:
@@ -1453,7 +1482,7 @@ GrimerEvosAttacks:
 	dbw 10, DISABLE
 	dbw 16, SLUDGE_BOMB
 	dbw 23, MINIMIZE
-	dbw 29, THIEF
+	dbw 66, THIEF
 	dbw 31, SCREECH
 	dbw 35, EXPLOSION
 	dbw 40, ACID_ARMOR
@@ -1468,7 +1497,7 @@ MukEvosAttacks:
 	dbw 10, DISABLE
 	dbw 16, SLUDGE_BOMB
 	dbw 23, MINIMIZE
-	dbw 29, THIEF
+	dbw 66, THIEF
 	dbw 31, SCREECH
 	dbw 35, EXPLOSION
 	dbw 40, ACID_ARMOR
@@ -1581,7 +1610,7 @@ DrowzeeEvosAttacks:
 	dbw 31, POISON_GAS
 	dbw 36, SUBMISSION
 	dbw 40, PSYCHIC_M
-	dbw 43, THIEF
+	dbw 66, THIEF
 	dbw 46, PSYCH_UP
 	dbw 49, FUTURE_SIGHT
 	db 0 ; no more level-up moves
@@ -1597,7 +1626,7 @@ HypnoEvosAttacks:
 	dbw 31, POISON_GAS
 	dbw 36, SUBMISSION
 	dbw 40, PSYCHIC_M
-	dbw 43, THIEF
+	dbw 66, THIEF
 	dbw 46, PSYCH_UP
 	dbw 49, FUTURE_SIGHT
 	dbw 55, NIGHTMARE
@@ -1643,6 +1672,7 @@ VoltorbEvosAttacks:
 	dbw 23, SELFDESTRUCT
 	dbw 24, THUNDERBOLT
 	dbw 29, ROLLOUT
+	dbw 31, SPARK
 	dbw 33, LIGHT_SCREEN
 	dbw 37, SWIFT
 	dbw 38, THUNDER
@@ -1730,31 +1760,33 @@ MarowakEvosAttacks:
 
 HitmonleeEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, DOUBLE_KICK
-	dbw 6, MEDITATE
-	dbw 11, ROLLING_KICK
-	dbw 16, JUMP_KICK
-	dbw 21, FOCUS_ENERGY
-	dbw 26, HI_JUMP_KICK
-	dbw 31, MIND_READER
-	dbw 36, FORESIGHT
-	dbw 41, ENDURE
-	dbw 46, MEGA_KICK
-	dbw 51, REVERSAL
+	dbw 20, FOCUS_ENERGY
+	dbw 23, KARATE_CHOP
+	dbw 25, ROLLING_KICK
+	dbw 27, LOW_KICK
+	dbw 30, DOUBLE_EDGE
+	dbw 36, SUBMISSION
+	dbw 38, FLAME_WHEEL
+	dbw 40, MEGA_KICK
+	dbw 42, JUMP_KICK
+	dbw 44, ENDURE
+	dbw 47, REVERSAL
+	dbw 50, HI_JUMP_KICK
 	db 0 ; no more level-up moves
 
 HitmonchanEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, COMET_PUNCH
-	dbw 7, AGILITY
-	dbw 13, PURSUIT
-	dbw 26, THUNDERPUNCH
-	dbw 26, ICE_PUNCH
-	dbw 26, FIRE_PUNCH
-	dbw 32, MACH_PUNCH
-	dbw 38, MEGA_PUNCH
+	dbw 20, MACH_PUNCH
+	dbw 23, PURSUIT
+	dbw 25, COMET_PUNCH
+	dbw 27, DIZZY_PUNCH
+	dbw 30, KARATE_CHOP
+	dbw 36, SUBMISSION
+	dbw 39, MEGA_PUNCH
+	dbw 42, ROCK_SLIDE
 	dbw 44, DETECT
-	dbw 50, COUNTER
+	dbw 47, COUNTER
+	dbw 50, CROSS_CHOP
 	db 0 ; no more level-up moves
 
 LickitungEvosAttacks:
@@ -1765,8 +1797,10 @@ LickitungEvosAttacks:
 	dbw 19, STOMP
 	dbw 25, WRAP
 	dbw 31, DISABLE
-	dbw 37, SLAM
-	dbw 43, SCREECH
+	dbw 37, BODY_SLAM
+	dbw 39, SCREECH
+	dbw 42, RECOVER
+	dbw 50, EXPLOSION
 	db 0 ; no more level-up moves
 
 KoffingEvosAttacks:
@@ -2003,9 +2037,10 @@ JynxEvosAttacks:
 	dbw 13, POWDER_SNOW
 	dbw 21, PSYBEAM
 	dbw 25, SING
-	dbw 30, ICE_BEAM
+	dbw 30, AURORA_BEAM
 	dbw 33, MEAN_LOOK
-	dbw 37, PSYCHIC_M
+	dbw 39, ICE_BEAM
+	dbw 42, PSYCHIC_M
 	dbw 45, PERISH_SONG
 	dbw 49, BLIZZARD
 	db 0 ; no more level-up moves
@@ -2056,6 +2091,7 @@ TaurosEvosAttacks:
 	dbw 13, HORN_ATTACK
 	dbw 19, SCARY_FACE
 	dbw 26, PURSUIT
+	dbw 30, HEADBUTT
 	dbw 34, SUBMISSION
 	dbw 43, THRASH
 	dbw 44, IRON_TAIL
@@ -2094,11 +2130,14 @@ LaprasEvosAttacks:
 	dbw 8, MIST
 	dbw 15, BODY_SLAM
 	dbw 22, CONFUSE_RAY
+	dbw 24, WATERFALL
 	dbw 29, PERISH_SONG
 	dbw 36, ICE_BEAM
-	dbw 43, RAIN_DANCE
+	dbw 43, PSYCHIC_M
+	dbw 48, EARTHQUAKE
 	dbw 50, SAFEGUARD
 	dbw 57, HYDRO_PUMP
+	dbw 59, ANCIENTPOWER
 	db 0 ; no more level-up moves
 
 DittoEvosAttacks:
@@ -2381,10 +2420,6 @@ MewtwoEvosAttacks:
 
 MewEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, POUND
-	dbw 10, TRANSFORM
-	dbw 20, MEGA_PUNCH
-	dbw 30, METRONOME
-	dbw 40, PSYCHIC_M
-	dbw 50, ANCIENTPOWER
+	dbw 1, TRANSFORM
+	dbw 1, METRONOME
 	db 0 ; no more level-up moves

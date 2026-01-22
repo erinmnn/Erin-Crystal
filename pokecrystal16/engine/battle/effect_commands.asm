@@ -5957,6 +5957,7 @@ BattleCommand_DoubleUndergroundDamage:
 	call GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
 	ret z
+	jr DoubleDamage
 
 	; fallthrough
 

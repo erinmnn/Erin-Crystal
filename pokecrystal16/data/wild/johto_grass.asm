@@ -566,29 +566,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons SLOWPOKE_WELL_B2F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 21, ZUBAT
-	dbw 23, ZUBAT
-	dbw 19, ZUBAT
-	dbw 21, SLOWPOKE
-	dbw 23, GOLBAT
-	dbw 23, SLOWPOKE
-	dbw 23, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 9, ZUBAT
+	dbw 9, ZUBAT
+	dbw 10, SLOWPOKE
+	dbw 10, SLOWPOKE
 	; day
-	dbw 21, ZUBAT
-	dbw 23, ZUBAT
-	dbw 19, ZUBAT
-	dbw 21, SLOWPOKE
-	dbw 23, GOLBAT
-	dbw 23, SLOWPOKE
-	dbw 23, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 9, ZUBAT
+	dbw 9, ZUBAT
+	dbw 10, SLOWPOKE
+	dbw 10, SLOWPOKE
 	; nite
-	dbw 21, ZUBAT
-	dbw 23, ZUBAT
-	dbw 19, ZUBAT
-	dbw 21, SLOWPOKE
-	dbw 23, GOLBAT
-	dbw 23, SLOWPOKE
-	dbw 23, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 8, SLOWPOKE
+	dbw 9, ZUBAT
+	dbw 9, ZUBAT
+	dbw 10, SLOWPOKE
+	dbw 10, SLOWPOKE
 	end_grass_wildmons
 
 	def_grass_wildmons ILEX_FOREST
@@ -1444,7 +1444,7 @@ JohtoGrassWildMons:
 	; day
 	dbw 12, NIDORAN_F
 	dbw 14, NIDORAN_M
-	dbw 13, GROWLITHE
+	dbw 13, PIDGEY
 	dbw 10, ABRA
 	dbw 12, ABRA
 	dbw 10, STANTLER
@@ -1508,7 +1508,7 @@ JohtoGrassWildMons:
 	; nite
 	dbw 13, WOOPER
 	dbw 14, YANMA
-	dbw 15, DUGTRIO
+	dbw 15, DIGLETT
 	dbw 16, VOLTORB
 	dbw 15, GASTLY
 	dbw 15, SMOOCHUM
@@ -1546,29 +1546,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_39
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 16, MILTANK
-	dbw 16, TAUROS
-	dbw 16, MAREEP
-	dbw 16, PSYDUCK
-	dbw 16, SWINUB
-	dbw 16, RATTATA
-	dbw 16, ARIADOS
+	dbw 21, MILTANK
+	dbw 21, TAUROS
+	dbw 21, MAREEP
+	dbw 21, PSYDUCK
+	dbw 21, SWINUB
+	dbw 21, RATTATA
+	dbw 21, ARIADOS
 	; day
-	dbw 16, MILTANK
-	dbw 16, TAUROS
-	dbw 16, PSYDUCK
-	dbw 16, MAREEP
-	dbw 16, RATTATA
-	dbw 16, ARIADOS
-	dbw 16, MAREEP
+	dbw 21, MILTANK
+	dbw 21, TAUROS
+	dbw 21, PSYDUCK
+	dbw 21, MAREEP
+	dbw 21, RATTATA
+	dbw 21, ARIADOS
+	dbw 21, MAREEP
 	; nite
-	dbw 16, MILTANK
-	dbw 16, TAUROS
-	dbw 16, RATTATA
-	dbw 16, ARIADOS
-	dbw 16, PSYDUCK
-	dbw 16, SWINUB
-	dbw 16, MAREEP
+	dbw 21, MILTANK
+	dbw 21, TAUROS
+	dbw 21, RATTATA
+	dbw 21, ARIADOS
+	dbw 21, PSYDUCK
+	dbw 21, SWINUB
+	dbw 21, MAREEP
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_42

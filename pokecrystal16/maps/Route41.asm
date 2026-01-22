@@ -33,6 +33,15 @@ TrainerSwimmerfSusie:
 	endifjustbattled
 	opentext
 	writetext SwimmerfSusieAfterBattleText
+	checkevent EVENT_GOT_HM06_WHIRLPOOL
+	iffalse .GiveHM
+	waitbutton
+	closetext
+	end
+
+.GiveHM
+	verbosegiveitem HM_WHIRLPOOL
+	setevent EVENT_GOT_HM06_WHIRLPOOL
 	waitbutton
 	closetext
 	end
@@ -260,9 +269,9 @@ SwimmerfKayleeAfterBattleText:
 	done
 
 SwimmerfSusieSeenText:
-	text "You look so ele-"
-	line "gant, riding your"
-	cont "#MON."
+	text "Have you ever"
+	line "surfed into a"
+	cont "whirlpool?"
 	done
 
 SwimmerfSusieBeatenText:
@@ -270,9 +279,8 @@ SwimmerfSusieBeatenText:
 	done
 
 SwimmerfSusieAfterBattleText:
-	text "Wasn't there a hit"
-	line "song about a boy"
-	cont "riding a LAPRAS?"
+	text "This HM can help"
+	line "you catch it!"
 	done
 
 SwimmerfDeniseSeenText:

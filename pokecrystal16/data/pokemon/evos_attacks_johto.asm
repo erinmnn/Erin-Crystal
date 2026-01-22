@@ -495,8 +495,8 @@ TogeticEvosAttacks:
 	dbw 18, SWEET_KISS
 	dbw 21, PSYWAVE
 	dbw 23, ENCORE
-	dbw 27, RAZOR_LEAF
 	dbw 29, SAFEGUARD
+	dbw 31, RAZOR_LEAF
 	dbw 35, DOUBLE_EDGE
 	dbw 38, PSYCHIC_M
 	dbw 43, TRI_ATTACK
@@ -510,7 +510,7 @@ NatuEvosAttacks:
 	dbw 1, LEER
 	dbw 11, PSYBEAM
 	dbw 15, NIGHT_SHADE
-	dbw 19, THIEF
+	dbw 66, THIEF
 	dbw 23, WING_ATTACK
 	dbw 30, FUTURE_SIGHT
 	dbw 36, CONFUSE_RAY
@@ -524,7 +524,7 @@ XatuEvosAttacks:
 	dbw 1, LEER
 	dbw 11, PSYBEAM
 	dbw 15, NIGHT_SHADE
-	dbw 19, THIEF
+	dbw 66, THIEF
 	dbw 23, WING_ATTACK
 	dbw 30, FUTURE_SIGHT
 	dbw 36, CONFUSE_RAY
@@ -786,7 +786,7 @@ UmbreonEvosAttacks:
 	dbw 15, BITE
 	dbw 22, SWIFT
 	dbw 29, BODY_SLAM
-	dbw 33, THIEF
+	dbw 33, FAINT_ATTACK
 	dbw 37, SHADOW_BALL
 	dbw 41, CONFUSE_RAY
 	dbw 45, CRUNCH
@@ -900,14 +900,21 @@ ForretressEvosAttacks:
 
 DunsparceEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, TACKLE
-	dbw 5, DEFENSE_CURL
+	dbw 1, FLAIL
+	dbw 1, DEFENSE_CURL
+	dbw 4, MUD_SLAP
 	dbw 13, GLARE
 	dbw 18, SPITE
+	dbw 20, HEADBUTT
+	dbw 24, ANCIENTPOWER
 	dbw 26, RAPID_SPIN
+	dbw 28, DRILL_PECK
 	dbw 30, SCREECH
+	dbw 32, ROLLOUT
 	dbw 38, HORN_ATTACK
-	dbw 44, HEADBUTT
+	dbw 44, STEEL_WING
+	dbw 47, EARTHQUAKE
+	dbw 51, DOUBLE_EDGE
 	dbw 59, OUTRAGE
 	db 0 ; no more level-up moves
 
@@ -1331,15 +1338,17 @@ TyrogueEvosAttacks:
 
 HitmontopEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, ROLLING_KICK
-	dbw 7, FOCUS_ENERGY
-	dbw 13, PURSUIT
-	dbw 19, QUICK_ATTACK
-	dbw 25, RAPID_SPIN
-	dbw 31, COUNTER
-	dbw 37, AGILITY
-	dbw 43, DETECT
-	dbw 49, TRIPLE_KICK
+	dbw 20, RAPID_SPIN
+	dbw 23, FOCUS_ENERGY
+	dbw 25, PURSUIT
+	dbw 27, QUICK_ATTACK
+	dbw 30, ROLLING_KICK
+	dbw 32, MACH_PUNCH
+	dbw 36, TRIPLE_KICK
+	dbw 37, KARATE_CHOP
+	dbw 40, DETECT
+	dbw 42, SUBMISSION
+	dbw 49, CROSS_CHOP
 	db 0 ; no more level-up moves
 
 SmoochumEvosAttacks:
