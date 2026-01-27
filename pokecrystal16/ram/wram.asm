@@ -3008,8 +3008,8 @@ wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
 wNumBerries:: db
 wBerries:: ds MAX_BERRIES * 2 + 1
 
-wBerryPocketCursor::	db
-wBerryPocketScrollPosition::	db
+wBerryPocketCursor:: db
+wBerryPocketScrollPosition:: db
 
 wDudeNumBerries::
 

@@ -714,8 +714,8 @@ RocketBaseLanceElectrodeDoneText:
 	line "signal has finally"
 	cont "stopped."
 
-	para "The LAKE should be"
-	line "back to normal."
+	para "The ISLANDS should"
+	line "be back to normal."
 
 	para "You're the hero!"
 	line "Let me thank you"
@@ -733,24 +733,15 @@ RocketBaseLanceElectrodeDoneText:
 
 RocketBaseReceivedHM06Text: ; unreferenced
 	text "<PLAYER> received"
-	line "HM06."
+	line "HM03."
 	done
 
 RocketBaseLanceWhirlpoolText:
-	text "That's WHIRLPOOL."
+	text "That's FLY."
 	line "Teach it to a"
 
-	para "#MON to get"
-	line "across wild water."
-
-	para "But keep this in"
-	line "mind."
-
-	para "You can use that"
-	line "out of battle only"
-
-	para "with the BADGE"
-	line "from MAHOGANY GYM."
+	para "#MON to soar"
+	line "across the sky."
 	done
 
 RocketBaseLanceMonMasterText:
@@ -963,7 +954,7 @@ TeamRocketBaseB2F_MapEvents:
 	object_event 22,  5, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
 	object_event 22,  7, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2
 	object_event 22,  9, SPRITE_VOLTORB, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_3
-	object_event 25, 13, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM17, EVENT_TEAM_ROCKET_BASE_POPULATION
-	object_event  4,  1, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerGruntM18, EVENT_TEAM_ROCKET_BASE_POPULATION
+	object_event 24, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM17, EVENT_TEAM_ROCKET_BASE_POPULATION
+	object_event 27,  5, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 4, TrainerGruntM18, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event 21, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 4, TrainerGruntM19, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  3,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB2FTMThief, EVENT_TEAM_ROCKET_BASE_B2F_TM_THIEF

@@ -430,7 +430,7 @@ RocketBaseMurkrowText:
 	text "MURKROW: The"
 	line "password is…"
 
-	para "HAIL GIOVANNI."
+	para "PBR NUMBER 1."
 	done
 
 GruntF5SeenText:
@@ -452,7 +452,7 @@ GruntF5AfterBattleText:
 	text "The password to"
 	line "the boss's room is"
 
-	para "SLOWPOKETAIL."
+	para "HOT GAY SEX."
 
 	para "But it's useless"
 	line "unless you have"
@@ -489,7 +489,7 @@ GruntM28AfterBattleText:
 	line "the boss's room…"
 
 	para "Uh…, I think it is"
-	line "RATICATE TAIL."
+	line "BALL IS LIFE."
 	done
 
 ScientistRossSeenText:

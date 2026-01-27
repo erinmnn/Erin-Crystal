@@ -730,7 +730,7 @@ TeamRocketBaseB1F_MapEvents:
 	def_warp_events
 	warp_event 27,  2, WHIRL_ISLAND_NW, 2
 	warp_event  3, 14, TEAM_ROCKET_BASE_B2F, 1
-	warp_event  5, 15, TEAM_ROCKET_BASE_B1F, 4
+	warp_event  3, 11, TEAM_ROCKET_BASE_B1F, 4
 	warp_event 25,  2, TEAM_ROCKET_BASE_B1F, 3
 
 	def_coord_events
@@ -746,44 +746,44 @@ TeamRocketBaseB1F_MapEvents:
 	coord_event  8, 16, SCENE_TEAMROCKETBASEB1F_TRAPS, SecurityCamera5
 	; There are spots on the floor that trigger a Pokémon battle.
 	; Each Pokémon (Voltorb, Koffing, Geodude) knows Selfdestruct.
-	coord_event  2,  7, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap1
-	coord_event  3,  7, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap2
-	coord_event  4,  7, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap3
-	coord_event  1,  8, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap4
-	coord_event  3,  8, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap5
-	coord_event  5,  8, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap6
-	coord_event  3,  9, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap7
-	coord_event  4,  9, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap8
-	coord_event  1, 10, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap9
-	coord_event  2, 10, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap10
-	coord_event  3, 10, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap11
-	coord_event  5, 10, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap12
-	coord_event  2, 11, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap13
-	coord_event  4, 11, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap14
-	coord_event  1, 12, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap15
-	coord_event  2, 12, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap16
-	coord_event  4, 12, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap17
-	coord_event  5, 12, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap18
-	coord_event  1, 13, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap19
-	coord_event  3, 13, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap20
-	coord_event  4, 13, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap21
-	coord_event  5, 13, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap22
+	coord_event 21,  6, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap1
+	coord_event 19,  6, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap2
+	coord_event 17,  1, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap3
+	coord_event  1,  9, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap4
+	coord_event 11,  1, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap5
+	coord_event 16,  3, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap6
+	coord_event 16,  6, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap7
+	coord_event 15,  2, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap8
+	coord_event  2,  9, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap9
+	coord_event 12,  2, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap10
+	coord_event 18,  6, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap11
+	coord_event 13,  1, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap12
+	coord_event  4,  9, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap13
+	coord_event 20,  6, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap14
+	coord_event  2,  7, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap15
+	coord_event  5,  9, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap16
+	coord_event 19,  6, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap17
+	coord_event 16,  5, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap18
+	coord_event  4,  7, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap19
+	coord_event 18,  7, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap20
+	coord_event  3,  9, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap21
+	coord_event 14,  3, SCENE_TEAMROCKETBASEB1F_TRAPS, ExplodingTrap22
 
 	def_bg_events
-	bg_event 19, 11, BGEVENT_READ, TeamRocketBaseB1FSecretSwitch
+	bg_event 25,  9, BGEVENT_READ, TeamRocketBaseB1FSecretSwitch
 	bg_event 24,  1, BGEVENT_UP, TeamRocketBaseB1FSecurityCamera
 	bg_event  6,  1, BGEVENT_UP, TeamRocketBaseB1FSecurityCamera
 	bg_event  8, 15, BGEVENT_UP, TeamRocketBaseB1FSecurityCamera
 	bg_event 22, 15, BGEVENT_UP, TeamRocketBaseB1FSecurityCamera
 	bg_event 24,  5, BGEVENT_UP, TeamRocketBaseB1FSecurityCamera
-	bg_event 20, 11, BGEVENT_READ, TeamRocketBaseB1FBookshelf
-	bg_event 21, 11, BGEVENT_READ, TeamRocketBaseB1FBookshelf
-	bg_event  3, 11, BGEVENT_ITEM, TeamRocketBaseB1FHiddenRevive
+	bg_event 26,  9, BGEVENT_READ, TeamRocketBaseB1FBookshelf
+	bg_event 27,  9, BGEVENT_READ, TeamRocketBaseB1FBookshelf
+	bg_event  7,  7, BGEVENT_ITEM, TeamRocketBaseB1FHiddenRevive
 
 	def_object_events
 	object_event  0,  0, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_SECURITY_GRUNTS
-	object_event  2,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM16, EVENT_TEAM_ROCKET_BASE_POPULATION
-	object_event 18, 12, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerScientistJed, EVENT_TEAM_ROCKET_BASE_POPULATION
-	object_event 27,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB1FHyperPotion, EVENT_TEAM_ROCKET_BASE_B1F_HYPER_POTION
-	object_event 14, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB1FNugget, EVENT_TEAM_ROCKET_BASE_B1F_NUGGET
-	object_event 21, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB1FGuardSpec, EVENT_TEAM_ROCKET_BASE_B1F_GUARD_SPEC
+	object_event 17,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM16, EVENT_TEAM_ROCKET_BASE_POPULATION
+	object_event 25, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerScientistJed, EVENT_TEAM_ROCKET_BASE_POPULATION
+	object_event  3,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB1FHyperPotion, EVENT_TEAM_ROCKET_BASE_B1F_HYPER_POTION
+	object_event  3,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB1FNugget, EVENT_TEAM_ROCKET_BASE_B1F_NUGGET
+	object_event 27, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB1FGuardSpec, EVENT_TEAM_ROCKET_BASE_B1F_GUARD_SPEC

@@ -42,7 +42,7 @@ WhirlIslandB1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, WHIRL_ISLAND_NW, 2
+	warp_event  1,  1, WHIRL_ISLAND_NW, 2
 	warp_event 35,  3, WHIRL_ISLAND_NE, 2
 	warp_event 29,  9, WHIRL_ISLAND_NE, 3
 	warp_event  9, 31, WHIRL_ISLAND_SW, 3

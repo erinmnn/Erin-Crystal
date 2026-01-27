@@ -110,7 +110,7 @@ CheckPartyMove:
 	ret
 
 CheckPartyCanLearnMove:
-; CHECK IF MONSTER IN PARTY CAN LEARN MOVE D
+; CHECK IF MON IN PARTY CAN LEARN MOVE D
 	ld e, 0
 	xor a
 	ld [wCurPartyMon], a
@@ -1572,13 +1572,15 @@ HasRockSmash:
 	jr z, .no
 
 ; Step 2
-	ld d, ROCK_SMASH
+	ld hl, ROCK_SMASH
+	call GetMoveIDFromIndex
 	call CheckPartyCanLearnMove
-        and a
+        	and a
 	jr z, .yes
 
 ; Step 3
-	ld d, ROCK_SMASH
+	ld hl, ROCK_SMASH
+	call GetMoveIDFromIndex
 	call CheckPartyMove
 	jr nc, .yes
 .no

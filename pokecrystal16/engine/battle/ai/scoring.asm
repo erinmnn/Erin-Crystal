@@ -522,25 +522,40 @@ AI_Smart_Selfdestruct:
 	jr nz, .discourage
 
 .notlastmon
-; Greatly discourage this move if enemy's HP is above 50%.
-	call AICheckEnemyHalfHP
-	jr c, .discourage
-
-; Do nothing if enemy's HP is below 25%.
-	call AICheckEnemyQuarterHP
-	ret nc
-
-; If enemy's HP is between 25% and 50%,
-; over 90% chance to greatly discourage this move.
+; Greatly discourage this move if there's another move that can kill.
+	ld a, [wMovesThatOHKOPlayer]
+	and a
+	jr nz, .discourage
+	
+; 90% chance to greatly discourage this move if enemy's HP is full.
+	call AICheckEnemyMaxHP
+	jr nc, .check_hp_2
+	
 	call Random
-	cp 8 percent
-	ret c
-
-.discourage
-	inc [hl]
-	inc [hl]
-	inc [hl]
+	cp 90 percent + 1
+	jr c, .discourage
 	ret
+	
+.check_hp_2
+; 75% chance to greatly discourage this move if enemy's HP is above 50% but is not full.
+	call AICheckEnemyHalfHP
+	ret nc
+	
+	call Random
+	cp 75 percent + 1
+	jr nc, .encourage
+	
+.discourage
+	ld a, [hl]
+	add 10
+	ld [hl], a
+	jp AI_Aggressive_Except_Boom
+
+.encourage
+	dec [hl]
+	dec [hl]
+	ret
+
 
 AI_Smart_DreamEater:
 ; 90% chance to greatly encourage this move.

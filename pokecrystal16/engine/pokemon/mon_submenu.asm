@@ -311,36 +311,32 @@ CheckMonKnowsMove:
 	ret z
 
 CheckLvlUpMoves:
-; move looking for in a
 	ld d, a
-	ld a, [wCurPartySpecies]
-	dec a
-	ld b, 0
-	ld c, a
+	ld a, [wTempSpecies]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
 	ld hl, EvosAttacksPointers
-	add hl, bc
-	add hl, bc
 	ld a, BANK(EvosAttacksPointers)
-	ld b, a
-	call GetFarWord
-	ld a, b
+	call LoadDoubleIndirectPointer
+	ld [wStatsScreenFlags], a ; bank
+	call FarSkipEvolutions
+.learnset_loop
 	call GetFarByte
+  	and a
+	jr z, .notfound
 	inc hl
-	and a
-	jr z, .find_move
-	dec hl
-	call MonSubMenu_SkipEvolutions
-.find_move
-	call MonSubMenu_GetNextEvoAttackByte
-	and a
-	jr z, .notfound ; end of mon's lvl up learnset
-	call MonSubMenu_GetNextEvoAttackByte
-	cp d ;MAKE SURE NOT CLOBBERED
+	call GetFarWord
+	call GetMoveIDFromIndex
+	cp d
 	jr z, .found
-	jr .find_move
+	inc hl
+	inc hl
+	jr .learnset_loop
+
 .found
 	xor a
-	ret z ; move is in lvl up learnset
+	ret ; move is in lvl up learnset
 .notfound
 	scf ; move isnt in lvl up learnset
 	ret
@@ -384,7 +380,8 @@ CanUseFlash:
 
 .valid_location
 ; Step 3: Check if Mon knows Move
-	ld a, FLASH
+	ld hl, FLASH
+	call GetMoveIDFromIndex
 	call CheckMonKnowsMove
 	and a
 	jr z, .yes
@@ -397,12 +394,14 @@ CanUseFlash:
 	ret nc ; hm isnt in bag
 
 ; Step 5: Check if Mon can learn move from TM/HM/Move Tutor
-	ld a, FLASH
+	ld hl, FLASH
+	call GetMoveIDFromIndex
 	call CheckMonCanLearn_TM_HM
 	jr c, .yes
 
 ; Step 6: Check if Mon can learn move from LVL-UP
-	ld a, FLASH
+	ld hl, FLASH
+	call GetMoveIDFromIndex
 	call CheckLvlUpMoves
 	ret c ; fail
 
@@ -490,6 +489,14 @@ Can_Use_Sweet_Scent:
 	ret
 
 CanUseDig:
+; Step 0: Gauntler Check
+	ld de, EVENT_BEAT_HIKER_RUSSELL
+	ld b, CHECK_FLAG
+	farcall EngineFlagAction
+	ld a, c
+	and a
+	ret z ; .fail, didnt beat russell
+
 ; Step 1: Location Check
 	call GetMapEnvironment
 	cp CAVE

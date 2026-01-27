@@ -182,4 +182,7 @@ SpecialsPointers::
 
 	add_special InitialSetDSTFlag
 	add_special InitialClearDSTFlag
-	add_special UnusedDummySpecial ; unused
+	add_special BurnMon
+	add_special PoisonMon
+	add_special ParalyzeMon
+	add_special FreezeMon
