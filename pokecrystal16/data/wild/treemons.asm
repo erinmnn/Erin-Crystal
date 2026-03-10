@@ -45,16 +45,16 @@ TreeMonSet_Canyon:
 ; common
 	dbbw 50, 10, BUTTERFREE
 	dbbw 15, 10, LEDYBA
-	dbbw 15, 10, VENONAT
-	dbbw 10, 10, AIPOM
+	dbbw 15, 10, AIPOM
+	dbbw 10, 10, EXEGGCUTE
 	dbbw  5, 10, HERACROSS
 	dbbw  5, 10, HERACROSS
 	db -1
 ; rare
 	dbbw 50, 10, BUTTERFREE
 	dbbw 15, 10, LEDYBA
-	dbbw 15, 10, VENONAT
-	dbbw 10, 10, AIPOM
+	dbbw 15, 10, AIPOM
+	dbbw 10, 10, EXEGGCUTE
 	dbbw  5, 10, HERACROSS
 	dbbw  5, 10, HERACROSS
 	db -1
@@ -64,7 +64,7 @@ TreeMonSet_Town:
 	dbbw 50, 10, BUTTERFREE
 	dbbw 15, 10, LEDYBA
 	dbbw 15, 10, LEDYBA
-	dbbw 10, 10, HOOTHOOT
+	dbbw 10, 10, VENONAT
 	dbbw  5, 10, AIPOM
 	dbbw  5, 10, EXEGGCUTE
 	db -1
@@ -72,7 +72,7 @@ TreeMonSet_Town:
 	dbbw 50, 10, BUTTERFREE
 	dbbw 15, 10, LEDYBA
 	dbbw 15, 10, LEDYBA
-	dbbw 10, 10, HOOTHOOT
+	dbbw 10, 10, VENONAT
 	dbbw  5, 10, AIPOM
 	dbbw  5, 10, EXEGGCUTE
 	db -1
@@ -82,17 +82,17 @@ TreeMonSet_Route:
 	dbbw 50, 10, BEEDRILL
 	dbbw 15, 10, SPINARAK
 	dbbw 15, 10, SPINARAK
-	dbbw 10, 10, EKANS
+	dbbw 10, 10, PINECO
 	dbbw  5, 10, AIPOM
-	dbbw  5, 10, PINECO
+	dbbw  5, 10, EXEGGCUTE
 	db -1
 ; rare
 	dbbw 50, 10, BEEDRILL
 	dbbw 15, 10, SPINARAK
 	dbbw 15, 10, SPINARAK
-	dbbw 10, 10, EKANS
+	dbbw 10, 10, PINECO
 	dbbw  5, 10, AIPOM
-	dbbw  5, 10, PINECO
+	dbbw  5, 10, EXEGGCUTE
 	db -1
 
 TreeMonSet_Kanto:
@@ -117,16 +117,16 @@ TreeMonSet_Lake:
 ; common
 	dbbw 50, 10, BEEDRILL
 	dbbw 15, 10, SPINARAK
-	dbbw 15, 10, EKANS
-	dbbw 10, 10, AIPOM
+	dbbw 15, 10, PINECO
+	dbbw 10, 10, EXEGGCUTE
 	dbbw  5, 10, HERACROSS
 	dbbw  5, 10, HERACROSS
 	db -1
 ; rare
 	dbbw 50, 10, BEEDRILL
 	dbbw 15, 10, SPINARAK
-	dbbw 15, 10, EKANS
-	dbbw 10, 10, AIPOM
+	dbbw 15, 10, PINECO
+	dbbw 10, 10, EXEGGCUTE
 	dbbw  5, 10, HERACROSS
 	dbbw  5, 10, HERACROSS
 	db -1
@@ -134,19 +134,19 @@ TreeMonSet_Lake:
 TreeMonSet_Forest:
 ; common
 	dbbw 50, 10, BEEDRILL
-	dbbw 15, 10, EKANS
-	dbbw 15, 10, SPEAROW
-	dbbw 10, 10, PINECO
-	dbbw  5, 10, AIPOM
-	dbbw  5, 10, AIPOM
+	dbbw 15, 10, SPINARAK
+	dbbw 15, 10, PINECO
+	dbbw 10, 10, AIPOM
+	dbbw  5, 10, EXEGGCUTE
+	dbbw  5, 10, HERACROSS
 	db -1
 ; rare
 	dbbw 50, 10, BEEDRILL
-	dbbw 15, 10, EKANS
-	dbbw 15, 10, SPEAROW
-	dbbw 10, 10, PINECO
-	dbbw  5, 10, AIPOM
-	dbbw  5, 10, AIPOM
+	dbbw 15, 10, SPINARAK
+	dbbw 15, 10, PINECO
+	dbbw 10, 10, AIPOM
+	dbbw  5, 10, EXEGGCUTE
+	dbbw  5, 10, HERACROSS
 	db -1
 
 ; Rock smash sets dont have common/rare tables

@@ -1756,30 +1756,30 @@ BattleCommand_CheckHit:
 	ret z
 
 	bit SUBSTATUS_FLYING, a
-	ld hl, .FlyMoves
-	jr z, .check_move_in_list
-	ld hl, .DigMoves
-.check_move_in_list
-	; returns z (and a = 0) if the current move is in a given list, or nz (and a = 1) if not
+	jr z, .DigMoves
+
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
-	call CheckMoveInList
-	sbc a
-	inc a
+
+	cp GUST
+	ret z
+	cp WHIRLWIND
+	ret z
+	cp THUNDER
+	ret z
+	cp TWISTER
 	ret
 
-.FlyMoves:
-	dw GUST
-	dw WHIRLWIND
-	dw THUNDER
-	dw TWISTER
-	dw -1
-
 .DigMoves:
-	dw EARTHQUAKE
-	dw FISSURE
-	dw MAGNITUDE
-	dw -1
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+
+	cp EARTHQUAKE
+	ret z
+	cp FISSURE
+	ret z
+	cp MAGNITUDE
+	ret
 
 .ThunderRain:
 ; Return z if the current move always hits in rain, and it is raining.

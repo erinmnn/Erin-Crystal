@@ -53,44 +53,44 @@ JohtoWaterWildMons:
 
 	def_water_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 4 percent ; encounter rate
-	dbw 15, GOLDEEN
-	dbw 20, MARILL
-	dbw 20, SEAKING
+	dbw 35, SEAKING
+	dbw 35, TENTACRUEL
+	dbw 35, TANGELA
 	end_water_wildmons
 
 	def_water_wildmons MOUNT_MORTAR_2F_INSIDE
 	db 2 percent ; encounter rate
-	dbw 20, GOLDEEN
-	dbw 25, MARILL
-	dbw 25, SEAKING
+	dbw 35, SEADRA
+	dbw 35, MUK
+	dbw 35, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons MOUNT_MORTAR_B1F
 	db 2 percent ; encounter rate
-	dbw 15, GOLDEEN
-	dbw 20, MARILL
-	dbw 20, SEAKING
+	dbw 35, TENTACRUEL
+	dbw 35, KINGLER
+	dbw 35, CLOYSTER
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_SW
 	db 4 percent ; encounter rate
 	dbw 30, DEWGONG
-	dbw 30, MANTINE
+	dbw 30, SEADRA
 	dbw 30, POLIWHIRL
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_B2F
 	db 4 percent ; encounter rate
 	dbw 30, DEWGONG
-	dbw 30, MANTINE
+	dbw 30, SEADRA
 	dbw 30, POLIWHIRL
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_LUGIA_CHAMBER
 	db 4 percent ; encounter rate
-	dbw 30, DEWGONG
-	dbw 30, MANTINE
-	dbw 30, POLIWHIRL
+	dbw 48, UNOWN
+	dbw 48, UNOWN
+	dbw 48, UNOWN
 	end_water_wildmons
 
 	def_water_wildmons SILVER_CAVE_ROOM_2
@@ -179,16 +179,16 @@ JohtoWaterWildMons:
 
 	def_water_wildmons ROUTE_42
 	db 4 percent ; encounter rate
-	dbw 20, POLIWHIRL
-	dbw 20, OCTILLERY
-	dbw 20, HAUNTER
+	dbw 31, SLOWPOKE
+	dbw 31, OCTILLERY
+	dbw 32, TANGELA
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_43
 	db 2 percent ; encounter rate
 	dbw 20, MAGIKARP
-	dbw 15, MAGIKARP
-	dbw 10, MAGIKARP
+	dbw 20, MAGIKARP
+	dbw 20, MAGIKARP
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_44
@@ -235,9 +235,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons OLIVINE_CITY
 	db 6 percent ; encounter rate
-	dbw 20, LANTURN
-	dbw 20, MANTINE
-	dbw 20, TENTACRUEL
+	dbw 30, LANTURN
+	dbw 30, MANTINE
+	dbw 30, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons ECRUTEAK_CITY
@@ -249,9 +249,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons LAKE_OF_RAGE
 	db 6 percent ; encounter rate
-	dbw 30, MAGIKARP
-	dbw 30, GYARADOS
-	dbw 60, GYARADOS
+	dbw 40, MAGIKARP
+	dbw 40, GYARADOS
+	dbw 50, GYARADOS
 	end_water_wildmons
 
 	def_water_wildmons BLACKTHORN_CITY

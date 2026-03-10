@@ -130,19 +130,19 @@ FishGroups:
 	dbbw 100 percent,     40, REMORAID
 
 .Gyarados_Old:
-	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
-	dbbw 100 percent,     10, MAGIKARP
+	dbbw  70 percent + 1, 20, MAGIKARP
+	dbbw  85 percent + 1, 20, MAGIKARP
+	dbbw 100 percent,     30, MAGIKARP
 .Gyarados_Good:
 	dbbw  35 percent,     20, MAGIKARP
 	dbbw  70 percent,     20, MAGIKARP
 	dbbw  90 percent + 1, 20, MAGIKARP
-	dbbw 100 percent,     14, TIME_GROUP
+	dbbw 100 percent,     30, GYARADOS
 .Gyarados_Super:
-	dbbw  40 percent,     40, MAGIKARP
-	dbbw  70 percent,     15, TIME_GROUP
-	dbbw  90 percent + 1, 40, MAGIKARP
-	dbbw 100 percent,     40, MAGIKARP
+	dbbw  40 percent,     40, GYARADOS
+	dbbw  70 percent,     40, GYARADOS
+	dbbw  90 percent + 1, 40, GYARADOS
+	dbbw 100 percent,     40, GYARADOS
 
 .Dratini_2_Old:
 	dbbw  70 percent + 1, 10, MAGIKARP

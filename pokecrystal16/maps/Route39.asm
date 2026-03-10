@@ -276,7 +276,7 @@ PokefanfJaimeBeatenText:
 	done
 
 PokefanfJaimeAfterBattleText:
-	text "I met my PERISAN at"
+	text "I met PERISAN at"
 	line "night, right here"
 	cont "on ROUTE 39."
 

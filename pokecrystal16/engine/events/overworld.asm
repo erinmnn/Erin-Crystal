@@ -161,6 +161,37 @@ CheckPartyCanLearnMove:
 	ld a, 1
 	ret
 
+CheckLvlUpMoves:
+	ld d, a
+	ld a, [wTempSpecies]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, EvosAttacksPointers
+	ld a, BANK(EvosAttacksPointers)
+	call LoadDoubleIndirectPointer
+	ld [wStatsScreenFlags], a ; bank
+	call FarSkipEvolutions
+.learnset_loop
+	call GetFarByte
+  	and a
+	jr z, .notfound
+	inc hl
+	call GetFarWord
+	call GetMoveIDFromIndex
+	cp d
+	jr z, .found
+	inc hl
+	inc hl
+	jr .learnset_loop
+
+.found
+	xor a
+	ret ; move is in lvl up learnset
+.notfound
+	scf ; move isnt in lvl up learnset
+	ret
+
 OW_CheckLvlUpMoves:
 ; move looking for in a
 	ld d, a
@@ -1564,29 +1595,6 @@ AskRockSmashText:
 	text_end
 
 HasRockSmash:
-; Step 1
-	ld a, TM_ROCK_SMASH
-	ld [wCurItem], a
-	ld hl, wNumItems
-	call CheckItem
-	jr z, .no
-
-; Step 2
-	ld hl, ROCK_SMASH
-	call GetMoveIDFromIndex
-	call CheckPartyCanLearnMove
-        	and a
-	jr z, .yes
-
-; Step 3
-	ld hl, ROCK_SMASH
-	call GetMoveIDFromIndex
-	call CheckPartyMove
-	jr nc, .yes
-.no
-	ld a, 1
-	jr .done
-.yes
 	xor a
 	jr .done
 .done

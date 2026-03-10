@@ -58,12 +58,20 @@ WiseTriosRoom_CannotEnterTinTowerScript:
 	applymovement PLAYER, WiseTriosRoomSageBlocksPlayerMovement
 	stopfollow
 	turnobject PLAYER, RIGHT
+	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
+	iffalse .OnOneCondition
 	opentext
 	writetext WiseTriosRoomSage3BlocksExitText
 	waitbutton
 	closetext
 	applymovement WISETRIOSROOM_SAGE3, WiseTriosRoomSageReturnsMovement
 	turnobject WISETRIOSROOM_SAGE3, LEFT
+	end
+
+.OnOneCondition
+	writetext OnOneConditionText
+	waitbutton
+	closetext
 	end
 
 TrainerSageGaku:
@@ -168,6 +176,15 @@ WiseTriosRoomSage3BlocksExitText:
 
 	para "to refrain from"
 	line "entering!"
+	done
+
+OnOneConditionText:
+	text "TEAM ROCKET has"
+	line "broken into TIN"
+	cont "TOWER."
+
+	para "<PLAYER>, please"
+	line "help us stop them."
 	done
 
 WiseTriosRoomSage3Text:

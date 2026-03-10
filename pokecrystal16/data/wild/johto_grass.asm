@@ -622,113 +622,113 @@ JohtoGrassWildMons:
 	def_grass_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 14, RATTATA
-	dbw 13, ZUBAT
-	dbw 14, MACHOP
-	dbw 13, GOLBAT
-	dbw 14, GEODUDE
-	dbw 16, RATICATE
-	dbw 16, RATICATE
+	dbw 36, MACHOKE
+	dbw 36, GLIGAR
+	dbw 36, RHYHORN
+	dbw 36, KADABRA
+	dbw 36, HAUNTER
+	dbw 36, MAROWAK
+	dbw 36, MAROWAK
 	; day
-	dbw 14, RATTATA
-	dbw 13, ZUBAT
-	dbw 14, MACHOP
-	dbw 13, GOLBAT
-	dbw 14, GEODUDE
-	dbw 16, RATICATE
-	dbw 16, RATICATE
+	dbw 36, RHYHORN
+	dbw 36, MACHOKE
+	dbw 36, GLIGAR
+	dbw 36, GLIGAR
+	dbw 36, HAUNTER
+	dbw 36, KADABRA
+	dbw 36, KADABRA
 	; nite
-	dbw 14, RATTATA
-	dbw 13, ZUBAT
-	dbw 14, MARILL
-	dbw 13, GOLBAT
-	dbw 14, GEODUDE
-	dbw 16, RATICATE
-	dbw 16, RATICATE
+	dbw 36, GLIGAR
+	dbw 36, KADABRA
+	dbw 36, MAROWAK
+	dbw 36, MACHOKE
+	dbw 36, HAUNTER
+	dbw 36, RHYHORN
+	dbw 36, RHYHORN	
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_1F_INSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 13, GEODUDE
-	dbw 14, RATTATA
-	dbw 15, MACHOP
-	dbw 14, RATICATE
-	dbw 15, ZUBAT
-	dbw 15, GOLBAT
-	dbw 15, GOLBAT
+	dbw 36, MACHOKE
+	dbw 36, GLIGAR
+	dbw 36, RHYHORN
+	dbw 36, KADABRA
+	dbw 36, HAUNTER
+	dbw 36, MAROWAK
+	dbw 36, MAROWAK
 	; day
-	dbw 13, GEODUDE
-	dbw 14, RATTATA
-	dbw 15, MACHOP
-	dbw 14, RATICATE
-	dbw 15, ZUBAT
-	dbw 15, GOLBAT
-	dbw 15, GOLBAT
+	dbw 36, RHYHORN
+	dbw 36, MACHOKE
+	dbw 36, GLIGAR
+	dbw 36, GLIGAR
+	dbw 36, HAUNTER
+	dbw 36, KADABRA
+	dbw 36, KADABRA
 	; nite
-	dbw 13, GEODUDE
-	dbw 14, RATTATA
-	dbw 15, RATICATE
-	dbw 14, ZUBAT
-	dbw 15, MARILL
-	dbw 15, GOLBAT
-	dbw 15, GOLBAT
+	dbw 36, GLIGAR
+	dbw 36, KADABRA
+	dbw 36, MAROWAK
+	dbw 36, MACHOKE
+	dbw 36, HAUNTER
+	dbw 36, RHYHORN
+	dbw 36, RHYHORN
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_2F_INSIDE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 31, GRAVELER
-	dbw 32, MACHOKE
-	dbw 31, GEODUDE
-	dbw 30, RATICATE
-	dbw 28, MACHOP
-	dbw 30, GOLBAT
-	dbw 30, GOLBAT
+	dbw 36, MACHOKE
+	dbw 36, GLIGAR
+	dbw 36, RHYHORN
+	dbw 36, KADABRA
+	dbw 36, HAUNTER
+	dbw 36, MAROWAK
+	dbw 36, MAROWAK
 	; day
-	dbw 31, GRAVELER
-	dbw 32, MACHOKE
-	dbw 31, GEODUDE
-	dbw 30, RATICATE
-	dbw 28, MACHOP
-	dbw 30, GOLBAT
-	dbw 30, GOLBAT
+	dbw 36, RHYHORN
+	dbw 36, MACHOKE
+	dbw 36, GLIGAR
+	dbw 36, GLIGAR
+	dbw 36, HAUNTER
+	dbw 36, KADABRA
+	dbw 36, KADABRA
 	; nite
-	dbw 31, GRAVELER
-	dbw 31, GEODUDE
-	dbw 30, RATICATE
-	dbw 30, GOLBAT
-	dbw 28, MARILL
-	dbw 32, GOLBAT
-	dbw 32, GOLBAT
+	dbw 36, GLIGAR
+	dbw 36, KADABRA
+	dbw 36, MAROWAK
+	dbw 36, MACHOKE
+	dbw 36, HAUNTER
+	dbw 36, RHYHORN
+	dbw 36, RHYHORN
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MORTAR_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 15, ZUBAT
-	dbw 17, ZUBAT
-	dbw 17, GOLBAT
-	dbw 16, MACHOP
-	dbw 16, GEODUDE
-	dbw 18, RATICATE
-	dbw 18, RATICATE
+	dbw 36, MACHOKE
+	dbw 36, GLIGAR
+	dbw 36, RHYHORN
+	dbw 36, KADABRA
+	dbw 36, HAUNTER
+	dbw 36, MAROWAK
+	dbw 36, MAROWAK
 	; day
-	dbw 15, ZUBAT
-	dbw 17, ZUBAT
-	dbw 17, GOLBAT
-	dbw 16, MACHOP
-	dbw 16, GEODUDE
-	dbw 18, RATICATE
-	dbw 18, RATICATE
+	dbw 36, RHYHORN
+	dbw 36, MACHOKE
+	dbw 36, GLIGAR
+	dbw 36, GLIGAR
+	dbw 36, HAUNTER
+	dbw 36, KADABRA
+	dbw 36, KADABRA
 	; nite
-	dbw 15, ZUBAT
-	dbw 17, ZUBAT
-	dbw 17, GOLBAT
-	dbw 16, MARILL
-	dbw 16, GEODUDE
-	dbw 18, RATICATE
-	dbw 18, RATICATE
+	dbw 36, GLIGAR
+	dbw 36, KADABRA
+	dbw 36, MAROWAK
+	dbw 36, MACHOKE
+	dbw 36, HAUNTER
+	dbw 36, RHYHORN
+	dbw 36, RHYHORN
 	end_grass_wildmons
 
 	def_grass_wildmons ICE_PATH_1F
@@ -874,225 +874,225 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_NW
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
+	dbw 25, DEWGONG
+	dbw 25, POLIWHIRL
+	dbw 25, SNEASEL
 	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, PILOSWINE
 	; day
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
+	dbw 25, DEWGONG
+	dbw 25, PILOSWINE
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
 	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, SNEASEL
+	dbw 25, POLIWHIRL
 	; nite
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, KRABBY
-	dbw 24, KRABBY
+	dbw 25, DEWGONG
+	dbw 25, CLOYSTER
 	dbw 25, GOLBAT
-	dbw 24, GOLBAT
-	dbw 24, GOLBAT
+	dbw 25, SNEASEL
+	dbw 25, PILOSWINE
+	dbw 25, POLIWHIRL
+	dbw 25, KINGLER
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_NE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
+	dbw 25, SNEASEL
+	dbw 25, PILOSWINE
+	dbw 25, DEWGONG
 	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, POLIWHIRL
 	; day
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
+	dbw 25, SNEASEL
+	dbw 25, POLIWHIRL
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
 	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, DEWGONG
+	dbw 25, PILOSWINE
 	; nite
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, KRABBY
-	dbw 24, KRABBY
+	dbw 25, SNEASEL
+	dbw 25, CLOYSTER
 	dbw 25, GOLBAT
-	dbw 24, GOLBAT
-	dbw 24, GOLBAT
+	dbw 25, DEWGONG
+	dbw 25, POLIWHIRL
+	dbw 25, PILOSWINE
+	dbw 25, KINGLER
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_SW
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
+	dbw 25, POLIWHIRL
+	dbw 25, SNEASEL
+	dbw 25, DEWGONG
 	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, PILOSWINE
 	; day
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
+	dbw 25, POLIWHIRL
+	dbw 25, PILOSWINE
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
 	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, DEWGONG
+	dbw 25, SNEASEL
 	; nite
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, KRABBY
-	dbw 24, KRABBY
+	dbw 25, POLIWHIRL
+	dbw 25, CLOYSTER
 	dbw 25, GOLBAT
-	dbw 24, GOLBAT
-	dbw 24, GOLBAT
+	dbw 25, DEWGONG
+	dbw 25, PILOSWINE
+	dbw 25, SNEASEL
+	dbw 25, KINGLER
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_CAVE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
-	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, SHELLDER
+	dbw 25, KRABBY
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, KRABBY
 	; day
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
-	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, KRABBY
+	dbw 25, KINGLER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
 	; nite
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, KRABBY
-	dbw 24, KRABBY
-	dbw 25, GOLBAT
-	dbw 24, GOLBAT
-	dbw 24, GOLBAT
+	dbw 25, KINGLER
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
+	dbw 25, KRABBY
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_SE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
+	dbw 25, PILOSWINE
+	dbw 25, DEWGONG
+	dbw 25, POLIWHIRL
 	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, SNEASEL
 	; day
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, SEEL
-	dbw 24, KRABBY
+	dbw 25, PILOSWINE
+	dbw 25, SNEASEL
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
 	dbw 25, GOLBAT
-	dbw 24, SEEL
-	dbw 24, SEEL
+	dbw 25, POLIWHIRL
+	dbw 25, DEWGONG
 	; nite
-	dbw 22, KRABBY
-	dbw 23, ZUBAT
-	dbw 22, KRABBY
-	dbw 24, KRABBY
+	dbw 25, PILOSWINE
+	dbw 25, CLOYSTER
 	dbw 25, GOLBAT
-	dbw 24, GOLBAT
-	dbw 24, GOLBAT
+	dbw 25, POLIWHIRL
+	dbw 25, SNEASEL
+	dbw 25, DEWGONG
+	dbw 25, KINGLER
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 23, KRABBY
-	dbw 24, ZUBAT
-	dbw 23, SEEL
-	dbw 25, KRABBY
-	dbw 26, GOLBAT
-	dbw 25, SEEL
-	dbw 25, SEEL
+	dbw 25, SNEASEL
+	dbw 25, PILOSWINE
+	dbw 25, DEWGONG
+	dbw 25, GOLBAT
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, POLIWHIRL
 	; day
-	dbw 23, KRABBY
-	dbw 24, ZUBAT
-	dbw 23, SEEL
-	dbw 25, KRABBY
-	dbw 26, GOLBAT
-	dbw 25, SEEL
-	dbw 25, SEEL
+	dbw 25, SNEASEL
+	dbw 25, POLIWHIRL
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, GOLBAT
+	dbw 25, DEWGONG
+	dbw 25, PILOSWINE
 	; nite
-	dbw 23, KRABBY
-	dbw 24, ZUBAT
-	dbw 23, KRABBY
-	dbw 25, KRABBY
-	dbw 26, GOLBAT
+	dbw 25, SNEASEL
+	dbw 25, CLOYSTER
 	dbw 25, GOLBAT
-	dbw 25, GOLBAT
+	dbw 25, DEWGONG
+	dbw 25, POLIWHIRL
+	dbw 25, PILOSWINE
+	dbw 25, KINGLER
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_B2F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 24, KRABBY
-	dbw 25, ZUBAT
-	dbw 24, SEEL
-	dbw 26, KRABBY
-	dbw 27, GOLBAT
-	dbw 26, SEEL
-	dbw 26, SEEL
+	dbw 25, SHELLDER
+	dbw 25, KRABBY
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, KRABBY
 	; day
-	dbw 24, KRABBY
-	dbw 25, ZUBAT
-	dbw 24, SEEL
-	dbw 26, KRABBY
-	dbw 27, GOLBAT
-	dbw 26, SEEL
-	dbw 26, SEEL
+	dbw 25, KRABBY
+	dbw 25, KINGLER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
 	; nite
-	dbw 24, KRABBY
-	dbw 25, ZUBAT
-	dbw 24, KRABBY
-	dbw 26, KRABBY
-	dbw 27, GOLBAT
-	dbw 26, GOLBAT
-	dbw 26, GOLBAT
+	dbw 25, KINGLER
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
+	dbw 25, KRABBY
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_LUGIA_CHAMBER
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
+	dbw 25, SHELLDER
 	dbw 25, KRABBY
-	dbw 26, ZUBAT
-	dbw 25, SEEL
-	dbw 27, KRABBY
-	dbw 28, GOLBAT
-	dbw 27, SEEL
-	dbw 27, SEEL
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, KRABBY
 	; day
 	dbw 25, KRABBY
-	dbw 26, ZUBAT
-	dbw 25, SEEL
-	dbw 27, KRABBY
-	dbw 28, GOLBAT
-	dbw 27, SEEL
-	dbw 27, SEEL
+	dbw 25, KINGLER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
 	; nite
+	dbw 25, KINGLER
+	dbw 25, CLOYSTER
+	dbw 25, SHELLDER
 	dbw 25, KRABBY
-	dbw 26, ZUBAT
-	dbw 25, KRABBY
-	dbw 27, KRABBY
-	dbw 28, GOLBAT
-	dbw 27, GOLBAT
-	dbw 27, GOLBAT
+	dbw 25, SHELLDER
+	dbw 25, CLOYSTER
+	dbw 25, KINGLER
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ROOM_1
@@ -1574,57 +1574,57 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_42
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 13, EKANS
-	dbw 14, SPEAROW
-	dbw 15, RATTATA
-	dbw 16, RATICATE
-	dbw 15, ARBOK
-	dbw 16, FEAROW
-	dbw 16, FEAROW
+	dbw 38, DODRIO
+	dbw 38, KANGASKHAN
+	dbw 38, PINSIR
+	dbw 38, TANGELA
+	dbw 38, PRIMEAPE
+	dbw 38, PRIMEAPE
+	dbw 38, PRIMEAPE
 	; day
-	dbw 13, EKANS
-	dbw 14, SPEAROW
-	dbw 15, RATTATA
-	dbw 16, RATICATE
-	dbw 15, ARBOK
-	dbw 16, FEAROW
-	dbw 16, FEAROW
+	dbw 38, KANGASKHAN
+	dbw 38, PINSIR
+	dbw 38, DODRIO
+	dbw 38, PRIMEAPE
+	dbw 38, PRIMEAPE
+	dbw 38, YANMA
+	dbw 38, YANMA
 	; nite
-	dbw 13, RATTATA
-	dbw 14, ZUBAT
-	dbw 15, RATICATE
-	dbw 16, GOLBAT
-	dbw 15, MARILL
-	dbw 16, GOLBAT
-	dbw 16, GOLBAT
+	dbw 38, TANGELA
+	dbw 38, YANMA
+	dbw 38, PINSIR
+	dbw 38, PINSIR
+	dbw 38, VENOMOTH
+	dbw 38, VENOMOTH
+	dbw 38, GENGAR
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_43
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	dbw 15, SENTRET
-	dbw 16, PIDGEOTTO
-	dbw 16, FARFETCH_D
-	dbw 15, FURRET
-	dbw 17, RATICATE
-	dbw 17, FURRET
-	dbw 17, FURRET
+	dbw 38, FARFETCH_D
+	dbw 38, ELECTRODE
+	dbw 38, DUGTRIO
+	dbw 38, MURKROW
+	dbw 38, NIDORINO
+	dbw 38, NIDORINA
+	dbw 38, NIDORINA
 	; day
-	dbw 15, SENTRET
-	dbw 16, PIDGEOTTO
-	dbw 16, FARFETCH_D
-	dbw 15, FURRET
-	dbw 17, RATICATE
-	dbw 17, FURRET
-	dbw 17, FURRET
+	dbw 38, FARFETCH_D
+	dbw 38, DUGTRIO
+	dbw 38, ELECTRODE
+	dbw 38, MURKROW
+	dbw 38, NIDORINA
+	dbw 38, NIDORINO
+	dbw 38, NIDORINO
 	; nite
-	dbw 15, VENONAT
-	dbw 16, NOCTOWL
-	dbw 16, RATICATE
-	dbw 17, VENONAT
-	dbw 17, RATICATE
-	dbw 17, VENOMOTH
-	dbw 17, VENOMOTH
+	dbw 38, MURKROW
+	dbw 38, KADABRA
+	dbw 38, HOUNDOOM
+	dbw 38, FARFETCH_D
+	dbw 38, MACHOKE
+	dbw 38, MACHOKE
+	dbw 38, MR__MIME
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_44

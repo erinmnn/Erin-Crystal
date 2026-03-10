@@ -216,10 +216,12 @@ SetLightScreen:
 	call GetAutomaticBattleLightScreen
 	and a
 	ret z
-	ld hl, wPlayerScreens
-	set SCREENS_SPIKES, [hl]
+	ld hl, wEnemyScreens
+	set SCREENS_LIGHT_SCREEN, [hl]
 	ldh [hBattleTurn], a
 	ld de, LIGHT_SCREEN
+	ld a, 255
+	ld [wEnemyLightScreenCount], a
 	call Call_PlayBattleAnim
 	ld hl, LightScreenEffectText
 	call StdBattleTextbox
@@ -242,7 +244,7 @@ GetAutomaticBattleLightScreen:
 	jr nz, .wrong_map
 	ld a, 1 ;light screen
 	ret
-
+	
 .wrong_group:
 	inc hl ; skip map
 .wrong_map
@@ -1418,7 +1420,7 @@ HandleWrap:
 	call SwitchTurnCore
 
 .skip_anim
-	call GetSixteenthMaxHP
+	call GetEighthMaxHP
 	call SubtractHPFromUser
 	ld hl, BattleText_UsersHurtByStringBuffer1
 	jr .print_text

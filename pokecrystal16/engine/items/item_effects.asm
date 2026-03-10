@@ -1116,6 +1116,7 @@ CandyBagEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM
 	call UseItem_SelectMon
 
+.loop
 	jp c, RareCandy_StatBooster_ExitMenu
 
 	call RareCandy_StatBooster_GetParameters
@@ -1199,6 +1200,9 @@ CandyBagEffect:
 	xor a
 	ld [wForceEvolution], a
 	farcall EvolvePokemon
+
+	call ChooseMonToUseItemOn
+	jp .loop
 
 BicycleEffect:
 	farcall BikeFunction

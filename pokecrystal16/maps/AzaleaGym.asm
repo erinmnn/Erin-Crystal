@@ -25,6 +25,7 @@ AzaleaGymBugsyScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BUGSY
+	setevent EVENT_TIN_TOWER_ROCKET_POPULATION
 	opentext
 	writetext Text_ReceivedHiveBadge
 	playsound SFX_GET_BADGE

@@ -1,4 +1,5 @@
 	object_const_def
+	const CIANWOODCITY_LANCE
 	const CIANWOODCITY_STANDING_YOUNGSTER
 	const CIANWOODCITY_POKEFAN_M
 	const CIANWOODCITY_LASS
@@ -7,7 +8,6 @@
 	const CIANWOODCITY_ROCK3
 	const CIANWOODCITY_ROCK4
 	const CIANWOODCITY_ROCK5
-	const CIANWOODCITY_ROCK6
 	const CIANWOODCITY_POKEFAN_F
 	const CIANWOODCITY_EUSINE
 	const CIANWOODCITY_SUICUNE
@@ -177,6 +177,115 @@ CianwoodCityEusineDepartMovement:
 	step DOWN
 	step DOWN
 	step DOWN
+	step_end
+
+CianwoodLanceScript:
+	checkevent EVENT_REFUSED_TO_HELP_LANCE_AT_CIANWOOD
+	iftrue .AskAgainForHelp
+	opentext
+	writetext CianwoodLanceHeavyRainText
+	promptbutton
+	faceplayer
+	writetext CianwoodLanceIntroText
+	yesorno
+	iffalse .RefusedToHelp
+.AgreedToHelp:
+	writetext CianwoodLanceRadioSignalText
+	waitbutton
+	closetext
+	playsound SFX_WARP_TO
+	applymovement CIANWOODCITY_LANCE, CianwoodLanceExitMovement
+	disappear CIANWOODCITY_LANCE
+	clearevent EVENT_CIANWOOD_LANCE_AND_DRAGONITE
+	setevent EVENT_DECIDED_TO_HELP_LANCE
+	setevent EVENT_CIANWOOD_LANCE
+	end
+
+.RefusedToHelp:
+	writetext CianwoodLanceRefusedText
+	waitbutton
+	closetext
+	setevent EVENT_REFUSED_TO_HELP_LANCE_AT_CIANWOOD
+	end
+
+.AskAgainForHelp:
+	faceplayer
+	opentext
+	writetext CianwoodLanceAskHelpText
+	yesorno
+	iffalse .RefusedToHelp
+	sjump .AgreedToHelp
+
+CianwoodLanceHeavyRainText:
+	text "The rain has been"
+	line "ususually heavy"
+	cont "on ROUTE 41…"
+
+	para "LUGIA must be in"
+	line "some kind of"
+	cont "uproar…"
+	done
+
+CianwoodLanceIntroText:
+	text "Did you come here"
+	line "because of the"
+	cont "rumors?"
+
+	para "You're <PLAYER>?"
+	line "I'm LANCE, a"
+	cont "trainer like you."
+
+	para "I heard some ru-"
+	line "mors, so I came to"
+	cont "investigate…"
+
+	para "I saw the way you"
+	line "battled earlier,"
+	cont "<PLAY_G>."
+
+	para "I can tell that"
+	line "you're a trainer"
+
+	para "with considerable"
+	line "skill."
+
+	para "If you don't mind,"
+	line "could you help me"
+	cont "investigate?"
+	done
+
+CianwoodLanceRadioSignalText:
+	text "LANCE: Excellent!"
+
+	para "LUGIA resides in"
+	line "the caves below"
+	cont "WHIRL ISLAND."
+
+	para "A mysterious radio"
+	line "broadcast coming"
+	cont "from the NORTH"
+
+	para "EAST island may"
+	line "be the cause"
+	cont "of its distress"
+
+	para "I'll be waiting"
+	line "for you, <PLAY_G>."
+	done
+
+CianwoodLanceRefusedText:
+	text "Oh… Well, if you"
+	line "change your mind,"
+	cont "please help me."
+	done
+
+CianwoodLanceAskHelpText:
+	text "LANCE: Hm? Are you"
+	line "going to help me?"
+	done
+
+CianwoodLanceExitMovement:
+	teleport_from
 	step_end
 
 ChucksWifeEasierToFlyText:
@@ -403,6 +512,7 @@ CianwoodCity_MapEvents:
 	bg_event  5, 29, BGEVENT_ITEM, CianwoodCityHiddenMaxEther
 
 	def_object_events
+	object_event 23, 32, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodLanceScript, EVENT_CIANWOOD_LANCE
 	object_event 21, 37, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodCityYoungster, -1
 	object_event 17, 33, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityPokefanM, -1
 	object_event 14, 42, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityLass, -1
@@ -411,7 +521,7 @@ CianwoodCity_MapEvents:
 	object_event  4, 25, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
 	object_event  5, 29, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
 	object_event 10, 27, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
-	object_event  4, 19, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
 	object_event 10, 46, SPRITE_POKEFAN_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityChucksWife, -1
 	object_event 11, 21, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_CIANWOOD_CITY_EUSINE
 	object_event 10, 14, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_AT_CIANWOOD_CITY
+	

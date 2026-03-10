@@ -629,6 +629,7 @@ StatusNurse:
 	waitbutton
 .select_status
 	writetext Text_StatusNurseSelect
+	waitbutton
 	loadmenu .StatusMenuHeader
 	verticalmenu
 	closewindow
@@ -668,20 +669,20 @@ StatusNurse:
 	closetext
 	end
 
+
 .StatusMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 3, 15, TEXTBOX_Y - 1
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 5 ; items
+	db 4 ; items
 	db "POISON@"
 	db "BURN@"
 	db "PARALYZE@"
 	db "FREEZE@"
-	db "CANCEL@"
 
 Pokecenter2FMovementData_ReceptionistWalksUpAndLeft_LookRight:
 	slow_step UP

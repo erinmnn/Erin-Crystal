@@ -310,7 +310,7 @@ CheckMonKnowsMove:
 	xor a
 	ret z
 
-CheckLvlUpMoves:
+CheckLvlUpMovesSub:
 	ld d, a
 	ld a, [wTempSpecies]
 	call GetPokemonIndexFromID
@@ -402,7 +402,7 @@ CanUseFlash:
 ; Step 6: Check if Mon can learn move from LVL-UP
 	ld hl, FLASH
 	call GetMoveIDFromIndex
-	call CheckLvlUpMoves
+	call CheckLvlUpMovesSub
 	ret c ; fail
 
 .yes
@@ -444,7 +444,7 @@ CanUseFly:
 
 ; Step 6: Check if Mon can learn move via LVL-UP
 	ld a, FLY
-	call CheckLvlUpMoves
+	call CheckLvlUpMovesSub
 	ret c ; fail
 .yes
 	ld a, MONMENUITEM_FLY
@@ -481,7 +481,7 @@ Can_Use_Sweet_Scent:
 
 ; Step 5: Check if mon can learn move via LVL-UP
 	ld a, SWEET_SCENT
-	call CheckLvlUpMoves
+	call CheckLvlUpMovesSub
 	ret c ; fail
 .yes
 	ld a, MONMENUITEM_SWEETSCENT
@@ -506,7 +506,8 @@ CanUseDig:
 
 .valid_location
 ; Step 2: Check if Mon knows Move
-	ld a, DIG
+	ld hl, DIG
+	call GetMoveIDFromIndex
 	call CheckMonKnowsMove
 	and a
 	jr z, .yes
@@ -519,13 +520,15 @@ CanUseDig:
 	ret nc ; .fail ; TM not in bag
 
 ; Step 4: Check if Mon can learn Dig via TM/HM/Move Tutor
-	ld a, DIG
+	ld hl, DIG
+	call GetMoveIDFromIndex
 	call CheckMonCanLearn_TM_HM
 	jr c, .yes
 
 ; Step 5: Check if Mon can learn move via LVL-UP
-	ld a, DIG
-	call CheckLvlUpMoves
+	ld hl, DIG
+	call GetMoveIDFromIndex
+	call CheckLvlUpMovesSub
 	ret c ; fail
 .yes
 	ld a, MONMENUITEM_DIG
@@ -546,7 +549,7 @@ CanUseTeleport:
 
 ; Step 3: Check if mon learns move via LVL-UP
 	ld a, TELEPORT
-	call CheckLvlUpMoves
+	call CheckLvlUpMovesSub
 	ret c ; fail
 .yes
 	ld a, MONMENUITEM_TELEPORT

@@ -22,6 +22,7 @@ StatusSelectDone:
 PoisonMon:
 	call DisableSpriteUpdates
 .select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
     	jp c, .PoisonExit
     	ld a, [wCurPartySpecies]
     	cp EGG
@@ -98,6 +99,7 @@ PoisonMon:
 BurnMon:
 	call DisableSpriteUpdates
 .select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
     	jp c, .BurnExit
     	ld a, [wCurPartySpecies]
     	cp EGG
@@ -169,6 +171,7 @@ BurnMon:
 ParalyzeMon:
 	call DisableSpriteUpdates
 .select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
     	jp c, .ParalyzeExit
     	ld a, [wCurPartySpecies]
     	cp EGG
@@ -221,6 +224,7 @@ ParalyzeMon:
 FreezeMon:
 	call DisableSpriteUpdates
 .select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
     	jp c, .FreezeExit
     	ld a, [wCurPartySpecies]
     	cp EGG
