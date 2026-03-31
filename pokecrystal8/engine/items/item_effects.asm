@@ -2161,14 +2161,6 @@ EscapeRopeEffect:
 	call z, UseDisposableItem
 	ret
 
-SuperRepelEffect:
-	ld b, 200
-	jr UseRepel
-
-MaxRepelEffect:
-	ld b, 250
-	jr UseRepel
-
 RepelEffect:
 	ld b, 100
 

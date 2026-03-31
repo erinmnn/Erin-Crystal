@@ -1,3 +1,9 @@
+DEF FRUIT_TREE_17_MIN EQU 17
+DEF FRUIT_TREE_18     EQU 18
+DEF FRUIT_TREE_19     EQU 19
+DEF FRUIT_TREE_20     EQU 20
+DEF FRUIT_TREE_21_MAX EQU 21
+
 FruitTreeScript::
 	callasm GetCurTreeFruit
 	opentext
@@ -13,12 +19,47 @@ FruitTreeScript::
 	sjump .end
 
 .fruit
-	writetext HeyItsFruitText
+	farwritetext _HeyItsFruitText
+	callasm GetFruitTreeCount
+	ifequal FRUIT_TREE_17_MIN, .try_seventeen
+	ifequal FRUIT_TREE_18, .try_eighteen
+	ifequal FRUIT_TREE_19, .try_nineteen
+	ifequal FRUIT_TREE_20, .try_twenty
+	; only possible value left it could be is FRUIT_TREE_21_MAX
 	readmem wCurFruit
-	giveitem ITEM_FROM_MEM
+	giveitem ITEM_FROM_MEM, $15
 	iffalse .packisfull
 	promptbutton
 	writetext ObtainedFruitText
+	sjump .continue
+.try_twenty
+	readmem wCurFruit
+	giveitem ITEM_FROM_MEM, $14
+	iffalse .packisfull
+	promptbutton
+	writetext ObtainedFruitText
+	sjump .continue
+.try_nineteen
+	readmem wCurFruit
+	giveitem ITEM_FROM_MEM, $13
+	iffalse .packisfull
+	promptbutton
+	writetext ObtainedFruitText
+	sjump .continue
+.try_eighteen
+	readmem wCurFruit
+	giveitem ITEM_FROM_MEM, $12
+	iffalse .packisfull
+	promptbutton
+	writetext ObtainedFruitText
+	sjump .continue
+.try_seventeen
+	readmem wCurFruit
+	giveitem ITEM_FROM_MEM, $11
+	iffalse .packisfull
+	promptbutton
+	writetext ObtainedFruitText
+.continue
 	callasm PickedFruitTree
 	specialsound
 	itemnotify
@@ -32,6 +73,13 @@ FruitTreeScript::
 .end
 	closetext
 	end
+
+GetFruitTreeCount:
+	ld a, 5
+	call RandomRange
+	add 17
+	ld [wScriptVar], a
+	ret
 
 GetCurTreeFruit:
 	ld a, [wCurFruitTree]
@@ -59,14 +107,6 @@ PickedFruitTree:
 	jp GetFruitTreeFlag
 
 ResetFruitTrees:
-	xor a
-	ld hl, wFruitTreeFlags
-rept (NUM_FRUIT_TREES + 7) / 8 - 1
-	ld [hli], a
-endr
-	ld [hl], a
-	ld hl, wDailyFlags1
-	set DAILYFLAGS1_ALL_FRUIT_TREES_F, [hl]
 	ret
 
 GetFruitTreeFlag:

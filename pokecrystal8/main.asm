@@ -44,7 +44,6 @@ INCLUDE "engine/pokemon/knows_move.asm"
 SECTION "bank4", ROMX
 
 INCLUDE "engine/events/bug_contest/contest.asm"
-INCLUDE "engine/events/repel.asm"
 INCLUDE "engine/items/pack.asm"
 INCLUDE "engine/overworld/time.asm"
 INCLUDE "engine/items/tmhm2.asm"
