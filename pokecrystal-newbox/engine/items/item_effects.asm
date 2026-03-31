@@ -19,7 +19,7 @@ ItemEffects:
 	dw NoEffect            ; BRIGHTPOWDER
 	dw PokeBallEffect      ; GREAT_BALL
 	dw PokeBallEffect      ; POKE_BALL
-	dw TownMapEffect       ; TOWN_MAP
+	dw CandyBagEffect      ; CANDY_BAG
 	dw BicycleEffect       ; BICYCLE
 	dw EvoStoneEffect      ; MOON_STONE
 	dw StatusHealingEffect ; ANTIDOTE
@@ -39,12 +39,12 @@ ItemEffects:
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
 	dw NoEffect            ; ITEM_19
-	dw VitaminEffect       ; HP_UP
-	dw VitaminEffect       ; PROTEIN
-	dw VitaminEffect       ; IRON
-	dw VitaminEffect       ; CARBOS
+	dw NoEffect       ; HP_UP
+	dw NoEffect       ; PROTEIN
+	dw NoEffect       ; IRON
+	dw NoEffect       ; CARBOS
 	dw NoEffect            ; LUCKY_PUNCH
-	dw VitaminEffect       ; CALCIUM
+	dw NoEffect       ; CALCIUM
 	dw RareCandyEffect     ; RARE_CANDY
 	dw XAccuracyEffect     ; X_ACCURACY
 	dw EvoStoneEffect      ; LEAF_STONE
@@ -55,8 +55,8 @@ ItemEffects:
 	dw ReviveEffect        ; REVIVE
 	dw ReviveEffect        ; MAX_REVIVE
 	dw GuardSpecEffect     ; GUARD_SPEC
-	dw SuperRepelEffect    ; SUPER_REPEL
-	dw MaxRepelEffect      ; MAX_REPEL
+	dw NoEffect	       ; SUPER_REPEL
+	dw NoEffect            ; MAX_REPEL
 	dw DireHitEffect       ; DIRE_HIT
 	dw NoEffect            ; ITEM_2D
 	dw RestoreHPEffect     ; FRESH_WATER
@@ -75,7 +75,7 @@ ItemEffects:
 	dw GoodRodEffect       ; GOOD_ROD
 	dw NoEffect            ; SILVER_LEAF
 	dw SuperRodEffect      ; SUPER_ROD
-	dw RestorePPEffect     ; PP_UP
+	dw NoEffect	       ; PP_UP
 	dw RestorePPEffect     ; ETHER
 	dw RestorePPEffect     ; MAX_ETHER
 	dw RestorePPEffect     ; ELIXER
@@ -1130,9 +1130,97 @@ ReturnToBattle_UseBall:
 	farcall _ReturnToBattle_UseBall
 	ret
 
-TownMapEffect:
-	farcall PokegearMap
-	ret
+CandyBagEffect:
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+
+.loop
+	jp c, RareCandy_StatBooster_ExitMenu
+
+	call RareCandy_StatBooster_GetParameters
+
+	ld a, MON_LEVEL
+	call GetPartyParamLocation
+
+	ld a, [hl]
+	cp MAX_LEVEL
+	jp nc, NoEffectMessage
+
+	inc a
+	ld [hl], a
+	ld [wCurPartyLevel], a
+	push de
+	ld d, a
+	farcall CalcExpAtLevel
+
+	pop de
+	ld a, MON_EXP
+	call GetPartyParamLocation
+
+	ldh a, [hMultiplicand + 0]
+	ld [hli], a
+	ldh a, [hMultiplicand + 1]
+	ld [hli], a
+	ldh a, [hMultiplicand + 2]
+	ld [hl], a
+
+	ld a, MON_MAXHP
+	call GetPartyParamLocation
+	ld a, [hli]
+	ld b, a
+	ld c, [hl]
+	push bc
+	call UpdateStatsAfterItem
+
+	ld a, MON_MAXHP + 1
+	call GetPartyParamLocation
+
+	pop bc
+	ld a, [hld]
+	sub c
+	ld c, a
+	ld a, [hl]
+	sbc b
+	ld b, a
+	dec hl
+	ld a, [hl]
+	add c
+	ld [hld], a
+	ld a, [hl]
+	adc b
+	ld [hl], a
+	farcall LevelUpHappinessMod
+
+	ld a, PARTYMENUTEXT_LEVEL_UP
+	call ItemActionText
+
+	xor a ; PARTYMON
+	ld [wMonType], a
+	predef CopyMonToTempMon
+
+	hlcoord 9, 0
+	ld b, 10
+	ld c, 9
+	call Textbox
+
+	hlcoord 11, 1
+	ld bc, 4
+	predef PrintTempMonStats
+
+	call WaitPressAorB_BlinkCursor
+
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, [wCurPartySpecies]
+	ld [wTempSpecies], a
+	predef LearnLevelMoves
+
+	xor a
+	ld [wForceEvolution], a
+	farcall EvolvePokemon
+
+	call ChooseMonToUseItemOn
+	jp .loop
 
 BicycleEffect:
 	farcall BikeFunction
