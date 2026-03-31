@@ -466,6 +466,12 @@ PokegearClock_Joypad:
 	and PAD_BUTTONS
 	jr nz, .quit
 	ld a, [hl]
+	and PAD_UP
+	jr nz, .up
+	ld a, [hl]
+	and PAD_DOWN
+	jr nz, .down
+	ld a, [hl]
 	and PAD_RIGHT
 	ret z
 	ld a, [wPokegearFlags]
@@ -496,6 +502,26 @@ PokegearClock_Joypad:
 .quit
 	ld hl, wJumptableIndex
 	set JUMPTABLE_EXIT_F, [hl]
+	ret
+
+.up
+	ld a, [wStartHour]
+	inc a
+	cp a, 24
+	jr c, .set_time
+	sub a, 24
+	jr .set_time
+
+.down
+	ld a, [wStartHour]
+	and a
+	jr z, .down_wrap
+	dec a
+	jr .set_time
+.down_wrap
+	ld a, 24
+.set_time
+	ld [wStartHour], a
 	ret
 
 .UpdateClock:
