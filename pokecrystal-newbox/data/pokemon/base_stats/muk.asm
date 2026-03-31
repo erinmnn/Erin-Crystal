@@ -1,4 +1,4 @@
-	db MUK ; 089
+	db MUK
 
 	db 105, 105,  75,  50,  65, 100
 	;   hp  atk  def  spd  sat  sdf

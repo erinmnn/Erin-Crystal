@@ -1,4 +1,4 @@
-	db BAYLEEF ; 153
+	db BAYLEEF
 
 	db  60,  62,  80,  60,  63,  80
 	;   hp  atk  def  spd  sat  sdf

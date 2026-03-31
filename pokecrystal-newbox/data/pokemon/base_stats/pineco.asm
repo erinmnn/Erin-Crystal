@@ -1,4 +1,4 @@
-	db PINECO ; 204
+	db PINECO
 
 	db  50,  65,  90,  15,  35,  35
 	;   hp  atk  def  spd  sat  sdf

@@ -1,4 +1,4 @@
-	db SANDSLASH ; 028
+	db SANDSLASH
 
 	db  75, 100, 110,  65,  45,  55
 	;   hp  atk  def  spd  sat  sdf

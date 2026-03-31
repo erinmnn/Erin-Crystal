@@ -1,4 +1,4 @@
-	db MEOWTH ; 052
+	db MEOWTH
 
 	db  40,  45,  35,  90,  40,  40
 	;   hp  atk  def  spd  sat  sdf

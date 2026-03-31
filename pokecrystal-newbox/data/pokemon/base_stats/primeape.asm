@@ -1,6 +1,6 @@
-	db PRIMEAPE ; 057
+	db PRIMEAPE
 
-	db  65, 105,  60,  95,  60,  70
+	db  85, 115,  75,  95,  50,  70
 	;   hp  atk  def  spd  sat  sdf
 
 	db FIGHTING, FIGHTING ; type

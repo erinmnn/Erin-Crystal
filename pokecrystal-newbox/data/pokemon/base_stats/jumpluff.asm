@@ -1,4 +1,4 @@
-	db JUMPLUFF ; 189
+	db JUMPLUFF
 
 	db  75,  55,  70, 110,  55,  85
 	;   hp  atk  def  spd  sat  sdf

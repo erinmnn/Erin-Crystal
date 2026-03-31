@@ -1,4 +1,4 @@
-	db DONPHAN ; 232
+	db DONPHAN
 
 	db  90, 120, 120,  50,  60,  60
 	;   hp  atk  def  spd  sat  sdf

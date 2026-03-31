@@ -1,4 +1,4 @@
-	db IVYSAUR ; 002
+	db IVYSAUR
 
 	db  60,  62,  63,  60,  80,  80
 	;   hp  atk  def  spd  sat  sdf

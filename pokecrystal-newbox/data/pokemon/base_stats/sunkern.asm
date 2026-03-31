@@ -1,4 +1,4 @@
-	db SUNKERN ; 191
+	db SUNKERN
 
 	db  30,  30,  30,  30,  30,  30
 	;   hp  atk  def  spd  sat  sdf

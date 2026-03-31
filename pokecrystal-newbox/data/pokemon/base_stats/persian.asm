@@ -1,4 +1,4 @@
-	db PERSIAN ; 053
+	db PERSIAN
 
 	db  65,  70,  60, 115,  65,  65
 	;   hp  atk  def  spd  sat  sdf

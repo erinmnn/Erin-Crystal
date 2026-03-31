@@ -69,13 +69,12 @@ MartViolet:
 	db -1 ; end
 
 MartAzalea:
-	db 9 ; # items
+	db 8 ; # items
 	db CHARCOAL
 	db POKE_BALL
 	db POTION
 	db SUPER_POTION
 	db ESCAPE_ROPE
-	db REPEL
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db FLOWER_MAIL
@@ -102,11 +101,10 @@ MartGoldenrod2F1:
 	db -1 ; end
 
 MartGoldenrod2F2:
-	db 8 ; # items
+	db 7 ; # items
 	db POKE_BALL
 	db GREAT_BALL
 	db ESCAPE_ROPE
-	db REPEL
 	db REVIVE
 	db FULL_HEAL
 	db POKE_DOLL
@@ -180,6 +178,7 @@ MartOlivine:
 
 MartEcruteak:
 	db 10 ; # items
+	db TM_ROCK_SMASH
 	db POKE_BALL
 	db GREAT_BALL
 	db POTION
@@ -189,7 +188,6 @@ MartEcruteak:
 	db AWAKENING
 	db BURN_HEAL
 	db ICE_HEAL
-	db REVIVE
 	db -1 ; end
 
 MartMahogany1:
@@ -313,12 +311,8 @@ MartCeladon2F2:
 	db -1 ; end
 
 MartCeladon3F:
-	db 5 ; # items
+	db 1 ; # items
 	db TM_HIDDEN_POWER
-	db TM_SUNNY_DAY
-	db TM_PROTECT
-	db TM_RAIN_DANCE
-	db TM_SANDSTORM
 	db -1 ; end
 
 MartCeladon4F:
@@ -372,12 +366,11 @@ MartSaffron:
 	db -1 ; end
 
 MartMtMoon:
-	db 6 ; # items
+	db 5 ; # items
 	db POKE_DOLL
 	db FRESH_WATER
 	db SODA_POP
 	db LEMONADE
-	db REPEL
 	db PORTRAITMAIL
 	db -1 ; end
 
@@ -393,11 +386,14 @@ MartIndigoPlateau:
 	db -1 ; end
 
 MartUnderground:
-	db 4 ; # items
+	db 7 ; # items
+	db BERRY_JUICE
 	db ENERGYPOWDER
 	db ENERGY_ROOT
 	db HEAL_POWDER
 	db REVIVAL_HERB
+	db TM_RETURN
+	db TM_FRUSTRATION
 	db -1 ; end
 
 DefaultMart:

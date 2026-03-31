@@ -1,4 +1,4 @@
-	db WEEDLE ; 013
+	db WEEDLE
 
 	db  40,  35,  30,  50,  20,  20
 	;   hp  atk  def  spd  sat  sdf

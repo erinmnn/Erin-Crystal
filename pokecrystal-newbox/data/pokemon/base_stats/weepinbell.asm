@@ -1,4 +1,4 @@
-	db WEEPINBELL ; 070
+	db WEEPINBELL
 
 	db  65,  90,  50,  55,  85,  45
 	;   hp  atk  def  spd  sat  sdf

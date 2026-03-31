@@ -235,7 +235,7 @@ DEF TM01 EQU const_value
 	add_tm HYPER_BEAM   ; ce
 	add_tm ICY_WIND     ; cf
 	add_tm PROTECT      ; d0
-	add_tm RAIN_DANCE   ; d1
+	add_tm WING_ATTACK  ; d1
 	add_tm GIGA_DRAIN   ; d2
 	add_tm ENDURE       ; d3
 	add_tm FRUSTRATION  ; d4

@@ -1,4 +1,4 @@
-	db GRAVELER ; 075
+	db GRAVELER
 
 	db  55,  95, 115,  35,  45,  45
 	;   hp  atk  def  spd  sat  sdf

@@ -1,10 +1,10 @@
-	db HOUNDOUR ; 228
+	db HOUNDOUR
 
 	db  45,  60,  30,  65,  80,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, FIRE ; type
-	db 120 ; catch rate
+	db 200 ; catch rate
 	db 114 ; base exp
 	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio

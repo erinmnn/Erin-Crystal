@@ -1,6 +1,6 @@
-	db MR__MIME ; 122
+	db MR__MIME
 
-	db  40,  45,  65,  90, 100, 120
+	db  65,  65,  65,  90, 100, 120
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, PSYCHIC_TYPE ; type

@@ -1,4 +1,4 @@
-	db GEODUDE ; 074
+	db GEODUDE
 
 	db  40,  80, 100,  20,  30,  30
 	;   hp  atk  def  spd  sat  sdf

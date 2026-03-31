@@ -1,6 +1,6 @@
-	db RHYHORN ; 111
+	db RHYHORN
 
-	db  80,  85,  95,  25,  30,  30
+	db  93,  108,  108,  33,  38,  38
 	;   hp  atk  def  spd  sat  sdf
 
 	db GROUND, ROCK ; type

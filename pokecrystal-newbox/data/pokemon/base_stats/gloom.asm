@@ -1,4 +1,4 @@
-	db GLOOM ; 044
+	db GLOOM
 
 	db  60,  65,  70,  40,  85,  75
 	;   hp  atk  def  spd  sat  sdf
