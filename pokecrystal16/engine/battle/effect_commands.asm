@@ -692,24 +692,34 @@ BattleCommand_CheckObedience:
 	; The maximum obedience level is constrained by owned badges:
 	ld hl, wJohtoBadges
 
-	; risingbadge
-	bit RISINGBADGE, [hl]
+	; fogbadge
+	bit FOGBADGE, [hl]
 	ld a, MAX_LEVEL + 1
 	jr nz, .getlevel
 
 	; stormbadge
 	bit STORMBADGE, [hl]
-	ld a, 70
+	ld a, 50
 	jr nz, .getlevel
 
-	; fogbadge
-	bit FOGBADGE, [hl]
-	ld a, 50
+	; mineralbadge
+	bit MINERALBADGE, [hl]
+	ld a, 43
 	jr nz, .getlevel
 
 	; hivebadge
 	bit HIVEBADGE, [hl]
-	ld a, 30
+	ld a, 39
+	jr nz, .getlevel
+
+	; plainbadge
+	bit PLAINBADGE, [hl]
+	ld a, 28
+	jr nz, .getlevel
+
+	; zephyrbadge
+	bit ZEPHYRBADGE, [hl]
+	ld a, 23
 	jr nz, .getlevel
 
 	; no badges
@@ -1722,8 +1732,19 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
 	bit SUBSTATUS_FLYING, a
-	ld hl, .DigMoves
-	jr nz, .check_move_in_list
+	jr z, .LockedOn
+
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+
+	cp EARTHQUAKE
+	ret z
+	cp FISSURE
+	ret z
+	cp MAGNITUDE
+	ret z
+
+.LockedOn:
 	ld a, 1
 	and a
 	ret
@@ -1750,36 +1771,39 @@ BattleCommand_CheckHit:
 ; Check for moves that can hit underground/flying opponents.
 ; Return z if the current move can hit the opponent.
 
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
-	ret z
+    ld a, BATTLE_VARS_SUBSTATUS3_OPP
+    call GetBattleVar
+    and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+    ret z
 
-	bit SUBSTATUS_FLYING, a
-	jr z, .DigMoves
+    ld a, BATTLE_VARS_SUBSTATUS3_OPP
+    call GetBattleVar
+    ld hl, .FlyMoves
+    bit SUBSTATUS_FLYING, a
+    jr nz, .check_move_in_list
+    ld hl, .DigMoves
+    bit SUBSTATUS_UNDERGROUND, a
+.check_move_in_list
+    ; returns z (and a = 0) if the current move is in a given list, or nz (and a = 1) if not
+    ld a, BATTLE_VARS_MOVE_ANIM
+    call GetBattleVar
+    call CheckMoveInList
+    sbc a
+    inc a
+    ret
 
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-
-	cp GUST
-	ret z
-	cp WHIRLWIND
-	ret z
-	cp THUNDER
-	ret z
-	cp TWISTER
-	ret
+.FlyMoves:
+    dw GUST
+    dw WHIRLWIND
+    dw THUNDER
+    dw TWISTER
+    dw -1
 
 .DigMoves:
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
-
-	cp EARTHQUAKE
-	ret z
-	cp FISSURE
-	ret z
-	cp MAGNITUDE
-	ret
+    dw EARTHQUAKE
+    dw FISSURE
+    dw MAGNITUDE
+    dw -1
 
 .ThunderRain:
 ; Return z if the current move always hits in rain, and it is raining.
@@ -4898,6 +4922,7 @@ BattleCommand_CheckRampage:
 	jr nz, .continue_rampage
 
 	res SUBSTATUS_RAMPAGE, [hl]
+	ld hl, BattleText_UsersRampageEnded
 	call BattleCommand_SwitchTurn
 	call SafeCheckSafeguard
 	push af
@@ -5957,7 +5982,6 @@ BattleCommand_DoubleUndergroundDamage:
 	call GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
 	ret z
-	jr DoubleDamage
 
 	; fallthrough
 

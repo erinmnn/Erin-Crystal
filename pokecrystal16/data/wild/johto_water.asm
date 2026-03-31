@@ -116,9 +116,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons DRAGONS_DEN_B1F
 	db 4 percent ; encounter rate
-	dbw 20, DRATINI
-	dbw 20, MAGIKARP
-	dbw 20, DRAGONAIR
+	dbw 50, DRATINI
+	dbw 50, DRATINI
+	dbw 50, DRAGONAIR
 	end_water_wildmons
 
 	def_water_wildmons OLIVINE_PORT
@@ -193,16 +193,16 @@ JohtoWaterWildMons:
 
 	def_water_wildmons ROUTE_44
 	db 2 percent ; encounter rate
-	dbw 25, POLIWAG
-	dbw 20, POLIWAG
-	dbw 25, POLIWHIRL
+	dbw 35, POLIWAG
+	dbw 35, POLIWAG
+	dbw 35, POLIWHIRL
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_45
 	db 2 percent ; encounter rate
-	dbw 20, MAGIKARP
-	dbw 15, MAGIKARP
-	dbw 5, MAGIKARP
+	dbw 44, MANTINE
+	dbw 44, QWILFISH
+	dbw 44, GYARADOS
 	end_water_wildmons
 
 	def_water_wildmons NEW_BARK_TOWN
@@ -256,9 +256,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons BLACKTHORN_CITY
 	db 4 percent ; encounter rate
-	dbw 15, MAGIKARP
-	dbw 10, MAGIKARP
-	dbw 5, MAGIKARP
+	dbw 45, SEADRA
+	dbw 45, SEADRA
+	dbw 50, KINGDRA
 	end_water_wildmons
 
 	def_water_wildmons SILVER_CAVE_OUTSIDE

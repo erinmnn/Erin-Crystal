@@ -126,6 +126,8 @@ GetMonSubmenuItems:
 	call CanUseDig
 	call Can_Use_Sweet_Scent
 	call CanUseTeleport
+	call CanUseSoftboiled
+	call CanUseMilkdrink
 
 .skip_moves
 	ld a, MONMENUITEM_STATS
@@ -310,7 +312,7 @@ CheckMonKnowsMove:
 	xor a
 	ret z
 
-CheckLvlUpMovesSub:
+CheckLvlUpMovesA:
 	ld d, a
 	ld a, [wTempSpecies]
 	call GetPokemonIndexFromID
@@ -351,7 +353,7 @@ MonSubMenu_SkipEvolutions:
 	cp EVOLVE_STAT
 	jr nz, .no_extra_skip
 	inc hl
-	.no_extra_skip
+.no_extra_skip
 	inc hl
 	inc hl
 	jr MonSubMenu_SkipEvolutions
@@ -402,7 +404,7 @@ CanUseFlash:
 ; Step 6: Check if Mon can learn move from LVL-UP
 	ld hl, FLASH
 	call GetMoveIDFromIndex
-	call CheckLvlUpMovesSub
+	call CheckLvlUpMovesA
 	ret c ; fail
 
 .yes
@@ -425,7 +427,8 @@ CanUseFly:
 	ret nz ; not outdoors, cant fly
 
 ; Step 3: Check if Mon knows Move
-	ld a, FLY
+	ld hl, FLY
+	call GetMoveIDFromIndex
 	call CheckMonKnowsMove
 	and a
 	jr z, .yes
@@ -438,13 +441,15 @@ CanUseFly:
 	ret nc ; .fail, hm isnt in bag
 
 ; Step 5: Check if mon can learn move via HM/TM/Move Tutor
-	ld a, FLY
+	ld hl, FLY
+	call GetMoveIDFromIndex
 	call CheckMonCanLearn_TM_HM
 	jr c, .yes
 
 ; Step 6: Check if Mon can learn move via LVL-UP
-	ld a, FLY
-	call CheckLvlUpMovesSub
+	ld hl, FLY
+	call GetMoveIDFromIndex
+	call CheckLvlUpMovesA
 	ret c ; fail
 .yes
 	ld a, MONMENUITEM_FLY
@@ -462,26 +467,22 @@ Can_Use_Sweet_Scent:
 
 .valid_location
 ; Step 2: Check if mon knows Move 
-	ld a, SWEET_SCENT
+	ld hl, SWEET_SCENT
+	call GetMoveIDFromIndex
 	call CheckMonKnowsMove
 	and a
 	jr z, .yes
 
-; Step 3: Check if TM is in bag
-	ld a, TM_SWEET_SCENT
-	ld [wCurItem], a
-	ld hl, wNumItems
-	call CheckItem
-	ret nc ; .fail, tm not in bag
-
 ; Step 4: Check if mon can learn Move via TM/HM/Move tutor
-	ld a, SWEET_SCENT
+	ld hl, SWEET_SCENT
+	call GetMoveIDFromIndex
 	call CheckMonCanLearn_TM_HM
 	jr c, .yes
 
 ; Step 5: Check if mon can learn move via LVL-UP
-	ld a, SWEET_SCENT
-	call CheckLvlUpMovesSub
+	ld hl, SWEET_SCENT
+	call GetMoveIDFromIndex
+	call CheckLvlUpMovesA
 	ret c ; fail
 .yes
 	ld a, MONMENUITEM_SWEETSCENT
@@ -512,13 +513,6 @@ CanUseDig:
 	and a
 	jr z, .yes
 
-; Step 3: Check if TM/HM is in bag
-	ld a, TM_DIG
-	ld [wCurItem], a
-	ld hl, wNumItems
-	call CheckItem
-	ret nc ; .fail ; TM not in bag
-
 ; Step 4: Check if Mon can learn Dig via TM/HM/Move Tutor
 	ld hl, DIG
 	call GetMoveIDFromIndex
@@ -528,7 +522,7 @@ CanUseDig:
 ; Step 5: Check if Mon can learn move via LVL-UP
 	ld hl, DIG
 	call GetMoveIDFromIndex
-	call CheckLvlUpMovesSub
+	call CheckLvlUpMovesA
 	ret c ; fail
 .yes
 	ld a, MONMENUITEM_DIG
@@ -542,16 +536,39 @@ CanUseTeleport:
 	ret nz ; .fail
 	
 ; Step 2: Check if mon knows move
-	ld a, TELEPORT
+	ld hl, TELEPORT
+	call GetMoveIDFromIndex
 	call CheckMonKnowsMove
 	and a
 	jr z, .yes
 
 ; Step 3: Check if mon learns move via LVL-UP
-	ld a, TELEPORT
-	call CheckLvlUpMovesSub
+	ld hl, TELEPORT
+	call GetMoveIDFromIndex
+	call CheckLvlUpMovesA
 	ret c ; fail
 .yes
 	ld a, MONMENUITEM_TELEPORT
 	call AddMonMenuItem	
+	ret
+
+CanUseSoftboiled:
+	ld hl, SOFTBOILED
+	call GetMoveIDFromIndex
+	call CheckMonKnowsMove
+	and a
+	ret nz
+	ld a, MONMENUITEM_SOFTBOILED
+	call AddMonMenuItem
+	ret
+
+CanUseMilkdrink:
+	ld hl, MILK_DRINK
+	call GetMoveIDFromIndex
+	call CheckMonKnowsMove
+	and a
+	ret nz
+
+	ld a, MONMENUITEM_MILKDRINK
+	call AddMonMenuItem
 	ret

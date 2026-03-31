@@ -120,9 +120,9 @@ Moves1:
 	move EFFECT_TELEPORT,            0, PSYCHIC_TYPE,  100, 20,   0      ;TELEPORT
 	move EFFECT_LEVEL_DAMAGE,        1, GHOST,         100, 15,   0      ;NIGHT_SHADE
 	move EFFECT_MIMIC,               0, NORMAL,        100, 10,   0      ;MIMIC
-	move EFFECT_DEFENSE_DOWN_2,      0, NORMAL,        100, 40,   0      ;SCREECH
+	move EFFECT_DEFENSE_DOWN_2,      0, NORMAL,        100,  5,   0      ;SCREECH
 	move EFFECT_EVASION_UP,          0, NORMAL,        100, 15,   0      ;DOUBLE_TEAM
-	move EFFECT_HEAL,                0, NORMAL,        100, 20,   0      ;RECOVER
+	move EFFECT_HEAL,                0, NORMAL,        100, 10,   0      ;RECOVER
 	move EFFECT_DEFENSE_UP,          0, NORMAL,        100, 30,   0      ;HARDEN
 	move EFFECT_EVASION_UP,          0, NORMAL,        100, 20,   0      ;MINIMIZE
 	move EFFECT_ACCURACY_DOWN,       0, NORMAL,        100, 20,   0      ;SMOKESCREEN
@@ -153,7 +153,7 @@ Moves1:
 	move EFFECT_SP_DEF_UP_2,         0, PSYCHIC_TYPE,  100, 20,   0      ;AMNESIA
 	move EFFECT_ACCURACY_DOWN,       0, PSYCHIC_TYPE,  100, 15,   0      ;KINESIS
 	move EFFECT_HEAL,                0, NORMAL,        100, 10,   0      ;SOFTBOILED
-	move EFFECT_JUMP_KICK,         120, FIGHTING,       90, 20,   0      ;HI_JUMP_KICK
+	move EFFECT_JUMP_KICK,         130, FIGHTING,       90, 20,   0      ;HI_JUMP_KICK
 	move EFFECT_PARALYZE,            0, NORMAL,        100, 30,   0      ;GLARE
 	move EFFECT_DREAM_EATER,       100, PSYCHIC_TYPE,  100, 15,   0      ;DREAM_EATER
 	move EFFECT_POISON,              0, POISON,        100, 40,   0      ;POISON_GAS
@@ -173,7 +173,7 @@ Moves1:
 	move EFFECT_SELFDESTRUCT,      250, NORMAL,        100,  5,   0      ;EXPLOSION
 	move EFFECT_MULTI_HIT,          18, NORMAL,        100, 15,   0      ;FURY_SWIPES
 	move EFFECT_DOUBLE_HIT,         50, GROUND,        100, 10,   0      ;BONEMERANG
-	move EFFECT_HEAL,                0, PSYCHIC_TYPE,  100, 10,   0      ;REST
+	move EFFECT_HEAL,                0, PSYCHIC_TYPE,  100,  5,   0      ;REST
 	move EFFECT_FLINCH_HIT,         75, ROCK,          100, 10,  30      ;ROCK_SLIDE
 	move EFFECT_FLINCH_HIT,         80, NORMAL,        100, 15,  10      ;HYPER_FANG
 	move EFFECT_ATTACK_UP,           0, NORMAL,        100, 30,   0      ;SHARPEN
@@ -251,9 +251,9 @@ Moves1:
 	move EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,          75, 15,  30      ;IRON_TAIL
 	move EFFECT_ATTACK_UP_HIT,      60, STEEL,         100, 35,  10      ;METAL_CLAW
 	move EFFECT_ALWAYS_HIT,         70, FIGHTING,      100, 10,   0      ;VITAL_THROW
-	move EFFECT_HEAL,                0, NORMAL,        100, 15,   0      ;MORNING_SUN
-	move EFFECT_HEAL,                0, GRASS,         100, 15,   0      ;SYNTHESIS
-	move EFFECT_HEAL,                0, NORMAL,        100, 15,   0      ;MOONLIGHT
+	move EFFECT_HEAL,                0, NORMAL,        100, 10,   0      ;MORNING_SUN
+	move EFFECT_HEAL,                0, GRASS,         100, 10,   0      ;SYNTHESIS
+	move EFFECT_HEAL,                0, NORMAL,        100, 10,   0      ;MOONLIGHT
 	move EFFECT_HIDDEN_POWER,       60, NORMAL,        100, 15,   0      ;HIDDEN_POWER
 	move EFFECT_NORMAL_HIT,        100, FIGHTING,       90,  5,   0      ;CROSS_CHOP
 	move EFFECT_TWISTER,            40, DRAGON,        100, 20,  20      ;TWISTER

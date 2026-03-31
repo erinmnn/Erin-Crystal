@@ -85,14 +85,14 @@ FishGroups:
 	dbbw 100 percent,     40, POLIWAG
 
 .Dratini_Old:
-	dbbw  70 percent + 1, 10, MAGIKARP
-	dbbw  85 percent + 1, 10, MAGIKARP
-	dbbw 100 percent,     10, MAGIKARP
+	dbbw  70 percent + 1, 10, DRATINI
+	dbbw  85 percent + 1, 10, DRATINI
+	dbbw 100 percent,     10, DRAGONAIR
 .Dratini_Good:
-	dbbw  35 percent,     20, MAGIKARP
-	dbbw  70 percent,     20, MAGIKARP
-	dbbw  90 percent + 1, 20, MAGIKARP
-	dbbw 100 percent,     8, TIME_GROUP
+	dbbw  35 percent,     20, DRAGONAIR
+	dbbw  70 percent,     20, DRAGONAIR
+	dbbw  90 percent + 1, 20, DRAGONAIR
+	dbbw 100 percent,     20, DRAGONAIR
 .Dratini_Super:
 	dbbw  40 percent,     40, MAGIKARP
 	dbbw  70 percent,     9, TIME_GROUP
@@ -147,12 +147,12 @@ FishGroups:
 .Dratini_2_Old:
 	dbbw  70 percent + 1, 10, MAGIKARP
 	dbbw  85 percent + 1, 10, MAGIKARP
-	dbbw 100 percent,     10, MAGIKARP
+	dbbw 100 percent,     10, DRATINI
 .Dratini_2_Good:
-	dbbw  35 percent,     10, MAGIKARP
-	dbbw  70 percent,     10, MAGIKARP
-	dbbw  90 percent + 1, 10, MAGIKARP
-	dbbw 100 percent,     16, TIME_GROUP
+	dbbw  35 percent,     20, MAGIKARP
+	dbbw  70 percent,     20, SEADRA
+	dbbw  90 percent + 1, 20, DRAGONAIR
+	dbbw 100 percent,     20, GYARADOS
 .Dratini_2_Super:
 	dbbw  40 percent,     10, MAGIKARP
 	dbbw  70 percent,     17, TIME_GROUP

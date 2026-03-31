@@ -340,6 +340,11 @@ BattleText_TargetsEncoreEnded:
 	line "ENCORE ended!"
 	prompt
 
+BattleText_UsersRampageEnded:
+	text "<TARGET>'s"
+	line "RAMPAGE ended!"
+	prompt
+
 BattleText_StringBuffer1GrewToLevel:
 	text_ram wStringBuffer1
 	text " grew to"

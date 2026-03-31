@@ -110,7 +110,7 @@ CheckPartyMove:
 	ret
 
 CheckPartyCanLearnMove:
-; CHECK IF MON IN PARTY CAN LEARN MOVE D
+; CHECK IF MONSTER IN PARTY CAN LEARN MOVE D
 	ld e, 0
 	xor a
 	ld [wCurPartyMon], a
@@ -159,37 +159,6 @@ CheckPartyCanLearnMove:
 	ret
 .no
 	ld a, 1
-	ret
-
-CheckLvlUpMoves:
-	ld d, a
-	ld a, [wTempSpecies]
-	call GetPokemonIndexFromID
-	ld b, h
-	ld c, l
-	ld hl, EvosAttacksPointers
-	ld a, BANK(EvosAttacksPointers)
-	call LoadDoubleIndirectPointer
-	ld [wStatsScreenFlags], a ; bank
-	call FarSkipEvolutions
-.learnset_loop
-	call GetFarByte
-  	and a
-	jr z, .notfound
-	inc hl
-	call GetFarWord
-	call GetMoveIDFromIndex
-	cp d
-	jr z, .found
-	inc hl
-	inc hl
-	jr .learnset_loop
-
-.found
-	xor a
-	ret ; move is in lvl up learnset
-.notfound
-	scf ; move isnt in lvl up learnset
 	ret
 
 OW_CheckLvlUpMoves:
@@ -658,10 +627,20 @@ TrySurfOW::
 	jr z, .quit
 
 ; Step 3
-  	ld d, SURF
+  	ld hl, SURF
+	call GetMoveIDFromIndex
+	ld d, a
 	call CheckPartyCanLearnMove
 	and a
+	jr z, .yes
+
+; Step 4
+	ld hl, SURF
+	call GetMoveIDFromIndex
+	ld d, a
+	call CheckPartyMove
 	jr c, .quit
+.yes
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .quit
@@ -870,10 +849,20 @@ TryWaterfallOW::
 	jr z, .failed
 
 ; Step 3
-	ld d, WATERFALL
+	ld hl, WATERFALL
+	call GetMoveIDFromIndex
+	ld d, a
 	call CheckPartyCanLearnMove
 	and a
+	jr z, .yes
+
+; Step 4
+	ld hl, WATERFALL
+	call GetMoveIDFromIndex
+	ld d, a
+	call CheckPartyMove
 	jr c, .failed
+.yes
 	call CheckMapCanWaterfall
 	jr c, .failed
 	ld a, BANK(Script_AskWaterfall)
@@ -1232,10 +1221,21 @@ TryStrengthOW:
 	jr z, .nope
 
 ; Step 3
-	ld d, STRENGTH
+	ld hl, STRENGTH
+	call GetMoveIDFromIndex
+	ld d, a
 	call CheckPartyCanLearnMove
 	and a
+	jr z, .yes
+
+; Step 4
+	ld d, STRENGTH
+	call GetMoveIDFromIndex
+	ld d, a
+	call CheckPartyMove
 	jr c, .nope
+
+.yes
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_STRENGTH_ACTIVE_F, [hl]
 	jr z, .already_using
@@ -1378,10 +1378,21 @@ TryWhirlpoolOW::
 	jr z, .failed
 
 ; Step 3
-	ld d, WHIRLPOOL
+	ld hl, WHIRLPOOL
+	call GetMoveIDFromIndex
+	ld d, a
 	call CheckPartyCanLearnMove
         and a
+	jr z, .yes
+
+; Step 4
+	ld hl, WHIRLPOOL
+	call GetMoveIDFromIndex
+	ld d, a
+	call CheckPartyMove
 	jr c, .failed
+
+.yes
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, BANK(Script_AskWhirlpoolOW)
@@ -1471,10 +1482,21 @@ HeadbuttScript:
 	end
 
 TryHeadbuttOW::
+; Step 2
 	ld hl, HEADBUTT
+	call GetMoveIDFromIndex
+	ld d, a
+	call CheckPartyCanLearnMove
+       and a
+	jr z, .can_use ; cannot learn headbutt
+
+; Step 3
+	ld hl, HEADBUTT
+	call GetMoveIDFromIndex
+	ld d, a
 	call CheckPartyMoveIndex
 	jr c, .no
-
+.can_use
 	ld a, BANK(AskHeadbuttScript)
 	ld hl, AskHeadbuttScript
 	call CallScript
@@ -1595,6 +1617,24 @@ AskRockSmashText:
 	text_end
 
 HasRockSmash:
+; Step 2
+	ld hl, ROCK_SMASH
+	call GetMoveIDFromIndex
+	ld d, a
+	call CheckPartyCanLearnMove
+       and a
+	jr z, .yes
+
+; Step 3
+	ld hl, ROCK_SMASH
+	call GetMoveIDFromIndex
+	ld d, a
+	call CheckPartyMove
+	jr nc, .yes
+.no
+	ld a, 1
+	jr .done
+.yes
 	xor a
 	jr .done
 .done
@@ -1953,10 +1993,20 @@ TryCutOW::
 	jr z, .cant_cut
 
 ; Step 3
-	ld d, CUT
+	ld hl, CUT
+	call GetMoveIDFromIndex
+	ld d, a
 	call CheckPartyCanLearnMove
-       	and a
+       and a
+	jr z, .yes
+
+; Step 4
+	ld hl, CUT
+	call GetMoveIDFromIndex
+	ld d, a
+	call CheckPartyMove
 	jr c, .cant_cut
+.yes
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
 	call CallScript
@@ -2000,3 +2050,35 @@ CantCutScript:
 CanCutText:
 	text_far _CanCutText
 	text_end
+
+CheckLvlUpMoves:
+	ld d, a
+	ld a, [wTempSpecies]
+	call GetPokemonIndexFromID
+	ld b, h
+	ld c, l
+	ld hl, EvosAttacksPointers
+	ld a, BANK(EvosAttacksPointers)
+	call LoadDoubleIndirectPointer
+	ld [wStatsScreenFlags], a ; bank
+	call FarSkipEvolutions
+.learnset_loop
+	call GetFarByte
+  	and a
+	jr z, .notfound
+	inc hl
+	call GetFarWord
+	call GetMoveIDFromIndex
+	ld d, a
+	cp d
+	jr z, .found
+	inc hl
+	inc hl
+	jr .learnset_loop
+
+.found
+	xor a
+	ret ; move is in lvl up learnset
+.notfound
+	scf ; move isnt in lvl up learnset
+	ret

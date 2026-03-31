@@ -38,7 +38,7 @@ DEF prob_total = 0
 OddEggSpecies:
 	table_width 2, OddEggSpecies
 	dw PICHU
-	dw PICHU
+	dw TYROGUE
 	dw CLEFFA
 	dw CLEFFA
 	dw IGGLYBUFF

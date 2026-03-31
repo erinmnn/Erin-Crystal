@@ -186,3 +186,4 @@ SpecialsPointers::
 	add_special PoisonMon
 	add_special ParalyzeMon
 	add_special FreezeMon
+	add_special EdgeMon
