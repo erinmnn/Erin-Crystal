@@ -333,7 +333,7 @@ GustDescription:
 
 WingAttackDescription:
 	db   "Strikes the target"
-	next "with wings.@"
+	next "and never misses.@"
 
 WhirlwindDescription:
 	db   "Blows away the foe"
@@ -952,8 +952,8 @@ NightmareDescription:
 	next "1/4 HP every turn.@"
 
 FlameWheelDescription:
-	db   "An attack that may"
-	next "cause a burn.@"
+	db   "An attack that"
+	next "raises speed.@"
 
 SnoreDescription:
 	db   "An attack useable"
@@ -1101,11 +1101,11 @@ MilkDrinkDescription:
 
 SparkDescription:
 	db   "An attack that may"
-	next "cause paralysis.@"
+	next "never miss.@"
 
 FuryCutterDescription:
-	db   "Successive hits"
-	next "raise power.@"
+	db   "A high crit-rate"
+	next "slash attack.@"
 
 SteelWingDescription:
 	db   "Stiff wings strike"
@@ -1253,7 +1253,7 @@ AncientpowerDescription:
 
 ShadowBallDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower Defense.@"
 
 FutureSightDescription:
 	db   "An attack that"

@@ -736,6 +736,28 @@ AttackUpHit:
 	statupmessage
 	endmove
 
+SpeedUpHit:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	speedup
+	statupmessage
+	endmove
+
 AllUpHit:
 	checkobedience
 	usedmovetext
@@ -1932,14 +1954,20 @@ FutureSight:
 	checkobedience
 	usedmovetext
 	doturn
+	futuresight
+; move effect ends here
+
+.use_future_sight
 	damagestats
 	damagecalc
-	futuresight
-	damagevariation ; skip here if last turn
+	stab
+	damagevariation
 	checkhit
-	moveanimnosub
+	moveanim
 	failuretext
 	applydamage
+	criticaltext
+	supereffectivetext
 	checkfaint
 	buildopponentrage
 	endmove
