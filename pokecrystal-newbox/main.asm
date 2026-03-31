@@ -43,6 +43,8 @@ INCLUDE "engine/pokemon/knows_move.asm"
 
 SECTION "bank4", ROMX
 
+INCLUDE "engine/events/bug_contest/contest.asm"
+INCLUDE "engine/events/repel.asm"
 INCLUDE "engine/items/pack.asm"
 INCLUDE "engine/overworld/time.asm"
 INCLUDE "engine/items/tmhm2.asm"
@@ -56,8 +58,6 @@ INCLUDE "engine/menus/start_menu.asm"
 INCLUDE "engine/pokemon/mon_menu.asm"
 INCLUDE "engine/overworld/select_menu.asm"
 INCLUDE "engine/events/elevator.asm"
-INCLUDE "engine/events/bug_contest/contest.asm"
-INCLUDE "engine/events/repel.asm"
 INCLUDE "engine/events/hidden_item.asm"
 INCLUDE "engine/events/std_collision.asm"
 INCLUDE "engine/events/bug_contest/judging.asm"
@@ -153,6 +153,7 @@ INCLUDE "engine/battle/ai/scoring.asm"
 INCLUDE "engine/battle/read_trainer_attributes.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
 
+INCLUDE "data/trainers/parties.asm"
 
 SECTION "Battle Core", ROMX
 

@@ -2989,7 +2989,30 @@ endr
 
 wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
 
-	ds 40
+; berry pouch
+wNumBerries:: db
+wBerries:: ds 17 * 2 + 1
+
+wBerryPocketCursor:: db
+wBerryPocketScrollPosition:: db
+
+wDudeNumBerries::
+
+; custom ai
+wMovesThatOHKOPlayer:: db
+
+; trainer types
+wOtherTrainerType:: db
+wTrainerGroupBank:: db
+
+; future sight
+wPlayerFutureSightUsersSpAtk:: ds 2 ; c727
+wEnemyFutureSightUsersSpAtk:: ds 2 ; c729
+
+wCurDamageFlags:: ds 1 ; c7ef - bit 7: fixed damage, bit 6: dirty, bit 5-4: x1.5 damage mods (crits), bit 3-2: x1.5 defense mods, bit 1-0: x1.5 attack mods
+wCurDamageFixedValue::
+
+	ds 1
 
 wMapObjects::
 wPlayerObject:: map_object wPlayer ; player is map object 0
@@ -3009,8 +3032,6 @@ wTimeOfDayPal:: db
 wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
 wCurTimeOfDay:: db
-
-	ds 1
 
 wSecretID:: dw
 wStatusFlags::

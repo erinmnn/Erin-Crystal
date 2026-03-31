@@ -32,9 +32,17 @@ DEF NO_AI EQU 0
 	shift_const UNKNOWN_USE      ; 5
 	shift_const CONTEXT_USE      ; 6
 
-; TrainerTypes indexes (see engine/battle/read_trainer_party.asm)
+; TrainerTypes bits (see engine/battle/read_trainer_party.asm)
 	const_def
-	const TRAINERTYPE_NORMAL
-	const TRAINERTYPE_MOVES
-	const TRAINERTYPE_ITEM
-	const TRAINERTYPE_ITEM_MOVES
+	const TRAINERTYPE_MOVES_F ; 0
+	const TRAINERTYPE_ITEM_F  ; 1
+	const TRAINERTYPE_DVS_F	  ; 2
+
+; Trainer party types (see data/trainers/parties.asm)
+DEF TRAINERTYPE_NORMAL     EQU 0
+DEF TRAINERTYPE_MOVES      EQU 1 << TRAINERTYPE_MOVES_F
+DEF TRAINERTYPE_ITEM       EQU 1 << TRAINERTYPE_ITEM_F
+DEF TRAINERTYPE_ITEM_MOVES EQU TRAINERTYPE_MOVES | TRAINERTYPE_ITEM
+DEF TRAINERTYPE_DVS	   EQU 1 << TRAINERTYPE_DVS_F
+
+DEF PERFECT_DV EQU $11
