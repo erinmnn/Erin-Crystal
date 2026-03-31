@@ -2991,7 +2991,7 @@ wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
 
 ; berry pouch
 wNumBerries:: db
-wBerries:: ds 17 * 2 + 1
+wBerries:: ds MAX_BERRIES * 2 + 1
 
 wBerryPocketCursor:: db
 wBerryPocketScrollPosition:: db
