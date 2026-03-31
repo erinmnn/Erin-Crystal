@@ -110,7 +110,147 @@ DoBattle:
 	call SpikesDamage
 
 .not_linked_2
+	call StartAutomaticBattleWeather
+	call PlaceSpikes
+	call SetLightScreen
 	jp BattleTurn
+
+.tutorial_debug
+	jp BattleMenu
+
+StartAutomaticBattleWeather:
+	call GetAutomaticBattleWeather
+	and a
+	ret z
+; get current AutomaticWeatherEffects entry
+	dec a
+	ld hl, AutomaticWeatherEffects
+	ld bc, 5 ; size of one entry
+	call AddNTimes
+; [wBattleWeather] = weather
+	ld a, [hli]
+	ld [wBattleWeather], a
+; de = animation
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+; hl = text pointer
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+; start weather for 255 turns
+	ld a, 255
+	ld [wWeatherCount], a
+	push hl
+	call Call_PlayBattleAnim ; uses de
+	pop hl
+	call StdBattleTextbox ; uses hl
+	jp EmptyBattleTextbox
+
+GetAutomaticBattleWeather:
+	ld hl, AutomaticWeatherMaps
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+.loop
+	ld a, [hli] ; group
+	and a
+	ret z ; end
+	cp b
+	jr nz, .wrong_group
+	ld a, [hli] ; map
+	cp c
+	jr nz, .wrong_map
+	ld a, [hl] ; weather
+	ret
+
+.wrong_group:
+	inc hl ; skip map
+.wrong_map
+	inc hl ; skip weather
+	jr .loop
+
+INCLUDE "data/battle/automatic_weather.asm"
+
+PlaceSpikes:
+	call GetAutomaticBattleSpikes
+	and a
+	ret z
+	ld hl, wPlayerScreens
+	set SCREENS_SPIKES, [hl]
+	ldh [hBattleTurn], a
+	ld de, SPIKES
+	call Call_PlayBattleAnim
+	ld hl, SpikesText
+	call StdBattleTextbox
+	jp EmptyBattleTextbox
+
+GetAutomaticBattleSpikes:
+	ld hl, AutomaticSpikesMaps
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+.loop
+	ld a, [hli] ; group
+	and a
+	ret z ; end
+	cp b
+	jr nz, .wrong_group
+	ld a, [hli] ; map
+	cp c
+	jr nz, .wrong_map
+	ld a, 1 ;spikes
+	ret
+
+.wrong_group:
+	inc hl ; skip map
+.wrong_map
+	jr .loop
+
+INCLUDE "data/battle/automatic_spikes.asm"
+
+SetLightScreen:
+	call GetAutomaticBattleLightScreen
+	and a
+	ret z
+	ld hl, wEnemyScreens
+	set SCREENS_LIGHT_SCREEN, [hl]
+	ldh [hBattleTurn], a
+	ld de, LIGHT_SCREEN
+	ld a, 255
+	ld [wEnemyLightScreenCount], a
+	call Call_PlayBattleAnim
+	ld hl, LightScreenEffectText
+	call StdBattleTextbox
+	jp EmptyBattleTextbox
+
+GetAutomaticBattleLightScreen:
+	ld hl, AutomaticLightScreenMaps
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+.loop
+	ld a, [hli] ; group
+	and a
+	ret z ; end
+	cp b
+	jr nz, .wrong_group
+	ld a, [hli] ; map
+	cp c
+	jr nz, .wrong_map
+	ld a, 1 ;light screen
+	ret
+	
+.wrong_group:
+	inc hl ; skip map
+.wrong_map
+	jr .loop
+
+INCLUDE "data/battle/automatic_light_screen.asm"
 
 .tutorial_debug
 	jp BattleMenu
