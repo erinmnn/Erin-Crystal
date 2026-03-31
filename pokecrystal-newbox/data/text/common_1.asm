@@ -1339,6 +1339,60 @@ _SavingRecordText::
 	line "DON'T TURN OFF!"
 	done
 
+_GainedALotOfExpText::
+	text "Edged."
+	prompt
+
+_StatusSelectComplete::
+	text "The status has"
+	line "been inflicted."
+	prompt
+
+_PoisonImmune::
+	text "That one is"
+	line "immune."
+	prompt
+
+_FreezeImmune::
+	text "I can't freeze"
+	line "an ice type."
+	prompt
+
+_BurnImmune::
+	text "I can't burn"
+	line "a fire type."
+	prompt
+
+_PoisonEgg::
+	text "I can't poison"
+	line "an egg."
+	prompt
+
+_CantInflictStatus::
+	text "Sorry, I can't"
+	line "inflict status."
+	prompt
+
+_ParalyzeEgg::
+	text "I can't really"
+	line "shock an egg."
+	prompt
+
+_BurnEgg::
+	text "I'm not frying"
+	line "this egg, dear."
+	prompt
+
+_FreezeEgg::
+	text "I shouldn't"
+	line "freeze an egg."
+	prompt
+
+_SleepEgg::
+	text "Sweetie, it's"
+	line "an egg."
+	prompt
+
 _ReceiveItemText::
 	text_ram wPlayerName
 	text " received"

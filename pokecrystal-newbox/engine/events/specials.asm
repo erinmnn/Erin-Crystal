@@ -15,6 +15,345 @@ Special::
 
 INCLUDE "data/events/special_pointers.asm"
 
+EdgeMon:
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+
+	jp c, RareCandy_StatBooster_ExitMenu
+
+	call RareCandy_StatBooster_GetParameters
+
+	ld a, MON_LEVEL
+	call GetPartyParamLocation
+
+	ld a, [hl]
+	cp MAX_LEVEL
+        jp nc, NoEffectMessage
+	
+	push de
+	inc a
+	ld d, a
+	farcall CalcExpAtLevel
+	pop de
+	
+	ld a, MON_EXP
+	call GetPartyParamLocation
+	
+	ld bc, 2
+	add hl, bc
+	ldh a, [hMultiplicand + 2]
+	dec a
+	ld [hld], a
+	cp $ff
+	jr nz, .no_more_subtract_1
+	
+	ldh a, [hMultiplicand + 1]
+	dec a
+	ld [hld], a
+	cp $ff
+	jr nz, .no_more_subtract_2
+
+	ldh a, [hMultiplicand + 0]
+	dec a
+	ld [hl], a
+	jr .done
+	
+.no_more_subtract_1
+	ldh a, [hMultiplicand + 1]
+	ld [hld], a
+.no_more_subtract_2	
+	ldh a, [hMultiplicand]
+	ld [hl], a
+.done
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMonNicknames
+	call GetNickname
+	ld hl, _GainedALotOfExpText
+	call PrintText
+	jp ClearPalettes
+
+StatusSelectDone:
+	text_far _StatusSelectComplete
+	text_end	
+
+PoisonMon:
+	call DisableSpriteUpdates
+.select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
+    	jp c, .PoisonExit
+    	ld a, [wCurPartySpecies]
+    	cp EGG
+    	jp z, .Egg
+	
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Species
+.find_target_mon
+	and a
+	jr z, .poison
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	dec a
+	jr .find_target_mon
+	
+.poison
+	ld a, [hl]
+	ld [wCurSpecies], a
+	call GetBaseData
+
+	ld a, [wBaseType1]
+	cp POISON
+	jr z, .PoisonImmune
+	cp STEEL
+	jr z, .PoisonImmune
+	ld a, [wBaseType2]
+	cp POISON
+	jr z, .PoisonImmune
+	cp STEEL
+	jr z, .PoisonImmune
+
+	ld bc, MON_STATUS
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr nz, .CantInflictPsn
+	set PSN, [hl]
+	ld hl, StatusSelectDone
+	call PrintText
+	jp .select_mon
+
+.PoisonImmune:
+	ld hl, .PoisonImmuneText
+	call PrintText
+	jp .select_mon
+
+.CantInflictPsn:
+	ld hl, CantInflictStatusText
+	call PrintText
+	jp .select_mon
+
+.Egg:
+	ld de, SFX_BUMP
+	call WaitPlaySFX
+
+    	ld hl, .PoisonEgg
+	call PrintText
+	jp .select_mon
+
+.PoisonImmuneText:
+	text_far _PoisonImmune
+	text_end
+
+
+.PoisonEgg:
+	text_far _PoisonEgg
+	text_end
+
+.PoisonExit:
+	call ReturnToMapWithSpeechTextbox
+	call EnableSpriteUpdates
+	ret
+
+BurnMon:
+	call DisableSpriteUpdates
+.select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
+    	jp c, .BurnExit
+    	ld a, [wCurPartySpecies]
+    	cp EGG
+    	jp z, .Egg
+	
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Species
+.find_target_mon
+	and a
+	jr z, .burn
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	dec a
+	jr .find_target_mon
+	
+.burn
+	ld a, [hl]
+	ld [wCurSpecies], a
+	call GetBaseData
+
+	ld a, [wBaseType1]
+	cp FIRE
+	jr z, .BurnImmune
+	ld a, [wBaseType2]
+	cp FIRE
+	jr z, .BurnImmune
+
+	ld bc, MON_STATUS
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr nz, .CantInflictBurn
+	set BRN, [hl]
+	ld hl, StatusSelectDone
+	call PrintText
+	jp .select_mon
+
+.BurnImmune:
+	ld hl, .BurnImmuneText
+	call PrintText
+	jp .select_mon
+
+.CantInflictBurn:
+	ld hl, CantInflictStatusText
+	call PrintText
+	jp .select_mon
+
+.Egg:
+	ld de, SFX_BUMP
+	call WaitPlaySFX
+
+    ld hl, .BurnEgg
+	call PrintText
+	jp .select_mon
+
+.BurnImmuneText:
+	text_far _BurnImmune
+	text_end
+
+.BurnEgg:
+	text_far _BurnEgg
+	text_end
+
+.BurnExit:
+	call ReturnToMapWithSpeechTextbox
+	call EnableSpriteUpdates
+	ret
+
+ParalyzeMon:
+	call DisableSpriteUpdates
+.select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
+    	jp c, .ParalyzeExit
+    	ld a, [wCurPartySpecies]
+    	cp EGG
+    	jp z, .Egg
+	
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Species
+.find_target_mon
+	and a
+	jr z, .paralyze
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	dec a
+	jr .find_target_mon
+	
+.paralyze
+	ld bc, MON_STATUS
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr nz, .CantInflictPara
+
+	set PAR, [hl]
+	ld hl, StatusSelectDone
+	call PrintText
+	jp .select_mon	
+
+.CantInflictPara:
+	ld hl, CantInflictStatusText
+	call PrintText
+	jp .select_mon
+
+.Egg:
+	ld de, SFX_BUMP
+	call WaitPlaySFX
+
+    ld hl, .ParalyzeEgg
+	call PrintText
+	jp .select_mon
+
+.ParalyzeEgg:
+	text_far _ParalyzeEgg
+	text_end
+	
+.ParalyzeExit:
+	call ReturnToMapWithSpeechTextbox
+	call EnableSpriteUpdates
+	ret
+
+FreezeMon:
+	call DisableSpriteUpdates
+.select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
+    	jp c, .FreezeExit
+    	ld a, [wCurPartySpecies]
+    	cp EGG
+    	jp z, .Egg
+	
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Species
+.find_target_mon
+	and a
+	jr z, .freeze
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	dec a
+	jr .find_target_mon
+	
+.freeze
+	ld a, [hl]
+	ld [wCurSpecies], a
+	call GetBaseData
+
+	ld a, [wBaseType1]
+	cp ICE
+	jr z, .FreezeImmune
+	ld a, [wBaseType2]
+	cp ICE
+	jr z, .FreezeImmune
+
+	ld bc, MON_STATUS
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr nz, .CantInflictFreeze
+	set FRZ, [hl]
+	ld hl, StatusSelectDone
+	call PrintText
+	jp .select_mon
+
+.FreezeImmune:
+	ld hl, .FreezeImmuneText
+	call PrintText
+	jp .select_mon
+
+.CantInflictFreeze:
+	ld hl, CantInflictStatusText
+	call PrintText
+	jp .select_mon
+
+.Egg:
+	ld de, SFX_BUMP
+	call WaitPlaySFX
+
+    	ld hl, .FreezeEgg
+	call PrintText
+	jp .select_mon
+
+.FreezeImmuneText:
+	text_far _FreezeImmune
+	text_end
+
+.FreezeEgg:
+	text_far _FreezeEgg
+	text_end
+
+.FreezeExit:
+	call ReturnToMapWithSpeechTextbox
+	call EnableSpriteUpdates
+	ret
+
+CantInflictStatusText:
+	text_far _CantInflictStatus
+	text_end
+
 UnusedDummySpecial:
 	ret
 
