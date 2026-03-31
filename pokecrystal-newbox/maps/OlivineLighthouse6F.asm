@@ -7,12 +7,17 @@ OlivineLighthouse6F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, OlivineLighthouse6FLoadReservedIDCallback
+
+OlivineLighthouse6FLoadReservedIDCallback:
+	setval AMPHAROS
+	endcallback
 
 OlivineLighthouseJasmine:
 	faceplayer
 	opentext
-	checkitem SECRETPOTION
-	iftrue .BroughtSecretpotion
+	checkitem MOOMOO_MILK
+	iftrue .GotMilk
 	checkevent EVENT_JASMINE_EXPLAINED_AMPHYS_SICKNESS
 	iftrue .ExplainedSickness
 	writetext JasmineCianwoodPharmacyText
@@ -24,13 +29,13 @@ OlivineLighthouseJasmine:
 	closetext
 	end
 
-.BroughtSecretpotion:
+.GotMilk:
 	writetext JasmineCureAmphyText
 	yesorno
 	iffalse .Refused
-	writetext PlayerHandedSecretpotionText
+	writetext PlayerHandedMilkText
 	promptbutton
-	takeitem SECRETPOTION
+	takeitem MOOMOO_MILK
 	writetext JasmineDontBeOffendedText
 	waitbutton
 	closetext
@@ -173,11 +178,11 @@ JasmineCianwoodPharmacyText:
 	para "…I understand"
 	line "that there is a"
 
-	para "wonderful PHARMACY"
-	line "in CIANWOOD…"
+	para "wonderful farm"
+	line "on ROUTE 39…"
 
-	para "But that's across"
-	line "the sea…"
+	para "But that's so"
+	line "far away…"
 
 	para "And I can't leave"
 	line "AMPHY unattended…"
@@ -185,19 +190,21 @@ JasmineCianwoodPharmacyText:
 
 JasmineGetSomeMedicineText:
 	text "…May I ask you to"
-	line "get some medicine"
-	cont "for me? Please?"
+	line "get some MOOMOO"
+	cont "MILK for me?"
+
+	para "Please?"
 	done
 
 JasmineCureAmphyText:
 	text "JASMINE: …Will"
-	line "that medicine cure"
+	line "that milk cure"
 	cont "AMPHY?"
 	done
 
-PlayerHandedSecretpotionText:
+PlayerHandedMilkText:
 	text "<PLAYER> handed the"
-	line "SECRETPOTION to"
+	line "MOOMOO MILK to"
 	cont "JASMINE."
 	done
 
@@ -246,7 +253,7 @@ AmphyPalPalooText:
 	done
 
 AmphyBreathingLaboredText:
-	text "Its breathing is"
+	text "Her breathing is"
 	line "terribly labored…"
 	done
 

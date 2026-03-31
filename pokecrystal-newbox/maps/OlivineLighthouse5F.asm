@@ -1,6 +1,6 @@
 	object_const_def
 	const OLIVINELIGHTHOUSE5F_SAILOR
-	const OLIVINELIGHTHOUSE5F_YOUNGSTER
+	const OLIVINELIGHTHOUSE5F_SAILOR2
 	const OLIVINELIGHTHOUSE5F_POKE_BALL1
 	const OLIVINELIGHTHOUSE5F_POKE_BALL2
 	const OLIVINELIGHTHOUSE5F_POKE_BALL3
@@ -10,17 +10,6 @@ OlivineLighthouse5F_MapScripts:
 
 	def_callbacks
 
-TrainerBirdKeeperDenis:
-	trainer BIRD_KEEPER, DENIS, EVENT_BEAT_BIRD_KEEPER_DENIS, BirdKeeperDenisSeenText, BirdKeeperDenisBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext BirdKeeperDenisAfterBattleText
-	waitbutton
-	closetext
-	end
-
 TrainerSailorErnest:
 	trainer SAILOR, ERNEST, EVENT_BEAT_SAILOR_ERNEST, SailorErnestSeenText, SailorErnestBeatenText, 0, .Script
 
@@ -28,6 +17,17 @@ TrainerSailorErnest:
 	endifjustbattled
 	opentext
 	writetext SailorErnestAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerSailorTerrell:
+	trainer SAILOR, TERRELL, EVENT_BEAT_SAILOR_TERRELL, SailorTerrellSeenText, SailorTerrellBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext SailorTerrellAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -66,26 +66,27 @@ SailorErnestAfterBattleText:
 	cont "compassionate."
 	done
 
-BirdKeeperDenisSeenText:
-	text "We're pretty high"
-	line "up here. My bird"
-
-	para "#MON are in"
-	line "prime form."
+SailorTerrellSeenText:
+	text "Sailors are both"
+	line "kind and strong."
+	cont "How about you?"
 	done
 
-BirdKeeperDenisBeatenText:
-	text "Oops…They crashed…"
+SailorTerrellBeatenText:
+	text "You are both kind"
+	line "and strong…"
 	done
 
-BirdKeeperDenisAfterBattleText:
-	text "My #MON learned"
-	line "how to use FLY in"
-	cont "CIANWOOD."
+SailorTerrellAfterBattleText:
+	text "Every time I come"
+	line "back to OLIVINE, I"
+	cont "visit the GYM."
 
-	para "Well, since I'm a"
-	line "loser, I'll FLY"
-	cont "across the sea…"
+	para "The GYM LEADER's"
+	line "#MON type has"
+
+	para "changed without me"
+	line "noticing."
 	done
 
 OlivineLighthouse5F_MapEvents:
@@ -106,8 +107,8 @@ OlivineLighthouse5F_MapEvents:
 	bg_event  3, 13, BGEVENT_ITEM, OlivineLighthouse5FHiddenHyperPotion
 
 	def_object_events
-	object_event  8, 11, SPRITE_SAILOR, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSailorErnest, -1
-	object_event  8,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBirdKeeperDenis, -1
+	object_event  9,  6, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSailorTerrell, -1
+	object_event  8,  7, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSailorErnest, -1
 	object_event 15, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse5FRareCandy, EVENT_OLIVINE_LIGHTHOUSE_5F_RARE_CANDY
 	object_event  6, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse5FSuperRepel, EVENT_OLIVINE_LIGHTHOUSE_5F_SUPER_REPEL
 	object_event  2, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse5FTMSwagger, EVENT_OLIVINE_LIGHTHOUSE_5F_TM_SWAGGER

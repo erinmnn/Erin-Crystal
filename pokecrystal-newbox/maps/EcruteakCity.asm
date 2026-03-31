@@ -9,6 +9,8 @@
 
 EcruteakCity_MapScripts:
 	def_scene_scripts
+	scene_script EcruteakCityNoop1Scene, SCENE_ECRUTEAKCITY_GRAMPS2_BLOCKS
+	scene_script EcruteakCityNoop2Scene, SCENE_ECRUTEAKCITY_NOOP
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, EcruteakCityFlypointCallback
@@ -17,11 +19,56 @@ EcruteakCityFlypointCallback:
 	setflag ENGINE_FLYPOINT_ECRUTEAK
 	endcallback
 
+EcruteakCityNoop1Scene:
+	end
+
+EcruteakCityNoop2Scene:
+	end
+
 EcruteakCityGramps1Script:
 	jumptextfaceplayer EcruteakCityGramps1Text
 
 EcruteakCityGramps2Script:
-	jumptextfaceplayer EcruteakCityGramps2Text
+	faceplayer
+	opentext
+	checkevent EVENT_RELEASED_THE_BEASTS
+	iftrue .RivalGone
+	writetext EcruteakCityGramps2Text_RivalIsWaiting
+	waitbutton
+	closetext
+	end
+
+.RivalGone
+	writetext EcruteakCityGramps2Text_Chill
+	waitbutton
+	closetext
+	end
+
+EcruteakCityGramps2StopsYouScene:
+	checkevent EVENT_RELEASED_THE_BEASTS
+	iftrue .BeastsOut
+
+	turnobject ECRUTEAKCITY_GRAMPS2, DOWN
+	turnobject PLAYER, UP
+	opentext
+	writetext EcruteakCityGramps2Text_WaitChild
+	waitbutton
+	closetext
+	follow PLAYER, ECRUTEAKCITY_GRAMPS2
+	applymovement PLAYER, Movement_EcruteakCityGramps2PushesYouBackToEcruteak
+	stopfollow
+	turnobject ECRUTEAKCITY_GRAMPS2, RIGHT
+	turnobject PLAYER, LEFT
+	opentext
+	writetext EcruteakCityGramps2Text_RivalIsWaiting
+	closetext 
+	applymovement ECRUTEAKCITY_GRAMPS2, Movement_EcruteakCityGramps2Reset1
+	turnobject ECRUTEAKCITY_GRAMPS2, RIGHT
+	end
+
+.BeastsOut
+	setscene SCENE_ECRUTEAKCITY_NOOP
+	end
 
 EcruteakCityGramps3Script:
 	jumptextfaceplayer EcruteakCityGramps3Text
@@ -88,6 +135,14 @@ EcruteakCityMartSign:
 EcruteakCityHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_ECRUTEAK_CITY_HIDDEN_HYPER_POTION
 
+Movement_EcruteakCityGramps2PushesYouBackToEcruteak:
+	step RIGHT
+	step_end
+
+Movement_EcruteakCityGramps2Reset1:
+	step UP
+	step_end
+
 UnusedMissingDaughterText: ; unreferenced
 	text "Oh, no. Oh, no…"
 
@@ -116,19 +171,32 @@ EcruteakCityGramps1Text:
 	line "east and west."
 	done
 
-EcruteakCityGramps2Text:
+EcruteakCityGramps2Text_WaitChild:
+	text "Hold on, child"
+	line "Let me tell you:"
+	done
+
+EcruteakCityGramps2Text_RivalIsWaiting:
 	text "Ah, child."
-	line "Have you learned"
+	line "There's some"
 
-	para "to dance like the"
-	line "KIMONO GIRLS?"
+	para "little shithead"
+	line "waiting for you"
 
-	para "If you go to their"
-	line "DANCE THEATER, an"
+	para "in the BURNED"
+	line "TOWER. Says he"
 
-	para "odd old man will"
-	line "give you something"
-	cont "nice, I hear."
+	para "wants to kick"
+	line "your ass. Teach"
+	
+	para "him a lesson"
+	line "for me. Y'hear?"
+	done
+
+EcruteakCityGramps2Text_Chill:
+	text "I forgot what"
+	line "I was going to"
+	cont "say."
 	done
 
 EcruteakCityLass1Text:
@@ -277,6 +345,7 @@ EcruteakCity_MapEvents:
 	warp_event  0, 19, ROUTE_38_ECRUTEAK_GATE, 4
 
 	def_coord_events
+	coord_event  2, 19, -1, EcruteakCityGramps2StopsYouScene
 
 	def_bg_events
 	bg_event 15, 21, BGEVENT_READ, EcruteakCitySign
@@ -290,7 +359,7 @@ EcruteakCity_MapEvents:
 
 	def_object_events
 	object_event 18, 15, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCityGramps1Script, -1
-	object_event 20, 21, SPRITE_GRAMPS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCityGramps2Script, -1
+	object_event  2, 18, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCityGramps2Script, EVENT_RELEASED_THE_BEASTS
 	object_event 21, 29, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, EcruteakCityLass1Script, -1
 	object_event  3,  9, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCityLass2Script, -1
 	object_event  9, 22, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCityFisherScript, -1

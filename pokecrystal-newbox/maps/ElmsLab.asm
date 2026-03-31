@@ -474,7 +474,8 @@ AideScript_GivePotion:
 	opentext
 	writetext AideText_GiveYouPotion
 	promptbutton
-	verbosegiveitem POTION
+	verbosegiveitem CANDY_BAG
+	verbosegiveitem REPEL
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext
@@ -501,7 +502,7 @@ AideScript_GiveYouBalls:
 	promptbutton
 	getitemname STRING_BUFFER_4, POKE_BALL
 	scall AideScript_ReceiveTheBalls
-	giveitem POKE_BALL, 5
+	giveitem POKE_BALL, 50
 	writetext AideText_ExplainBalls
 	promptbutton
 	itemnotify
@@ -998,6 +999,10 @@ ElmAfterTheftText5:
 	para "<PLAY_G>, is that"
 	line "true? Th-that's"
 	cont "incredible!"
+
+	para "The #DEX shows"
+	line "how #MON evolve"
+	cont "and learn moves."
 
 	para "He is superb at"
 	line "seeing the poten-"

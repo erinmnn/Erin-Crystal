@@ -1,7 +1,6 @@
 	object_const_def
-	const OLIVINELIGHTHOUSE3F_SAILOR
-	const OLIVINELIGHTHOUSE3F_GENTLEMAN
 	const OLIVINELIGHTHOUSE3F_YOUNGSTER
+	const OLIVINELIGHTHOUSE3F_YOUNGSTER2
 	const OLIVINELIGHTHOUSE3F_POKE_BALL
 
 OlivineLighthouse3F_MapScripts:
@@ -20,24 +19,13 @@ TrainerBirdKeeperTheo:
 	closetext
 	end
 
-TrainerGentlemanPreston:
-	trainer GENTLEMAN, PRESTON, EVENT_BEAT_GENTLEMAN_PRESTON, GentlemanPrestonSeenText, GentlemanPrestonBeatenText, 0, .Script
+TrainerBirdKeeperDenis:
+	trainer BIRD_KEEPER, DENIS, EVENT_BEAT_BIRD_KEEPER_DENIS, BirdKeeperDenisSeenText, BirdKeeperDenisBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext GentlemanPrestonAfterBattleText
-	waitbutton
-	closetext
-	end
-
-TrainerSailorTerrell:
-	trainer SAILOR, TERRELL, EVENT_BEAT_SAILOR_TERRELL, SailorTerrellSeenText, SailorTerrellBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext SailorTerrellAfterBattleText
+	writetext BirdKeeperDenisAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -69,45 +57,26 @@ BirdKeeperTheoAfterBattleText:
 	line "there…"
 	done
 
-SailorTerrellSeenText:
-	text "Sailors are both"
-	line "kind and strong."
-	cont "How about you?"
+BirdKeeperDenisSeenText:
+	text "We're pretty high"
+	line "up here. My bird"
+
+	para "#MON are in"
+	line "prime form."
 	done
 
-SailorTerrellBeatenText:
-	text "You are both kind"
-	line "and strong…"
+BirdKeeperDenisBeatenText:
+	text "Oops…They crashed…"
 	done
 
-SailorTerrellAfterBattleText:
-	text "Every time I come"
-	line "back to OLIVINE, I"
-	cont "visit the GYM."
+BirdKeeperDenisAfterBattleText:
+	text "My #MON learned"
+	line "how to use FLY in"
+	cont "CIANWOOD."
 
-	para "The GYM LEADER's"
-	line "#MON type has"
-
-	para "changed without me"
-	line "noticing."
-	done
-
-GentlemanPrestonSeenText:
-	text "I travel the world"
-	line "to train my #-"
-	cont "MON. I wish to"
-	cont "battle with you."
-	done
-
-GentlemanPrestonBeatenText:
-	text "…sigh… I must"
-	line "train some more…"
-	done
-
-GentlemanPrestonAfterBattleText:
-	text "JASMINE used to"
-	line "use rock #MON"
-	cont "like ONIX."
+	para "Well, since I'm a"
+	line "loser, I'll FLY"
+	cont "across the sea…"
 	done
 
 OlivineLighthouse3F_MapEvents:
@@ -129,7 +98,6 @@ OlivineLighthouse3F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSailorTerrell, -1
-	object_event 13,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerGentlemanPreston, -1
-	object_event  3,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperTheo, -1
+	object_event  5,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBirdKeeperTheo, -1
+	object_event  5,  2, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBirdKeeperDenis, -1
 	object_event  8,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse3FEther, EVENT_OLIVINE_LIGHTHOUSE_3F_ETHER

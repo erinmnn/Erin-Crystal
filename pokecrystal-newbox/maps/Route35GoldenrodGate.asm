@@ -1,7 +1,7 @@
 	object_const_def
 	const ROUTE35GOLDENRODGATE_RANDY
 	const ROUTE35GOLDENRODGATE_POKEFAN_F
-	const ROUTE35GOLDENRODGATE_FISHER
+	const ROUTE35GOLDENRODGATE_FISHING_GURU
 
 Route35GoldenrodGate_MapScripts:
 	def_scene_scripts
@@ -91,8 +91,34 @@ Route35GoldenrodGatePokefanFScript:
 	closetext
 	end
 
-Route35GoldenrodGateFisherScript:
-	jumptextfaceplayer Route35GoldenrodGateFisherText
+Route35GoldenrodGateFishingGuruScript:
+	faceplayer
+	opentext
+	checkevent EVENT_GOT_OLD_ROD
+	iftrue .GotOldRod
+	writetext Route35GoldenrodGateFishingGuruText_Question
+	yesorno
+	iffalse .Refused
+	writetext Route35GoldenrodGateFishingGuruText_Yes
+	promptbutton
+	verbosegiveitem OLD_ROD
+	writetext Route35GoldenrodGateFishingGuruText_GiveOldRod
+	waitbutton
+	closetext
+	setevent EVENT_GOT_OLD_ROD
+	end
+
+.Refused:
+	writetext Route35GoldenrodGateFishingGuruText_No
+	waitbutton
+	closetext
+	end
+
+.GotOldRod:
+	writetext Route35GoldenrodGateFishingGuruText_After
+	waitbutton
+	closetext
+	end
 
 Route35GoldenrodGateRandyAskTakeThisMonToMyFriendText:
 	text "Excuse me, kid!"
@@ -181,18 +207,40 @@ Route35GoldenrodGatePokefanFText_FoughtSudowoodo:
 	cont "on the radio."
 	done
 
-Route35GoldenrodGateFisherText:
-	text "I wonder how many"
-	line "kinds of #MON"
+Route35GoldenrodGateFishingGuruText_Question:
+	text "ROUTE 34 is a"
+	line "hot fishing spot."
 
-	para "there are in the"
-	line "world."
+	para "Would you like one"
+	line "of my RODS?"
+	done
 
-	para "Three years ago,"
-	line "PROF.OAK said that"
+Route35GoldenrodGateFishingGuruText_Yes:
+	text "Heh, that's good"
+	line "to hear."
 
-	para "there were 150"
-	line "different kinds."
+	para "Now you're an"
+	line "angler too!"
+	done
+
+Route35GoldenrodGateFishingGuruText_GiveOldRod:
+	text "Fishing is great!"
+
+	para "If there's water,"
+	line "be it the sea or a"
+
+	para "stream, try out"
+	line "your ROD."
+	done
+
+Route35GoldenrodGateFishingGuruText_No:
+	text "Oh. That's rather"
+	line "disappointing…"
+	done
+
+Route35GoldenrodGateFishingGuruText_After:
+	text "Yo, kid. How are"
+	line "they biting?"
 	done
 
 Route35GoldenrodGate_MapEvents:
@@ -211,4 +259,4 @@ Route35GoldenrodGate_MapEvents:
 	def_object_events
 	object_event  0,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RandyScript, -1
 	object_event  6,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route35GoldenrodGatePokefanFScript, -1
-	object_event  3,  2, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35GoldenrodGateFisherScript, -1
+	object_event  3,  2, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35GoldenrodGateFishingGuruScript, -1

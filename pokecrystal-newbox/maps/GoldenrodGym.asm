@@ -40,6 +40,7 @@ GoldenrodGymWhitneyScript:
 	setevent EVENT_BEAT_LASS_BRIDGET
 .FightDone:
 	opentext
+	disappear ROUTE34_SNORLAX
 	checkevent EVENT_MADE_WHITNEY_CRY
 	iffalse .StoppedCrying
 	writetext WhitneyYouMeanieText
@@ -102,14 +103,14 @@ TrainerLassCarrie:
 	end
 
 WhitneyCriesScript:
-	showemote EMOTE_SHOCK, GOLDENRODGYM_LASS2, 15
-	applymovement GOLDENRODGYM_LASS2, BridgetWalksUpMovement
+	showemote EMOTE_SHOCK, GOLDENRODGYM_BEAUTY2, 15
+	applymovement GOLDENRODGYM_BEAUTY2, SamanthaWalksOverMovement
 	turnobject PLAYER, DOWN
 	opentext
 	writetext BridgetWhitneyCriesText
 	waitbutton
 	closetext
-	applymovement GOLDENRODGYM_LASS2, BridgetWalksAwayMovement
+	applymovement GOLDENRODGYM_BEAUTY2, SamanthaWalksAwayMovement
 	setscene SCENE_GOLDENRODGYM_NOOP
 	clearevent EVENT_MADE_WHITNEY_CRY
 	end
@@ -172,14 +173,16 @@ GoldenrodGymStatue:
 	gettrainername STRING_BUFFER_4, WHITNEY, WHITNEY1
 	jumpstd GymStatue2Script
 
-BridgetWalksUpMovement:
+SamanthaWalksOverMovement:
 	step LEFT
-	turn_head UP
+	step LEFT
+	turn_head LEFT
 	step_end
 
-BridgetWalksAwayMovement:
+SamanthaWalksAwayMovement:
 	step RIGHT
-	turn_head LEFT
+	step RIGHT
+	turn_head DOWN
 	step_end
 
 WhitneyBeforeText:
@@ -381,20 +384,20 @@ GoldenrodGym_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2, 17, GOLDENROD_CITY, 1
 	warp_event  3, 17, GOLDENROD_CITY, 1
+	warp_event  2, 17, GOLDENROD_CITY, 1
 
 	def_coord_events
-	coord_event  8,  5, SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING, WhitneyCriesScript
+	coord_event 13, 10, SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING, WhitneyCriesScript
 
 	def_bg_events
-	bg_event  1, 15, BGEVENT_READ, GoldenrodGymStatue
-	bg_event  4, 15, BGEVENT_READ, GoldenrodGymStatue
+	bg_event  0, 15, BGEVENT_READ, GoldenrodGymStatue
+	bg_event  3, 15, BGEVENT_READ, GoldenrodGymStatue
 
 	def_object_events
-	object_event  8,  3, SPRITE_WHITNEY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGymWhitneyScript, -1
-	object_event  9, 13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassCarrie, -1
-	object_event  9,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassBridget, -1
-	object_event  0,  2, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBeautyVictoria, -1
-	object_event 19,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBeautySamantha, -1
-	object_event  5, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGymGuideScript, -1
+	object_event 10,  3, SPRITE_WHITNEY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGymWhitneyScript, -1
+	object_event  2,  9, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassCarrie, -1
+	object_event  4,  2, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassBridget, -1
+	object_event 17,  6, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBeautyVictoria, -1
+	object_event 16, 10, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerBeautySamantha, -1
+	object_event  4, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGymGuideScript, -1

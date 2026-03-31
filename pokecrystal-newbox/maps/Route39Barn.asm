@@ -70,15 +70,15 @@ MoomooScript:
 	readmem wMooMooBerries
 	addval 1
 	writemem wMooMooBerries
+	ifequal 1, .OneBerry
+	ifequal 2, .TwoBerries
 	ifequal 3, .ThreeBerries
-	ifequal 5, .FiveBerries
-	ifequal 7, .SevenBerries
 	writetext Route39BarnGaveBerryText
 	waitbutton
 	closetext
 	end
 
-.ThreeBerries:
+.OneBerry:
 	writetext Route39BarnGaveBerryText
 	promptbutton
 	writetext Route39BarnLittleHealthierText
@@ -86,7 +86,7 @@ MoomooScript:
 	closetext
 	end
 
-.FiveBerries:
+.TwoBerries:
 	writetext Route39BarnGaveBerryText
 	promptbutton
 	writetext Route39BarnQuiteHealthyText
@@ -94,7 +94,7 @@ MoomooScript:
 	closetext
 	end
 
-.SevenBerries:
+.ThreeBerries:
 	playmusic MUSIC_HEAL
 	writetext Route39BarnGaveBerryText
 	pause 60

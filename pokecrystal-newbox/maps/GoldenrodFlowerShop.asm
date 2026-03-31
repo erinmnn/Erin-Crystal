@@ -9,9 +9,9 @@ GoldenrodFlowerShop_MapScripts:
 
 FlowerShopTeacherScript:
 	checkevent EVENT_FOUGHT_SUDOWOODO
-	iftrue .Lalala
-	checkevent EVENT_GOT_SQUIRTBOTTLE
-	iftrue .GotSquirtbottle
+	iffalse .Lalala
+	checkevent EVENT_GOT_MYSTIC_WATER_IN_CHERRYGROVE
+	iftrue .GotMysticWater
 	checkevent EVENT_MET_FLORIA
 	iffalse .HaventMetFloria
 	checkevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
@@ -22,8 +22,8 @@ FlowerShopTeacherScript:
 	opentext
 	writetext GoldenrodFlowerShopTeacherHeresTheSquirtbottleText
 	promptbutton
-	verbosegiveitem SQUIRTBOTTLE
-	setevent EVENT_GOT_SQUIRTBOTTLE
+	verbosegiveitem MYSTIC_WATER
+	setevent EVENT_GOT_MYSTIC_WATER_IN_CHERRYGROVE
 	closetext
 	setevent EVENT_FLORIA_AT_SUDOWOODO
 	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
@@ -37,7 +37,7 @@ FlowerShopTeacherScript:
 	closetext
 	end
 
-.GotSquirtbottle:
+.GotMysticWater:
 	jumptextfaceplayer GoldenrodFlowerShopTeacherDontDoAnythingDangerousText
 
 .NoPlainBadge:
@@ -51,8 +51,8 @@ FlowerShopFloriaScript:
 	opentext
 	checkevent EVENT_FOUGHT_SUDOWOODO
 	iftrue .FoughtSudowoodo
-	checkevent EVENT_GOT_SQUIRTBOTTLE
-	iftrue .GotSquirtbottle
+	checkevent EVENT_GOT_MYSTIC_WATER_IN_CHERRYGROVE
+	iftrue .GotMysticWater
 	writetext GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText
 	waitbutton
 	closetext
@@ -61,7 +61,7 @@ FlowerShopFloriaScript:
 	clearevent EVENT_FLORIA_AT_SUDOWOODO
 	end
 
-.GotSquirtbottle:
+.GotMysticWater:
 	writetext GoldenrodFlowerShopFloriaYouBeatWhitneyText
 	waitbutton
 	closetext
@@ -103,7 +103,7 @@ GoldenrodFlowerShopTeacherAskWantToBorrowWaterBottleText:
 	text "Do you want to"
 	line "borrow the water"
 
-	para "bottle too?"
+	para "too?"
 	line "I don't want you"
 
 	para "doing anything"
@@ -116,7 +116,7 @@ GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
 
 	para "You'll be OK,"
 	line "then. Here's the"
-	cont "SQUIRTBOTTLE!"
+	cont "MYSTIC WATER!"
 	done
 
 GoldenrodFlowerShopTeacherDontDoAnythingDangerousText:

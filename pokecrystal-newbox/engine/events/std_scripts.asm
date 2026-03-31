@@ -317,8 +317,8 @@ BugContestResultsWarpScript:
 BugContestResultsScript:
 	clearflag ENGINE_BUG_CONTEST_TIMER
 	clearevent EVENT_WARPED_FROM_ROUTE_35_NATIONAL_PARK_GATE
-	clearevent EVENT_CONTEST_OFFICER_HAS_SUN_STONE
-	clearevent EVENT_CONTEST_OFFICER_HAS_EVERSTONE
+	clearevent EVENT_CONTEST_OFFICER_HAS_SILVERPOWDER
+	clearevent EVENT_CONTEST_OFFICER_HAS_BRIGHTPOWDER
 	clearevent EVENT_CONTEST_OFFICER_HAS_GOLD_BERRY
 	clearevent EVENT_CONTEST_OFFICER_HAS_BERRY
 	opentext
@@ -387,19 +387,19 @@ BugContestResults_CleanUp:
 
 BugContestResults_FirstPlace:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	getitemname STRING_BUFFER_4, SUN_STONE
+	getitemname STRING_BUFFER_4, SILVERPOWDER
 	farwritetext ContestResults_PlayerWonAPrizeText
 	waitbutton
-	verbosegiveitem SUN_STONE
-	iffalse BugContestResults_NoRoomForSunStone
+	verbosegiveitem SILVERPOWDER
+	iffalse BugContestResults_NoRoomForSilverpowder
 	sjump BugContestResults_ReturnAfterWinnersPrize
 
 BugContestResults_SecondPlace:
-	getitemname STRING_BUFFER_4, EVERSTONE
+	getitemname STRING_BUFFER_4, BRIGHTPOWDER
 	farwritetext ContestResults_PlayerWonAPrizeText
 	waitbutton
-	verbosegiveitem EVERSTONE
-	iffalse BugContestResults_NoRoomForEverstone
+	verbosegiveitem BRIGHTPOWDER
+	iffalse BugContestResults_NoRoomForBrightpowder
 	sjump BugContestResults_ReturnAfterWinnersPrize
 
 BugContestResults_ThirdPlace:
@@ -410,16 +410,16 @@ BugContestResults_ThirdPlace:
 	iffalse BugContestResults_NoRoomForGoldBerry
 	sjump BugContestResults_ReturnAfterWinnersPrize
 
-BugContestResults_NoRoomForSunStone:
+BugContestResults_NoRoomForSilverpowder:
 	farwritetext BugContestPrizeNoRoomText
 	promptbutton
-	setevent EVENT_CONTEST_OFFICER_HAS_SUN_STONE
+	setevent EVENT_CONTEST_OFFICER_HAS_SILVERPOWDER
 	sjump BugContestResults_ReturnAfterWinnersPrize
 
-BugContestResults_NoRoomForEverstone:
+BugContestResults_NoRoomForBrightpowder:
 	farwritetext BugContestPrizeNoRoomText
 	promptbutton
-	setevent EVENT_CONTEST_OFFICER_HAS_EVERSTONE
+	setevent EVENT_CONTEST_OFFICER_HAS_BRIGHTPOWDER
 	sjump BugContestResults_ReturnAfterWinnersPrize
 
 BugContestResults_NoRoomForGoldBerry:
@@ -485,7 +485,7 @@ InitializeEventsScript:
 	setevent EVENT_ILEX_FOREST_APPRENTICE
 	setevent EVENT_ILEX_FOREST_FARFETCHD
 	setevent EVENT_ILEX_FOREST_CHARCOAL_MASTER
-	setevent EVENT_MAHOGANY_MART_LANCE_AND_DRAGONITE
+	setevent EVENT_CIANWOOD_LANCE_AND_DRAGONITE
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_GRUNT_WITH_EXECUTIVE
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_EXECUTIVE
 	setevent EVENT_TEAM_ROCKET_BASE_B2F_DRAGONITE
@@ -546,7 +546,7 @@ InitializeEventsScript:
 	setevent EVENT_MET_BILL
 	setevent EVENT_ECRUTEAK_POKE_CENTER_BILL
 	setevent EVENT_MYSTERY_GIFT_DELIVERY_GUY
-	setevent EVENT_LAKE_OF_RAGE_LANCE
+	setevent EVENT_CIANWOOD_LANCE
 	setevent EVENT_GOLDENROD_DEPT_STORE_B1F_LAYOUT_1
 	setevent EVENT_GOLDENROD_UNDERGROUND_WAREHOUSE_BLOCKED_OFF
 	setevent EVENT_DRAGONS_DEN_CLAIR

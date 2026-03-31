@@ -3,6 +3,7 @@
 	const POKECENTER2F_BATTLE_RECEPTIONIST
 	const POKECENTER2F_TIME_CAPSULE_RECEPTIONIST
 	const POKECENTER2F_OFFICER
+	const POKECENTER2F_STATUS_NURSE
 
 Pokecenter2F_MapScripts:
 	def_scene_scripts
@@ -619,6 +620,85 @@ Pokecenter2FOfficerScript:
 	closetext
 	end
 
+EdgingNurse:
+	faceplayer
+	opentext
+	writetext Text_EdgingNurse
+	promptbutton
+	special EdgeMon
+	sjump .GoodbyeNurse
+
+.GoodbyeNurse:
+	writetext Text_NurseGoodbye
+	waitbutton
+	closetext
+	end
+
+StatusNurse:
+	faceplayer
+	opentext
+	writetext Text_StatusNurse1
+	waitbutton
+	writetext Text_StatusNurse2
+	waitbutton
+.select_status
+	writetext Text_StatusNurseSelect
+	promptbutton
+	loadmenu .StatusMenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .PoisonMon
+	ifequal 2, .BurnMon
+	ifequal 3, .ParalyzeMon
+	ifequal 4, .FreezeMon
+	ifequal 5, .GoodbyeNurse
+	sjump .GoodbyeNurse
+
+.PoisonMon:
+	setval STATUS_POISON
+	writetext Text_PoisonMon
+	special PoisonMon
+	sjump .select_status
+
+.BurnMon:
+	setval STATUS_BURN
+	writetext Text_BurnMon
+	special BurnMon
+	sjump .select_status
+
+.ParalyzeMon:
+	setval STATUS_PARALYZE
+	writetext Text_ParalyzeMon
+	special ParalyzeMon
+	sjump .select_status
+
+.FreezeMon:
+	setval STATUS_FREEZE
+	writetext Text_FreezeMon
+	special FreezeMon
+	sjump .select_status
+
+.GoodbyeNurse:
+	writetext Text_NurseGoodbye
+	waitbutton
+	closetext
+	end
+
+.StatusMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, 15, TEXTBOX_Y - 1
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 5 ; items
+	db "POISON@"
+	db "BURN@"
+	db "PARALYZE@"
+	db "FREEZE@"
+	db "CANCEL@"
+
 Pokecenter2FMovementData_ReceptionistWalksUpAndLeft_LookRight:
 	slow_step UP
 	slow_step LEFT
@@ -795,6 +875,63 @@ Pokecenter2FMovementData_ReceptionistStepsRightLooksLeft_2:
 	slow_step RIGHT
 	turn_head LEFT
 	step_end
+
+Text_StatusNurse1:
+	text "Hello. Bright"
+	line "young trainer!"
+	done
+
+Text_StatusNurse2:
+	text "I can safely"
+	line "induce a status"
+	cont "on your #MON."
+	done
+
+Text_StatusNurseSelect:
+	text "Which status would"
+	line "you like?"
+	done
+
+Text_NurseGoodbye:
+	text "All set."
+	line "Take care!"
+	done
+
+Text_PoisonMon:
+	text "Okay. Which one"
+	line "should we poison?"
+	done
+
+Text_BurnMon:
+	text "Okay. Which one"
+	line "should we burn?"
+	done
+
+Text_ParalyzeMon:
+	text "Okay. Which one"
+	line "will we paralyze?"
+	done
+
+Text_FreezeMon:
+	text "Okay. Which one"
+	line "should we freeze?"
+	done
+
+Text_StatusNurseChoose:
+	text "Which would you"
+	line "choose?"
+	done
+
+Text_EdgingNurse:
+	text "Hello! I can"
+	line "help your"
+
+	para "#MON gain"	
+	line "a lot of EXP."
+
+	para "Which would you"
+	line "like to edge?"
+	done
 
 Text_BattleReceptionistMobile:
 	text "Would you like to"
@@ -1024,11 +1161,11 @@ Pokecenter2F_MapEvents:
 
 	def_warp_events
 	warp_event  0,  7, POKECENTER_2F, -1
-	warp_event  5,  0, TRADE_CENTER, 1
-	warp_event  9,  0, COLOSSEUM, 1
-	warp_event 13,  2, TIME_CAPSULE, 1
-	warp_event  6,  0, MOBILE_TRADE_ROOM, 1
-	warp_event 10,  0, MOBILE_BATTLE_ROOM, 1
+	warp_event  0, -3, TRADE_CENTER, 1
+	warp_event  1, -3, COLOSSEUM, 1
+	warp_event  5, -3, TIME_CAPSULE, 1
+	warp_event  2, -3, MOBILE_TRADE_ROOM, 1
+	warp_event  3, -3, MOBILE_BATTLE_ROOM, 1
 
 	def_coord_events
 
@@ -1036,7 +1173,10 @@ Pokecenter2F_MapEvents:
 	bg_event  7,  3, BGEVENT_READ, Pokecenter2FLinkRecordSign
 
 	def_object_events
-	object_event  5,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_Trade, -1
-	object_event  9,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_Battle, -1
-	object_event 13,  3, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_TimeCapsule, -1
-	object_event  1,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Pokecenter2FOfficerScript, EVENT_MYSTERY_GIFT_DELIVERY_GUY
+	object_event -1, -3, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_Trade, -1
+	object_event -2, -3, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_Battle, -1
+	object_event  6, -3, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LinkReceptionistScript_TimeCapsule, -1
+	object_event  4, -3, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Pokecenter2FOfficerScript, EVENT_MYSTERY_GIFT_DELIVERY_GUY
+	object_event  5,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, StatusNurse, -1
+	object_event 13,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EdgingNurse, -1
+

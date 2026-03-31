@@ -128,7 +128,15 @@ MahoganyGymGuideScript:
 	opentext
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .MahoganyGymGuideWinScript
+	checkevent EVENT_LAKE_OF_RAGE_RED_GYARADOS
+	iffalse .Fishing
 	writetext MahoganyGymGuideText
+	waitbutton
+	closetext
+	end
+
+.Fishing
+	writetext MahoganyGymGuideFishingText
 	waitbutton
 	closetext
 	end
@@ -358,6 +366,30 @@ MahoganyGymGuideText:
 	line "ambition!"
 	done
 
+MahoganyGymGuideFishingText:
+	text "PRYCE is a veteran"
+	line "who has trained"
+
+	para "#MON for some"
+	line "50 years."
+
+	para "He's said to be"
+	line "good at freezing"
+
+	para "opponents with"
+	line "ice-type moves."
+
+	para "That means you"
+	line "should melt him"
+
+	para "with your burning"
+	line "ambition!"
+
+	para "He's out fishing"
+	line "now, but he'll"
+	cont "be back soon."
+	done
+
 MahoganyGymGuideWinText:
 	text "PRYCE is some-"
 	line "thing, but you're"
@@ -384,10 +416,10 @@ MahoganyGym_MapEvents:
 	bg_event  6, 15, BGEVENT_READ, MahoganyGymStatue
 
 	def_object_events
-	object_event  5,  3, SPRITE_PRYCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MahoganyGymPryceScript, -1
-	object_event  4,  6, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerSkierRoxanne, -1
-	object_event  0, 17, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBoarderRonald, -1
-	object_event  9, 17, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerSkierClarissa, -1
-	object_event  5,  9, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBoarderBrad, -1
-	object_event  2,  4, SPRITE_ROCKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBoarderDouglas, -1
+	object_event  5,  3, SPRITE_PRYCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MahoganyGymPryceScript, EVENT_LAKE_OF_RAGE_CIVILIANS
+	object_event  2,  6, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerSkierRoxanne, -1
+	object_event  9,  8, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBoarderRonald, -1
+	object_event  0,  8, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerSkierClarissa, -1
+	object_event  3, 12, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBoarderBrad, -1
+	object_event  9,  5, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerBoarderDouglas, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MahoganyGymGuideScript, -1

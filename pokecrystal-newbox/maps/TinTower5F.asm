@@ -1,10 +1,36 @@
 	object_const_def
+	const TINTOWER5F_ROCKET
 	const TINTOWER5F_POKE_BALL
 
 TinTower5F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+
+TrainerGruntM30:
+	trainer GRUNTM, GRUNTM_30, EVENT_BEAT_ROCKET_GRUNTM_30, GruntM30SeenText, GruntM30BeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext GruntM30AfterBattleText
+	waitbutton
+	closetext
+	end
+
+GruntM30SeenText:
+	text "You stupid"
+	line "little fuck."
+	done
+
+GruntM30BeatenText:
+	text "Grrrr."
+	done
+
+GruntM30AfterBattleText:
+	text "Get lost."
+	line "You're too late."
+	done
 
 TinTower5FRareCandy:
 	itemball RARE_CANDY
@@ -31,4 +57,5 @@ TinTower5F_MapEvents:
 	bg_event  3, 15, BGEVENT_ITEM, TinTower5FHiddenCarbos
 
 	def_object_events
+	object_event 11,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerGruntM30, EVENT_TIN_TOWER_ROCKET_POPULATION
 	object_event  9,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower5FRareCandy, EVENT_TIN_TOWER_5F_RARE_CANDY

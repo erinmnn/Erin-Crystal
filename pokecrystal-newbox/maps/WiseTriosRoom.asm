@@ -48,9 +48,18 @@ WiseTriosRoomSage2Script:
 	jumptextfaceplayer WiseTriosRoomSage2Text
 
 WiseTriosRoomSage3Script:
+	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
+	iffalse .EmergencyText
 	jumptextfaceplayer WiseTriosRoomSage3Text
 
+.EmergencyText
+	jumptextfaceplayer OnOneConditionText
+
 WiseTriosRoom_CannotEnterTinTowerScript:
+	checkevent EVENT_TIN_TOWER_EMERGENCY
+	iftrue .Emergency
+	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
+	iffalse .OnOneCondition
 	turnobject WISETRIOSROOM_SAGE3, UP
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, WISETRIOSROOM_SAGE3, 20
@@ -64,6 +73,22 @@ WiseTriosRoom_CannotEnterTinTowerScript:
 	closetext
 	applymovement WISETRIOSROOM_SAGE3, WiseTriosRoomSageReturnsMovement
 	turnobject WISETRIOSROOM_SAGE3, LEFT
+	end
+
+.Emergency
+	end
+
+.OnOneCondition
+	turnobject WISETRIOSROOM_SAGE3, UP
+	turnobject PLAYER, DOWN
+	opentext
+	writetext OnOneConditionText
+	waitbutton
+	closetext
+	setevent EVENT_TIN_TOWER_EMERGENCY
+	setevent EVENT_TIN_TOWER_1F_RAIKOU
+	setevent EVENT_TIN_TOWER_1F_ENTEI
+	setevent EVENT_TIN_TOWER_1F_SUICUNE
 	end
 
 TrainerSageGaku:
@@ -168,6 +193,26 @@ WiseTriosRoomSage3BlocksExitText:
 
 	para "to refrain from"
 	line "entering!"
+	done
+
+OnOneConditionText:
+	text "TEAM ROCKET has"
+	line "broken into TIN"
+	cont "TOWER."
+
+	para "Under normal"
+	line "circumstances,"
+	cont "the general public"
+
+	para "isn't permitted"
+	line "to enter…"
+
+	para "But just this one"
+	line "time, we need"
+	cont "your strength."
+
+	para "<PLAYER>, please"
+	line "help us stop them."
 	done
 
 WiseTriosRoomSage3Text:
@@ -347,7 +392,7 @@ WiseTriosRoom_MapEvents:
 
 	def_warp_events
 	warp_event  7,  4, ECRUTEAK_CITY, 4
-	warp_event  7,  5, ECRUTEAK_CITY, 5
+	warp_event  7,  4, ECRUTEAK_CITY, 5
 	warp_event  1,  4, ECRUTEAK_TIN_TOWER_ENTRANCE, 5
 
 	def_coord_events

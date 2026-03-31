@@ -3,7 +3,6 @@
 	const PEWTERCITY_BUG_CATCHER
 	const PEWTERCITY_GRAMPS
 	const PEWTERCITY_FRUIT_TREE1
-	const PEWTERCITY_FRUIT_TREE2
 
 PewterCity_MapScripts:
 	def_scene_scripts
@@ -62,9 +61,6 @@ PewterCityMartSign:
 
 PewterCityFruitTree1:
 	fruittree FRUITTREE_PEWTER_CITY_1
-
-PewterCityFruitTree2:
-	fruittree FRUITTREE_PEWTER_CITY_2
 
 PewterCityCooltrainerFText:
 	text "Have you visited"
@@ -176,4 +172,3 @@ PewterCity_MapEvents:
 	object_event 14, 29, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PewterCityBugCatcherScript, -1
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
 	object_event 32,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree1, -1
-	object_event 30,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1

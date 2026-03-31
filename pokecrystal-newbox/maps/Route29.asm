@@ -23,16 +23,12 @@ Route29Noop2Scene:
 	end
 
 Route29TuscanyCallback:
-	checkflag ENGINE_ZEPHYRBADGE
-	iftrue .DoesTuscanyAppear
-
-.TuscanyDisappears:
+	readvar VAR_WEEKDAY
+	ifequal TUESDAY, .TuscanyAppears
 	disappear ROUTE29_TUSCANY
 	endcallback
 
-.DoesTuscanyAppear:
-	readvar VAR_WEEKDAY
-	ifnotequal TUESDAY, .TuscanyDisappears
+.TuscanyAppears:
 	appear ROUTE29_TUSCANY
 	endcallback
 
@@ -283,6 +279,10 @@ CatchingTutorialDeclinedText:
 
 	para "#MON, you have"
 	line "to walk a lot."
+
+	para "Your #DEX shows"
+	line "where you can find"
+	cont "them too!"
 	done
 
 CatchingTutorialRepeatText:
@@ -431,7 +431,7 @@ Route29_MapEvents:
 	object_event 27, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29YoungsterScript, -1
 	object_event 15, 11, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29TeacherScript, -1
 	object_event 12,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route29FruitTree, -1
-	object_event 25,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route29FisherScript, -1
+	object_event 25,  3, SPRITE_FISHER, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route29FisherScript, -1
 	object_event 13,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route29CooltrainerMScript, -1
 	object_event 29, 12, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TuscanyScript, EVENT_ROUTE_29_TUSCANY_OF_TUESDAY
 	object_event 48,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route29Potion, EVENT_ROUTE_29_POTION

@@ -19,6 +19,8 @@ CianwoodGymChuckScript:
 	opentext
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
+	checkevent EVENT_FOUGHT_EUSINE
+	iffalse .GetLost
 	writetext ChuckIntroText1
 	waitbutton
 	closetext
@@ -56,12 +58,19 @@ CianwoodGymChuckScript:
 	setevent EVENT_BEAT_BLACKBELT_LAO
 	setevent EVENT_BEAT_BLACKBELT_NOB
 	setevent EVENT_BEAT_BLACKBELT_LUNG
+	clearevent EVENT_CIANWOOD_LANCE
 	writetext ChuckExplainBadgeText
 	promptbutton
 	verbosegiveitem TM_DYNAMICPUNCH
 	iffalse .BagFull
 	setevent EVENT_GOT_TM01_DYNAMICPUNCH
 	writetext ChuckExplainTMText
+	waitbutton
+	closetext
+	end
+
+.GetLost:
+	writetext ChuckGetLostText
 	waitbutton
 	closetext
 	end
@@ -147,6 +156,14 @@ CianwoodGymMovement_ChuckChucksBoulder:
 	remove_sliding
 	step_end
 
+ChuckGetLostText:
+	text "GAHAHAH!"
+
+	para "You're not ready"
+	line "for this, little"
+	cont "trainer!"
+	done
+
 ChuckIntroText1:
 	text "WAHAHAH!"
 
@@ -202,11 +219,12 @@ ChuckExplainBadgeText:
 	text "STORMBADGE makes"
 	line "all #MON up to"
 
-	para "L70 obey, even"
+	para "L50 obey, even"
 	line "traded ones."
 
 	para "It also lets your"
-	line "#MON use FLY"
+	line "#MON use FLY or"
+	cont "WHIRLPOOL"
 
 	para "when you're not in"
 	line "a battle."
@@ -321,7 +339,7 @@ CianwoodGym_MapEvents:
 	object_event  2, 12, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBlackbeltYoshi, -1
 	object_event  7, 12, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBlackbeltLao, -1
 	object_event  3,  9, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackbeltNob, -1
-	object_event  5,  5, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBlackbeltLung, -1
+	object_event  6,  9, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBlackbeltLung, -1
 	object_event  5,  1, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
 	object_event  3,  7, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
 	object_event  4,  7, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1

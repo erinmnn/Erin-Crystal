@@ -62,22 +62,11 @@ MeetMomScript:
 	iffalse .SetDayOfWeek
 .DayOfWeekDone:
 	writetext ComeHomeForDSTText
-	yesorno
-	iffalse .ExplainPhone
-	sjump .KnowPhone
-
-.KnowPhone:
-	writetext KnowTheInstructionsText
-	promptbutton
-	sjump .FinishPhone
-
-.ExplainPhone:
-	writetext DontKnowTheInstructionsText
 	promptbutton
 	sjump .FinishPhone
 
 .FinishPhone:
-	writetext InstructionsNextText
+	writetext HurryUpElmIsWaitingText
 	waitbutton
 	closetext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -231,14 +220,7 @@ ElmsLookingForYouText:
 	done
 
 MomGivesPokegearText:
-	text "#MON GEAR, or"
-	line "just #GEAR."
-
-	para "It's essential if"
-	line "you want to be a"
-	cont "good trainer."
-
-	para "Oh, the day of the"
+	text "Oh, the day of the"
 	line "week isn't set."
 
 	para "You mustn't forget"
@@ -256,10 +238,6 @@ ComeHomeForDSTText:
 
 	para "for Daylight"
 	line "Saving Time."
-
-	para "By the way, do you"
-	line "know how to use"
-	cont "the PHONE?"
 	done
 
 KnowTheInstructionsText:

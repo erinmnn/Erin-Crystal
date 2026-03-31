@@ -27,10 +27,12 @@ TinTower1FNoopScene:
 	end
 
 TinTower1FNPCsCallback:
+	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
+	iffalse .RocketsHere
 	checkevent EVENT_GOT_RAINBOW_WING
 	iftrue .GotRainbowWing
 	checkevent EVENT_BEAT_ELITE_FOUR
-	iffalse .FaceBeasts
+	iftrue .FaceBeasts
 	special BeastsCheck
 	iffalse .FaceBeasts
 	clearevent EVENT_TIN_TOWER_1F_WISE_TRIO_2
@@ -39,6 +41,11 @@ TinTower1FNPCsCallback:
 	checkevent EVENT_FOUGHT_HO_OH
 	iffalse .Done
 	appear TINTOWER1F_EUSINE
+.RocketsHere
+	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_1
+	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_2
+	setscene SCENE_TINTOWER1F_NOOP
+	endcallback
 .Done:
 	endcallback
 
@@ -75,6 +82,8 @@ TinTower1FNPCsCallback:
 	endcallback
 
 TinTower1FStairsCallback:
+	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
+	iffalse .DontHideStairs
 	checkevent EVENT_GOT_RAINBOW_WING
 	iftrue .DontHideStairs
 	changeblock 10, 2, $09 ; floor

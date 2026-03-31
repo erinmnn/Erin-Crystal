@@ -236,7 +236,7 @@ DEF EMOTE_LENGTH EQU 6
 	const FRUITTREE_ROUTE_1       ; 1a
 	const FRUITTREE_ROUTE_8       ; 1b
 	const FRUITTREE_PEWTER_CITY_1 ; 1c
-	const FRUITTREE_PEWTER_CITY_2 ; 1d
+	const FRUITTREE_ROUTE_30_3    ; 1d
 	const FRUITTREE_FUCHSIA_CITY  ; 1e
 DEF NUM_FRUIT_TREES EQU const_value - 1
 
@@ -328,3 +328,11 @@ DEF UNOWN_WALL_MENU_HEADER_SIZE EQU 5
 	const MOVETUTOR_FLAMETHROWER ; 1
 	const MOVETUTOR_THUNDERBOLT  ; 2
 	const MOVETUTOR_ICE_BEAM     ; 3
+
+; StatusNurse setval arguments
+	const_def 1
+	const STATUS_POISON ; 1
+	const STATUS_BURN ; 2
+	const STATUS_SLEEP ; 3
+	const STATUS_PARALYZE  ; 4
+	const STATUS_FREEZE ; 5

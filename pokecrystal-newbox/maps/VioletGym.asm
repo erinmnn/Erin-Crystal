@@ -12,6 +12,8 @@ VioletGym_MapScripts:
 VioletGymFalknerScript:
 	faceplayer
 	opentext
+	checkevent EVENT_BEAT_SAGE_LI
+	iffalse .GoToSproutTower
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
 	writetext FalknerIntroText
@@ -30,7 +32,7 @@ VioletGymFalknerScript:
 	readvar VAR_BADGES
 	scall VioletGymActivateRockets
 .FightDone:
-	checkevent EVENT_GOT_TM31_MUD_SLAP
+	checkevent EVENT_GOT_TM18_WING_ATTACK
 	iftrue .SpeechAfterTM
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
@@ -38,10 +40,16 @@ VioletGymFalknerScript:
 	specialphonecall SPECIALCALL_ASSISTANT
 	writetext FalknerZephyrBadgeText
 	promptbutton
-	verbosegiveitem TM_MUD_SLAP
-	iffalse .NoRoomForMudSlap
-	setevent EVENT_GOT_TM31_MUD_SLAP
-	writetext FalknerTMMudSlapText
+	verbosegiveitem TM_WING_ATTACK
+	iffalse .NoRoomForWingAttack
+	setevent EVENT_GOT_TM18_WING_ATTACK
+	writetext FalknerTMWingAttackText
+	waitbutton
+	closetext
+	end
+
+.GoToSproutTower:
+	writetext GoToSproutTowerText
 	waitbutton
 	closetext
 	end
@@ -49,7 +57,7 @@ VioletGymFalknerScript:
 .SpeechAfterTM:
 	writetext FalknerFightDoneText
 	waitbutton
-.NoRoomForMudSlap:
+.NoRoomForWingAttack:
 	closetext
 	end
 
@@ -166,7 +174,7 @@ FalknerZephyrBadgeText:
 	line "too."
 	done
 
-FalknerTMMudSlapText:
+FalknerTMWingAttackText:
 	text "By using a TM, a"
 	line "#MON will"
 
@@ -177,18 +185,27 @@ FalknerTMMudSlapText:
 	line "act--a TM can be"
 	cont "used only once."
 
-	para "TM31 contains"
-	line "MUD-SLAP."
+	para "TM18 contains"
+	line "WING ATTACK."
 
-	para "It reduces the"
-	line "enemy's accuracy"
+	para "It's an attack"
+	line "that never misses."
 
-	para "while it causes"
-	line "damage."
+	para "Great for hitting"
+	line "evasive targets"
+	done
 
-	para "In other words, it"
-	line "is both defensive"
-	cont "and offensive."
+GoToSproutTowerText:
+	text "I admire your"
+	line "ambition, but"
+	cont "I don't think"
+
+	para "you're ready"
+	line "to face me."
+
+	para "Try earning your"
+	line "wings at SPROUT"
+	cont "TOWER first."
 	done
 
 FalknerFightDoneText:
