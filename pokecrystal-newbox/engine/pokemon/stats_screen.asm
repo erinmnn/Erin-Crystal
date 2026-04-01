@@ -577,7 +577,7 @@ LoadPinkPage:
 	and $f0
 	jr z, .NotImmuneToPkrs
 	hlcoord 8, 12
-	ld [hl], "." ; Pokérus immunity dot
+	ld [hl], CHARVAL(".") ; Pokérus immunity dot
 .NotImmuneToPkrs:
 	ld a, [wMonType]
 	cp BOXMON
@@ -896,9 +896,9 @@ LoadOrangePage:
 	cp $7f
 	ret z
 	and CAUGHT_GENDER_MASK
-	ld a, "♂"
+	ld a, CHARVAL("♂")
 	jr z, .got_gender
-	ld a, "♀"
+	ld a, CHARVAL("♀")
 .got_gender
 	hlcoord 17, 16
 	ld [hl], a

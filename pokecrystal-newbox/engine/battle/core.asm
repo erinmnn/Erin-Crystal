@@ -1827,6 +1827,12 @@ HandleWeather:
 	cp WEATHER_NONE
 	ret z
 
+	cp WEATHER_RAIN
+	jp z, .rain_anim
+
+	cp WEATHER_SUN
+	jp z, .sun_anim
+
 	ld hl, wWeatherCount
 	dec [hl]
 	jr z, .ended
@@ -1912,6 +1918,23 @@ HandleWeather:
 	ld l, a
 	jp StdBattleTextbox
 
+.rain_anim
+	call SwitchTurnCore
+	xor a
+	ld [wBattleAfterAnim], a
+	ld de, RAIN_DANCE
+	call Call_PlayBattleAnim
+	call SwitchTurnCore
+	ld hl, .WeatherMessages
+	jr .PrintWeatherMessage
+.sun_anim
+	call SwitchTurnCore
+	xor a
+	ld [wBattleAfterAnim], a
+	ld de, SUNNY_DAY
+	call Call_PlayBattleAnim
+	call SwitchTurnCore
+	ld hl, .WeatherMessages
 .WeatherMessages:
 ; entries correspond to WEATHER_* constants
 	dw BattleText_RainContinuesToFall
