@@ -21,11 +21,11 @@ DoPlayerMovement::
 	ret z
 
 	ld c, a
-	and PAD_CTRL_PAD
+	and D_PAD
 	ret nz
 
 	ld a, c
-	or PAD_DOWN
+	or D_DOWN
 	ld [wCurInput], a
 	ret
 
@@ -276,7 +276,7 @@ DoPlayerMovement::
 
 ; Downhill riding is slower when not moving down.
 	call .BikeCheck
-	jr nz, .walk
+	jr nz, .HandleWalkAndRun
 
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_DOWNHILL_F, [hl]
@@ -316,6 +316,25 @@ DoPlayerMovement::
 .bump
 	xor a
 	ret
+
+.HandleWalkAndRun
+	ld a, [wWalkingDirection]
+	cp STANDING
+	jr z, .ensurewalk
+	ldh a, [hJoypadDown]
+	and B_BUTTON
+	cp B_BUTTON
+	jr nz, .ensurewalk
+	ld a, [wPlayerState]
+	cp PLAYER_RUN
+	call nz, .StartRunning
+	jr .fast
+
+.ensurewalk
+	ld a, [wPlayerState]
+	cp PLAYER_NORMAL
+	call nz, .StartWalking
+	jr .walk
 
 .TrySurf:
 	call .CheckSurfPerms
@@ -462,7 +481,7 @@ DoPlayerMovement::
 
 .Steps:
 ; entries correspond to STEP_* constants (see constants/map_object_constants.asm)
-	table_width 2
+	table_width 2, DoPlayerMovement.Steps
 	dw .SlowStep
 	dw .NormalStep
 	dw .FastStep
@@ -546,13 +565,13 @@ DoPlayerMovement::
 	ld hl, .forced_dpad
 	add hl, de
 	ld a, [wCurInput]
-	and PAD_BUTTONS
+	and BUTTONS
 	or [hl]
 	ld [wCurInput], a
 	ret
 
 .forced_dpad
-	db PAD_DOWN, PAD_UP, PAD_LEFT, PAD_RIGHT
+	db D_DOWN, D_UP, D_LEFT, D_RIGHT
 
 .GetAction:
 ; Poll player input and update movement info.
@@ -560,13 +579,13 @@ DoPlayerMovement::
 	ld hl, .action_table
 	ld de, .action_table_1_end - .action_table_1
 	ld a, [wCurInput]
-	bit B_PAD_DOWN, a
+	bit D_DOWN_F, a
 	jr nz, .d_down
-	bit B_PAD_UP, a
+	bit D_UP_F, a
 	jr nz, .d_up
-	bit B_PAD_LEFT, a
+	bit D_LEFT_F, a
 	jr nz, .d_left
-	bit B_PAD_RIGHT, a
+	bit D_RIGHT_F, a
 	jr nz, .d_right
 ; Standing
 	jr .update
@@ -665,7 +684,7 @@ ENDM
 
 	ld hl, OBJECT_FLAGS2
 	add hl, bc
-	set BOULDER_MOVING_F, [hl]
+	set 2, [hl]
 
 	ld a, [wWalkingDirection]
 	ld d, a
@@ -780,6 +799,22 @@ ENDM
 	ld a, PLAYER_NORMAL
 	ld [wPlayerState], a
 	call UpdatePlayerSprite ; UpdateSprites
+	pop bc
+	ret
+
+.StartRunning:
+	push bc
+	ld a, PLAYER_RUN
+	ld [wPlayerState], a
+	call UpdatePlayerSprite
+	pop bc
+	ret
+
+.StartWalking:
+	push bc
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	call UpdatePlayerSprite
 	pop bc
 	ret
 
