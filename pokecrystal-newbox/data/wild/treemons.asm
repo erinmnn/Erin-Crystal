@@ -21,56 +21,56 @@ TreeMonSet_None:
 
 TreeMonSet_Canyon:
 ; common
-	db 50, 10, BUTTERFREE
-	db 15, 10, LEDYBA
-	db 15, 10, AIPOM
-	db 10, 10, EXEGGCUTE
-	db  5, 10, HERACROSS
-	db  5, 10, HERACROSS
+	db 50, BUTTERFREE, 	10
+	db 15, LEDYBA,		10
+	db 15, AIPOM,		10
+	db 10, EXEGGCUTE,	10
+	db  5, HERACROSS,	10
+	db  5, HERACROSS,	10
 	db -1
 ; rare
-	db 50, 10, BUTTERFREE
-	db 15, 10, LEDYBA
-	db 15, 10, AIPOM
-	db 10, 10, EXEGGCUTE
-	db  5, 10, HERACROSS
-	db  5, 10, HERACROSS
+	db 50, BUTTERFREE, 	10
+	db 15, LEDYBA,		10
+	db 15, AIPOM,		10
+	db 10, EXEGGCUTE,	10
+	db  5, HERACROSS,	10
+	db  5, HERACROSS,	10
 	db -1
 
 TreeMonSet_Town:
 ; common
-	db 50, 10, BUTTERFREE
-	db 15, 10, LEDYBA
-	db 15, 10, LEDYBA
-	db 10, 10, VENONAT
-	db  5, 10, AIPOM
-	db  5, 10, EXEGGCUTE
+	db 50, BUTTERFREE, 	10
+	db 15, LEDYBA,		10
+	db 15, LEDYBA,		10
+	db 10, VENONAT,		10
+	db  5, AIPOM,		10
+	db  5, EXEGGCUTE,	10
 	db -1
 ; rare
-	db 50, 10, BUTTERFREE
-	db 15, 10, LEDYBA
-	db 15, 10, LEDYBA
-	db 10, 10, VENONAT
-	db  5, 10, AIPOM
-	db  5, 10, EXEGGCUTE
+	db 50, BUTTERFREE, 	10
+	db 15, LEDYBA,		10
+	db 15, LEDYBA,		10
+	db 10, VENONAT,		10
+	db  5, AIPOM,		10
+	db  5, EXEGGCUTE,	10
 	db -1
 
 TreeMonSet_Route:
 ; common
-	db 50, 10, BEEDRILL
-	db 15, 10, SPINARAK
-	db 15, 10, SPINARAK
-	db 10, 10, PINECO
-	db  5, 10, AIPOM
-	db  5, 10, EXEGGCUTE
+	db 50, BEEDRILL,   10
+	db 15, SPINARAK,   10
+	db 15, SPINARAK,   10
+	db 10, PINECO, 	   10
+	db  5, AIPOM,	   10
+	db  5, EXEGGCUTE,  10
 	db -1
 ; rare
-	db 50, 10, BEEDRILL
-	db 15, 10, SPINARAK
-	db 15, 10, SPINARAK
-	db 10, 10, PINECO
-	db  5, 10, AIPOM
-	db  5, 10, EXEGGCUTE
+	db 50, BEEDRILL,   10
+	db 15, SPINARAK,   10
+	db 15, SPINARAK,   10
+	db 10, PINECO, 	   10
+	db  5, AIPOM,	   10
+	db  5, EXEGGCUTE,  10
 	db -1
 
 TreeMonSet_Kanto:
@@ -93,38 +93,38 @@ TreeMonSet_Kanto:
 
 TreeMonSet_Lake:
 ; common
-	db 50, 10, BEEDRILL
-	db 15, 10, SPINARAK
-	db 15, 10, PINECO
-	db 10, 10, EXEGGCUTE
-	db  5, 10, HERACROSS
-	db  5, 10, HERACROSS
+	db 50, BEEDRILL,  10
+	db 15, SPINARAK,  10
+	db 15, PINECO,    10
+	db 10, EXEGGCUTE, 10
+	db  5, HERACROSS, 10
+	db  5, HERACROSS, 10
 	db -1
 ; rare
-	db 50, 10, BEEDRILL
-	db 15, 10, SPINARAK
-	db 15, 10, PINECO
-	db 10, 10, EXEGGCUTE
-	db  5, 10, HERACROSS
-	db  5, 10, HERACROSS
+	db 50, BEEDRILL,  10
+	db 15, SPINARAK,  10
+	db 15, PINECO,    10
+	db 10, EXEGGCUTE, 10
+	db  5, HERACROSS, 10
+	db  5, HERACROSS, 10
 	db -1
 
 TreeMonSet_Forest:
 ; common
-	db 50, 10, BEEDRILL
-	db 15, 10, SPINARAK
-	db 15, 10, PINECO
-	db 10, 10, AIPOM
-	db  5, 10, EXEGGCUTE
-	db  5, 10, HERACROSS
+	db 50, BEEDRILL, 10
+	db 15, SPINARAK, 10
+	db 15, PINECO,   10
+	db 10, AIPOM,    10
+	db  5, EXEGGCUTE, 10
+	db  5, HERACROSS, 10
 	db -1
 ; rare
-	db 50, 10, BEEDRILL
-	db 15, 10, SPINARAK
-	db 15, 10, PINECO
-	db 10, 10, AIPOM
-	db  5, 10, EXEGGCUTE
-	db  5, 10, HERACROSS
+	db 50, BEEDRILL, 10
+	db 15, SPINARAK, 10
+	db 15, PINECO,   10
+	db 10, AIPOM,    10
+	db  5, EXEGGCUTE, 10
+	db  5, HERACROSS, 10
 	db -1
 
 TreeMonSet_Rock:

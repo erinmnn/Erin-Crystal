@@ -1464,19 +1464,12 @@ HeadbuttScript:
 
 TryHeadbuttOW::
 ; Step 1
-	ld a, TM_HEADBUTT
-	ld [wCurItem], a
-	ld hl, wNumItems
-	call CheckItem
-	jr z, .no
-
-; Step 2
 	ld d, HEADBUTT
 	call CheckPartyCanLearnMove
        and a
 	jr z, .can_use ; cannot learn headbutt
 
-; Step 3
+; Step 2
 	ld d, HEADBUTT
 	call CheckPartyMove
 	jr c, .no
