@@ -63,7 +63,6 @@ INCLUDE "engine/events/bug_contest/judging.asm"
 INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
 INCLUDE "engine/events/bug_contest/contest_2.asm"
 INCLUDE "engine/pokemon/correct_party_errors.asm"
-INCLUDE "engine/math/get_square_root.asm"
 
 
 SECTION "bank5", ROMX
@@ -263,7 +262,7 @@ INCLUDE "data/phone/text/vance_caller.asm"
 INCLUDE "data/phone/text/wilton_caller.asm"
 INCLUDE "data/phone/text/kenji_caller.asm"
 INCLUDE "data/phone/text/parry_caller.asm"
-INCLUDE "data/phone/text/erin_caller.asm"
+INCLUDE "engine/math/get_square_root.asm"
 
 
 SECTION "bank20", ROMX

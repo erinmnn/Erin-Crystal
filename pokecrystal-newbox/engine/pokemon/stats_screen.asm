@@ -563,11 +563,9 @@ StatsScreen_LoadGFX:
 	assert_table_length NUM_STAT_PAGES
 
 LoadPinkPage:
-	hlcoord 0, 9
+	hlcoord 0, 8
 	ld b, $0
 	predef DrawPlayerHP
-	hlcoord 8, 9
-	ld [hl], $41 ; right HP/exp bar end cap
 	ld de, .Status_Type
 	hlcoord 0, 12
 	call PlaceString
@@ -578,8 +576,8 @@ LoadPinkPage:
 	ld a, b
 	and $f0
 	jr z, .NotImmuneToPkrs
-	hlcoord 8, 8
-	ld [hl], '.' ; Pokérus immunity dot
+	hlcoord 8, 12
+	ld [hl], "." ; Pokérus immunity dot
 .NotImmuneToPkrs:
 	ld a, [wMonType]
 	cp BOXMON
@@ -689,6 +687,9 @@ LoadPinkPage:
 	db   "STATUS/"
 	next "TYPE/@"
 
+.HP_DVs:
+	db "HP DV@"
+
 .OK_str:
 	db "OK @"
 
@@ -703,6 +704,37 @@ LoadPinkPage:
 
 .PkrsStr:
 	db "#RUS@"
+
+.CalcHPDVs:
+	push bc
+	ld hl, wTempMonDVs
+	ld a, [hl]
+	swap a
+	and 1
+	add a
+	add a
+	add a
+	ld b, a
+	ld a, [hli]
+	and 1
+	add a
+	add a
+	add b
+	ld b, a
+	ld a, [hl]
+	swap a
+	and 1
+	add a
+	add b
+	ld b, a
+	ld a, [hl]
+	and 1
+	add b
+	ld [wTempMonHP + 1], a
+	pop bc
+	xor a
+	ld [wTempMonHP], a
+	ret
 
 LoadGreenPage:
 	ld de, .Item
@@ -750,29 +782,105 @@ LoadGreenPage:
 	db "MOVE@"
 
 LoadBluePage:
-	call .PlaceOTInfo
 	hlcoord 10, 8
-	ld de, SCREEN_WIDTH
-	ld b, 10
-	ld a, $31 ; vertical divider
-.vertical_divider
-	ld [hl], a
-	add hl, de
-	dec b
-	jr nz, .vertical_divider
-	hlcoord 11, 8
 	ld bc, 6
-	predef PrintTempMonStats
+	predef PrintTempMonStatsDVs
 	ret
 
-.PlaceOTInfo:
+LoadOrangePage:
+; Met at level
+	; Limited to between 1 and 63 since it's a 6-bit quantity.
+	ld a, [wTempMonCaughtLevel]
+	and CAUGHT_LEVEL_MASK
+	jr z, .unknown_level
+	cp CAUGHT_EGG_LEVEL ; egg marker value
+	jr nz, .print
+	ld a, EGG_LEVEL ; egg hatch level
+
+.print
+	push af
+	push af
+	ld de, MetAtLevelString
+	hlcoord 1, 8
+	call PlaceString
+	pop af
+	ld [wTextDecimalByte], a
+	hlcoord 10, 8
+	ld de, wTextDecimalByte
+	lb bc, PRINTNUM_LEFTALIGN | 1, 3
+	call PrintNum
+	pop af
+	cp 100
+	jr nc, .three_digits
+	cp 10
+	jr nc, .two_digits
+	ld de, InString
+	hlcoord 12, 8
+	call PlaceString
+	jr .got_level
+
+.two_digits
+	ld de, InString
+	hlcoord 13, 8
+	call PlaceString
+	jr .got_level
+
+.three_digits
+	ld de, InString
+	hlcoord 14, 8
+	call PlaceString
+	jr .got_level
+
+.unknown_level
+	ld de, MetUnknownLevelString
+	hlcoord 1, 8
+	call PlaceString
+
+.got_level
+	; Met at time
+	ld a, [wTempMonCaughtTime]
+	and CAUGHT_TIME_MASK
+	rlca
+	rlca
+	ld hl, .times
+	call GetNthString
+	ld d, h
+	ld e, l
+	call CopyName1
+	ld de, wStringBuffer2
+	hlcoord 1, 12
+	call PlaceString
+
+	ld a, [wTempMonCaughtLocation]
+	ld de, UnknownText
+	and CAUGHT_LOCATION_MASK
+	jr z, .unknown_location
+	cp LANDMARK_EVENT
+	jr z, .unknown_location
+	cp LANDMARK_GIFT
+	jr z, .unknown_location
+	ld e, a
+	farcall GetLandmarkName
+	ld de, wStringBuffer1
+	hlcoord 1, 10
+	call PlaceString
+	jr .got_location	
+
+.unknown_location
+	hlcoord 1, 10
+	call PlaceString
+	ld de, LocationText
+	hlcoord 1, 12
+	call PlaceString
+
+.got_location
 	ld de, IDNoString
-	hlcoord 0, 9
+	hlcoord 1, 15
 	call PlaceString
 	ld de, OTString
-	hlcoord 0, 12
+	hlcoord 1, 16
 	call PlaceString
-	hlcoord 2, 10
+	hlcoord 5, 15
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	ld de, wTempMonID
 	call PrintNum
@@ -780,21 +888,20 @@ LoadBluePage:
 	call GetNicknamePointer
 	call CopyNickname
 	farcall CorrectNickErrors
-	hlcoord 2, 13
+	hlcoord 10, 16
 	call PlaceString
 	ld a, [wTempMonCaughtGender]
 	and a
-	jr z, .done
+	ret z
 	cp $7f
-	jr z, .done
+	ret z
 	and CAUGHT_GENDER_MASK
-	ld a, '♂'
+	ld a, "♂"
 	jr z, .got_gender
-	ld a, '♀'
+	ld a, "♀"
 .got_gender
-	hlcoord 9, 13
+	hlcoord 17, 16
 	ld [hl], a
-.done
 	ret
 
 .OTNamePointers:
@@ -804,16 +911,27 @@ LoadBluePage:
 	dw wBufferMonOT ; unused
 	dw wBufferMonOT ; unused
 	dw wBufferMonOT
+	
 
-LoadOrangePage:
-	ld de, HelloWorldString
-	hlcoord 1, 9
-	call PlaceString
-	ret
+.times
+	db "@"
+	db "in the morning.@"
+	db "during the day.@"
+	db "at night.@"
 
-HelloWorldString:
-	db "THIS OINGE@"
+UnknownText:
+	db "an unknown@"
+LocationText:
+	db "location.@"
 
+MetAtLevelString:
+	db "Met at <LV> @"
+MetUnknownLevelString:
+	db "Met at <LV> ??? in@"
+
+InString:
+	db "in@"
+	
 
 IDNoString:
 	db "<ID>№.@"
