@@ -682,14 +682,9 @@ BattleCommand_CheckObedience:
 	ld a, 70
 	jr nz, .getlevel
 
-	; fogbadge
-	bit FOGBADGE, [hl]
+	; zephyrbadge
+	bit ZEPHYRBADGE, [hl]
 	ld a, 50
-	jr nz, .getlevel
-
-	; hivebadge
-	bit HIVEBADGE, [hl]
-	ld a, 30
 	jr nz, .getlevel
 
 	; no badges
