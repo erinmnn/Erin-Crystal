@@ -61,12 +61,16 @@ AI_Redundant:
 	bit SUBSTATUS_FOCUS_ENERGY, a
 	ret
 
+.Swagger:
 .Confuse:
 	ld a, [wPlayerSubStatus3]
 	bit SUBSTATUS_CONFUSED, a
 	ret nz
 	ld a, [wPlayerScreens]
 	bit SCREENS_SAFEGUARD, a
+	ret nz
+	ld a, [wPlayerSubStatus4]
+	bit SUBSTATUS_SUBSTITUTE, a
 	ret
 
 .Transform:
@@ -87,6 +91,9 @@ AI_Redundant:
 .LeechSeed:
 	ld a, [wPlayerSubStatus4]
 	bit SUBSTATUS_LEECH_SEED, a
+	ret nz
+	ld a, [wPlayerSubStatus4]
+	bit SUBSTATUS_SUBSTITUTE, a
 	ret
 
 .Disable:
@@ -170,15 +177,9 @@ AI_Redundant:
 	jr z, .Redundant
 	jr .NotRedundant
 
-.Swagger:
-	ld a, [wPlayerSubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	ret
-
 .FutureSight:
-; BUG: AI does not discourage Future Sight when it's already been used (see docs/bugs_and_glitches.md)
-	ld a, [wEnemyScreens]
-	bit SCREENS_UNUSED, a
+	ld a, [wEnemyFutureSightCount]
+	and a
 	ret
 
 .Heal:
