@@ -36,7 +36,6 @@ BattleTower1FCheckStateScene:
 	setval BATTLETOWERACTION_06
 	special BattleTowerAction
 .SkipEverything:
-	setscene SCENE_BATTLETOWER1F_NOOP
 	; fallthrough
 BattleTower1FNoopScene:
 	end
@@ -105,7 +104,6 @@ Script_ResumeBattleTowerChallenge:
 Script_WalkToBattleTowerElevator:
 	musicfadeout MUSIC_NONE, 8
 	setmapscene BATTLE_TOWER_BATTLE_ROOM, SCENE_BATTLETOWERBATTLEROOM_ENTER
-	setmapscene BATTLE_TOWER_ELEVATOR, SCENE_BATTLETOWERELEVATOR_ENTER
 	setmapscene BATTLE_TOWER_HALLWAY, SCENE_BATTLETOWERHALLWAY_ENTER
 	follow BATTLETOWER1F_RECEPTIONIST, PLAYER
 	applymovement BATTLETOWER1F_RECEPTIONIST, MovementData_BattleTower1FWalkToElevator
@@ -798,7 +796,7 @@ BattleTower1F_MapEvents:
 	def_warp_events
 	warp_event  7,  9, BATTLE_TOWER_OUTSIDE, 3
 	warp_event  8,  9, BATTLE_TOWER_OUTSIDE, 4
-	warp_event  7,  0, BATTLE_TOWER_ELEVATOR, 1
+	warp_event  6, -3, BATTLE_TOWER_ELEVATOR, 1
 
 	def_coord_events
 

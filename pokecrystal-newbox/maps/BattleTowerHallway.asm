@@ -79,7 +79,7 @@ BattleTowerHallway_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 11,  1, BATTLE_TOWER_ELEVATOR, 1
+	warp_event 11, -2, BATTLE_TOWER_ELEVATOR, 1
 	warp_event  5,  0, BATTLE_TOWER_BATTLE_ROOM, 1
 	warp_event  7,  0, BATTLE_TOWER_BATTLE_ROOM, 1
 	warp_event  9,  0, BATTLE_TOWER_BATTLE_ROOM, 1

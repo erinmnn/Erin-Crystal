@@ -16,29 +16,37 @@ Special::
 INCLUDE "data/events/special_pointers.asm"
 
 EdgeMon:
-	ld b, PARTYMENUACTION_HEALING_ITEM
-	call UseItem_SelectMon
-
-	jp c, RareCandy_StatBooster_ExitMenu
-
-	call RareCandy_StatBooster_GetParameters
-
+	call DisableSpriteUpdates
+.select_mon
+	farcall SelectTradeOrDayCareMonWithoutReturningToMap
+    	jp c, .EdgeExit
+    	ld a, [wCurPartySpecies]
+    	cp EGG
+    	jp z, .Egg
+	
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1Species
+.find_target_mon
+	and a
+	jr z, .edge
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	dec a
+	jr .find_target_mon
+	
+.edge
 	ld a, MON_LEVEL
 	call GetPartyParamLocation
-
 	ld a, [hl]
 	cp MAX_LEVEL
         jp nc, NoEffectMessage
-	
 	push de
 	inc a
 	ld d, a
 	farcall CalcExpAtLevel
 	pop de
-	
 	ld a, MON_EXP
 	call GetPartyParamLocation
-	
 	ld bc, 2
 	add hl, bc
 	ldh a, [hMultiplicand + 2]
@@ -46,17 +54,15 @@ EdgeMon:
 	ld [hld], a
 	cp $ff
 	jr nz, .no_more_subtract_1
-	
 	ldh a, [hMultiplicand + 1]
 	dec a
 	ld [hld], a
 	cp $ff
 	jr nz, .no_more_subtract_2
-
 	ldh a, [hMultiplicand + 0]
 	dec a
 	ld [hl], a
-	jr .done
+	jr .EdgeExit
 	
 .no_more_subtract_1
 	ldh a, [hMultiplicand + 1]
@@ -64,13 +70,22 @@ EdgeMon:
 .no_more_subtract_2	
 	ldh a, [hMultiplicand]
 	ld [hl], a
-.done
-	ld a, [wCurPartyMon]
-	ld hl, wPartyMonNicknames
-	call GetNickname
-	ld hl, _GainedALotOfExpText
+.EdgeExit:
+	call ReturnToMapWithSpeechTextbox
+	call EnableSpriteUpdates
+	ret
+
+.Egg:
+	ld de, SFX_BUMP
+	call WaitPlaySFX
+
+    	ld hl, .EdgeEgg
 	call PrintText
-	jp ClearPalettes
+	jp .select_mon
+
+.EdgeEgg:
+	text_far _EdgeEgg
+	text_end
 
 StatusSelectDone:
 	text_far _StatusSelectComplete

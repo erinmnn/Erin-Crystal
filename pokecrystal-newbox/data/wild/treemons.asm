@@ -75,20 +75,20 @@ TreeMonSet_Route:
 
 TreeMonSet_Kanto:
 ; common
-	db 50, HOOTHOOT,   10
-	db 15, EKANS,      10
-	db 15, HOOTHOOT,   10
+	db 50, BUTTERFREE, 10
+	db 15, AIPOM,      10
+	db 15, PINECO,     10
 	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db  5, HERACROSS,  10
+	db  5, HERACROSS,  10
 	db -1
 ; rare
-	db 50, HOOTHOOT,   10
-	db 15, PINECO,     10
+	db 50, BUTTERFREE, 10
+	db 15, AIPOM,      10
 	db 15, PINECO,     10
 	db 10, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
-	db  5, EXEGGCUTE,  10
+	db  5, HERACROSS,  10
+	db  5, HERACROSS,  10
 	db -1
 
 TreeMonSet_Lake:
