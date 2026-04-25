@@ -20,6 +20,7 @@ ENDM
 	auto_weather_map TIN_TOWER_8F, AUTOMATIC_SUN
 	auto_weather_map TIN_TOWER_9F, AUTOMATIC_SUN
 	auto_weather_map TIN_TOWER_ROOF, AUTOMATIC_SUN
+	auto_weather_map ROUTE_45, AUTOMATIC_SANDSTORM
 	db 0 ; end
 
 AutomaticWeatherEffects:
