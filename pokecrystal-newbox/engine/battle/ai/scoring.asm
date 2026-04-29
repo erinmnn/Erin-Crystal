@@ -315,6 +315,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SPEED_DOWN_HIT,   AI_Smart_SpeedDownHit
 	dbw EFFECT_HYPER_BEAM,	     AI_Smart_HyperBeam
 	dbw EFFECT_SKULL_BASH,	     AI_Smart_SkullBash
+	dbw EFFECT_RAMPAGE,	     AI_Smart_Rampage
 	dbw EFFECT_GUST,             AI_Smart_Gust
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_FLY,              AI_Smart_Fly
@@ -389,9 +390,18 @@ AI_Smart_HyperBeam:
 AI_Smart_SkullBash:
 	call AICheckEnemyHalfHP
 	jr c, .discourage
+	ret
 
 .discourage
 ; greatly discourage this move if the enemy is below 50% HP
+	inc [hl]
+	inc [hl]
+	ret
+
+AI_Smart_Rampage:
+; 50% to greatly discourage
+	call AI_50_50
+	ret c
 	inc [hl]
 	inc [hl]
 	ret
@@ -711,6 +721,28 @@ AI_Smart_PsychUp:
 	ret
 
 AI_Smart_LeechHit:
+	ld a, [wBattleMonType1]
+	cp POISON
+	jr z, .suckable
+
+	ld a, [wBattleMonType2]
+	cp POISON
+	jr z, .suckable
+	
+	ld a, [wBattleMonType1]
+	cp BUG
+	jr z, .suckable
+
+	ld a, [wBattleMonType2]
+	cp BUG
+	jr z, .suckable
+
+	ld a, [hl]
+	add 10
+	ld [hl], a
+	ret
+
+.suckable
 	call AI_80_20
 	ret nc
 	dec [hl]
@@ -1026,24 +1058,15 @@ AI_Smart_PainSplit:
 
 AI_Smart_BatonPass:
 	push hl
-	ld hl, wEnemyAtkLevel
-	ld c, NUM_LEVEL_STATS
-.enemystatsloop
-	dec c
-	jr z, .discourage
-	ld a, [hli]
-	cp BASE_STAT_LEVEL + 2
-	jr c, .enemystatsloop
-
+	farcall FindAliveEnemyMons
 	pop hl
-	call AI_50_50
-	ret c
-	dec [hl]
+	jr nc, .notlastmon
+	ld a, [hl]
+	add 10
+	ld [hl], a
 	ret
 
-.discourage
-	pop hl
-	inc [hl]
+.notlastmon
 	ret
 
 AI_Smart_RapidSpin:
@@ -1463,14 +1486,12 @@ AIDamageCalc:
 	ld a, 1
 	ldh [hBattleTurn], a
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-
 	cp EFFECT_HIDDEN_POWER
 	jr z, .hiddenpower
 	jr .regularcalc
-
 	cp EFFECT_MAGNITUDE
 	jr z, .magnitude
-	
+
 	ld de, 1
 	ld hl, ConstantDamageEffects
 	call IsInArray

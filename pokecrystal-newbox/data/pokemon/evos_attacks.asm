@@ -1110,7 +1110,7 @@ TentacruelEvosAttacks:
 	db 20, BUBBLEBEAM
 	db 22, WRAP
 	db 27, SLUDGE_BOMB
-	db 31, AURORA_BEAM
+	db 31, ICE_BEAM
 	db 36, BARRIER
 	db 43, SCREECH
 	db 49, HYDRO_PUMP
@@ -2631,7 +2631,7 @@ IgglybuffEvosAttacks:
 	db 0 ; no more level-up moves
 
 TogepiEvosAttacks:
-	db EVOLVE_LEVEL, 24, TOGETIC
+	db EVOLVE_LEVEL, 36, TOGETIC
 	db 0 ; no more evolutions
 	db 1, GROWL
 	db 1, CHARM
@@ -2797,7 +2797,7 @@ HoppipEvosAttacks:
 	db 5, SYNTHESIS
 	db 10, LEECH_SEED
 	db 13, POISONPOWDER
-	db 14, MEGA_DRAIN
+	db 14, GIGA_DRAIN
 	db 15, STUN_SPORE
 	db 17, SLEEP_POWDER
 	db 20, LEECH_SEED
@@ -2991,6 +2991,7 @@ MisdreavusEvosAttacks:
 	db 19, MEAN_LOOK
 	db 27, PSYCHIC_M
 	db 36, PAIN_SPLIT
+	db 38, GIGA_DRAIN
 	db 44, SHADOW_BALL
 	db 46, PERISH_SONG
 	db 0 ; no more level-up moves
@@ -3201,18 +3202,18 @@ HeracrossEvosAttacks:
 
 SneaselEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, METAL_CLAW
+	db 1, SCRATCH
 	db 1, LEER
 	db 9, FAINT_ATTACK
 	db 12, ICY_WIND
 	db 15, SLASH
 	db 28, SCREECH
 	db 31, LOW_KICK
-	db 38, IRON_TAIL
+	db 38, METAL_CLAW
 	db 41, CROSS_CHOP
-	db 44, CRUNCH
+	db 44, SHADOW_BALL
 	db 49, POWDER_SNOW
-	db 56, ICE_BEAM
+	db 56, ENCORE
 	db 0 ; no more level-up moves
 
 TeddiursaEvosAttacks:
@@ -3278,6 +3279,7 @@ SwinubEvosAttacks:
 	db 5, MUD_SLAP
 	db 8, ICY_WIND
 	db 14, MIST
+	db 16, MAGNITUDE
 	db 18, CHARM
 	db 22, POWDER_SNOW
 	db 26, ICE_BEAM
@@ -3292,6 +3294,7 @@ PiloswineEvosAttacks:
 	db 5, MUD_SLAP
 	db 8, ICY_WIND
 	db 14, MIST
+	db 16, MAGNITUDE
 	db 18, CHARM
 	db 22, POWDER_SNOW
 	db 26, ICE_BEAM
@@ -3307,6 +3310,7 @@ CorsolaEvosAttacks:
 	db 6, CONFUSE_RAY
 	db 13, ICE_BEAM
 	db 19, RECOVER
+	db 21, LEECH_SEED
 	db 25, RAPID_SPIN
 	db 31, SPIKE_CANNON
 	db 37, MIRROR_COAT

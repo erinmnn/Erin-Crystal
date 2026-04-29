@@ -117,29 +117,29 @@ KantoGrassWildMons:
 	def_grass_wildmons VICTORY_ROAD
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 34, GRAVELER
-	db 32, RHYHORN
-	db 33, ONIX
-	db 34, GOLBAT
-	db 35, SANDSLASH
-	db 35, RHYDON
-	db 35, RHYDON
+	db 62, ARCANINE
+	db 62, ELECTABUZZ
+	db 62, CROBAT
+	db 62, MAGMAR
+	db 62, SCYTHER
+	db 62, POLIWRATH
+	db 62, JYNX
 	; day
-	db 34, GRAVELER
-	db 32, RHYHORN
-	db 33, ONIX
-	db 34, GOLBAT
-	db 35, SANDSLASH
-	db 35, RHYDON
-	db 35, RHYDON
+	db 62, RHYDON
+	db 62, MAGMAR
+	db 62, KANGASKHAN
+	db 62, JYNX
+	db 62, MACHAMP
+	db 62, EXEGGUTOR
+	db 62, ELECTABUZZ
 	; nite
-	db 34, GOLBAT
-	db 34, GRAVELER
-	db 32, ONIX
-	db 36, GRAVELER
-	db 38, GRAVELER
-	db 40, GRAVELER
-	db 40, GRAVELER
+	db 62, AMPHAROS
+	db 62, JYNX
+	db 62, ALAKAZAM
+	db 62, ELECTABUZZ
+	db 62, GENGAR
+	db 62, HOUNDOOM
+	db 62, MAGMAR
 	end_grass_wildmons
 
 	def_grass_wildmons TOHJO_FALLS
@@ -789,29 +789,29 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_27
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 28, DODUO
-	db 28, ARBOK
-	db 30, RATICATE
-	db 30, DODUO
-	db 32, PONYTA
-	db 30, DODRIO
-	db 30, DODRIO
+	db 48, YANMA
+	db 48, HOUNDOOM
+	db 48, SCYTHER
+	db 48, GOLDUCK
+	db 48, VENOMOTH
+	db 48, VENOMOTH
+	db 48, MR__MIME
 	; day
-	db 28, DODUO
-	db 28, ARBOK
-	db 30, RATICATE
-	db 30, DODUO
-	db 32, PONYTA
-	db 30, DODRIO
-	db 30, DODRIO
+	db 48, GOLDUCK
+	db 48, SCYTHER
+	db 48, YANMA
+	db 48, HOUNDOOM
+	db 48, VENOMOTH
+	db 48, VENOMOTH
+	db 48, MR__MIME
 	; nite
-	db 28, QUAGSIRE
-	db 28, NOCTOWL
-	db 30, RATICATE
-	db 30, QUAGSIRE
-	db 32, NOCTOWL
-	db 32, NOCTOWL
-	db 32, NOCTOWL
+	db 48, CLEFABLE
+	db 48, GIRAFARIG
+	db 48, GOLDUCK
+	db 48, SCYTHER
+	db 48, VENOMOTH
+	db 48, VENOMOTH
+	db 48, MR__MIME
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_28

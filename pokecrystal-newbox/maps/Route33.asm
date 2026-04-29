@@ -196,7 +196,7 @@ Route33_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 12,  9, UNION_CAVE_1F, 3
+	warp_event 13,  9, UNION_CAVE_1F, 3
 
 	def_coord_events
 
@@ -204,6 +204,6 @@ Route33_MapEvents:
 	bg_event 11, 11, BGEVENT_READ, Route33Sign
 
 	def_object_events
-	object_event  9, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerAnthony, -1
+	object_event 10, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerAnthony, -1
 	object_event 13, 16, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route33LassScript, -1
 	object_event 14, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route33FruitTree, -1

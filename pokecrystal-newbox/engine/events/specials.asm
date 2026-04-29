@@ -35,18 +35,28 @@ EdgeMon:
 	jr .find_target_mon
 	
 .edge
+	ld de, SFX_EXP_BAR
+	call WaitPlaySFX
+	
+	jp c, RareCandy_StatBooster_ExitMenu
+
+	call RareCandy_StatBooster_GetParameters
+
 	ld a, MON_LEVEL
 	call GetPartyParamLocation
 	ld a, [hl]
 	cp MAX_LEVEL
         jp nc, NoEffectMessage
+	
 	push de
 	inc a
 	ld d, a
 	farcall CalcExpAtLevel
 	pop de
+	
 	ld a, MON_EXP
 	call GetPartyParamLocation
+	
 	ld bc, 2
 	add hl, bc
 	ldh a, [hMultiplicand + 2]
@@ -54,11 +64,13 @@ EdgeMon:
 	ld [hld], a
 	cp $ff
 	jr nz, .no_more_subtract_1
+	
 	ldh a, [hMultiplicand + 1]
 	dec a
 	ld [hld], a
 	cp $ff
 	jr nz, .no_more_subtract_2
+
 	ldh a, [hMultiplicand + 0]
 	dec a
 	ld [hl], a
@@ -70,6 +82,7 @@ EdgeMon:
 .no_more_subtract_2	
 	ldh a, [hMultiplicand]
 	ld [hl], a
+	jr .select_mon
 .EdgeExit:
 	call ReturnToMapWithSpeechTextbox
 	call EnableSpriteUpdates

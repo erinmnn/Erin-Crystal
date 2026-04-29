@@ -692,12 +692,11 @@ StatusNurse:
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
-	db 5 ; items
+	db 4 ; items
 	db "POISON@"
 	db "BURN@"
 	db "PARALYZE@"
 	db "FREEZE@"
-	db "CANCEL@"
 
 Pokecenter2FMovementData_ReceptionistWalksUpAndLeft_LookRight:
 	slow_step UP
