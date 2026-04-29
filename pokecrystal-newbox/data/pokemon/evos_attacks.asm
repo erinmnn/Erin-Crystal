@@ -3285,7 +3285,7 @@ SwinubEvosAttacks:
 	db 26, ICE_BEAM
 	db 30, ANCIENTPOWER
 	db 38, ROAR
-	db 41, EARTHQUAKE
+	db 44, EARTHQUAKE
 	db 0 ; no more level-up moves
 
 PiloswineEvosAttacks:
@@ -3300,7 +3300,7 @@ PiloswineEvosAttacks:
 	db 26, ICE_BEAM
 	db 30, ANCIENTPOWER
 	db 38, ROAR
-	db 41, EARTHQUAKE
+	db 44, EARTHQUAKE
 	db 51, MEGAHORN
 	db 0 ; no more level-up moves
 
@@ -3438,9 +3438,9 @@ PhanpyEvosAttacks:
 	db 17, ROLLOUT
 	db 24, DIG
 	db 33, SWEET_KISS
-	db 41, ENDURE
+	db 41, EARTHQUAKE
 	db 45, RAPID_SPIN
-	db 49, EARTHQUAKE
+	db 49, ENDURE
 	db 51, ROCK_SLIDE
 	db 0 ; no more level-up moves
 
@@ -3453,9 +3453,9 @@ DonphanEvosAttacks:
 	db 25, FURY_ATTACK
 	db 33, DIG
 	db 38, POWDER_SNOW
-	db 41, ENDURE
+	db 41, EARTHQUAKE
 	db 45, RAPID_SPIN
-	db 49, EARTHQUAKE
+	db 49, ENDURE
 	db 51, ROCK_SLIDE
 	db 0 ; no more level-up moves
 

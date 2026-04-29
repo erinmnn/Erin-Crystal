@@ -15,7 +15,6 @@ AI_Redundant:
 
 .Moves:
 	dbw EFFECT_DREAM_EATER,  .DreamEater
-	dbw EFFECT_HEAL,         .Heal
 	dbw EFFECT_LIGHT_SCREEN, .LightScreen
 	dbw EFFECT_MIST,         .Mist
 	dbw EFFECT_FOCUS_ENERGY, .FocusEnergy
@@ -38,10 +37,6 @@ AI_Redundant:
 	dbw EFFECT_SAFEGUARD,    .Safeguard
 	dbw EFFECT_RAIN_DANCE,   .RainDance
 	dbw EFFECT_SUNNY_DAY,    .SunnyDay
-	dbw EFFECT_TELEPORT,     .Teleport
-	dbw EFFECT_MORNING_SUN,  .MorningSun
-	dbw EFFECT_SYNTHESIS,    .Synthesis
-	dbw EFFECT_MOONLIGHT,    .Moonlight
 	dbw EFFECT_SWAGGER,      .Swagger
 	dbw EFFECT_FUTURE_SIGHT, .FutureSight
 	dbw EFFECT_ATTACK_UP,	 .AttackUp
@@ -231,14 +226,6 @@ AI_Redundant:
 	jr c, .Redundant
 	jr .NotRedundant
 
-.Heal:
-.MorningSun:
-.Synthesis:
-.Moonlight:
-	farcall AICheckEnemyMaxHP
-	jr nc, .NotRedundant
-
-.Teleport:
 .Redundant:
 	ld a, 1
 	and a
