@@ -31,7 +31,7 @@ BattleCommand_Sketch:
 	jr z, .get_last_move
 	ld hl, wEnemyMonMoves
 .get_last_move
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	ld a, BATTLE_VARS_LAST_MOVE_OPP
 	call GetBattleVar
 	ld [wNamedObjectIndex], a
 	ld b, a
