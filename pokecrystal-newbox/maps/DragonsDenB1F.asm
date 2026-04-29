@@ -254,6 +254,14 @@ ClairText_WhatsTheMatterDragonDen:
 	para "Do you know how to"
 	line "get there?"
 
+	para "Go to the valida-"
+	line "tion office on"
+	cont "ROUTE 46 first."
+	
+	para "They'll get you"
+	line "stamped to go"
+	cont "KANTO."
+
 	para "From here, go to"
 	line "NEW BARK TOWN."
 

@@ -1393,6 +1393,11 @@ _SleepEgg::
 	line "an egg."
 	prompt
 
+_EdgeEgg::
+	text "Sweetie, it's"
+	line "an egg."
+	prompt
+
 _ReceiveItemText::
 	text_ram wPlayerName
 	text " received"

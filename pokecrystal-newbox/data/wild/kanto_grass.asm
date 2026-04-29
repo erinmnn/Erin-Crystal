@@ -145,29 +145,29 @@ KantoGrassWildMons:
 	def_grass_wildmons TOHJO_FALLS
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, ZUBAT
-	db 22, RATICATE
-	db 24, GOLBAT
-	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
-	db 23, SLOWPOKE
-	; day
-	db 22, ZUBAT
-	db 22, RATICATE
-	db 24, GOLBAT
-	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
-	db 23, SLOWPOKE
+	db 49, WOBBUFFET
+	db 49, SLOWBRO
+	db 49, GENGAR
+	db 49, GENGAR
+	db 49, CROBAT
+	db 49, CROBAT
+	db 49, SLOWKING
+	; day	
+	db 49, WOBBUFFET
+	db 49, CROBAT
+	db 49, SLOWBRO
+	db 49, SLOWBRO
+	db 49, GENGAR
+	db 49, SNORLAX
+	db 49, SLOWKING
 	; nite
-	db 22, ZUBAT
-	db 22, RATICATE
-	db 24, GOLBAT
-	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
-	db 23, SLOWPOKE
+	db 49, WOBBUFFET
+	db 49, GENGAR
+	db 49, CROBAT
+	db 49, CROBAT
+	db 49, SLOWBRO
+	db 49, SLOWBRO
+	db 49, SLOWKING
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_1
@@ -761,29 +761,29 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_26
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 28, DODUO
-	db 28, SANDSLASH
-	db 32, PONYTA
-	db 30, RATICATE
-	db 30, DODUO
-	db 30, ARBOK
-	db 30, ARBOK
+	db 48, DODRIO
+	db 48, SANDSLASH
+	db 48, RAPIDASH
+	db 48, RATICATE
+	db 48, FARFETCH_D
+	db 48, ARBOK
+	db 48, ARBOK
 	; day
-	db 28, DODUO
-	db 28, SANDSLASH
-	db 32, PONYTA
-	db 30, RATICATE
-	db 30, DODUO
-	db 30, ARBOK
-	db 30, ARBOK
+	db 48, DODRIO
+	db 48, SANDSLASH
+	db 48, RAPIDASH
+	db 48, RATICATE
+	db 48, FARFETCH_D
+	db 48, ARBOK
+	db 48, ARBOK
 	; nite
-	db 28, NOCTOWL
-	db 28, RATICATE
-	db 32, NOCTOWL
-	db 30, RATICATE
-	db 30, QUAGSIRE
-	db 30, QUAGSIRE
-	db 30, QUAGSIRE
+	db 48, NOCTOWL
+	db 48, RATICATE
+	db 48, MURKROW
+	db 48, MURKROW
+	db 48, QUAGSIRE
+	db 48, QUAGSIRE
+	db 48, ARBOK
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_27
