@@ -25,7 +25,7 @@ Moves:
 	move THUNDERPUNCH, EFFECT_PARALYZE_HIT,       75, ELECTRIC,      100, 15,  10      ;THUNDERPUNCH
 	move SCRATCH,      EFFECT_NORMAL_HIT,         40, NORMAL,        100, 35,   0      ;SCRATCH
 	move VICEGRIP,     EFFECT_NORMAL_HIT,         60, NORMAL,        100, 30,   0      ;VICEGRIP
-	move GUILLOTINE,   EFFECT_OHKO,                0, NORMAL,         30,  5,   0      ;GUILLOTINE
+	move GUILLOTINE,   EFFECT_OHKO,                0, STEEL,         30,  5,   0      ;GUILLOTINE
 	move RAZOR_WIND,   EFFECT_RAZOR_WIND,        100, NORMAL,        100, 10,   0      ;RAZOR_WIND
 	move SWORDS_DANCE, EFFECT_ATTACK_UP_2,         0, NORMAL,        100, 30,   0      ;SWORDS_DANCE
 	move CUT,          EFFECT_NORMAL_HIT,         50, NORMAL,        100, 30,   0      ;CUT
@@ -87,7 +87,7 @@ Moves:
 	move ABSORB,       EFFECT_LEECH_HIT,          20, GRASS,         100, 20,   0      ;ABSORB
 	move MEGA_DRAIN,   EFFECT_LEECH_HIT,          40, GRASS,         100, 10,   0      ;MEGA_DRAIN
 	move LEECH_SEED,   EFFECT_LEECH_SEED,          0, GRASS,         100, 10,   0      ;LEECH_SEED
-	move GROWTH,       EFFECT_SP_ATK_UP,           0, NORMAL,        100, 40,   0      ;GROWTH
+	move GROWTH,       EFFECT_SP_ATK_UP,           0, GRASS,        100, 40,   0      ;GROWTH
 	move RAZOR_LEAF,   EFFECT_ALWAYS_HIT,         60, GRASS,         100, 25,   0      ;RAZOR_LEAF
 	move SOLARBEAM,    EFFECT_SOLARBEAM,         120, GRASS,         100, 10,   0      ;SOLARBEAM
 	move POISONPOWDER, EFFECT_POISON,              0, POISON,        100, 35,   0      ;POISONPOWDER
@@ -121,7 +121,7 @@ Moves:
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,        100, 10,   0      ;RECOVER
 	move HARDEN,       EFFECT_DEFENSE_UP,          0, NORMAL,        100, 30,   0      ;HARDEN
 	move MINIMIZE,     EFFECT_EVASION_UP,          0, NORMAL,        100, 20,   0      ;MINIMIZE
-	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, NORMAL,        100, 20,   0      ;SMOKESCREEN
+	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, FIRE,        100, 20,   0      ;SMOKESCREEN
 	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,         100, 10,   0      ;CONFUSE_RAY
 	move WITHDRAW,     EFFECT_DEFENSE_UP,          0, WATER,         100, 40,   0      ;WITHDRAW
 	move DEFENSE_CURL, EFFECT_DEFENSE_CURL,        0, NORMAL,        100, 40,   0      ;DEFENSE_CURL
@@ -155,7 +155,7 @@ Moves:
 	move POISON_GAS,   EFFECT_POISON,              0, POISON,        100, 40,   0      ;POISON_GAS
 	move BARRAGE,      EFFECT_MULTI_HIT,          15, NORMAL,        100, 20,   0      ;BARRAGE
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          80, BUG,           100, 15,   0      ;LEECH_LIFE
-	move LOVELY_KISS,  EFFECT_SLEEP,               0, NORMAL,         85, 10,   0      ;LOVELY_KISS
+	move LOVELY_KISS,  EFFECT_SLEEP,               0, NORMAL,         75, 10,   0      ;LOVELY_KISS
 	move SKY_ATTACK,   EFFECT_RECOIL_HIT,        120, FLYING,        100,  5,   0      ;SKY_ATTACK
 	move TRANSFORM,    EFFECT_TRANSFORM,           0, NORMAL,        100, 10,   0      ;TRANSFORM
 	move BUBBLE,	   EFFECT_SPEED_DOWN_HIT,     20, WATER,         100, 30,  10      ;BUBBLE
@@ -243,7 +243,7 @@ Moves:
 	move ENCORE,       EFFECT_ENCORE,              0, NORMAL,        100,  5,   0      ;ENCORE
 	move PURSUIT,      EFFECT_PURSUIT,            40, DARK,          100, 20,   0      ;PURSUIT
 	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         20, NORMAL,        100, 40,   0      ;RAPID_SPIN
-	move SWEET_SCENT,  EFFECT_EVASION_DOWN,        0, NORMAL,        100, 20,   0      ;SWEET_SCENT
+	move SWEET_SCENT,  EFFECT_EVASION_DOWN,        0, GRASS,        100, 20,   0      ;SWEET_SCENT
 	move IRON_TAIL,    EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,          75, 15,  30      ;IRON_TAIL
 	move METAL_CLAW,   EFFECT_ATTACK_UP_HIT,      60, STEEL,         100, 35,  10      ;METAL_CLAW
 	move VITAL_THROW,  EFFECT_ALWAYS_HIT,         70, FIGHTING,      100, 10,   0      ;VITAL_THROW

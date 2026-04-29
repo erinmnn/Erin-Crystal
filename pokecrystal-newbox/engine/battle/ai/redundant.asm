@@ -39,6 +39,13 @@ AI_Redundant:
 	dbw EFFECT_SUNNY_DAY,    .SunnyDay
 	dbw EFFECT_SWAGGER,      .Swagger
 	dbw EFFECT_FUTURE_SIGHT, .FutureSight
+	dbw EFFECT_ATTACK_UP,	 .AttackUp
+	dbw EFFECT_DEFENSE_UP,   .DefenseUp
+	dbw EFFECT_SPEED_UP,     .SpeedUp
+	dbw EFFECT_SP_ATK_UP,    .SpAtkUp
+	dbw EFFECT_SP_DEF_UP,    .SpDefUp
+	dbw EFFECT_ACCURACY_UP,  .AccuracyUp
+	dbw EFFECT_EVASION_UP,   .EvasionUp
 	db -1
 
 .LightScreen:
@@ -105,8 +112,8 @@ AI_Redundant:
 .SleepTalk:
 	ld a, [wEnemyMonStatus]
 	and SLP_MASK
-	jr z, .Redundant
-	jr .NotRedundant
+	jp z, .Redundant
+	jp .NotRedundant
 
 .MeanLook:
 	ld a, [wEnemySubStatus5]
@@ -116,7 +123,7 @@ AI_Redundant:
 .Nightmare:
 	ld a, [wBattleMonStatus]
 	and a
-	jr z, .Redundant
+	jp z, .Redundant
 	ld a, [wPlayerSubStatus1]
 	bit SUBSTATUS_NIGHTMARE, a
 	ret
@@ -177,7 +184,6 @@ AI_Redundant:
 	and a
 	ret
 
-<<<<<<< HEAD
 .AttackUp:
 	ld a, [wEnemyAtkLevel]
 	cp BASE_STAT_LEVEL + 3
@@ -220,16 +226,6 @@ AI_Redundant:
 	jr c, .Redundant
 	jr .NotRedundant
 
-=======
-.Heal:
-.MorningSun:
-.Synthesis:
-.Moonlight:
-	farcall AICheckEnemyMaxHP
-	jr nc, .NotRedundant
-
-.Teleport:
->>>>>>> parent of 0d31119 (johto release)
 .Redundant:
 	ld a, 1
 	and a

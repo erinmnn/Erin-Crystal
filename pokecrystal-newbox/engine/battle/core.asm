@@ -1912,26 +1912,6 @@ HandleWeather:
 	ld l, a
 	jp StdBattleTextbox
 
-<<<<<<< HEAD
-=======
-.rain_anim
-	call SwitchTurnCore
-	xor a
-	ld [wBattleAfterAnim], a
-	ld de, RAIN_DANCE
-	call Call_PlayBattleAnim
-	call SwitchTurnCore
-	ld hl, .WeatherMessages
-	jr .PrintWeatherMessage
-.sun_anim
-	call SwitchTurnCore
-	xor a
-	ld [wBattleAfterAnim], a
-	ld de, SUNNY_DAY
-	call Call_PlayBattleAnim
-	call SwitchTurnCore
-	ld hl, .WeatherMessages
->>>>>>> parent of 0d31119 (johto release)
 .WeatherMessages:
 ; entries correspond to WEATHER_* constants
 	dw BattleText_RainContinuesToFall
@@ -6214,16 +6194,20 @@ LoadEnemyMon:
 	jp .Happiness
 
 .InitDVs:
-; Trainer DVs
-
-; All trainers have preset DVs, determined by class
-; See GetTrainerDVs for more on that
-	farcall GetTrainerDVs
-; These are the DVs we'll use if we're actually in a trainer battle
 	ld a, [wBattleMode]
 	dec a
-	jr nz, .UpdateDVs
+	jr z, .WildDVs
 
+; Trainer DVs
+	ld a, [wCurPartyMon]
+	ld hl, wOTPartyMon1DVs
+	call GetPartyLocation
+	ld b, [hl]
+	inc hl
+	ld c, [hl]
+	jr .UpdateDVs
+
+.WildDVs:
 ; Wild DVs
 ; Here's where the fun starts
 
