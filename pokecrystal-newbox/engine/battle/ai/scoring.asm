@@ -313,13 +313,10 @@ AI_Smart:
 
 AI_Smart_EffectHandlers:
 	dbw EFFECT_SPEED_DOWN_HIT,   AI_Smart_SpeedDownHit
-	dbw EFFECT_HYPER_BEAM,	     AI_Smart_HyperBeam
-	dbw EFFECT_SKULL_BASH,	     AI_Smart_SkullBash
 	dbw EFFECT_GUST,             AI_Smart_Gust
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_FLY,              AI_Smart_Fly
 	dbw EFFECT_TRAP_TARGET,      AI_Smart_TrapTarget
-	dbw EFFECT_ALWAYS_HIT,	     AI_Smart_AlwaysHit
 	dbw EFFECT_STOMP,            AI_Smart_Stomp
 	dbw EFFECT_SLEEP,            AI_Smart_Sleep
 	dbw EFFECT_DISABLE,          AI_Smart_Disable
@@ -329,7 +326,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_PARALYZE,         AI_Smart_Paralyze
 	dbw EFFECT_SPEED_DOWN,       AI_Smart_SpeedDown
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
-	dbw EFFECT_MAGNITUDE,	     AI_Smart_Magnitude
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
 	dbw EFFECT_MIMIC,            AI_Smart_Mimic
 	dbw EFFECT_HEAL,             AI_Smart_Heal
@@ -359,7 +355,6 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_ENCORE,           AI_Smart_Encore
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
 	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
-	dbw EFFECT_LEECH_HIT,	     AI_Smart_LeechHit
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
 	db -1 ; end
 
@@ -371,9 +366,6 @@ AI_Smart_SpeedUpHit:
 	cp FLAME_WHEEL
 	jr z, .guaranteed
 
-	cp BONE_RUSH
-	jr z, .guaranteed
-
 	cp ICY_WIND
 	ret nz
 .guaranteed
@@ -383,17 +375,6 @@ AI_Smart_SpeedUpHit:
 	ret c
 	dec [hl]
 	dec [hl]
-	ret
-
-AI_Smart_HyperBeam:
-AI_Smart_SkullBash:
-	call AICheckEnemyHalfHP
-	jr c, .discourage
-
-.discourage
-; greatly discourage this move if the enemy is below 50% HP
-	inc [hl]
-	inc [hl]
 	ret
 
 AI_Smart_Gust:
@@ -461,27 +442,6 @@ AI_Smart_TrapTarget:
 .encourage
 	call AI_80_20
 	ret c
-	dec [hl]
-	dec [hl]
-	ret
-
-AI_Smart_AlwaysHit:
-; 80% chance to greatly encourage this move if either...
-
-; enemy's accuracy level has been lowered three or more stages
-	ld a, [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL - 2
-	jr c, .encourage
-
-; or player's evasion level has been raised three or more stages.
-	ld a, [wPlayerEvaLevel]
-	cp BASE_STAT_LEVEL + 3
-	ret c
-
-.encourage
-	call AI_80_20
-	ret c
-
 	dec [hl]
 	dec [hl]
 	ret
@@ -613,7 +573,6 @@ AI_Smart_SpeedDown:
 	ret
 
 AI_Smart_Earthquake:
-AI_Smart_Magnitude:
 ; Greatly encourage this move if the player is underground and the enemy is faster.
 	ld a, [wLastPlayerCounterMove]
 	cp DIG
@@ -708,12 +667,6 @@ AI_Smart_PsychUp:
 .discourage
 	pop hl
 	inc [hl]
-	ret
-
-AI_Smart_LeechHit:
-	call AI_80_20
-	ret nc
-	dec [hl]
 	ret
 
 AI_Smart_Selfdestruct:
@@ -857,7 +810,7 @@ AI_Smart_Protect:
 	bit SUBSTATUS_CHARGED, a
 	jr nz, .encourage
 
-; Encourage this move if the player is affected by Perish Song, Toxic, Leech Seed, Curse, or Future Sight
+; Encourage this move if the player is affected by Perish Song, Toxic, Leech Seed, or Curse.
 	ld a, [wPlayerSubStatus1]
 	bit SUBSTATUS_PERISH, a
 	jr nz, .encouragehalf
@@ -868,9 +821,6 @@ AI_Smart_Protect:
 
 	ld a, [wPlayerSubStatus4]
 	bit SUBSTATUS_LEECH_SEED, a
-	jr nz, .encouragehalf
-
-	ld a, [wEnemyFutureSightCount]
 	jr nz, .encouragehalf
 
 	ld a, [wPlayerSubStatus1]
@@ -1466,11 +1416,7 @@ AIDamageCalc:
 
 	cp EFFECT_HIDDEN_POWER
 	jr z, .hiddenpower
-	jr .regularcalc
 
-	cp EFFECT_MAGNITUDE
-	jr z, .magnitude
-	
 	ld de, 1
 	ld hl, ConstantDamageEffects
 	call IsInArray
@@ -1480,9 +1426,6 @@ AIDamageCalc:
 
 .hiddenpower
 	callfar HiddenPowerDamage
-.magnitude
-	ld a, 70
-	ld [wEnemyMoveStruct + MOVE_POWER], a
 .regularcalc
 	callfar EnemyAttackDamage
 	callfar BattleCommand_DamageCalc
@@ -1686,23 +1629,16 @@ AI_Risky:
 
 	pop hl
 
-	ld [hl], 5
+	ld [hl], 2
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_PRIORITY_HIT
-	jr z, .prioko
+	jr z, .prio
 
 	cp EFFECT_PURSUIT
-	jr z, .prioko
-
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	cp 99 percent + 1
-	jr z, .accurateko
-	jr .inaccurateko
-.prioko
+	jr nz, .notprio
+.prio
 	dec [hl]
-.accurateko
-	dec [hl]
-.inaccurateko
+.notprio
 	push hl
 
 .nextmove
