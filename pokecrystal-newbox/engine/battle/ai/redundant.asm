@@ -44,13 +44,6 @@ AI_Redundant:
 	dbw EFFECT_MOONLIGHT,    .Moonlight
 	dbw EFFECT_SWAGGER,      .Swagger
 	dbw EFFECT_FUTURE_SIGHT, .FutureSight
-	dbw EFFECT_ATTACK_UP,	 .AttackUp
-	dbw EFFECT_DEFENSE_UP,   .DefenseUp
-	dbw EFFECT_SPEED_UP,     .SpeedUp
-	dbw EFFECT_SP_ATK_UP,    .SpAtkUp
-	dbw EFFECT_SP_DEF_UP,    .SpDefUp
-	dbw EFFECT_ACCURACY_UP,  .AccuracyUp
-	dbw EFFECT_EVASION_UP,   .EvasionUp
 	db -1
 
 .LightScreen:
@@ -117,8 +110,8 @@ AI_Redundant:
 .SleepTalk:
 	ld a, [wEnemyMonStatus]
 	and SLP_MASK
-	jp z, .Redundant
-	jp .NotRedundant
+	jr z, .Redundant
+	jr .NotRedundant
 
 .MeanLook:
 	ld a, [wEnemySubStatus5]
@@ -128,7 +121,7 @@ AI_Redundant:
 .Nightmare:
 	ld a, [wBattleMonStatus]
 	and a
-	jp z, .Redundant
+	jr z, .Redundant
 	ld a, [wPlayerSubStatus1]
 	bit SUBSTATUS_NIGHTMARE, a
 	ret
@@ -188,48 +181,6 @@ AI_Redundant:
 	ld a, [wEnemyFutureSightCount]
 	and a
 	ret
-
-.AttackUp:
-	ld a, [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 3
-	jr c, .Redundant
-	jr .NotRedundant
-
-.DefenseUp:
-	ld a, [wEnemyDefLevel]
-	cp BASE_STAT_LEVEL + 6
-	jr c, .Redundant
-	jr .NotRedundant
-
-.SpeedUp:
-	ld a, [wEnemySpdLevel]
-	cp BASE_STAT_LEVEL + 2
-	jr c, .Redundant
-	jr .NotRedundant
-
-.SpAtkUp:	
-	ld a, [wEnemySDefLevel]
-	cp BASE_STAT_LEVEL + 3
-	jr c, .Redundant
-	jr .NotRedundant
-
-.SpDefUp:
-	ld a, [wEnemySDefLevel]
-	cp BASE_STAT_LEVEL + 6
-	jr c, .Redundant
-	jr .NotRedundant
-
-.AccuracyUp:
-	ld a, [wEnemyAccLevel]
-	cp BASE_STAT_LEVEL + 1
-	jr c, .Redundant
-	jr .NotRedundant
-
-.EvasionUp:
-	ld a, [wEnemyEvaLevel]
-	cp BASE_STAT_LEVEL + 6
-	jr c, .Redundant
-	jr .NotRedundant
 
 .Heal:
 .MorningSun:

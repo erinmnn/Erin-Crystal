@@ -91,7 +91,6 @@ ReadTrainerPartyPieces:
 	call GetNextTrainerDataByte
 	cp -1
 	ret z
-
 ; level
 	ld [wCurPartyLevel], a
 
@@ -194,7 +193,7 @@ ReadTrainerPartyPieces:
 
 	ld b, NUM_MOVES
 .copy_pp
-	call GetNextTrainerDataByte
+	ld a, [hli]
 	and a
 	jr z, .copied_pp
 

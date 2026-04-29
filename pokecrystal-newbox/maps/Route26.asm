@@ -228,7 +228,6 @@ TrainerPsychicRichard:
 	endifjustbattled
 	opentext
 	writetext PsychicRichardAfterBattleText
-	verbosegiveitem TM_PSYCHIC_M
 	waitbutton
 	closetext
 	end
@@ -240,7 +239,6 @@ TrainerFisherScott:
 	endifjustbattled
 	opentext
 	writetext FisherScottAfterBattleText
-	verbosegiveitem TM_ICY_WIND
 	waitbutton
 	closetext
 	end
@@ -381,8 +379,6 @@ PsychicRichardAfterBattleText:
 
 	para "Don't get lazy and"
 	line "complacent."
-
-	para "Have a TM."
 	done
 
 FisherScottSeenText:
@@ -405,8 +401,6 @@ FisherScottAfterBattleText:
 
 	para "in #MON if you"
 	line "give up."
-
-	para "Want a TM?"
 	done
 
 Route26SignText:
@@ -434,7 +428,7 @@ Route26_MapEvents:
 	object_event  9, 38, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 6, TrainerCooltrainermGaven3, -1
 	object_event 10, 54, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfJoyce, -1
 	object_event  5,  8, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerCooltrainerfBeth1, -1
-	object_event 18, 90, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerPsychicRichard, -1
-	object_event 17, 89, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherScott, -1
+	object_event 13, 79, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicRichard, -1
+	object_event 12, 98, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerFisherScott, -1
 	object_event 14, 54, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route26FruitTree, -1
 	object_event  9, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route26MaxElixer, EVENT_ROUTE_26_MAX_ELIXER
