@@ -75,7 +75,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 10, 10, 10, 10 ; DVs
+	dn 14, 10, 10, 10 ; DVs
 	db 35, 10, 0, 0 ; PP
 	db 2 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -231,7 +231,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 14, 10, 10, 10 ; DVs
+	dn 2, 10, 10, 10 ; DVs
 	db 35, 30, 10, 0 ; PP
 	db 2 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -283,7 +283,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 14, 10, 10, 10 ; DVs
+	dn 2, 10, 10, 10 ; DVs
 	db 2, 10, 0, 0 ; PP
 	db 2 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -335,7 +335,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 14, 10, 10, 10 ; DVs
+	dn 2, 10, 10, 10 ; DVs
 	db 30, 30, 10, 0 ; PP
 	db 2 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -361,7 +361,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 10, 14, 10, 10 ; DVs
+	dn 9, 14, 12, 12 ; DVs
 	db 35, 10, 0, 0 ; PP
 	db 2 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -387,7 +387,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 14, 10, 10, 10 ; DVs
+	dn 14, 9, 12, 12 ; DVs
 	db 35, 10, 0, 0 ; PP
 	db 2 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data

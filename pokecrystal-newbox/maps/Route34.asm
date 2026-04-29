@@ -428,7 +428,6 @@ TrainerCooltrainerfKate:
 	promptbutton
 	verbosegiveitem SOFT_SAND
 	iffalse .BagFull
-	applymovement ROUTE34_COOLTRAINER_F3, KateMovement
 	setevent EVENT_GOT_SOFT_SAND_FROM_KATE
 .GotSoftSand:
 	writetext CooltrainerfKateAfterText
@@ -457,10 +456,6 @@ Route34HiddenRareCandy:
 
 Route34HiddenSuperPotion:
 	hiddenitem LEAF_STONE, EVENT_ROUTE_34_HIDDEN_SUPER_POTION
-
-KateMovement:
-	step DOWN
-	step_end
 
 Route34MovementData_DayCareManWalksBackInside:
 	slow_step LEFT

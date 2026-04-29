@@ -1,5 +1,6 @@
 AIScoring: ; used only for BANK(AIScoring)
 
+
 AI_Basic:
 ; Don't do anything redundant:
 ;  -Using status-only moves if the player can't be statused
@@ -68,6 +69,7 @@ AI_Basic:
 	jr .checkmove
 
 INCLUDE "data/battle/ai/status_only_effects.asm"
+
 
 AI_Setup:
 ; Use stat-modifying moves on turn 1.
@@ -326,7 +328,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
 	dbw EFFECT_LEECH_SEED,       AI_Smart_LeechSeed
 	dbw EFFECT_PARALYZE,         AI_Smart_Paralyze
-	dbw EFFECT_SPEED_DOWN_2,       AI_Smart_SpeedDown
+	dbw EFFECT_SPEED_DOWN,       AI_Smart_SpeedDown
 	dbw EFFECT_EARTHQUAKE,       AI_Smart_Earthquake
 	dbw EFFECT_MAGNITUDE,	     AI_Smart_Magnitude
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
@@ -358,21 +360,19 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_ENCORE,           AI_Smart_Encore
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
 	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
+	dbw EFFECT_LEECH_HIT,	     AI_Smart_LeechHit
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
 	db -1 ; end
 
 AI_Smart_SpeedDownHit:
 AI_Smart_SpeedUpHit:
-; flame wheel, icy wind, bone rush, low kick
+; flame wheel, icy wind
 ; 50% chance to greatly encourage this move if player is faster than the enemy.
 	ld a, [wEnemyMoveStruct]
 	cp FLAME_WHEEL
 	jr z, .guaranteed
 
 	cp BONE_RUSH
-	jr z, .guaranteed
-
-	cp LOW_KICK
 	jr z, .guaranteed
 
 	cp ICY_WIND
@@ -718,6 +718,34 @@ AI_Smart_PsychUp:
 .discourage
 	pop hl
 	inc [hl]
+	ret
+
+AI_Smart_LeechHit:
+	ld a, [wBattleMonType1]
+	cp POISON
+	jr z, .suckable
+
+	ld a, [wBattleMonType2]
+	cp POISON
+	jr z, .suckable
+	
+	ld a, [wBattleMonType1]
+	cp BUG
+	jr z, .suckable
+
+	ld a, [wBattleMonType2]
+	cp BUG
+	jr z, .suckable
+
+	ld a, [hl]
+	add 10
+	ld [hl], a
+	ret
+
+.suckable
+	call AI_80_20
+	ret nc
+	dec [hl]
 	ret
 
 AI_Smart_Selfdestruct:
@@ -1457,11 +1485,12 @@ INCLUDE "data/battle/ai/reckless_moves.asm"
 AIDamageCalc:
 	ld a, 1
 	ldh [hBattleTurn], a
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]	
-	cp EFFECT_MAGNITUDE
-	jr z, .magnitude
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_HIDDEN_POWER
 	jr z, .hiddenpower
+	jr .regularcalc
+	cp EFFECT_MAGNITUDE
+	jr z, .magnitude
 
 	ld de, 1
 	ld hl, ConstantDamageEffects
@@ -1688,7 +1717,7 @@ AI_Risky:
 
 	ld a, [wEnemyMoveStruct + MOVE_ACC]
 	cp 99 percent + 1
-	jr c, .accurateko
+	jr z, .accurateko
 	jr .inaccurateko
 .prioko
 	dec [hl]
