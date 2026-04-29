@@ -28,6 +28,8 @@ EcruteakGymMortyScript:
 	iftrue .FightDone
 	checkevent EVENT_CLEARED_ROCKET_HIDEOUT
 	iffalse .GoToWhirl
+	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
+	iftrue .TinTowerRockets
 	writetext MortyIntroText
 	waitbutton
 	closetext
@@ -47,8 +49,6 @@ EcruteakGymMortyScript:
 	setevent EVENT_RANG_CLEAR_BELL_1
 	setevent EVENT_RANG_CLEAR_BELL_2
 .FightDone:
-	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
-	iffalse .TinTowerRockets
 	checkevent EVENT_GOT_TM30_SHADOW_BALL
 	iftrue .GotShadowBall
 	setevent EVENT_BEAT_SAGE_JEFFREY

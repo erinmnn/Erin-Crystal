@@ -1465,20 +1465,20 @@ JohtoGrassWildMons:
 	db 14, NIDORAN_F
 	db 13, SNUBBULL
 	db 10, SNUBBULL
-	db 12, PARAS
+	db 12, DROWZEE
 	db 10, DROWZEE
 	db 12, STANTLER
 	; day
 	db 12, NIDORAN_F
 	db 14, NIDORAN_M
-	db 13, PARAS
+	db 13, PIDGEY
 	db 10, ABRA
 	db 12, ABRA
 	db 10, STANTLER
 	db 12, STANTLER
 	; nite
 	db 12, WOOPER
-	db 14, PARAS
+	db 14, HOOTHOOT
 	db 13, PSYDUCK
 	db 10, PSYDUCK
 	db 12, ABRA

@@ -264,11 +264,22 @@ TrainerCooltrainerfKelly:
 	end
 
 TrainerCamperQuentin:
-	trainer CAMPER, QUENTIN, EVENT_BEAT_CAMPER_QUENTIN, CamperQuentinSeenText, CamperQuentinBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
+	faceplayer
 	opentext
+	checkevent EVENT_BEAT_CAMPER_QUENTIN
+	iftrue .Defeated
+	writetext CamperQuentinSeenText
+	waitbutton
+	closetext
+	winlosstext CamperQuentinBeatenText, 0
+	loadtrainer CAMPER, QUENTIN
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_CAMPER_QUENTIN
+	closetext
+	end
+
+.Defeated:
 	writetext CamperQuentinAfterBattleText
 	waitbutton
 	closetext
@@ -514,9 +525,8 @@ CamperQuentinAfterBattleText:
 	done
 
 Route45SignText:
-	text "ATTENTION"
-	line "FREQUENT"
-	cont "SANDSTORMS"
+	text "ROUTE 45"
+	line "MOUNTAIN RD. AHEAD"
 	done
 
 Route45_MapEvents:
@@ -538,8 +548,8 @@ Route45_MapEvents:
 	object_event  6, 64, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerTimothy, -1
 	object_event 13, 50, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBlackbeltKenji, -1
 	object_event 14, 23, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainermRyan, -1
-	object_event  3, 76, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfKelly, -1
-	object_event 22, 82, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route45FruitTree, -1
+	object_event  0, 76, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfKelly, -1
+	object_event 16, 82, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route45FruitTree, -1
 	object_event  6, 51, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Nugget, EVENT_ROUTE_45_NUGGET
 	object_event  8, 66, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Revive, EVENT_ROUTE_45_REVIVE
 	object_event  3, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route45Elixer, EVENT_ROUTE_45_ELIXER
