@@ -84,6 +84,8 @@ TinTower1FNPCsCallback:
 TinTower1FStairsCallback:
 	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
 	iffalse .DontHideStairs
+	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
+	iftrue .DontHideStairs
 	checkevent EVENT_GOT_RAINBOW_WING
 	iftrue .DontHideStairs
 	changeblock 10, 2, $09 ; floor
