@@ -5,29 +5,29 @@ KantoGrassWildMons:
 	def_grass_wildmons DIGLETTS_CAVE
 	db 4 percent, 2 percent, 8 percent ; encounter rates: morn/day/nite
 	; morn
-	db 23, DIGLETT
+	db 3, DIGLETT
+	db 6, DIGLETT
 	db 12, DIGLETT
-	db 9, DIGLETT
-	db 54, DIGLETT
-	db 42, DUGTRIO
-	db 67, DUGTRIO
-	db 39, DUGTRIO
+	db 24, DIGLETT
+	db 24, DUGTRIO
+	db 24, DUGTRIO
+	db 24, DUGTRIO
 	; day
-	db 15, DIGLETT
-	db 57, DIGLETT
-	db 34, DIGLETT
-	db 22, DIGLETT
-	db 3, DUGTRIO
-	db 42, DUGTRIO
-	db 67, DUGTRIO
+	db 2, DIGLETT
+	db 4, DIGLETT
+	db 8, DIGLETT
+	db 16, DIGLETT
+	db 16, DUGTRIO
+	db 16, DUGTRIO
+	db 16, DUGTRIO
 	; nite
-	db 53, DIGLETT
-	db 67, DIGLETT
-	db 42, DIGLETT
-	db 51, DIGLETT
-	db 22, DUGTRIO
+	db 4, DIGLETT
+	db 8, DIGLETT
+	db 16, DIGLETT
+	db 32, DIGLETT
 	db 32, DUGTRIO
-	db 4, DUGTRIO
+	db 32, DUGTRIO
+	db 32, DUGTRIO
 	end_grass_wildmons
 
 	def_grass_wildmons MOUNT_MOON
@@ -313,29 +313,29 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_6
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 51, RATICATE
-	db 51, GRANBULL
-	db 51, MAGNETON
-	db 51, HYPNO
-	db 51, HYPNO
-	db 51, WIGGLYTUFF
-	db 51, WIGGLYTUFF
+	db 13, RATTATA
+	db 13, SNUBBULL
+	db 14, MAGNEMITE
+	db 15, RATICATE
+	db 12, JIGGLYPUFF
+	db 15, GRANBULL
+	db 15, GRANBULL
 	; day
-	db 51, RATICATE
-	db 51, GRANBULL
-	db 51, MAGNETON
-	db 51, WIGGLYTUFF
-	db 51, WIGGLYTUFF
-	db 51, HYPNO
-	db 51, HYPNO
+	db 13, RATTATA
+	db 13, SNUBBULL
+	db 14, MAGNEMITE
+	db 15, RATICATE
+	db 12, JIGGLYPUFF
+	db 15, GRANBULL
+	db 15, GRANBULL
 	; nite
-	db 51, MAGNETON
-	db 51, PERSIAN
-	db 51, HYPNO
-	db 51, HYPNO
-	db 51, RATICATE
-	db 51, RATICATE
-	db 51, RATICATE
+	db 13, MEOWTH
+	db 13, DROWZEE
+	db 14, MAGNEMITE
+	db 15, PSYDUCK
+	db 12, JIGGLYPUFF
+	db 15, RATICATE
+	db 15, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_7

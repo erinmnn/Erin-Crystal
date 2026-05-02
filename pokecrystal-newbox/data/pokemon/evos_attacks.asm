@@ -1887,8 +1887,6 @@ JynxEvosAttacks:
 	db 40, ICE_BEAM
 	db 42, PSYCHIC_M
 	db 49, DESTINY_BOND
-	db 51, ICY_WIND
-	db 61, LOVELY_KISS
 	db 0 ; no more level-up moves
 
 ElectabuzzEvosAttacks:
@@ -1901,9 +1899,7 @@ ElectabuzzEvosAttacks:
 	db 31, SCREECH
 	db 37, THUNDERBOLT
 	db 43, THUNDER
-	db 49, SUBMISSION
-	db 51, SLUDGE
-	db 61, CROSS_CHOP	
+	db 49, CROSS_CHOP	
 	db 0 ; no more level-up moves
 
 MagmarEvosAttacks:
@@ -1916,9 +1912,7 @@ MagmarEvosAttacks:
 	db 31, THUNDERBOLT
 	db 37, FLAMETHROWER
 	db 43, CONFUSE_RAY
-	db 49, PSYCHIC_M
-	db 51, SUBMISSION
-	db 61, FIRE_BLAST
+	db 49, FIRE_BLAST
 	db 0 ; no more level-up moves
 
 PinsirEvosAttacks:
@@ -2200,41 +2194,48 @@ DratiniEvosAttacks:
 	db EVOLVE_LEVEL, 30, DRAGONAIR
 	db 0 ; no more evolutions
 	db 1, WRAP
+	db 1, LEER
 	db 8, THUNDER_WAVE
 	db 15, TWISTER
 	db 22, DRAGON_RAGE
-	db 29, BODY_SLAM
-	db 36, WHIRLPOOL
+	db 29, SLAM
+	db 36, AGILITY
 	db 43, SAFEGUARD
 	db 50, OUTRAGE
+	db 57, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 DragonairEvosAttacks:
 	db EVOLVE_LEVEL, 55, DRAGONITE
 	db 0 ; no more evolutions
 	db 1, WRAP
+	db 1, LEER
+	db 1, THUNDER_WAVE
+	db 1, TWISTER
 	db 8, THUNDER_WAVE
 	db 15, TWISTER
 	db 22, DRAGON_RAGE
-	db 29, BODY_SLAM
-	db 38, CRUNCH
+	db 29, SLAM
+	db 38, AGILITY
 	db 47, SAFEGUARD
 	db 56, OUTRAGE
+	db 65, HYPER_BEAM
 	db 0 ; no more level-up moves
 
 DragoniteEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, WRAP
+	db 1, LEER
+	db 1, THUNDER_WAVE
 	db 1, TWISTER
 	db 8, THUNDER_WAVE
+	db 15, TWISTER
 	db 22, DRAGON_RAGE
-	db 29, BODY_SLAM
-	db 38, CRUNCH
+	db 29, SLAM
+	db 38, AGILITY
 	db 47, SAFEGUARD
 	db 55, WING_ATTACK
 	db 61, OUTRAGE
-	db 69, ICE_BEAM
-	db 69, FLAMETHROWER
-	db 69, THUNDERBOLT
 	db 75, HYPER_BEAM
 	db 0 ; no more level-up moves
 

@@ -11,9 +11,9 @@ KantoWaterWildMons:
 
 	def_water_wildmons VERMILION_PORT
 	db 2 percent ; encounter rate
-	db 51, PIDGEOT
-	db 51, LANTURN
-	db 51, DEWGONG
+	db 35, TENTACOOL
+	db 30, TENTACOOL
+	db 35, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_4
@@ -25,9 +25,9 @@ KantoWaterWildMons:
 
 	def_water_wildmons ROUTE_6
 	db 2 percent ; encounter rate
-	db 51, GOLDUCK
-	db 51, PIDGEOT
-	db 51, TANGELA
+	db 10, PSYDUCK
+	db 5, PSYDUCK
+	db 10, GOLDUCK
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_9
@@ -144,9 +144,9 @@ KantoWaterWildMons:
 
 	def_water_wildmons VERMILION_CITY
 	db 6 percent ; encounter rate
-	db 51, GOLDUCK
-	db 51, PIDGEOT
-	db 51, LANTURN
+	db 35, TENTACOOL
+	db 30, TENTACOOL
+	db 35, TENTACRUEL
 	end_water_wildmons
 
 	def_water_wildmons CELADON_CITY

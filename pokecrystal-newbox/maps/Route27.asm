@@ -41,7 +41,6 @@ FirstStepIntoKantoScene_Continue:
 	writetext Route27FisherText
 	waitbutton
 	closetext
-	applymovement ROUTE27_FISHER, Route27FisherReturnMovement
 	setscene SCENE_ROUTE27_NOOP
 	end
 
@@ -53,7 +52,6 @@ FirstStepIntoKantoScene_Continue:
 	opentext
 	writetext StampedText
 	closetext
-	applymovement ROUTE27_FISHER, Route27FisherReturnMovement
 	end
 
 StampedText:
@@ -71,7 +69,6 @@ TrainerPsychicGilbert:
 	endifjustbattled
 	opentext
 	writetext PsychicGilbertAfterBattleText
-	verbosegiveitem TM_THUNDERBOLT
 	waitbutton
 	closetext
 	end
@@ -80,12 +77,113 @@ TrainerBirdKeeperJose2:
 	trainer BIRD_KEEPER, JOSE2, EVENT_BEAT_BIRD_KEEPER_JOSE2, BirdKeeperJose2SeenText, BirdKeeperJose2BeatenText, 0, .Script
 
 .Script:
+	loadvar VAR_CALLERID, PHONE_BIRDKEEPER_JOSE
 	endifjustbattled
 	opentext
+	checkflag ENGINE_JOSE_READY_FOR_REMATCH
+	iftrue .WantsBattle
+	checkflag ENGINE_JOSE_HAS_STAR_PIECE
+	iftrue .HasStarPiece
+	checkcellnum PHONE_BIRDKEEPER_JOSE
+	iftrue .NumberAccepted
+	checkevent EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
+	iftrue .AskedAlready
 	writetext BirdKeeperJose2AfterBattleText
-	verbosegiveitem TM_SHADOW_BALL
-	waitbutton
-	closetext
+	promptbutton
+	setevent EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
+	scall .AskNumber1
+	sjump .AskForNumber
+
+.AskedAlready:
+	scall .AskNumber2
+.AskForNumber:
+	askforphonenumber PHONE_BIRDKEEPER_JOSE
+	ifequal PHONE_CONTACTS_FULL, .PhoneFull
+	ifequal PHONE_CONTACT_REFUSED, .NumberDeclined
+	gettrainername STRING_BUFFER_3, BIRD_KEEPER, JOSE2
+	scall .RegisteredNumber
+	sjump .NumberAccepted
+
+.WantsBattle:
+	scall .Rematch
+	winlosstext BirdKeeperJose2BeatenText, 0
+	readmem wJoseFightCount
+	ifequal 2, .Fight2
+	ifequal 1, .Fight1
+	ifequal 0, .LoadFight0
+.Fight2:
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .LoadFight2
+.Fight1:
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .LoadFight1
+.LoadFight0:
+	loadtrainer BIRD_KEEPER, JOSE2
+	startbattle
+	reloadmapafterbattle
+	loadmem wJoseFightCount, 1
+	clearflag ENGINE_JOSE_READY_FOR_REMATCH
+	end
+
+.LoadFight1:
+	loadtrainer BIRD_KEEPER, JOSE1
+	startbattle
+	reloadmapafterbattle
+	loadmem wJoseFightCount, 2
+	clearflag ENGINE_JOSE_READY_FOR_REMATCH
+	end
+
+.LoadFight2:
+	loadtrainer BIRD_KEEPER, JOSE3
+	startbattle
+	reloadmapafterbattle
+	clearflag ENGINE_JOSE_READY_FOR_REMATCH
+	end
+
+.HasStarPiece:
+	scall .Gift
+	verbosegiveitem STAR_PIECE
+	iffalse .NoRoom
+	clearflag ENGINE_JOSE_HAS_STAR_PIECE
+	sjump .NumberAccepted
+
+.NoRoom:
+	sjump .PackFull
+
+.AskNumber1:
+	jumpstd AskNumber1MScript
+	end
+
+.AskNumber2:
+	jumpstd AskNumber2MScript
+	end
+
+.RegisteredNumber:
+	jumpstd RegisteredNumberMScript
+	end
+
+.NumberAccepted:
+	jumpstd NumberAcceptedMScript
+	end
+
+.NumberDeclined:
+	jumpstd NumberDeclinedMScript
+	end
+
+.PhoneFull:
+	jumpstd PhoneFullMScript
+	end
+
+.Rematch:
+	jumpstd RematchMScript
+	end
+
+.Gift:
+	jumpstd GiftMScript
+	end
+
+.PackFull:
+	jumpstd PackFullMScript
 	end
 
 TrainerCooltrainermBlake:
@@ -230,10 +328,6 @@ Route27FisherStepLeftTwiceMovement:
 
 Route27FisherStepLeftOnceMovement:
 	step LEFT
-	step_end
-
-Route27FisherReturnMovement:
-	step RIGHT
 	step_end
 
 Route27FisherHeyText:
