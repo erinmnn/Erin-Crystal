@@ -8,7 +8,7 @@ BattleCommand_Conversion2:
 	jr z, .got_type
 	ld hl, wEnemyMonType1
 .got_type
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	ld a, BATTLE_VARS_LAST_MOVE_OPP
 	call GetBattleVar
 	and a
 	jr z, .failed

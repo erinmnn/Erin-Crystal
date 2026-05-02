@@ -9,7 +9,7 @@ BattleCommand_Spite:
 	jr z, .got_moves
 	ld hl, wBattleMonMoves
 .got_moves
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	ld a, BATTLE_VARS_LAST_MOVE_OPP
 	call GetBattleVar
 	and a
 	jr z, .failed

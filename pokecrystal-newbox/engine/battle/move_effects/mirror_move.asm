@@ -4,7 +4,7 @@ BattleCommand_MirrorMove:
 	ld a, BATTLE_VARS_MOVE
 	call GetBattleVarAddr
 
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	ld a, BATTLE_VARS_LAST_MOVE_OPP
 	call GetBattleVar
 	and a
 	jr z, .failed

@@ -16,7 +16,7 @@ BattleCommand_Disable:
 	and a
 	jr nz, .failed
 
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	ld a, BATTLE_VARS_LAST_MOVE_OPP
 	call GetBattleVar
 	and a
 	jr z, .failed
