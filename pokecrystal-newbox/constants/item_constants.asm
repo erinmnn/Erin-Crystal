@@ -226,9 +226,9 @@ DEF TM01 EQU const_value
 	add_tm TOXIC        ; c5
 	add_tm ZAP_CANNON   ; c6
 	add_tm ROCK_SMASH   ; c7
-	add_tm PSYCH_UP     ; c8
+	add_tm ICE_BEAM     ; c8
 	add_tm HIDDEN_POWER ; c9
-	add_tm SUNNY_DAY    ; ca
+	add_tm FLAMETHROWER ; ca
 	add_tm SWEET_SCENT  ; cb
 	add_tm SNORE        ; cc
 	add_tm BLIZZARD     ; cd
@@ -255,7 +255,7 @@ DEF TM01 EQU const_value
 	add_tm SWAGGER      ; e2
 	add_tm SLEEP_TALK   ; e3
 	add_tm SLUDGE_BOMB  ; e4
-	add_tm SANDSTORM    ; e5
+	add_tm THUNDERBOLT  ; e5
 	add_tm FIRE_BLAST   ; e6
 	add_tm SWIFT        ; e7
 	add_tm DEFENSE_CURL ; e8
@@ -269,7 +269,6 @@ DEF TM01 EQU const_value
 	add_tm FIRE_PUNCH   ; f0
 	add_tm FURY_CUTTER  ; f1
 	add_tm NIGHTMARE    ; f2
-	add_tm THUNDERBOLT  ;
 DEF NUM_TMS EQU __tmhm_value__ - 1
 
 MACRO add_hm
@@ -303,9 +302,9 @@ MACRO add_mt
 ENDM
 
 DEF MT01 EQU const_value
-	add_mt FLAMETHROWER
+	add_mt ACID
 	add_mt LICK
-	add_mt ICE_BEAM
+	add_mt BITE
 DEF NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 DEF NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS

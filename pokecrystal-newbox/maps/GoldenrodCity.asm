@@ -66,27 +66,27 @@ MoveTutorScript:
 	loadmenu .MoveMenuHeader
 	verticalmenu
 	closewindow
-	ifequal MOVETUTOR_FLAMETHROWER, .Flamethrower
-	ifequal MOVETUTOR_THUNDERBOLT, .Thunderbolt
-	ifequal MOVETUTOR_ICE_BEAM, .IceBeam
+	ifequal MOVETUTOR_ACID, .Acid
+	ifequal MOVETUTOR_LICK, .Lick
+	ifequal MOVETUTOR_BITE, .Bite
 	sjump .Incompatible
 
-.Flamethrower:
-	setval MOVETUTOR_FLAMETHROWER
+.Acid:
+	setval MOVETUTOR_ACID
 	writetext GoldenrodCityMoveTutorMoveText
 	special MoveTutor
 	ifequal FALSE, .TeachMove
 	sjump .Incompatible
 
-.Thunderbolt:
-	setval MOVETUTOR_THUNDERBOLT
+.Lick:
+	setval MOVETUTOR_LICK
 	writetext GoldenrodCityMoveTutorMoveText
 	special MoveTutor
 	ifequal FALSE, .TeachMove
 	sjump .Incompatible
 
-.IceBeam:
-	setval MOVETUTOR_ICE_BEAM
+.Bite:
+	setval MOVETUTOR_BITE
 	writetext GoldenrodCityMoveTutorMoveText
 	special MoveTutor
 	ifequal FALSE, .TeachMove
@@ -101,9 +101,9 @@ MoveTutorScript:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "FLAMETHROWER@"
-	db "THUNDERBOLT@"
-	db "ICE BEAM@"
+	db "ACID@"
+	db "LICK@"
+	db "BITE@"
 	db "CANCEL@"
 
 .Refused:

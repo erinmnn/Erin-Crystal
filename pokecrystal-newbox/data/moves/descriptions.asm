@@ -468,8 +468,8 @@ DisableDescription:
 	next "most recent move.@"
 
 AcidDescription:
-	db   "An attack that may"
-	next "lower DEFENSE.@"
+	db   "An attack that"
+	next "lowers DEFENSE.@"
 
 EmberDescription:
 	db   "An attack that may"
@@ -752,8 +752,8 @@ EggBombDescription:
 	next "the foe.@"
 
 LickDescription:
-	db   "An attack that may"
-	next "cause paralysis.@"
+	db   "An attack that"
+	next "causes paralysis.@"
 
 SmogDescription:
 	db   "An attack that may"
@@ -1260,8 +1260,8 @@ FutureSightDescription:
 	next "hits on 3rd turn.@"
 
 RockSmashDescription:
-	db   "An attack that may"
-	next "lower DEFENSE.@"
+	db   "An attack that"
+	next "lowers DEFENSE.@"
 
 WhirlpoolDescription:
 	db   "Traps the foe for"

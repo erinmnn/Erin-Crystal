@@ -1703,7 +1703,7 @@ RhyhornEvosAttacks:
 	db 8, STOMP
 	db 13, ROCK_THROW
 	db 19, HEADBUTT
-	db 22, ROCK_SLIDE
+	db 39, ROCK_SLIDE
 	db 33, HORN_DRILL
 	db 41, SCARY_FACE
 	db 46, EARTHQUAKE
@@ -3210,9 +3210,8 @@ SneaselEvosAttacks:
 	db 31, LOW_KICK
 	db 38, METAL_CLAW
 	db 41, CROSS_CHOP
-	db 44, SHADOW_BALL
 	db 49, POWDER_SNOW
-	db 56, ENCORE
+	db 66, ENCORE
 	db 0 ; no more level-up moves
 
 TeddiursaEvosAttacks:

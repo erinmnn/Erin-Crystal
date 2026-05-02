@@ -12,7 +12,7 @@ BattleCommand_Mimic:
 .player_turn
 	call CheckHiddenOpponent
 	jr nz, .fail
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	ld a, BATTLE_VARS_LAST_MOVE_OPP
 	call GetBattleVar
 	and a
 	jr z, .fail
@@ -32,7 +32,7 @@ BattleCommand_Mimic:
 	cp MIMIC
 	jr nz, .find_mimic
 	inc hl
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	ld a, BATTLE_VARS_LAST_MOVE_OPP
 	call GetBattleVar
 	ld [hl], a
 	ld [wNamedObjectIndex], a

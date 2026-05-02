@@ -58,7 +58,7 @@ BattleCommand_Disable:
 	jr nz, .got_disabled_move_pointer
 	inc hl
 .got_disabled_move_pointer
-	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
+	ld a, BATTLE_VARS_LAST_MOVE_OPP
 	call GetBattleVar
 	ld [hl], a
 	ld [wNamedObjectIndex], a
