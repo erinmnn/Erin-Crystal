@@ -83,8 +83,6 @@ CianwoodCitySuicuneAndEusine:
 CianwoodCityChucksWife:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM02_FLY
-	iftrue .GotFly
 	writetext ChucksWifeEasierToFlyText
 	promptbutton
 	checkevent EVENT_BEAT_CHUCK
@@ -97,9 +95,6 @@ CianwoodCityChucksWife:
 .BeatChuck:
 	writetext ChucksWifeGiveHMText
 	promptbutton
-	verbosegiveitem HM_FLY
-	iffalse .Done
-	setevent EVENT_GOT_HM02_FLY
 	writetext ChucksWifeFlySpeechText
 	promptbutton
 .GotFly:
@@ -306,21 +301,11 @@ ChucksWifeBeatChuckText:
 	text "But you can't use"
 	line "FLY without this"
 	cont "city's GYM BADGE."
-
-	para "If you beat the"
-	line "GYM LEADER here,"
-	cont "come see me."
-
-	para "I'll have a nice"
-	line "gift for you."
 	done
 
 ChucksWifeGiveHMText:
 	text "That's CIANWOOD's"
 	line "GYM BADGE!"
-
-	para "Then you should"
-	line "take this HM."
 	done
 
 ChucksWifeFlySpeechText:

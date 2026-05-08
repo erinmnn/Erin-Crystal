@@ -19,7 +19,7 @@ Moves:
 	move DOUBLESLAP,   EFFECT_MULTI_HIT,          18, NORMAL,        100, 10,   0      ;DOUBLESLAP
 	move COMET_PUNCH,  EFFECT_MULTI_HIT,          25, STEEL,         100, 15,   0      ;COMET_PUNCH
 	move MEGA_PUNCH,   EFFECT_NORMAL_HIT,        120, NORMAL,         85, 20,   0      ;MEGA_PUNCH
-	move PAY_DAY,  	   EFFECT_PAY_DAY,            40, NORMAL,        100, 20,   0      ;PAY_DAY
+	move PAY_DAY,  	   EFFECT_PAY_DAY,            65, STEEL,        100, 20,   0      ;PAY_DAY
 	move FIRE_PUNCH,   EFFECT_BURN_HIT,           75, FIRE,          100, 15,  10      ;FIRE_PUNCH
 	move ICE_PUNCH,    EFFECT_FREEZE_HIT,         75, ICE,           100, 15,  10      ;ICE_PUNCH
 	move THUNDERPUNCH, EFFECT_PARALYZE_HIT,       75, ELECTRIC,      100, 15,  10      ;THUNDERPUNCH
@@ -64,7 +64,7 @@ Moves:
 	move SUPERSONIC,   EFFECT_CONFUSE,             0, NORMAL,         60, 20,   0      ;SUPERSONIC
 	move SONICBOOM,    EFFECT_STATIC_DAMAGE,      20, NORMAL,        100, 20,   0      ;SONICBOOM
 	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,        100, 20,   0      ;DISABLE
-	move ACID,	   EFFECT_DEFENSE_DOWN_HIT,   40, POISON,        100, 20,  50      ;ACID
+	move ACID,	   EFFECT_DEFENSE_DOWN_HIT,   40, POISON,        100, 20,  100      ;ACID
 	move EMBER, 	   EFFECT_BURN_HIT,           40, FIRE,          100, 25,  10      ;EMBER
 	move FLAMETHROWER, EFFECT_BURN_HIT,           95, FIRE,          100, 15,  10      ;FLAMETHROWER
 	move MIST,	   EFFECT_MIST,                0, ICE,           100, 30,   0      ;MIST
@@ -245,7 +245,7 @@ Moves:
 	move RAPID_SPIN,   EFFECT_RAPID_SPIN,         20, NORMAL,        100, 40,   0      ;RAPID_SPIN
 	move SWEET_SCENT,  EFFECT_EVASION_DOWN,        0, GRASS,        100, 20,   0      ;SWEET_SCENT
 	move IRON_TAIL,    EFFECT_DEFENSE_DOWN_HIT,  100, STEEL,          75, 15,  30      ;IRON_TAIL
-	move METAL_CLAW,   EFFECT_ATTACK_UP_HIT,      60, STEEL,         100, 35,  10      ;METAL_CLAW
+	move METAL_CLAW,   EFFECT_ATTACK_UP_HIT,      80, STEEL,         100, 35,  10      ;METAL_CLAW
 	move VITAL_THROW,  EFFECT_ALWAYS_HIT,         70, FIGHTING,      100, 10,   0      ;VITAL_THROW
 	move MORNING_SUN,  EFFECT_HEAL,                0, NORMAL,        100, 10,   0      ;MORNING_SUN
 	move SYNTHESIS,    EFFECT_HEAL,                0, GRASS,         100, 10,   0      ;SYNTHESIS

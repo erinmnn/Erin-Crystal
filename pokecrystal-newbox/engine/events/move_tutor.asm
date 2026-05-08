@@ -35,20 +35,20 @@ MoveTutor:
 
 .GetMoveTutorMove:
 	ld a, [wScriptVar]
-	cp MOVETUTOR_FLAMETHROWER
-	jr z, .flamethrower
-	cp MOVETUTOR_THUNDERBOLT
-	jr z, .thunderbolt
-	; MOVETUTOR_ICE_BEAM
-	ld a, MT03_MOVE ; ICE_BEAM
+	cp MOVETUTOR_ACID
+	jr z, .acid
+	cp MOVETUTOR_LICK
+	jr z, .lick
+	; MOVETUTOR_BITE
+	ld a, MT03_MOVE ; BITE
 	ret
 
-.flamethrower
-	ld a, MT01_MOVE ; FLAMETHROWER
+.acid
+	ld a, MT01_MOVE ; ACID
 	ret
 
-.thunderbolt
-	ld a, MT02_MOVE ; THUNDERBOLT
+.lick
+	ld a, MT02_MOVE ; LICK
 	ret
 
 CheckCanLearnMoveTutorMove:

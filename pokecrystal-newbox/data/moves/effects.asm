@@ -752,6 +752,7 @@ SpeedUpHit:
 	applydamage
 	criticaltext
 	supereffectivetext
+	defrost
 	checkfaint
 	buildopponentrage
 	speedup

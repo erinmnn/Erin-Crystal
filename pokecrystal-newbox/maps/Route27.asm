@@ -41,7 +41,6 @@ FirstStepIntoKantoScene_Continue:
 	writetext Route27FisherText
 	waitbutton
 	closetext
-	applymovement ROUTE27_FISHER, Route27FisherReturnMovement
 	setscene SCENE_ROUTE27_NOOP
 	end
 

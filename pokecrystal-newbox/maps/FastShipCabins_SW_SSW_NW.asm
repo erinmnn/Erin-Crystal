@@ -81,11 +81,68 @@ FastShipBed:
 	closetext
 	checkevent EVENT_FAST_SHIP_HAS_ARRIVED
 	iftrue .AlreadyArrived
-	checkevent EVENT_FAST_SHIP_FOUND_GIRL
-	iftrue .CanArrive
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iftrue .CanArrive
+	checkevent EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
+	iffalse .SetOneCheck
+	checkevent EVENT_FAST_SHIP_PASSENGERS_WESTBOUND
+	iffalse .SetThreeCheck
+	checkevent EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
+	iffalse .SetTwoCheck
 .AlreadyArrived:
+	end
+
+.SetOneCheck:
+	checkevent EVENT_BEAT_HIKER_NOLAND
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_POKEFANM_COLIN
+	iffalse .AlreadyArrived
+	checkevent EVENT_BEAT_TWINS_MEG_AND_PEG
+	iffalse .AlreadyArrived
+	checkevent EVENT_BEAT_JUGGLER_FRITZ
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_FIREBREATHER_LYLE
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_SAILOR_JEFF
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_PICNICKER_DEBRA
+	iftrue .CanArrive
+	end
+
+.SetTwoCheck:
+	checkevent EVENT_BEAT_GENTLEMAN_EDWARD
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_COOLTRAINERF_CAROL
+	iffalse .AlreadyArrived
+	checkevent EVENT_BEAT_SUPER_NERD_SHAWN
+	iffalse .AlreadyArrived
+	checkevent EVENT_BEAT_PSYCHIC_RODNEY
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_BEAUTY_CASSIE
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_FISHER_JONAH
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_SAILOR_GARRETT
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_BLACKBELT_WAI
+	iftrue .CanArrive
+	end
+
+.SetThreeCheck:
+	checkevent EVENT_BEAT_BURGLAR_COREY
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_POKEMANIAC_ETHAN
+	iffalse .AlreadyArrived
+	checkevent EVENT_BEAT_POKEFANM_JEREMY
+	iffalse .AlreadyArrived
+	checkevent EVENT_BEAT_GUITARIST_CLYDE
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_BUG_CATCHER_KEN
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_SAILOR_KENNETH
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_TEACHER_SHIRLEY
+	iffalse .AlreadyArrived	
+	checkevent EVENT_BEAT_SCHOOLBOY_RICKY
+	iftrue .CanArrive
 	end
 
 .CanArrive:
@@ -98,6 +155,30 @@ FastShipBed:
 	waitbutton
 	closetext
 	setevent EVENT_FAST_SHIP_HAS_ARRIVED
+	setevent EVENT_BEAT_HIKER_NOLAND
+	setevent EVENT_BEAT_POKEFANM_COLIN
+	setevent EVENT_BEAT_TWINS_MEG_AND_PEG
+	setevent EVENT_BEAT_JUGGLER_FRITZ
+	setevent EVENT_BEAT_FIREBREATHER_LYLE
+	setevent EVENT_BEAT_SAILOR_STANLY
+	setevent EVENT_BEAT_SAILOR_JEFF
+	setevent EVENT_BEAT_PICNICKER_DEBRA
+	setevent EVENT_BEAT_GENTLEMAN_EDWARD
+	setevent EVENT_BEAT_COOLTRAINERF_CAROL
+	setevent EVENT_BEAT_SUPER_NERD_SHAWN
+	setevent EVENT_BEAT_PSYCHIC_RODNEY
+	setevent EVENT_BEAT_BEAUTY_CASSIE
+	setevent EVENT_BEAT_FISHER_JONAH
+	setevent EVENT_BEAT_SAILOR_GARRETT
+	setevent EVENT_BEAT_BLACKBELT_WAI
+	setevent EVENT_BEAT_BURGLAR_COREY
+	setevent EVENT_BEAT_POKEMANIAC_ETHAN
+	setevent EVENT_BEAT_POKEFANM_JEREMY
+	setevent EVENT_BEAT_GUITARIST_CLYDE
+	setevent EVENT_BEAT_BUG_CATCHER_KEN
+	setevent EVENT_BEAT_SAILOR_KENNETH
+	setevent EVENT_BEAT_TEACHER_SHIRLEY
+	setevent EVENT_BEAT_SCHOOLBOY_RICKY
 	end
 
 .ArrivedOlivine:

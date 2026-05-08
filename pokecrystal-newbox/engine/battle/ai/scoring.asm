@@ -322,6 +322,8 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_STOMP,            AI_Smart_Stomp
 	dbw EFFECT_SLEEP,            AI_Smart_Sleep
 	dbw EFFECT_DISABLE,          AI_Smart_Disable
+	dbw EFFECT_DEFENSE_UP_2,     AI_Smart_DefenseUp2
+	dbw EFFECT_SP_DEF_UP_2,	     AI_Smart_SpDefUp2
 	dbw EFFECT_COUNTER,          AI_Smart_Counter
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
 	dbw EFFECT_LEECH_SEED,       AI_Smart_LeechSeed
@@ -545,6 +547,7 @@ AI_Smart_Encore:
 	ld [hl], a
 	ret
 
+AI_Smart_DefenseUp2:
 AI_Smart_Counter:
 ; Dismiss if none of the player types are physical.
 ; Otherwise, 50% chance to discourage.
@@ -567,6 +570,7 @@ AI_Smart_Counter:
 	inc [hl]
 	ret
 
+AI_Smart_SpDefUp2:
 AI_Smart_MirrorCoat:
 ; Dismiss if none of the player types are special.
 ; Otherwise, 50% chance to discourage.

@@ -102,14 +102,6 @@ SSAquaMetalCoatAndDocking:
 	iffalse .NoRoom
 	setevent EVENT_GOT_METAL_COAT_FROM_GRANDPA_ON_SS_AQUA
 .NoRoom:
-	closetext
-	waitsfx
-	playsound SFX_ELEVATOR_END
-	pause 30
-	opentext
-	writetext SSAquaHasArrivedVermilionText
-	waitbutton
-	setevent EVENT_FAST_SHIP_HAS_ARRIVED
 	setevent EVENT_FAST_SHIP_FOUND_GIRL
 	closetext
 	end

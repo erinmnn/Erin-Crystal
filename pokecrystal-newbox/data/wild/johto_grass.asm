@@ -1321,57 +1321,57 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_30
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 3, MAREEP
-	db 3, PHANPY
-	db 4, GIRAFARIG
-	db 4, GIRAFARIG
-	db 3, WEEDLE
-	db 4, WEEDLE
-	db 4, WEEDLE
+	db 5, MAREEP
+	db 5, PHANPY
+	db 5, GIRAFARIG
+	db 5, GIRAFARIG
+	db 5, WEEDLE
+	db 5, WEEDLE
+	db 5, WEEDLE
 	; day
-	db 3, MAREEP
-	db 3, PHANPY
-	db 4, WEEDLE
-	db 4, PONYTA
-	db 3, PONYTA
-	db 4, CATERPIE
-	db 4, CATERPIE
+	db 5, MAREEP
+	db 5, PHANPY
+	db 5, WEEDLE
+	db 5, PONYTA
+	db 5, PONYTA
+	db 5, CATERPIE
+	db 5, CATERPIE
 	; nite
-	db 3, DUNSPARCE
-	db 3, SPINARAK
-	db 4, EKANS
-	db 4, EKANS
-	db 3, MURKROW
-	db 4, MURKROW
-	db 4, MURKROW
+	db 5, DUNSPARCE
+	db 5, SPINARAK
+	db 5, EKANS
+	db 5, EKANS
+	db 5, MURKROW
+	db 5, MURKROW
+	db 5, MURKROW
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_31
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 4, ODDISH
-	db 4, MAREEP
-	db 5, BELLSPROUT
-	db 5, SNUBBULL
-	db 4, SNUBBULL
-	db 5, HOUNDOUR
-	db 5, HOUNDOUR
+	db 7, ODDISH
+	db 7, MAREEP
+	db 7, BELLSPROUT
+	db 7, SNUBBULL
+	db 7, SNUBBULL
+	db 7, HOUNDOUR
+	db 7, HOUNDOUR
 	; day
-	db 4, BELLSPROUT
-	db 4, MAREEP
-	db 5, ODDISH
-	db 5, HOUNDOUR
-	db 4, HOUNDOUR
-	db 5, SNUBBULL
-	db 5, SNUBBULL
+	db 7, BELLSPROUT
+	db 7, MAREEP
+	db 7, ODDISH
+	db 7, HOUNDOUR
+	db 7, HOUNDOUR
+	db 7, SNUBBULL
+	db 7, SNUBBULL
 	; nite
-	db 4, DUNSPARCE
-	db 4, WOOPER
-	db 5, EKANS
-	db 5, EKANS
-	db 4, SPINARAK
-	db 5, SPINARAK
-	db 5, SPINARAK
+	db 7, DUNSPARCE
+	db 7, WOOPER
+	db 7, EKANS
+	db 7, EKANS
+	db 7, SPINARAK
+	db 7, SPINARAK
+	db 7, SPINARAK
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_32
@@ -1462,7 +1462,7 @@ JohtoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 12, NIDORAN_M
-	db 14, NIDORAN_F
+	db 12, NIDORAN_F
 	db 13, SNUBBULL
 	db 10, SNUBBULL
 	db 12, PARAS
@@ -1470,7 +1470,7 @@ JohtoGrassWildMons:
 	db 12, STANTLER
 	; day
 	db 12, NIDORAN_F
-	db 14, NIDORAN_M
+	db 12, NIDORAN_M
 	db 13, PARAS
 	db 10, ABRA
 	db 12, ABRA

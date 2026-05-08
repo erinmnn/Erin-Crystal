@@ -46,16 +46,32 @@ OlivinePortSailorAtGangwayScript:
 	playsound SFX_EXIT_BUILDING
 	special FadeOutToWhite
 	waitsfx
-
+	setevent EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
+	setevent EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
+	setevent EVENT_FAST_SHIP_PASSENGERS_WESTBOUND
+	callasm GetPassengerSet
+	ifequal 3, .setthree
+	ifequal 2, .settwo
+	clearevent EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP
+	sjump .AllAboard
+.settwo:
+	clearevent EVENT_FAST_SHIP_PASSENGERS_EASTBOUND
+	sjump .AllAboard
+.setthree:
+	clearevent EVENT_FAST_SHIP_PASSENGERS_WESTBOUND	
 .AllAboard:
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iftrue .FirstTime
-.FirstTime:
 	clearevent EVENT_FAST_SHIP_DESTINATION_OLIVINE
 	appear OLIVINEPORT_SAILOR1
 	setmapscene FAST_SHIP_1F, SCENE_FASTSHIP1F_ENTER_SHIP
 	warp FAST_SHIP_1F, 25, 1
 	end
+
+GetPassengerSet:
+	ld a, 3
+	call RandomRange
+	add 1
+	ld [wScriptVar], a
+	ret
 
 OlivinePortAlreadyRodeScript:
 	writetext OlivinePortCantBoardText

@@ -528,12 +528,12 @@ DrillPeckDescription:
 	next "ning-peck attack.@"
 
 SubmissionDescription:
-	db   "An attack that al-"
-	next "so hurts the user.@"
+	db   "An attack that"
+	next "hurts the target.@"
 
 LowKickDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
+	db   "An attack that"
+	next "lowers speed.@"
 
 CounterDescription:
 	db   "Returns a physical"
@@ -564,8 +564,8 @@ GrowthDescription:
 	next "ATK rating.@"
 
 RazorLeafDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
+	db   "High crit rate."
+	next "Never misses.@"
 
 SolarbeamDescription:
 	db   "1st turn: Prepare"
@@ -773,7 +773,7 @@ FireBlastDescription:
 
 WaterfallDescription:
 	db   "An aquatic charge"
-	next "attack.@"
+	next "that may flinch.@"
 
 ClampDescription:
 	db   "Traps the foe for"
@@ -836,8 +836,8 @@ LovelyKissDescription:
 	next "to fall asleep.@"
 
 SkyAttackDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
+	db   "Strikes from above"
+	next "and deals recoil.@"
 
 TransformDescription:
 	db   "The user assumes"
@@ -861,7 +861,7 @@ FlashDescription:
 
 PsywaveDescription:
 	db   "An attack with"
-	next "variable power.@"
+	next "constant power.@"
 
 SplashDescription:
 	db   "Has no effect"
@@ -988,7 +988,7 @@ SpiteDescription:
 	next "foe's last move.@"
 
 PowderSnowDescription:
-	db   "An attack that may"
+	db   "A fast attack, may"
 	next "cause freezing.@"
 
 ProtectDescription:
@@ -1057,7 +1057,7 @@ DetectDescription:
 
 BoneRushDescription:
 	db   "An attack that"
-	next "hits 2-5 times.@"
+	next "lowers speed.@"
 
 LockOnDescription:
 	db   "Ensures the next"
@@ -1132,8 +1132,8 @@ ReturnDescription:
 	next "based on loyalty.@"
 
 PresentDescription:
-	db   "A bomb that may"
-	next "restore HP.@"
+	db   "YIPPEEEEEE"
+	next "YAYYYYYY.@"
 
 FrustrationDescription:
 	db   "An attack based on"
@@ -1200,16 +1200,16 @@ VitalThrowDescription:
 	next "that never misses.@"
 
 MorningSunDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
+	db   "Restores HP by 1/2"
+	next "the max HP.@"
 
 SynthesisDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
+	db   "Restores HP by 1/2"
+	next "the max HP.@"
 
 MoonlightDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
+	db   "Restores HP by 1/2"
+	next "the max HP.@"
 
 HiddenPowerDescription:
 	db   "The power varies"

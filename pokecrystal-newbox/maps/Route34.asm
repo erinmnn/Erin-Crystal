@@ -751,8 +751,8 @@ Route34_MapEvents:
 	bg_event 12,  6, BGEVENT_READ, Route34Sign
 	bg_event 13, 33, BGEVENT_READ, Route34TrainerTips
 	bg_event 10, 13, BGEVENT_READ, DayCareSign
-	bg_event 17, 35, BGEVENT_ITEM, Route34HiddenRareCandy
-	bg_event 17, 19, BGEVENT_ITEM, Route34HiddenSuperPotion
+	bg_event 17, 19, BGEVENT_ITEM, Route34HiddenRareCandy
+	bg_event 17, 35, BGEVENT_ITEM, Route34HiddenSuperPotion
 
 	def_object_events
 	object_event  6, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerCamperTodd1, -1

@@ -725,12 +725,12 @@ ParasEvosAttacks:
 	db 0 ; no more level-up moves
 
 ParasectEvosAttacks:
-	db 0 ; no more evolutions
+	db 0 ; no more evolutions	
 	db 1, SCRATCH
 	db 7, STUN_SPORE
 	db 13, POISONPOWDER
 	db 19, LEECH_LIFE
-	db 28, SPORE
+	db 21, SPORE
 	db 31, SLASH
 	db 37, FURY_CUTTER
 	db 43, GIGA_DRAIN
@@ -1701,7 +1701,6 @@ RhyhornEvosAttacks:
 	db 1, HORN_ATTACK
 	db 1, MAGNITUDE
 	db 8, STOMP
-	db 13, ROCK_THROW
 	db 19, HEADBUTT
 	db 39, ROCK_SLIDE
 	db 33, HORN_DRILL
@@ -1715,7 +1714,6 @@ RhydonEvosAttacks:
 	db 1, HORN_ATTACK
 	db 1, MAGNITUDE
 	db 8, STOMP
-	db 13, ROCK_THROW
 	db 19, HEADBUTT
 	db 22, ROCK_SLIDE
 	db 33, HORN_DRILL
@@ -2021,7 +2019,7 @@ VaporeonEvosAttacks:
 	db 33, HAZE
 	db 37, RECOVER
 	db 41, ICY_WIND
-	db 45, WHIRLPOOL
+	db 45, MIRROR_COAT
 	db 49, ACID_ARMOR
 	db 52, HYDRO_PUMP
 	db 0 ; no more level-up moves

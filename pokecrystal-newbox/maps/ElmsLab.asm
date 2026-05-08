@@ -97,7 +97,7 @@ ProfElmScript:
 ElmCheckMasterBall:
 	checkevent EVENT_GOT_MASTER_BALL_FROM_ELM
 	iftrue ElmCheckEverstone
-	checkflag ENGINE_RISINGBADGE
+	checkflag ENGINE_EARTHBADGE
 	iftrue ElmGiveMasterBallScript
 ElmCheckEverstone:
 	checkevent EVENT_GOT_EVERSTONE_FROM_ELM
