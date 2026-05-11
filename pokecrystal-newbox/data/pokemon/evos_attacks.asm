@@ -3209,7 +3209,7 @@ SneaselEvosAttacks:
 	db 38, METAL_CLAW
 	db 41, CROSS_CHOP
 	db 49, POWDER_SNOW
-	db 66, ENCORE
+	db 56, SLUDGE_BOMB
 	db 0 ; no more level-up moves
 
 TeddiursaEvosAttacks:
@@ -3490,26 +3490,12 @@ StantlerEvosAttacks:
 
 SmeargleEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, SKETCH
-	db 5, SKETCH
-	db 10, SKETCH
-	db 15, SKETCH
-	db 20, SKETCH
-	db 25, SKETCH
-	db 30, SKETCH
-	db 35, SKETCH
-	db 40, SKETCH
-	db 45, SKETCH
-	db 50, SKETCH
+	db 22, SKETCH
+	db 36, SKETCH
+	db 43, SKETCH
 	db 55, SKETCH
-	db 60, SKETCH
-	db 65, SKETCH
-	db 70, SKETCH
-	db 75, SKETCH
-	db 80, SKETCH
-	db 85, SKETCH
-	db 90, SKETCH
-	db 95, SKETCH
+	db 72, SKETCH
+	db 89, SKETCH
 	db 0 ; no more level-up moves
 
 TyrogueEvosAttacks:

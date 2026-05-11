@@ -52,41 +52,39 @@ Route6UndergroundPathSignText:
 	done
 
 PokefanmRexSeenText:
-	text "My PHANPY is the"
-	line "cutest in the"
-	cont "world."
+	text "Quake before"
+	line "my physical"
+	cont "attackers!"
 	done
 
 PokefanmRexBeatenText:
-	text "My PHANPY!"
+	text "Aw shit."
 	done
 
 PokefanmRexAfterBattleText:
-	text "Look how adorable"
-	line "my PHANPY acts!"
+	text "My #MON's"
+	line "incredible"
+	cont "strength,"
 
-	para "Isn't it cute"
-	line "enough to make"
-	cont "your heart melt?"
+	para "It wasn't enough."
 	done
 
 PokefanmAllanSeenText:
-	text "My TEDDIURSA is"
-	line "the cutest in the"
-	cont "world."
+	text "Behold the power"
+	line "of my special"
+	cont "attackers!"
 	done
 
 PokefanmAllanBeatenText:
-	text "My TEDDIURSA!"
+	text "Oh no."
 	done
 
 PokefanmAllanAfterBattleText:
-	text "Look how adorable"
-	line "my TEDDIURSA acts!"
+	text "My #MON's"
+	line "superior"
+	cont "intellect,"
 
-	para "Isn't it cute"
-	line "enough to make"
-	cont "your heart melt?"
+	para "It wasn't enough."
 	done
 
 Route6_MapEvents:
@@ -103,5 +101,5 @@ Route6_MapEvents:
 
 	def_object_events
 	object_event 17,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 2, Route6PokefanMScript, EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH
-	object_event  5, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanmRex, -1
-	object_event  8, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanmAllan, -1
+	object_event  8, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanmRex, -1
+	object_event  5, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanmAllan, -1

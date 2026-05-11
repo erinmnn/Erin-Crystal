@@ -341,57 +341,57 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_7
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 17, RATTATA
-	db 17, SPEAROW
-	db 18, SNUBBULL
-	db 18, RATICATE
-	db 18, JIGGLYPUFF
-	db 16, ABRA
-	db 16, ABRA
+	db 48, ARCANINE
+	db 48, PRIMEAPE
+	db 48, VILEPLUME
+	db 48, VILEPLUME
+	db 48, PERSIAN
+	db 48, VICTREEBEL
+	db 48, VICTREEBEL
 	; day
-	db 17, RATTATA
-	db 17, SPEAROW
-	db 18, SNUBBULL
-	db 18, RATICATE
-	db 18, JIGGLYPUFF
-	db 16, ABRA
-	db 16, ABRA
+	db 48, PRIMEAPE
+	db 48, VICTREEBEL
+	db 48, ARCANINE
+	db 48, PERSIAN
+	db 48, VILEPLUME
+	db 48, VILEPLUME
+	db 48, CHANSEY
 	; nite
-	db 17, MEOWTH
-	db 17, MURKROW
-	db 18, HOUNDOUR
-	db 18, PERSIAN
-	db 18, JIGGLYPUFF
-	db 16, ABRA
-	db 16, ABRA
+	db 48, VICTREEBEL
+	db 48, PERSIAN
+	db 48, PRIMEAPE
+	db 48, VILEPLUME
+	db 48, VILEPLUME
+	db 48, ARCANINE
+	db 48, ARCANINE
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_8
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 17, SNUBBULL
-	db 19, PIDGEOTTO
-	db 16, ABRA
-	db 17, GROWLITHE
-	db 16, JIGGLYPUFF
-	db 18, KADABRA
-	db 18, KADABRA
+	db 52, ARBOK
+	db 52, KADABRA
+	db 52, SANDSLASH
+	db 52, NINETALES
+	db 52, NINETALES
+	db 53, VILEPLUME
+	db 53, VILEPLUME
 	; day
-	db 17, SNUBBULL
-	db 19, PIDGEOTTO
-	db 16, ABRA
-	db 17, GROWLITHE
-	db 16, JIGGLYPUFF
-	db 18, KADABRA
-	db 18, KADABRA
+	db 52, ARBOK
+	db 52, NINETALES
+	db 52, KADABRA
+	db 52, KADABRA
+	db 52, SANDSLASH
+	db 53, VILEPLUME
+	db 53, VILEPLUME
 	; nite
-	db 17, MEOWTH
-	db 20, NOCTOWL
-	db 16, ABRA
-	db 17, HAUNTER
-	db 16, JIGGLYPUFF
-	db 18, KADABRA
-	db 18, KADABRA
+	db 52, HAUNTER
+	db 52, ARBOK
+	db 52, NINETALES
+	db 52, KADABRA
+	db 52, KADABRA
+	db 53, VILEPLUME
+	db 53, VILEPLUME
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_9

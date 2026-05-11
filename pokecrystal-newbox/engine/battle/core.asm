@@ -94,6 +94,7 @@ DoBattle:
 	call LoadTilemapToTempTilemap
 	call SetPlayerTurn
 	call SpikesDamage
+	call GetLeechSeed
 	ld a, [wLinkMode]
 	and a
 	jr z, .not_linked_2
@@ -211,6 +212,44 @@ GetAutomaticBattleSpikes:
 	jr .loop
 
 INCLUDE "data/battle/automatic_spikes.asm"
+
+GetLeechSeed:
+	call GetAutomaticBattleLeechSeed
+	and a
+	ret z
+	ld hl, wPlayerScreens
+	set SUBSTATUS_LEECH_SEED, [hl]
+	ldh [hBattleTurn], a
+	ld de, LEECH_SEED
+	call Call_PlayBattleAnim
+	ld hl, WasSeededText
+	call StdBattleTextbox
+	jp EmptyBattleTextbox
+
+GetAutomaticBattleLeechSeed:
+	ld hl, AutomaticLeechSeedMaps
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+.loop
+	ld a, [hli] ; group
+	and a
+	ret z ; end
+	cp b
+	jr nz, .wrong_group
+	ld a, [hli] ; map
+	cp c
+	jr nz, .wrong_map
+	ld a, 1 ;leech seed
+	ret
+
+.wrong_group:
+	inc hl ; skip map
+.wrong_map
+	jr .loop
+
+INCLUDE "data/battle/automatic_leech_seed.asm"
 
 SetLightScreen:
 	call GetAutomaticBattleLightScreen
@@ -2914,6 +2953,7 @@ ForcePlayerMonChoice:
 	call LoadTilemapToTempTilemap
 	call SetPlayerTurn
 	call SpikesDamage
+	call GetLeechSeed
 	ld a, $1
 	and a
 	ld c, a
@@ -2934,6 +2974,7 @@ PlayerPartyMonEntrance:
 	call EmptyBattleTextbox
 	call LoadTilemapToTempTilemap
 	call SetPlayerTurn
+	call GetLeechSeed
 	jp SpikesDamage
 
 CheckMobileBattleError:
@@ -5412,6 +5453,7 @@ BattleMonEntrance:
 	call LoadTilemapToTempTilemap
 	call SetPlayerTurn
 	call SpikesDamage
+	call GetLeechSeed
 	ld a, $2
 	ld [wMenuCursorY], a
 	ret
@@ -5435,6 +5477,7 @@ PassedBattleMonEntrance:
 	call EmptyBattleTextbox
 	call LoadTilemapToTempTilemap
 	call SetPlayerTurn
+	call GetLeechSeed
 	jp SpikesDamage
 
 BattleMenu_Run:
