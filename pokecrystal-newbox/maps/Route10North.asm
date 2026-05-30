@@ -1,7 +1,36 @@
+	object_const_def
+	const ROUTE10NORTH_ZAPDOS
+
 Route10North_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, Route10NorthZapdosCallback
+
+Route10NorthZapdosCallback:
+	checkevent EVENT_BEAT_BLUE
+	iffalse .NoAppear
+	checkevent ROUTE10NORTH_ZAPDOS
+	iftrue .NoAppear
+	readvar VAR_WEEKDAY
+	ifequal TUESDAY, .Appear
+.NoAppear:
+	disappear ROUTE10NORTH_ZAPDOS
+	endcallback
+
+.Appear:
+	appear ROUTE10NORTH_ZAPDOS
+	endcallback
+
+Route10NorthZapdos:
+	faceplayer
+	cry ZAPDOS
+	loadwildmon ZAPDOS, 100
+	startbattle
+	disappear ROUTE10NORTH_ZAPDOS
+	setevent ROUTE10NORTH_ZAPDOS
+	reloadmapafterbattle
+	end
 
 PowerPlantSign:
 	jumptext PowerPlantSignText
@@ -27,3 +56,4 @@ Route10North_MapEvents:
 	bg_event 12,  1, BGEVENT_READ, Route10PokecenterSign
 
 	def_object_events
+	object_event  9, 14, SPRITE_MOLTRES, SPRITEMOVEDATA_SWIM_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route10NorthZapdos, EVENT_ROUTE10NORTH_ZAPDOS

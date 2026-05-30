@@ -366,8 +366,8 @@ AzaleaGym_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  3, 13, BGEVENT_READ, AzaleaGymStatue
-	bg_event  6, 13, BGEVENT_READ, AzaleaGymStatue
+	bg_event  2, 15, BGEVENT_READ, AzaleaGymStatue
+	bg_event  7, 15, BGEVENT_READ, AzaleaGymStatue
 
 	def_object_events
 	object_event  5,  7, SPRITE_BUGSY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, AzaleaGymBugsyScript, -1

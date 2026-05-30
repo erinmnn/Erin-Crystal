@@ -426,6 +426,11 @@ CanUseFly:
 	call CheckOutdoorMap
 	ret nz ; not outdoors, cant fly
 
+; Step 2.5: Location Check part 2
+	call GetMapEnvironment
+	cp ENVIRONMENT_5
+	ret z ; not outdoors, cant fly
+
 ; Step 3: Check if Mon knows Move
 	ld a, FLY
 	call CheckMonKnowsMove

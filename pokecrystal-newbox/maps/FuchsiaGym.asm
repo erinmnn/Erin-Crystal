@@ -10,6 +10,23 @@ FuchsiaGym_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, FuchsiaGymJanineCallback
+
+FuchsiaGymJanineCallback:
+	checkevent EVENT_BEAT_LASS_ALICE
+	iffalse .JanineDisappear
+	checkevent EVENT_BEAT_LASS_LINDA
+	iffalse .JanineDisappear
+	checkevent EVENT_BEAT_PICNICKER_CINDY
+	iffalse .JanineDisappear
+	checkevent EVENT_BEAT_CAMPER_BARRY
+	iffalse .JanineDisappear
+	appear FUCHSIAGYM_JANINE
+	endcallback
+
+.JanineDisappear:
+	disappear FUCHSIAGYM_JANINE
+	endcallback
 
 FuchsiaGymJanineScript:
 	checkflag ENGINE_SOULBADGE
@@ -370,6 +387,12 @@ FuchsiaGymGuideText:
 
 	para "Which of them is"
 	line "the real JANINE?"
+
+	para "Watch out for the"
+	line "spikes on the"
+
+	para "floor while you-"
+	line "'re at it."
 	done
 
 FuchsiaGymGuideWinText:
@@ -392,9 +415,9 @@ FuchsiaGym_MapEvents:
 	bg_event  6, 15, BGEVENT_READ, FuchsiaGymStatue
 
 	def_object_events
-	object_event  1, 10, SPRITE_JANINE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FuchsiaGymJanineScript, -1
-	object_event  5,  7, SPRITE_FUCHSIA_GYM_1, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassAliceScript, -1
-	object_event  5, 11, SPRITE_FUCHSIA_GYM_2, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassLindaScript, -1
-	object_event  9,  4, SPRITE_FUCHSIA_GYM_3, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PicnickerCindyScript, -1
-	object_event  4,  2, SPRITE_FUCHSIA_GYM_4, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CamperBarryScript, -1
+	object_event  8,  3, SPRITE_JANINE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FuchsiaGymJanineScript, EVENT_GOT_CALCIUM_FROM_ERIN
+	object_event  5,  7, SPRITE_FUCHSIA_GYM_1, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, PicnickerCindyScript, -1
+	object_event  5, 10, SPRITE_FUCHSIA_GYM_2, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, LassLindaScript, -1
+	object_event  5,  4, SPRITE_FUCHSIA_GYM_3, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, LassAliceScript, -1
+	object_event  0,  9, SPRITE_FUCHSIA_GYM_4, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, CamperBarryScript, -1
 	object_event  7, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FuchsiaGymGuideScript, -1

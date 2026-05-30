@@ -69,4 +69,6 @@ TrainerClassDVs:
 	dn 15, 15, 15, 15 ; OFFICER
 	dn 15, 15, 15, 15 ; GRUNTF
 	dn 15, 15, 15, 15 ; MYSTICALMAN
+	dn 15, 15, 15, 15 ; AGATHA
+	dn 15, 15, 15, 15 ; LORELEI
 	assert_table_length NUM_TRAINER_CLASSES

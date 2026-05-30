@@ -15,13 +15,13 @@ Route17AlwaysOnBikeCallback:
 	setflag ENGINE_DOWNHILL
 	endcallback
 
-TrainerBikerCharles:
-	trainer BIKER, CHARLES, EVENT_BEAT_BIKER_CHARLES, BikerCharlesSeenText, BikerCharlesBeatenText, 0, .Script
+TrainerBikerNick:
+	trainer BIKER, NICK, EVENT_BEAT_BIKER_JOEL, BikerNickSeenText, BikerNickBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext BikerCharlesAfterBattleText
+	writetext BikerNickAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -30,33 +30,39 @@ TrainerBikerRiley:
 	trainer BIKER, RILEY, EVENT_BEAT_BIKER_RILEY, BikerRileySeenText, BikerRileyBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
 	opentext
 	writetext BikerRileyAfterBattleText
 	waitbutton
 	closetext
-	end
-
-TrainerBikerJoel:
-	trainer BIKER, JOEL, EVENT_BEAT_BIKER_JOEL, BikerJoelSeenText, BikerJoelBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
-	opentext
-	writetext BikerJoelAfterBattleText
-	waitbutton
-	closetext
+	applymovement ROUTE17_BIKER1, BikerMovement
+	disappear ROUTE17_BIKER1
+	applymovement PLAYER, PlayerMovement
 	end
 
 TrainerBikerGlenn:
 	trainer BIKER, GLENN, EVENT_BEAT_BIKER_GLENN, BikerGlennSeenText, BikerGlennBeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
 	opentext
 	writetext BikerGlennAfterBattleText
 	waitbutton
 	closetext
+	applymovement ROUTE17_BIKER2, BikerMovement
+	disappear ROUTE17_BIKER2
+	applymovement PLAYER, PlayerMovement
+	end
+
+TrainerBikerCharles:
+	trainer BIKER, CHARLES, EVENT_BEAT_BIKER_CHARLES, BikerCharlesSeenText, BikerCharlesBeatenText, 0, .Script
+
+.Script:
+	opentext
+	writetext BikerCharlesAfterBattleText
+	waitbutton
+	closetext
+	applymovement ROUTE17_BIKER3, BikerMovement
+	disappear ROUTE17_BIKER3
+	applymovement PLAYER, PlayerMovement
 	end
 
 Route17HiddenMaxEther:
@@ -79,17 +85,17 @@ BikerRileyAfterBattleText:
 	line "you JOHTO punk!"
 	done
 
-BikerJoelSeenText:
+BikerGlennSeenText:
 	text "Wow. That's a cool"
 	line "BICYCLE!"
 	done
 
-BikerJoelBeatenText:
+BikerGlennBeatenText:
 	text "But you don't just"
 	line "look cool…"
 	done
 
-BikerJoelAfterBattleText:
+BikerGlennAfterBattleText:
 	text "I look cool, but"
 	line "I'm weak, so I'm"
 	cont "not really cool."
@@ -98,37 +104,49 @@ BikerJoelAfterBattleText:
 	line "harder…"
 	done
 
-BikerGlennSeenText:
+BikerCharlesSeenText:
 	text "Hey! Want to have"
 	line "a speed battle?"
 	done
 
-BikerGlennBeatenText:
+BikerCharlesBeatenText:
 	text "Yikes! You've got"
 	line "awesome torque!"
 	done
 
-BikerGlennAfterBattleText:
+BikerCharlesAfterBattleText:
 	text "Hands-free riding"
 	line "is considered cool"
 	cont "on CYCLING ROAD."
 	done
 
-BikerCharlesSeenText:
+BikerNickSeenText:
 	text "We're fearless"
 	line "highway stars!"
 	done
 
-BikerCharlesBeatenText:
+BikerNickBeatenText:
 	text "Arrrgh! Crash and"
 	line "burn!"
 	done
 
-BikerCharlesAfterBattleText:
+BikerNickAfterBattleText:
 	text "Reckless driving"
 	line "causes accidents!"
 	cont "Take it easy!"
 	done
+
+BikerMovement:
+	step LEFT
+	big_step DOWN
+	big_step DOWN
+	big_step DOWN
+	big_step DOWN
+	step_end
+
+PlayerMovement:
+	step DOWN
+	step_end
 
 Route17_MapEvents:
 	db 0, 0 ; filler
@@ -144,7 +162,7 @@ Route17_MapEvents:
 	bg_event  8, 77, BGEVENT_ITEM, Route17HiddenMaxElixer
 
 	def_object_events
-	object_event  4, 17, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerRiley, -1
-	object_event  9, 68, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBikerJoel, -1
-	object_event  3, 53, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBikerGlenn, -1
-	object_event  6, 80, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerCharles, -1
+	object_event  7, 66, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerRiley, -1
+	object_event  7, 67, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerGlenn, -1
+	object_event  7, 68, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerCharles, -1
+	object_event  7, 69, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerNick, -1

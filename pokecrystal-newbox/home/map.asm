@@ -354,6 +354,8 @@ CheckOutdoorMap::
 	cp ROUTE
 	ret z
 	cp TOWN
+	ret z
+	cp ENVIRONMENT_5
 	ret
 
 CheckIndoorMap::
@@ -364,8 +366,6 @@ CheckIndoorMap::
 	cp DUNGEON
 	ret z
 	cp GATE
-	ret z
-	cp ENVIRONMENT_5
 	ret
 
 LoadMapAttributes::

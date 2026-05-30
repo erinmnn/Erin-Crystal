@@ -10,6 +10,11 @@ Route20_MapScripts:
 	callback MAPCALLBACK_NEWMAP, Route20ClearRocksCallback
 
 Route20ClearRocksCallback:
+	checkevent EVENT_BEAT_LORELEI
+	iffalse .skip
+	changeblock 19, 3, $06
+.skip
+	endcallback
 	setevent EVENT_CINNABAR_ROCKS_CLEARED
 	endcallback
 
@@ -114,7 +119,8 @@ Route20_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 38,  7, SEAFOAM_GYM, 1
+	warp_event 30,  5, SEAFOAM_GYM, 1
+	warp_event 38,  7, SEAFOAM_ISLANDS_1F, 1
 
 	def_coord_events
 
@@ -122,6 +128,6 @@ Route20_MapEvents:
 	bg_event 37, 11, BGEVENT_READ, CinnabarGymSign
 
 	def_object_events
-	object_event 52,  8, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfNicole, -1
-	object_event 45, 13, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfLori, -1
-	object_event 12, 13, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCameron, -1
+	object_event 36, 13, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfNicole, -1
+	object_event 30, 16, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfLori, -1
+	object_event 24, 11, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 6, TrainerSwimmermCameron, -1

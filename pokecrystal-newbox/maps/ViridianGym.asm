@@ -62,14 +62,28 @@ ViridianGymStatue:
 	jumpstd GymStatue2Script
 
 LeaderBlueBeforeText:
-	text "BLUE: Yo! Finally"
-	line "got here, huh?"
+	text "Who are you?"
 
-	para "I wasn't in the"
-	line "mood at CINNABAR,"
+	para "Well, it's plain"
+	line "to see that you're"
+	cont "a trainer…"
 
-	para "but now I'm ready"
-	line "to battle you."
+	para "My name's BLUE."
+
+	para "I was once the"
+	line "CHAMPION, although"
+
+	para "it was for only a"
+	line "short time…"
+
+	para "That meddling RED"
+	line "did me in…"
+
+	para "Anyway, what do"
+	line "you want? You want"
+
+	para "to challenge me or"
+	line "something?"
 
 	para "…"
 

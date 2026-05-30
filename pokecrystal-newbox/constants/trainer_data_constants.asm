@@ -10,7 +10,6 @@ DEF NUM_TRAINER_ATTRIBUTES EQU _RS
 ; TRNATTR_AI_MOVE_WEIGHTS bit flags (wEnemyTrainerAIFlags)
 ; AIScoringPointers indexes (see engine/battle/ai/move.asm)
 	const_def
-	shift_const AI_BASIC
 	shift_const AI_SETUP
 	shift_const AI_TYPES
 	shift_const AI_OFFENSIVE
@@ -20,6 +19,7 @@ DEF NUM_TRAINER_ATTRIBUTES EQU _RS
 	shift_const AI_CAUTIOUS
 	shift_const AI_STATUS
 	shift_const AI_RISKY
+	shift_const AI_BASIC
 DEF NO_AI EQU 0
 
 ; TRNATTR_AI_ITEM_SWITCH bit flags

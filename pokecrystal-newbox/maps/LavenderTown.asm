@@ -9,6 +9,14 @@ LavenderTown_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, LavenderTownFlypointCallback
+	callback MAPCALLBACK_TILES, AgathaStepCallback
+
+AgathaStepCallback:
+	checkevent EVENT_BEAT_AGATHA
+	iffalse .skip
+	changeblock 8, 1, $5c
+.skip
+	endcallback
 
 LavenderTownFlypointCallback:
 	setflag ENGINE_FLYPOINT_LAVENDER

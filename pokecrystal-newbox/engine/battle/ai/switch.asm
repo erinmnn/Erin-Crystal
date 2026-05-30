@@ -188,7 +188,7 @@ CheckAbleToSwitch:
 	jr nz, .no_perish
 
 	; Perish count is 1
-
+.switch
 	call FindAliveEnemyMons
 	call FindEnemyMonsWithAtLeastQuarterMaxHP
 	call FindEnemyMonsThatResistPlayer
@@ -197,7 +197,7 @@ CheckAbleToSwitch:
 	ld a, e
 	cp 2
 	jr nz, .not_2
-
+.max
 	ld a, [wEnemyAISwitchScore]
 	add $30 ; maximum chance
 	ld [wEnemySwitchMonParam], a
@@ -220,6 +220,10 @@ CheckAbleToSwitch:
 	ret
 
 .no_perish
+	ld a, [wEnemySubStatus5]
+	bit SUBSTATUS_ENCORED, a
+	jp nz, .likely_switch
+
 	call CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
 	cp 11
@@ -288,6 +292,11 @@ CheckAbleToSwitch:
 	add $10
 	ld [wEnemySwitchMonParam], a
 	ret
+
+.likely_switch
+	call Random
+	cp 20 percent
+	jp c, .switch
 
 FindAliveEnemyMons:
 	ld a, [wOTPartyCount]

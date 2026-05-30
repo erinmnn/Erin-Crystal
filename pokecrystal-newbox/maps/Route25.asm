@@ -76,70 +76,181 @@ Route25MistyDate2Script:
 	special RestartMapMusic
 	end
 
-TrainerSchoolboyDudley:
-	trainer SCHOOLBOY, DUDLEY, EVENT_BEAT_SCHOOLBOY_DUDLEY, SchoolboyDudleySeenText, SchoolboyDudleyBeatenText, 0, .Script
+NuggetSix:
+	checkevent EVENT_BEAT_LASS_SHANNON
+	iftrue Done
+;dudley
+	playmusic MUSIC_YOUNGSTER_ENCOUNTER
+	moveobject ROUTE25_YOUNGSTER1, 25, 8
+	appear ROUTE25_YOUNGSTER1
+	applymovement ROUTE25_YOUNGSTER1, TrainerApproachMovement
+	scall TrainerSchoolboyDudley
+	ifequal TRUE, Done
+	applymovement ROUTE25_YOUNGSTER1, TrainerRetreatMovement
+	disappear ROUTE25_YOUNGSTER1
+;ellen
+	playmusic MUSIC_LASS_ENCOUNTER
+	moveobject ROUTE25_LASS1, 25, 8
+	appear ROUTE25_LASS1
+	applymovement ROUTE25_LASS1, TrainerApproachMovement
+	scall TrainerLassEllen
+	ifequal TRUE, Done
+	applymovement ROUTE25_LASS1, TrainerRetreatMovement
+	disappear ROUTE25_LASS1
+;joe
+	playmusic MUSIC_YOUNGSTER_ENCOUNTER
+	moveobject ROUTE25_YOUNGSTER2, 25, 8
+	appear ROUTE25_YOUNGSTER2
+	applymovement ROUTE25_YOUNGSTER2, TrainerApproachMovement
+	scall TrainerSchoolboyJoe
+	ifequal TRUE, Done
+	applymovement ROUTE25_YOUNGSTER2, TrainerRetreatMovement
+	disappear ROUTE25_YOUNGSTER2
+;laura
+	playmusic MUSIC_LASS_ENCOUNTER
+	moveobject ROUTE25_LASS2, 25, 8
+	appear ROUTE25_LASS2
+	applymovement ROUTE25_LASS2, TrainerApproachMovement
+	scall TrainerLassLaura
+	ifequal TRUE, Done
+	applymovement ROUTE25_LASS2, TrainerRetreatMovement
+	disappear ROUTE25_LASS2
+;lloyd
+	playmusic MUSIC_YOUNGSTER_ENCOUNTER
+	moveobject ROUTE25_YOUNGSTER3, 25, 8
+	appear ROUTE25_YOUNGSTER3
+	applymovement ROUTE25_YOUNGSTER3, TrainerApproachMovement
+	scall TrainerCamperLloyd
+	ifequal TRUE, Done
+	applymovement ROUTE25_YOUNGSTER3, TrainerRetreatMovement
+	disappear ROUTE25_YOUNGSTER3
+;shannon
+	playmusic MUSIC_LASS_ENCOUNTER
+	moveobject ROUTE25_LASS3, 25, 8
+	appear ROUTE25_LASS3
+	applymovement ROUTE25_LASS3, TrainerApproachMovement
+	scall TrainerLassShannon
+	ifequal TRUE, Done
+	applymovement ROUTE25_LASS3, TrainerRetreatMovement
+	setevent EVENT_BEAT_LASS_SHANNON
+	disappear ROUTE25_LASS3
+	end
 
-.Script:
-	endifjustbattled
+Done:
+	end
+
+SchoolboyDudleyScript:
 	opentext
 	writetext SchoolboyDudleyAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerLassEllen:
-	trainer LASS, ELLEN, EVENT_BEAT_LASS_ELLEN, LassEllenSeenText, LassEllenBeatenText, 0, .Script
+TrainerSchoolboyDudley:
+	opentext
+	writetext SchoolboyDudleySeenText
+	waitbutton
+	closetext
+	winlosstext SchoolboyDudleyBeatenText, 0
+	setlasttalked ROUTE25_YOUNGSTER1
+	loadtrainer SCHOOLBOY, DUDLEY
+	startbattle
+	reloadmapafterbattle
+	end
 
-.Script:
-	endifjustbattled
+LassEllenScript:
 	opentext
 	writetext LassEllenAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerSchoolboyJoe:
-	trainer SCHOOLBOY, JOE, EVENT_BEAT_SCHOOLBOY_JOE, SchoolboyJoeSeenText, SchoolboyJoeBeatenText, 0, .Script
+TrainerLassEllen:
+	opentext
+	writetext LassEllenSeenText
+	waitbutton
+	closetext
+	winlosstext LassEllenBeatenText, 0
+	setlasttalked ROUTE25_LASS1
+	loadtrainer LASS, ELLEN
+	startbattle
+	reloadmapafterbattle
+	end
 
-.Script:
-	endifjustbattled
+SchoolboyJoeScript:
 	opentext
 	writetext SchoolboyJoeAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerLassLaura:
-	trainer LASS, LAURA, EVENT_BEAT_LASS_LAURA, LassLauraSeenText, LassLauraBeatenText, 0, .Script
+TrainerSchoolboyJoe:
+	opentext
+	writetext SchoolboyJoeSeenText
+	waitbutton
+	closetext
+	winlosstext SchoolboyJoeBeatenText, 0
+	setlasttalked ROUTE25_YOUNGSTER2
+	loadtrainer SCHOOLBOY, JOE
+	startbattle
+	reloadmapafterbattle
+	end
 
-.Script:
-	endifjustbattled
+LassLauraScript:
 	opentext
 	writetext LassLauraAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerCamperLloyd:
-	trainer CAMPER, LLOYD, EVENT_BEAT_CAMPER_LLOYD, CamperLloydSeenText, CamperLloydBeatenText, 0, .Script
+TrainerLassLaura:
+	opentext
+	writetext LassLauraSeenText
+	waitbutton
+	closetext
+	winlosstext LassLauraBeatenText, 0
+	setlasttalked ROUTE25_LASS2
+	loadtrainer LASS, LAURA
+	startbattle
+	reloadmapafterbattle
+	end
 
-.Script:
-	endifjustbattled
+CamperLloydScript:
 	opentext
 	writetext CamperLloydAfterBattleText
 	waitbutton
 	closetext
 	end
 
-TrainerLassShannon:
-	trainer LASS, SHANNON, EVENT_BEAT_LASS_SHANNON, LassShannonSeenText, LassShannonBeatenText, 0, .Script
+TrainerCamperLloyd:
+	opentext
+	writetext CamperLloydSeenText
+	waitbutton
+	closetext
+	winlosstext CamperLloydBeatenText, 0
+	setlasttalked ROUTE25_YOUNGSTER3
+	loadtrainer CAMPER, LLOYD
+	startbattle
+	reloadmapafterbattle
+	end
 
-.Script:
-	endifjustbattled
+LassShannonScript:
 	opentext
 	writetext LassShannonAfterBattleText
 	waitbutton
 	closetext
+	end
+
+TrainerLassShannon:
+	opentext
+	writetext LassShannonSeenText
+	waitbutton
+	closetext
+	winlosstext LassShannonBeatenText, 0
+	setlasttalked ROUTE25_LASS3
+	loadtrainer LASS, SHANNON
+	startbattle
+	reloadmapafterbattle
 	end
 
 TrainerSupernerdPat:
@@ -156,28 +267,11 @@ TrainerSupernerdPat:
 TrainerCooltrainermKevin:
 	faceplayer
 	opentext
-	checkevent EVENT_BEAT_COOLTRAINERM_KEVIN
-	iftrue .AfterBattle
-	checkevent EVENT_CLEARED_NUGGET_BRIDGE
-	iftrue .AfterNuggetBridge
 	writetext CooltrainermKevinNuggetText
 	promptbutton
 	verbosegiveitem NUGGET
 	iffalse .NoRoomForNugget
 	setevent EVENT_CLEARED_NUGGET_BRIDGE
-.AfterNuggetBridge:
-	writetext CooltrainermKevinSeenText
-	waitbutton
-	closetext
-	winlosstext CooltrainermKevinBeatenText, 0
-	loadtrainer COOLTRAINERM, KEVIN
-	startbattle
-	reloadmapafterbattle
-	setevent EVENT_BEAT_COOLTRAINERM_KEVIN
-	opentext
-.AfterBattle:
-	writetext CooltrainermKevinAfterBattleText
-	waitbutton
 .NoRoomForNugget:
 	closetext
 	end
@@ -235,6 +329,22 @@ Route25MistyLeavesMovement:
 	step LEFT
 	step_end
 
+TrainerApproachMovement:
+	big_step LEFT
+	big_step LEFT
+	big_step LEFT
+	big_step LEFT
+	step LEFT
+	step_end
+
+TrainerRetreatMovement:
+	step RIGHT
+	big_step RIGHT
+	big_step RIGHT
+	big_step RIGHT
+	big_step RIGHT
+	step_end
+
 Route25MistyDateText:
 	text "MISTY: Aww! Why"
 	line "did you have to"
@@ -283,8 +393,8 @@ SchoolboyDudleyBeatenText:
 	done
 
 SchoolboyDudleyAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+	text "I'm running a"
+	line "hot operation."
 	done
 
 LassEllenSeenText:
@@ -297,8 +407,8 @@ LassEllenBeatenText:
 	done
 
 LassEllenAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+	text "What's the deal"
+	line "with airline food?"
 	done
 
 SchoolboyJoeSeenText:
@@ -311,8 +421,8 @@ SchoolboyJoeBeatenText:
 	done
 
 SchoolboyJoeAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+	text "Israel has no"
+	line "right to exist."
 	done
 
 LassLauraSeenText:
@@ -325,8 +435,8 @@ LassLauraBeatenText:
 	done
 
 LassLauraAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+	text "I prefer Donald"
+	line "Fagen's solo work."
 	done
 
 CamperLloydSeenText:
@@ -339,8 +449,8 @@ CamperLloydBeatenText:
 	done
 
 CamperLloydAfterBattleText:
-	text "I did my best."
-	line "I have no regrets."
+	text "Who was really"
+	line "behind 9/11?"
 	done
 
 LassShannonSeenText:
@@ -436,6 +546,7 @@ Route25_MapEvents:
 	def_coord_events
 	coord_event 42,  6, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate1Script
 	coord_event 42,  7, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate2Script
+	coord_event 19,  8, SCENE_ROUTE25_MISTYS_DATE, NuggetSix
 
 	def_bg_events
 	bg_event 45,  5, BGEVENT_READ, BillsHouseSign
@@ -444,12 +555,12 @@ Route25_MapEvents:
 	def_object_events
 	object_event 46,  9, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND
 	object_event 46, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND
-	object_event 12,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyDudley, -1
-	object_event 16, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassEllen, -1
-	object_event 21,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSchoolboyJoe, -1
-	object_event 22,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassLaura, -1
-	object_event 25,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperLloyd, -1
-	object_event 28, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassShannon, -1
-	object_event 31,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerSupernerdPat, -1
+	object_event 26,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SchoolboyDudleyScript, -1
+	object_event 24, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassEllenScript, -1
+	object_event 27,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SchoolboyJoeScript, -1
+	object_event 13,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassLauraScript, -1
+	object_event 25,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CamperLloydScript, -1
+	object_event 28, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassShannonScript, -1
+	object_event 31,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerSupernerdPat, -1
 	object_event 37,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerCooltrainermKevin, -1
 	object_event 32,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route25Protein, EVENT_ROUTE_25_PROTEIN

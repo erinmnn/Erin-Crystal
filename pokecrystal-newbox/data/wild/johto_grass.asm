@@ -25,7 +25,7 @@ JohtoGrassWildMons:
 	db 4, ABRA
 	db 5, MEOWTH
 	db 3, MEOWTH
-	db 6, ZUBAT
+	db 5, ZUBAT
 	db 5, ZUBAT
 	db 5, MURKROW
 	end_grass_wildmons
@@ -53,7 +53,7 @@ JohtoGrassWildMons:
 	db 6, ABRA
 	db 7, MEOWTH
 	db 5, MEOWTH
-	db 8, ZUBAT
+	db 7, ZUBAT
 	db 7, ZUBAT
 	db 7, MURKROW
 	end_grass_wildmons
@@ -401,7 +401,7 @@ JohtoGrassWildMons:
 	db 6, NATU
 	db 5, KABUTO
 	db 6, KABUTO
-	db 7, SMEARGLE
+	db 6, SMEARGLE
 	db 6, SMEARGLE
 	db 5, SMEARGLE
 	; day
@@ -411,13 +411,13 @@ JohtoGrassWildMons:
 	db 7, OMANYTE
 	db 5, OMANYTE
 	db 6, SMEARGLE
-	db 8, SMEARGLE
+	db 6, SMEARGLE
 	; nite
 	db 5, NIDORAN_M
 	db 5, NIDORAN_F
 	db 6, WOOPER
 	db 7, WOOPER
-	db 7, SMEARGLE
+	db 6, SMEARGLE
 	db 5, SMEARGLE
 	db 6, SMEARGLE
 	end_grass_wildmons
@@ -1125,113 +1125,113 @@ JohtoGrassWildMons:
 	def_grass_wildmons SILVER_CAVE_ROOM_1
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 43, GRAVELER
-	db 44, URSARING
-	db 42, ONIX
-	db 55, MAGMAR
-	db 45, GOLBAT
-	db 20, LARVITAR
-	db 15, LARVITAR
+	db 89, DONPHAN
+	db 89, HOUNDOOM
+	db 89, MISDREAVUS
+	db 89, GLIGAR
+	db 89, GLIGAR
+	db 89, URSARING
+	db 89, TYRANITAR
 	; day
-	db 43, GRAVELER
-	db 44, URSARING
-	db 42, ONIX
-	db 45, MAGMAR
-	db 45, GOLBAT
-	db 20, LARVITAR
-	db 15, LARVITAR
+	db 89, PILOSWINE
+	db 89, GLIGAR
+	db 89, HOUNDOOM
+	db 89, DONPHAN
+	db 89, MISDREAVUS
+	db 89, MISDREAVUS
+	db 89, TYRANITAR
 	; nite
-	db 43, GRAVELER
-	db 44, GOLBAT
-	db 42, ONIX
-	db 42, GOLBAT
-	db 45, GOLDUCK
-	db 46, GOLBAT
-	db 46, GOLBAT
+	db 89, URSARING
+	db 89, MISDREAVUS
+	db 89, GLIGAR
+	db 89, GLIGAR
+	db 89, HOUNDOOM
+	db 89, PILOSWINE
+	db 89, TYRANITAR
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ROOM_2
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 48, GOLBAT
-	db 48, MACHOKE
-	db 47, URSARING
-	db 46, PARASECT
-	db 48, PARASECT
-	db 15, LARVITAR
-	db 20, LARVITAR
+	db 89, DONPHAN
+	db 89, HOUNDOOM
+	db 89, MISDREAVUS
+	db 89, GLIGAR
+	db 89, GLIGAR
+	db 89, URSARING
+	db 89, TYRANITAR
 	; day
-	db 48, GOLBAT
-	db 48, MACHOKE
-	db 47, URSARING
-	db 46, PARASECT
-	db 48, PARASECT
-	db 15, LARVITAR
-	db 20, LARVITAR
+	db 89, PILOSWINE
+	db 89, GLIGAR
+	db 89, HOUNDOOM
+	db 89, DONPHAN
+	db 89, MISDREAVUS
+	db 89, MISDREAVUS
+	db 89, TYRANITAR
 	; nite
-	db 48, GOLBAT
-	db 48, GOLDUCK
-	db 46, GOLBAT
-	db 46, PARASECT
-	db 48, PARASECT
-	db 45, MISDREAVUS
-	db 45, MISDREAVUS
+	db 89, URSARING
+	db 89, MISDREAVUS
+	db 89, GLIGAR
+	db 89, GLIGAR
+	db 89, HOUNDOOM
+	db 89, PILOSWINE
+	db 89, TYRANITAR
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ROOM_3
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 51, GOLBAT
-	db 48, ONIX
-	db 48, GRAVELER
-	db 50, URSARING
-	db 20, LARVITAR
-	db 15, LARVITAR
-	db 20, PUPITAR
+	db 89, DONPHAN
+	db 89, HOUNDOOM
+	db 89, MISDREAVUS
+	db 89, GLIGAR
+	db 89, GLIGAR
+	db 89, URSARING
+	db 89, TYRANITAR
 	; day
-	db 51, GOLBAT
-	db 48, ONIX
-	db 48, GRAVELER
-	db 50, URSARING
-	db 20, LARVITAR
-	db 15, LARVITAR
-	db 20, PUPITAR
+	db 89, PILOSWINE
+	db 89, GLIGAR
+	db 89, HOUNDOOM
+	db 89, DONPHAN
+	db 89, MISDREAVUS
+	db 89, MISDREAVUS
+	db 89, TYRANITAR
 	; nite
-	db 51, GOLBAT
-	db 48, ONIX
-	db 48, GRAVELER
-	db 49, GOLBAT
-	db 45, GOLDUCK
-	db 53, GOLBAT
-	db 53, GOLBAT
+	db 89, URSARING
+	db 89, MISDREAVUS
+	db 89, GLIGAR
+	db 89, GLIGAR
+	db 89, HOUNDOOM
+	db 89, PILOSWINE
+	db 89, TYRANITAR
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ITEM_ROOMS
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 48, GOLBAT
-	db 46, GOLBAT
-	db 50, GOLBAT
-	db 46, PARASECT
-	db 48, PARASECT
-	db 50, PARASECT
-	db 52, PARASECT
+	db 89, DONPHAN
+	db 89, HOUNDOOM
+	db 89, MISDREAVUS
+	db 89, GLIGAR
+	db 89, GLIGAR
+	db 89, URSARING
+	db 89, TYRANITAR
 	; day
-	db 48, GOLBAT
-	db 46, GOLBAT
-	db 50, GOLBAT
-	db 46, PARASECT
-	db 48, PARASECT
-	db 50, PARASECT
-	db 52, PARASECT
+	db 89, PILOSWINE
+	db 89, GLIGAR
+	db 89, HOUNDOOM
+	db 89, DONPHAN
+	db 89, MISDREAVUS
+	db 89, MISDREAVUS
+	db 89, TYRANITAR
 	; nite
-	db 45, MISDREAVUS
-	db 48, GOLBAT
-	db 50, GOLBAT
-	db 46, PARASECT
-	db 48, PARASECT
-	db 50, PARASECT
-	db 52, PARASECT
+	db 89, URSARING
+	db 89, MISDREAVUS
+	db 89, GLIGAR
+	db 89, GLIGAR
+	db 89, HOUNDOOM
+	db 89, PILOSWINE
+	db 89, TYRANITAR
 	end_grass_wildmons
 
 	def_grass_wildmons DARK_CAVE_VIOLET_ENTRANCE
@@ -1705,7 +1705,7 @@ JohtoGrassWildMons:
 	db 45, GOLEM
 	db 45, SKARMORY
 	db 45, DUGTRIO
-	db 45, DUGTRIO
+	db 45, GLIGAR
 	db 45, LARVITAR
 	db 45, LARVITAR
 	end_grass_wildmons

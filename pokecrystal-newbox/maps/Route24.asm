@@ -13,6 +13,7 @@ Route24RocketScript:
 	writetext Route24RocketSeenText
 	waitbutton
 	closetext
+	clearevent EVENT_FOUND_MACHINE_PART_IN_CERULEAN_GYM
 	winlosstext Route24RocketBeatenText, -1
 	loadtrainer GRUNTM, GRUNTM_31
 	startbattle

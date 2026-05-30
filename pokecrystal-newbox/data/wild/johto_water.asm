@@ -193,9 +193,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons ROUTE_44
 	db 2 percent ; encounter rate
-	db 35, POLIWAG
-	db 35, POLIWAG
-	db 35, POLIWHIRL
+	db 44, POLIWHIRL
+	db 44, MISDREAVUS
+	db 44, POLIWRATH
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_45

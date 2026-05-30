@@ -404,4 +404,16 @@ TrainerClassAttributes:
 	dw AI_SMART | AI_AGGRESSIVE | AI_STATUS | AI_RISKY | AI_BASIC
 	dw CONTEXT_USE | SWITCH_OFTEN
 
+; Agatha
+	db NO_ITEM, NO_ITEM ; items
+	db 25 ; base reward
+	dw AI_SMART | AI_AGGRESSIVE | AI_STATUS | AI_RISKY | AI_BASIC
+	dw CONTEXT_USE | SWITCH_OFTEN
+
+; Lorelei
+	db NO_ITEM, NO_ITEM ; items
+	db 25 ; base reward
+	dw AI_SMART | AI_AGGRESSIVE | AI_STATUS | AI_RISKY | AI_BASIC
+	dw CONTEXT_USE | SWITCH_OFTEN
+
 	assert_table_length NUM_TRAINER_CLASSES

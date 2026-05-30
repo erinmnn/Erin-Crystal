@@ -40,34 +40,8 @@ CinnabarIslandBlueTeleport:
 	step_end
 
 CinnabarIslandBlueText:
-	text "Who are you?"
-
-	para "Well, it's plain"
-	line "to see that you're"
-	cont "a trainer…"
-
-	para "My name's BLUE."
-
-	para "I was once the"
-	line "CHAMPION, although"
-
-	para "it was for only a"
-	line "short time…"
-
-	para "That meddling RED"
-	line "did me in…"
-
-	para "Anyway, what do"
-	line "you want? You want"
-
-	para "to challenge me or"
-	line "something?"
-
-	para "…I hate to say"
-	line "it, but I'm not in"
-
-	para "the mood for a"
-	line "battle now."
+	para "Yo, JOHTO"
+	line "CHAMP."
 
 	para "Take a good look"
 	line "around you…"
@@ -92,19 +66,19 @@ CinnabarIslandBlueText:
 	para "That's the way it"
 	line "is…"
 
-	para "But, anyway, I'm"
-	line "still a trainer."
+	para "BLAINE used to"
+	line "run a gym here."
 
-	para "If I see a strong"
-	line "opponent, it makes"
-	cont "me want to battle."
+	para "It's obviously"
+	line "gone now. Last"
+	cont "I heard he was."
 
-	para "If you want to"
-	line "battle me, come to"
-	cont "the VIRIDIAN GYM."
+	para "Living out of a"
+	line "cave on EAST"
+	cont "SEAFOAM."
 
-	para "I'll take you on"
-	line "then."
+	para "He might still"
+	line "take you on."
 	done
 
 CinnabarIslandGymSignText:

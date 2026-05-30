@@ -80,14 +80,14 @@ Moves:
 	move PECK,         EFFECT_NORMAL_HIT,         40, FLYING,        100, 35,   0      ;PECK
 	move DRILL_PECK,   EFFECT_NORMAL_HIT,         80, FLYING,        100, 20,   0      ;DRILL_PECK
 	move SUBMISSION,   EFFECT_NORMAL_HIT,         80, FIGHTING,      100, 25,   0      ;SUBMISSION
-	move LOW_KICK,     EFFECT_SPEED_DOWN_HIT,     40, FIGHTING,      100, 20,  30      ;LOW_KICK
+	move LOW_KICK,     EFFECT_SPEED_DOWN_HIT,     40, FIGHTING,      100, 20,  100      ;LOW_KICK
 	move COUNTER,      EFFECT_COUNTER,             1, FIGHTING,      100, 20,   0      ;COUNTER
 	move SEISMIC_TOSS, EFFECT_LEVEL_DAMAGE,        1, FIGHTING,      100, 20,   0      ;SEISMIC_TOSS
 	move STRENGTH,     EFFECT_NORMAL_HIT,         80, NORMAL,        100, 15,   0      ;STRENGTH
 	move ABSORB,       EFFECT_LEECH_HIT,          20, GRASS,         100, 20,   0      ;ABSORB
 	move MEGA_DRAIN,   EFFECT_LEECH_HIT,          40, GRASS,         100, 10,   0      ;MEGA_DRAIN
 	move LEECH_SEED,   EFFECT_LEECH_SEED,          0, GRASS,         100, 10,   0      ;LEECH_SEED
-	move GROWTH,       EFFECT_SP_ATK_UP,           0, GRASS,        100, 40,   0      ;GROWTH
+	move GROWTH,       EFFECT_SP_ATK_UP,           0, GRASS,        100, 10,   0      ;GROWTH
 	move RAZOR_LEAF,   EFFECT_ALWAYS_HIT,         60, GRASS,         100, 25,   0      ;RAZOR_LEAF
 	move SOLARBEAM,    EFFECT_SOLARBEAM,         120, GRASS,         100, 10,   0      ;SOLARBEAM
 	move POISONPOWDER, EFFECT_POISON,              0, POISON,        100, 35,   0      ;POISONPOWDER

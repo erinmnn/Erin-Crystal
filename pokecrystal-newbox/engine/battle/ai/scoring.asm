@@ -1,6 +1,44 @@
 AIScoring: ; used only for BANK(AIScoring)
 
 AI_Basic:
+; Don't pick disabled moves.
+	ld a, [wEnemyDisabledMove]
+	and a
+	jr z, .CheckPP
+
+	ld hl, wEnemyMonMoves
+	ld c, 0
+.CheckDisabledMove:
+	cp [hl]
+	jr z, .ScoreDisabledMove
+	inc c
+	inc hl
+	jr .CheckDisabledMove
+.ScoreDisabledMove:
+	ld hl, wEnemyAIMoveScores
+	ld b, 0
+	add hl, bc
+	ld [hl], 80
+
+; Don't pick moves with 0 PP.
+.CheckPP:
+	ld hl, wEnemyAIMoveScores - 1
+	ld de, wEnemyMonPP
+	ld b, 0
+.CheckMovePP:
+	inc b
+	ld a, b
+	cp NUM_MOVES + 1
+	jr z, .Redundancy
+	inc hl
+	ld a, [de]
+	inc de
+	and PP_MASK
+	jr nz, .CheckMovePP
+	ld [hl], 80
+	jr .CheckMovePP
+
+.Redundancy:
 ; Don't do anything redundant:
 ;  -Using status-only moves if the player can't be statused
 ;  -Using moves that fail if they've already been used
@@ -361,8 +399,25 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
 	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
 	dbw EFFECT_FUTURE_SIGHT,     AI_Smart_FutureSight
+	dbw EFFECT_PARALYZE_HIT,     AI_Smart_ParalyzeHit
+	dbw EFFECT_ACCURACY_DOWN_HIT, AI_Smart_AccuracyDownHit
 	db -1 ; end
 
+AI_Smart_AccuracyDownHit:
+	ld a, [wEnemyMoveStruct]
+	cp MUD_SLAP
+	jr z, .guaranteed
+	ret nz
+
+.guaranteed
+	call AI_50_50
+	ret c
+	dec [hl]
+	dec [hl]
+	ret
+
+
+AI_Smart_ParalyzeHit:
 AI_Smart_SpeedDownHit:
 AI_Smart_SpeedUpHit:
 ; flame wheel, icy wind, bone rush, low kick
@@ -375,6 +430,9 @@ AI_Smart_SpeedUpHit:
 	jr z, .guaranteed
 
 	cp LOW_KICK
+	jr z, .guaranteed
+
+	cp LICK
 	jr z, .guaranteed
 
 	cp ICY_WIND
@@ -566,9 +624,16 @@ AI_Smart_Counter:
 
 .physical
 	call AI_50_50
-	ret c
+	jr c, .discourage
+; greatly discourage this move if the enemy is below 50% HP
+	call AICheckEnemyHalfHP
+	jr c, .discourage
+	ret
+
+.discourage
 	inc [hl]
 	ret
+
 
 AI_Smart_SpDefUp2:
 AI_Smart_MirrorCoat:
@@ -589,7 +654,13 @@ AI_Smart_MirrorCoat:
 
 .special
 	call AI_50_50
-	ret c
+	jr c, .discourage
+; greatly discourage this move if the enemy is below 50% HP
+	call AICheckEnemyHalfHP
+	jr c, .discourage
+	ret
+
+.discourage
 	inc [hl]
 	ret
 
@@ -1466,6 +1537,8 @@ AIDamageCalc:
 	jr z, .magnitude
 	cp EFFECT_HIDDEN_POWER
 	jr z, .hiddenpower
+	cp EFFECT_DREAM_EATER
+	jr z, .dreameater
 
 	ld de, 1
 	ld hl, ConstantDamageEffects
@@ -1474,6 +1547,10 @@ AIDamageCalc:
 	callfar BattleCommand_ConstantDamage
 	ret
 
+.dreameater
+	ld a, 1
+	ld [wEnemyMoveStruct + MOVE_POWER], a
+	jr .regularcalc
 .hiddenpower
 	callfar HiddenPowerDamage
 .magnitude
@@ -1679,6 +1756,12 @@ AI_Risky:
 	ld a, [wBattleMonHP]
 	sbc d
 	jr nc, .nextmove
+
+; check if target is immune
+	callfar BattleCheckTypeMatchup
+	ld a, [wTypeMatchup]
+	and a
+	jr z, .nextmove
 
 	pop hl
 
