@@ -50,6 +50,8 @@ Script_ApproachLanceFromRight:
 	special FadeOutMusic
 	applymovement PLAYER, MovementData_ApproachLanceFromRight
 LancesRoomLanceScript:
+	checkevent EVENT_BEAT_BLAINE
+	iftrue LancesRoomLanceScript2
 	turnobject LANCESROOM_LANCE, LEFT
 	opentext
 	writetext LanceBattleIntroText
@@ -127,6 +129,30 @@ LancesRoomLanceScript:
 	pause 15
 	warpfacing UP, HALL_OF_FAME, 4, 13
 	end
+
+LancesRoomLanceScript2:
+	turnobject LANCESROOM_LANCE, LEFT
+	opentext
+	writetext LanceRematchText
+	waitbutton
+	closetext
+	applymovement LANCESROOM_LANCE, LancesRoom_WarpMovement
+	playsound SFX_FLY
+	waitsfx
+	disappear LANCESROOM_LANCE
+	applymovement PLAYER, LancesRoom_WarpMovement
+	playsound SFX_FLY
+	waitsfx
+	disappear PLAYER
+	pause 15
+	special FadeOutToWhite
+	pause 15
+	warpfacing UP, SILVER_CAVE_ROOM_2, 18, 30
+	end
+
+LancesRoom_WarpMovement:
+	teleport_from
+	step_end
 
 LancesRoom_EnterMovement:
 	step UP
@@ -333,6 +359,35 @@ LancesRoomMaryNoInterviewText:
 	text "MARY: Oh, wait!"
 	line "We haven't done"
 	cont "the interview!"
+	done
+
+LanceRematchText:
+	text "Greetings,"
+	line "<PLAYER>."
+
+	para "It's been a long"
+	line "while."
+
+	para "I've seen you grow"
+	line "stronger than I"
+
+	para "could have ever"
+	line "imagined."
+
+	para "Your dedication"
+	line "has lead you here."
+
+	para "But, I think you"
+	line "deserve a tougher"
+	cont "opponent."
+
+	para "Don't you agree?"
+
+	para "There's someone I"
+	line "would like you to"
+	cont "meet."
+
+	para "Come with me."
 	done
 
 LancesRoom_MapEvents:

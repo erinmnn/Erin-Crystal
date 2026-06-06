@@ -300,7 +300,7 @@ SaffronGym_MapEvents:
 	warp_event  1,  3, SAFFRON_GYM, 21
 	warp_event  1, 11, SAFFRON_GYM, 22
 	warp_event 11,  5, SAFFRON_GYM, 23
-	warp_event 15, 15, SAFFRON_GYM, 24
+	warp_event 15, 17, SAFFRON_GYM, 24
 	warp_event 19,  3, SAFFRON_GYM, 25
 	warp_event  5,  3, SAFFRON_GYM, 26
 	warp_event  5,  5, SAFFRON_GYM, 27
@@ -316,7 +316,7 @@ SaffronGym_MapEvents:
 	warp_event  5, 11, SAFFRON_GYM, 7
 	warp_event 19,  5, SAFFRON_GYM, 8
 	warp_event 15, 11, SAFFRON_GYM, 9
-	warp_event 15, 17, SAFFRON_GYM, 10
+	warp_event 15, 15, SAFFRON_GYM, 10
 	warp_event  5, 17, SAFFRON_GYM, 11
 	warp_event  5,  9, SAFFRON_GYM, 12
 	warp_event  5, 15, SAFFRON_GYM, 13

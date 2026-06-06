@@ -213,7 +213,7 @@ CianwoodLanceScript:
 
 CianwoodLanceHeavyRainText:
 	text "The rain has been"
-	line "ususually heavy"
+	line "unusually heavy"
 	cont "on ROUTE 41…"
 
 	para "LUGIA must be in"

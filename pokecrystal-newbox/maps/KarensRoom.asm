@@ -41,6 +41,8 @@ KarensRoomDoorLocksBehindYouScript:
 	end
 
 KarenScript_Battle:
+	checkevent EVENT_BEAT_BLAINE
+	iftrue KarenScript_Battle2
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_ELITE_4_KAREN
@@ -67,6 +69,37 @@ KarenScript_Battle:
 
 KarenScript_AfterBattle:
 	writetext KarenScript_KarenDefeatText
+	waitbutton
+	closetext
+	end
+
+KarenScript_Battle2:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ELITE_4_KAREN
+	iftrue KarenScript_AfterBattle2
+	writetext KarenScript_KarenBeforeText2
+	waitbutton
+	closetext
+	winlosstext KarenScript_KarenBeatenText, 0
+	loadtrainer KAREN, KAREN2
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_ELITE_4_KAREN
+	opentext
+	writetext KarenScript_KarenDefeatText2
+	waitbutton
+	closetext
+	playsound SFX_ENTER_DOOR
+	changeblock 4, 2, $16 ; open door
+	refreshmap
+	closetext
+	setevent EVENT_KARENS_ROOM_EXIT_OPEN
+	waitsfx
+	end
+
+KarenScript_AfterBattle2:
+	writetext KarenScript_KarenDefeatText2
 	waitbutton
 	closetext
 	end
@@ -123,6 +156,45 @@ KarenScript_KarenDefeatText:
 	line "their favorites."
 
 	para "I like your style."
+	line "You understand"
+	cont "what's important."
+
+	para "Go on--the CHAM-"
+	line "PION is waiting."
+	done
+
+KarenScript_KarenBeforeText2:
+	text "It's nice to see"
+	line "your bright face"
+	cont "again, <PLAYER>."
+
+	para "Do you rememeber"
+	line "what I told you"
+	cont "last time?"
+
+	para "Strong #MON."
+
+	para "Weak #MON."
+
+	para "That is only the"
+	line "selfish perception"
+	cont "of people."
+
+	para "Truly skilled"
+	line "trainers should"
+
+	para "try to win with"
+	line "their favorites."
+
+	para "Did you bring"
+	line "your favorites"
+	cont "today, <PLAYER>?"
+
+	para "Show me."
+	done
+
+KarenScript_KarenDefeatText2:
+	text "I like your style."
 	line "You understand"
 	cont "what's important."
 

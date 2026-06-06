@@ -41,6 +41,8 @@ BrunosRoomDoorLocksBehindYouScript:
 	end
 
 BrunoScript_Battle:
+	checkevent EVENT_BEAT_BLAINE
+	iftrue BrunoScript_Battle2
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_ELITE_4_BRUNO
@@ -50,6 +52,31 @@ BrunoScript_Battle:
 	closetext
 	winlosstext BrunoScript_BrunoBeatenText, 0
 	loadtrainer BRUNO, BRUNO1
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_ELITE_4_BRUNO
+	opentext
+	writetext BrunoScript_BrunoDefeatText
+	waitbutton
+	closetext
+	playsound SFX_ENTER_DOOR
+	changeblock 4, 2, $16 ; open door
+	refreshmap
+	closetext
+	setevent EVENT_BRUNOS_ROOM_EXIT_OPEN
+	waitsfx
+	end
+
+BrunoScript_Battle2:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ELITE_4_BRUNO
+	iftrue BrunoScript_AfterBattle
+	writetext BrunoScript_BrunoBeforeText2
+	waitbutton
+	closetext
+	winlosstext BrunoScript_BrunoBeatenText, 0
+	loadtrainer BRUNO, BRUNO2
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_BRUNO
@@ -120,6 +147,22 @@ BrunoScript_BrunoDefeatText:
 
 	para "Go face your next"
 	line "challenge!"
+	done
+
+
+BrunoScript_BrunoBeforeText2:
+	text "You look stronger."
+
+	para "I believed in your"
+	line "potential. I can"
+
+	para "tell you train"
+	line "as hard as we do."
+
+	para "I only have one"
+	line "thing to say…"
+
+	para "HOO HAH!"
 	done
 
 BrunosRoom_MapEvents:

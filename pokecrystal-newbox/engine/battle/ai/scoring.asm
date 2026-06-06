@@ -355,6 +355,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_GUST,             AI_Smart_Gust
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
 	dbw EFFECT_FLY,              AI_Smart_Fly
+	dbw EFFECT_SPEED_UP_2,       AI_Smart_SpeedUp
 	dbw EFFECT_TRAP_TARGET,      AI_Smart_TrapTarget
 	dbw EFFECT_ALWAYS_HIT,	     AI_Smart_AlwaysHit
 	dbw EFFECT_STOMP,            AI_Smart_Stomp
@@ -416,6 +417,15 @@ AI_Smart_AccuracyDownHit:
 	dec [hl]
 	ret
 
+AI_Smart_SpeedUp2:
+; dismiss if the enemy is faster
+	call AICompareSpeed
+	ret nc
+
+	ld a, [hl]
+	add 10
+	ld [hl], a
+	ret
 
 AI_Smart_ParalyzeHit:
 AI_Smart_SpeedDownHit:
@@ -687,6 +697,7 @@ AI_Smart_Paralyze:
 	dec [hl]
 	ret
 
+AI_Smart_SpeedUp:
 AI_Smart_SpeedDown:
 ; Dismiss if the enemy is faster than the player
 	call AICompareSpeed
@@ -1535,10 +1546,10 @@ AIDamageCalc:
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]	
 	cp EFFECT_MAGNITUDE
 	jr z, .magnitude
+	cp EFFECT_REVERSAL
+	jr z, .reversal
 	cp EFFECT_HIDDEN_POWER
 	jr z, .hiddenpower
-	cp EFFECT_DREAM_EATER
-	jr z, .dreameater
 
 	ld de, 1
 	ld hl, ConstantDamageEffects
@@ -1547,10 +1558,10 @@ AIDamageCalc:
 	callfar BattleCommand_ConstantDamage
 	ret
 
-.dreameater
-	ld a, 1
-	ld [wEnemyMoveStruct + MOVE_POWER], a
-	jr .regularcalc
+.reversal
+	farcall BattleCommand_ConstantDamage
+	jr .stab
+
 .hiddenpower
 	callfar HiddenPowerDamage
 .magnitude
@@ -1559,12 +1570,15 @@ AIDamageCalc:
 .regularcalc
 	callfar EnemyAttackDamage
 	callfar BattleCommand_DamageCalc
+.stab
 	callfar BattleCommand_Stab
 	callfar BattleCommand_DamageVariation
 
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 
 	cp EFFECT_MULTI_HIT
+	jr z, .multihit
+	cp EFFECT_TRIPLE_KICK
 	jr z, .multihit
 	cp EFFECT_DOUBLE_HIT
 	jr z, .doublehit
@@ -1742,6 +1756,9 @@ AI_Risky:
 ; Don't calculate risky moves.
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_SELFDESTRUCT
+	jr z, .nextmove
+
+	cp EFFECT_DREAM_EATER
 	jr z, .nextmove
 
 .checkko

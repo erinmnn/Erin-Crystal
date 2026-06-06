@@ -41,6 +41,8 @@ WillsRoomDoorLocksBehindYouScript:
 	end
 
 WillScript_Battle:
+	checkevent EVENT_BEAT_BLAINE
+	iftrue WillScript_Battle2
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_ELITE_4_WILL
@@ -67,6 +69,37 @@ WillScript_Battle:
 
 WillScript_AfterBattle:
 	writetext WillScript_WillDefeatText
+	waitbutton
+	closetext
+	end
+
+WillScript_Battle2:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ELITE_4_WILL
+	iftrue WillScript_AfterBattle2
+	writetext WillScript_WillBeforeText2
+	waitbutton
+	closetext
+	winlosstext WillScript_WillBeatenText, 0
+	loadtrainer WILL, WILL2
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_ELITE_4_WILL
+	opentext
+	writetext WillScript_WillDefeatText2
+	waitbutton
+	closetext
+	playsound SFX_ENTER_DOOR
+	changeblock 4, 2, $16 ; open door
+	refreshmap
+	closetext
+	setevent EVENT_WILLS_ROOM_EXIT_OPEN
+	waitsfx
+	end
+
+WillScript_AfterBattle2:
+	writetext WillScript_WillDefeatText2
 	waitbutton
 	closetext
 	end
@@ -124,6 +157,48 @@ WillScript_WillDefeatText:
 
 	para "the true ferocity"
 	line "of the ELITE FOUR."
+	done
+
+
+WillScript_WillBeforeText2:
+	text "Welcome to #MON"
+	line "LEAGUE, <PLAYER>."
+
+	para "It's very nice to"
+	line "see you again."
+
+	para "My psychic #MON"
+	line "are more powerful"
+	cont "than last we met." 
+
+	para "I take it yours"
+	line "are too."
+
+	para "We can only keep"
+	line "getting better!"
+
+	para "Losing is not an"
+	line "option!"
+	done
+
+WillScript_WillDefeatText2:
+	text "Even though I was"
+	line "defeated, I won't"
+	cont "change my course."
+
+	para "I will continue"
+	line "battling until I"
+
+	para "stand above all"
+	line "trainers!"
+
+	para "You know this"
+	line "already, huh"
+	cont "<PLAYER>?"
+
+	para "Go on ahead and"
+	line "make us both" 
+	cont "proud."
 	done
 
 WillsRoom_MapEvents:

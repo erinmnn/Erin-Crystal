@@ -16,7 +16,7 @@ Route17AlwaysOnBikeCallback:
 	endcallback
 
 TrainerBikerNick:
-	trainer BIKER, NICK, EVENT_BEAT_BIKER_JOEL, BikerNickSeenText, BikerNickBeatenText, 0, .Script
+	trainer BIKER, NICK1, EVENT_BEAT_BIKER_JOEL, BikerNickSeenText, BikerNickBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled

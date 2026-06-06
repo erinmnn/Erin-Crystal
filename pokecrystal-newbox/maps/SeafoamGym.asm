@@ -27,6 +27,7 @@ SeafoamGymBlaineScript:
 .ReturnAfterBattle:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLAINE
+	clearevent EVENT_NICK_AND_RUBEN
 	opentext
 	writetext ReceivedVolcanoBadgeText
 	playsound SFX_GET_BADGE
@@ -74,7 +75,22 @@ BlaineIntroText:
 
 	para "Waaah!"
 
-	para "But I'm back in"
+	para "And that LORELEI"
+	line "must think I'm"
+	cont "some kind of"
+
+	para "idiot. It only"
+	line "barely caved in"
+	cont "this time! I"
+
+	para "would have been"
+	line "fine on my own,"
+	cont "you know!"
+
+	para "…"
+	line "Anyway…"
+
+	para "I'm back in"
 	line "business as a GYM"
 
 	para "LEADER here in"

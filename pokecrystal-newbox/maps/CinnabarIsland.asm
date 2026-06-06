@@ -40,7 +40,7 @@ CinnabarIslandBlueTeleport:
 	step_end
 
 CinnabarIslandBlueText:
-	para "Yo, JOHTO"
+	text "Yo, JOHTO"
 	line "CHAMP."
 
 	para "Take a good look"

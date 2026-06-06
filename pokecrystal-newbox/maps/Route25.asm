@@ -78,14 +78,14 @@ Route25MistyDate2Script:
 
 NuggetSix:
 	checkevent EVENT_BEAT_LASS_SHANNON
-	iftrue Done
+	iftrue NuggetSixDone
 ;dudley
 	playmusic MUSIC_YOUNGSTER_ENCOUNTER
 	moveobject ROUTE25_YOUNGSTER1, 25, 8
 	appear ROUTE25_YOUNGSTER1
 	applymovement ROUTE25_YOUNGSTER1, TrainerApproachMovement
 	scall TrainerSchoolboyDudley
-	ifequal TRUE, Done
+	ifequal TRUE, NuggetSixDone
 	applymovement ROUTE25_YOUNGSTER1, TrainerRetreatMovement
 	disappear ROUTE25_YOUNGSTER1
 ;ellen
@@ -94,7 +94,7 @@ NuggetSix:
 	appear ROUTE25_LASS1
 	applymovement ROUTE25_LASS1, TrainerApproachMovement
 	scall TrainerLassEllen
-	ifequal TRUE, Done
+	ifequal TRUE, NuggetSixDone
 	applymovement ROUTE25_LASS1, TrainerRetreatMovement
 	disappear ROUTE25_LASS1
 ;joe
@@ -103,7 +103,7 @@ NuggetSix:
 	appear ROUTE25_YOUNGSTER2
 	applymovement ROUTE25_YOUNGSTER2, TrainerApproachMovement
 	scall TrainerSchoolboyJoe
-	ifequal TRUE, Done
+	ifequal TRUE, NuggetSixDone
 	applymovement ROUTE25_YOUNGSTER2, TrainerRetreatMovement
 	disappear ROUTE25_YOUNGSTER2
 ;laura
@@ -112,7 +112,7 @@ NuggetSix:
 	appear ROUTE25_LASS2
 	applymovement ROUTE25_LASS2, TrainerApproachMovement
 	scall TrainerLassLaura
-	ifequal TRUE, Done
+	ifequal TRUE, NuggetSixDone
 	applymovement ROUTE25_LASS2, TrainerRetreatMovement
 	disappear ROUTE25_LASS2
 ;lloyd
@@ -121,7 +121,7 @@ NuggetSix:
 	appear ROUTE25_YOUNGSTER3
 	applymovement ROUTE25_YOUNGSTER3, TrainerApproachMovement
 	scall TrainerCamperLloyd
-	ifequal TRUE, Done
+	ifequal TRUE, NuggetSixDone
 	applymovement ROUTE25_YOUNGSTER3, TrainerRetreatMovement
 	disappear ROUTE25_YOUNGSTER3
 ;shannon
@@ -130,13 +130,13 @@ NuggetSix:
 	appear ROUTE25_LASS3
 	applymovement ROUTE25_LASS3, TrainerApproachMovement
 	scall TrainerLassShannon
-	ifequal TRUE, Done
+	ifequal TRUE, NuggetSixDone
 	applymovement ROUTE25_LASS3, TrainerRetreatMovement
 	setevent EVENT_BEAT_LASS_SHANNON
 	disappear ROUTE25_LASS3
 	end
 
-Done:
+NuggetSixDone:
 	end
 
 SchoolboyDudleyScript:
@@ -561,6 +561,6 @@ Route25_MapEvents:
 	object_event 13,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassLauraScript, -1
 	object_event 25,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CamperLloydScript, -1
 	object_event 28, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, LassShannonScript, -1
-	object_event 31,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerSupernerdPat, -1
+	object_event 31,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerSupernerdPat, -1
 	object_event 37,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerCooltrainermKevin, -1
 	object_event 32,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route25Protein, EVENT_ROUTE_25_PROTEIN

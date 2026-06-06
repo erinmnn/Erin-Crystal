@@ -1133,7 +1133,7 @@ JohtoGrassWildMons:
 	db 89, URSARING
 	db 89, TYRANITAR
 	; day
-	db 89, PILOSWINE
+	db 89, DONPHAN
 	db 89, GLIGAR
 	db 89, HOUNDOOM
 	db 89, DONPHAN
@@ -1146,7 +1146,7 @@ JohtoGrassWildMons:
 	db 89, GLIGAR
 	db 89, GLIGAR
 	db 89, HOUNDOOM
-	db 89, PILOSWINE
+	db 89, DONPHAN
 	db 89, TYRANITAR
 	end_grass_wildmons
 
@@ -1161,7 +1161,7 @@ JohtoGrassWildMons:
 	db 89, URSARING
 	db 89, TYRANITAR
 	; day
-	db 89, PILOSWINE
+	db 89, DONPHAN
 	db 89, GLIGAR
 	db 89, HOUNDOOM
 	db 89, DONPHAN
@@ -1174,7 +1174,7 @@ JohtoGrassWildMons:
 	db 89, GLIGAR
 	db 89, GLIGAR
 	db 89, HOUNDOOM
-	db 89, PILOSWINE
+	db 89, DONPHAN
 	db 89, TYRANITAR
 	end_grass_wildmons
 
@@ -1189,7 +1189,7 @@ JohtoGrassWildMons:
 	db 89, URSARING
 	db 89, TYRANITAR
 	; day
-	db 89, PILOSWINE
+	db 89, DONPHAN
 	db 89, GLIGAR
 	db 89, HOUNDOOM
 	db 89, DONPHAN
@@ -1202,7 +1202,7 @@ JohtoGrassWildMons:
 	db 89, GLIGAR
 	db 89, GLIGAR
 	db 89, HOUNDOOM
-	db 89, PILOSWINE
+	db 89, DONPHAN
 	db 89, TYRANITAR
 	end_grass_wildmons
 
@@ -1217,7 +1217,7 @@ JohtoGrassWildMons:
 	db 89, URSARING
 	db 89, TYRANITAR
 	; day
-	db 89, PILOSWINE
+	db 89, DONPHAN
 	db 89, GLIGAR
 	db 89, HOUNDOOM
 	db 89, DONPHAN
@@ -1230,7 +1230,7 @@ JohtoGrassWildMons:
 	db 89, GLIGAR
 	db 89, GLIGAR
 	db 89, HOUNDOOM
-	db 89, PILOSWINE
+	db 89, DONPHAN
 	db 89, TYRANITAR
 	end_grass_wildmons
 
@@ -1741,29 +1741,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons SILVER_CAVE_OUTSIDE
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 41, TANGELA
-	db 42, PONYTA
-	db 42, ARBOK
-	db 44, RAPIDASH
-	db 41, DODUO
-	db 43, DODRIO
-	db 43, DODRIO
+	db 84, TANGELA
+	db 84, RAPIDASH
+	db 84, DONPHAN
+	db 84, DONPHAN
+	db 84, ARBOK
+	db 84, URSARING
+	db 84, DODRIO
 	; day
-	db 41, TANGELA
-	db 42, PONYTA
-	db 42, ARBOK
-	db 44, RAPIDASH
-	db 41, DODUO
-	db 43, DODRIO
-	db 43, DODRIO
+	db 84, TANGELA
+	db 84, ARBOK
+	db 84, RAPIDASH
+	db 84, URSARING
+	db 84, DONPHAN
+	db 84, DODRIO
+	db 84, DODRIO
 	; nite
-	db 41, TANGELA
-	db 42, POLIWHIRL
-	db 42, GOLBAT
-	db 44, POLIWHIRL
-	db 40, GOLBAT
-	db 44, GOLBAT
-	db 44, GOLBAT
+	db 84, TANGELA
+	db 84, URSARING
+	db 84, POLIWRATH
+	db 84, POLIWRATH
+	db 84, CROBAT
+	db 84, DONPHAN
+	db 84, WOBBUFFET
 	end_grass_wildmons
 
 	db -1 ; end

@@ -63,7 +63,6 @@ CeruleanGroupSprites:
 SaffronGroupSprites:
 ; Route5, SaffronCity
 	db SPRITE_COOLTRAINER_M
-	db SPRITE_SUPER_NERD
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_FISHER
 	db SPRITE_YOUNGSTER
@@ -71,6 +70,7 @@ SaffronGroupSprites:
 	db SPRITE_POKEFAN_M
 	db SPRITE_ROCKET
 	db SPRITE_MISTY
+	db SPRITE_MOLTRES
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_SLOWPOKE
@@ -113,7 +113,9 @@ FuchsiaGroupSprites:
 
 IndigoGroupSprites:
 ; Route23
-	; 0 of max 9 walking sprites
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_BIKER
+	; 2 of max 9 walking sprites
 	db 0 ; end
 
 ; Route29 and CherrygroveCity are connected
@@ -165,7 +167,8 @@ AzaleaGroupSprites:
 	db SPRITE_TEACHER
 	db SPRITE_AZALEA_ROCKET ; variable sprite: becomes SPRITE_ROCKET and SPRITE_RIVAL
 	db SPRITE_LASS
-	; 6 of max 9 walking sprites
+	db SPRITE_RIVAL
+	; 7 of max 9 walking sprites
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SLOWPOKE
 	db SPRITE_KURT

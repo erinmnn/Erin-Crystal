@@ -344,7 +344,7 @@ MartCeladon5F2:
 
 MartFuchsia:
 	db 7 ; # items
-	db GREAT_BALL
+	db TM_FLAMETHROWER
 	db ULTRA_BALL
 	db SUPER_POTION
 	db HYPER_POTION

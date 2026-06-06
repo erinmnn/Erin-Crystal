@@ -56,12 +56,6 @@ MoveTutorScript:
 	writetext GoldenrodCityMoveTutorAskTeachAMoveText
 	yesorno
 	iffalse .Refused
-	special DisplayCoinCaseBalance
-	writetext GoldenrodCityMoveTutorAsk4000CoinsOkayText
-	yesorno
-	iffalse .Refused2
-	checkcoins 4000
-	ifequal HAVE_LESS, .NotEnoughMoney
 	writetext GoldenrodCityMoveTutorWhichMoveShouldITeachText
 	loadmenu .MoveMenuHeader
 	verticalmenu
@@ -112,19 +106,11 @@ MoveTutorScript:
 	closetext
 	end
 
-.Refused2:
-	writetext GoldenrodCityMoveTutorHmTooBadText
-	waitbutton
-	closetext
-	end
-
 .TeachMove:
 	writetext GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText
 	promptbutton
-	takecoins 4000
 	waitsfx
 	playsound SFX_TRANSACTION
-	special DisplayCoinCaseBalance
 	writetext GoldenrodCityMoveTutorFarewellKidText
 	waitbutton
 	closetext
@@ -145,12 +131,6 @@ MoveTutorScript:
 
 .Incompatible:
 	writetext GoldenrodCityMoveTutorBButText
-	waitbutton
-	closetext
-	end
-
-.NotEnoughMoney:
-	writetext GoldenrodCityMoveTutorYouDontHaveEnoughCoinsText
 	waitbutton
 	closetext
 	end
@@ -497,10 +477,6 @@ GoldenrodCityMoveTutorAskTeachAMoveText:
 	line "new move?"
 	done
 
-GoldenrodCityMoveTutorAsk4000CoinsOkayText:
-	text "It will cost you"
-	line "4000 coins. Okay?"
-	done
 
 GoldenrodCityMoveTutorAwwButTheyreAmazingText:
 	text "Aww… But they're"
@@ -513,12 +489,6 @@ GoldenrodCityMoveTutorWhichMoveShouldITeachText:
 
 	para "Which move should"
 	line "I teach?"
-	done
-
-GoldenrodCityMoveTutorHmTooBadText:
-	text "Hm, too bad. I'll"
-	line "have to get some"
-	cont "cash from home…"
 	done
 
 GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText:
@@ -537,11 +507,6 @@ GoldenrodCityMoveTutorFarewellKidText:
 
 GoldenrodCityMoveTutorBButText:
 	text "B-but…"
-	done
-
-GoldenrodCityMoveTutorYouDontHaveEnoughCoinsText:
-	text "…You don't have"
-	line "enough coins here…"
 	done
 
 GoldenrodCityMoveTutorMoveText:

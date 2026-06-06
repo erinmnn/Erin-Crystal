@@ -12,18 +12,20 @@
 
 TinTower1F_MapScripts:
 	def_scene_scripts
-	scene_script TinTower1FSuicuneBattleScene, SCENE_TINTOWER1F_SUICUNE_BATTLE
-	scene_script TinTower1FNoopScene,          SCENE_TINTOWER1F_NOOP
+	scene_script TinTower1FNoopScene, SCENE_TINTOWER1F_NOOP
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, TinTower1FNPCsCallback
-	callback MAPCALLBACK_TILES, TinTower1FStairsCallback
-
-TinTower1FSuicuneBattleScene:
-	sdefer TinTower1FSuicuneBattleScript
-	end
 
 TinTower1FNoopScene:
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, NoSuicune
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iffalse NoSuicune
+	checkevent EVENT_FOUGHT_SUICUNE
+	iftrue NoSuicune
+	sdefer TinTower1FSuicuneBattleScript
+NoSuicune:
 	end
 
 TinTower1FNPCsCallback:
@@ -31,8 +33,6 @@ TinTower1FNPCsCallback:
 	iffalse .RocketsHere
 	checkevent EVENT_GOT_RAINBOW_WING
 	iftrue .GotRainbowWing
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .FaceBeasts
 	special BeastsCheck
 	iffalse .FaceBeasts
 	clearevent EVENT_TIN_TOWER_1F_WISE_TRIO_2
@@ -41,15 +41,19 @@ TinTower1FNPCsCallback:
 	checkevent EVENT_FOUGHT_HO_OH
 	iffalse .Done
 	appear TINTOWER1F_EUSINE
+	endcallback
 .RocketsHere
 	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_1
 	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_2
-	setscene SCENE_TINTOWER1F_NOOP
 	endcallback
 .Done:
 	endcallback
 
 .FaceBeasts:
+	readvar VAR_WEEKDAY
+	ifnotequal SUNDAY, .FoughtSuicune
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iffalse NoSuicune
 	checkevent EVENT_FOUGHT_SUICUNE
 	iftrue .FoughtSuicune
 	appear TINTOWER1F_SUICUNE
@@ -79,17 +83,6 @@ TinTower1FNPCsCallback:
 	disappear TINTOWER1F_ENTEI
 	clearevent EVENT_TIN_TOWER_1F_WISE_TRIO_1
 	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_2
-	endcallback
-
-TinTower1FStairsCallback:
-	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
-	iffalse .DontHideStairs
-	checkevent EVENT_TIN_TOWER_ROCKET_POPULATION
-	iftrue .DontHideStairs
-	checkevent EVENT_GOT_RAINBOW_WING
-	iftrue .DontHideStairs
-	changeblock 10, 2, $09 ; floor
-.DontHideStairs:
 	endcallback
 
 TinTower1FSuicuneBattleScript:

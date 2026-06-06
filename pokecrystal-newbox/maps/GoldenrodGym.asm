@@ -351,12 +351,12 @@ BeautySamanthaSeenText:
 	done
 
 BeautySamanthaBeatenText:
-	text "No! Oh, MEOWTH,"
+	text "No! Oh, SEAKING,"
 	line "I'm so sorry!"
 	done
 
 BeautySamanthaAfterBattleText:
-	text "I taught MEOWTH"
+	text "I taught SEAKING"
 	line "moves for taking"
 	cont "on any type…"
 	done
@@ -370,7 +370,7 @@ GoldenrodGymGuideText:
 	cont "#MON trainers."
 
 	para "I recommend you"
-	line "use fighting-type"
+	line "use rock-type"
 	cont "#MON."
 	done
 

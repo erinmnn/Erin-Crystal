@@ -2,11 +2,29 @@
 	const SILVERCAVEROOM2_POKE_BALL1
 	const SILVERCAVEROOM2_POKE_BALL2
 	const SILVERCAVEROOM2_POKE_BALL3
+	const SILVERCAVEROOM2_LANCE
 
 SilverCaveRoom2_MapScripts:
 	def_scene_scripts
+	scene_script SilverCaveRoom2EnterScene, SCENE_SILVERCAVEROOM2_ENTER
+	scene_script SilverCaveRoom2NoopScene,  SCENE_SILVERCAVEROOM2_NOOP
 
 	def_callbacks
+
+SilverCaveRoom2EnterScene:
+	sdefer SilverCaveRoom2EnterScript
+	end
+
+SilverCaveRoom2NoopScene:
+	end
+
+SilverCaveRoom2EnterScript:
+	faceplayer
+	opentext
+	writetext SilverCaveRoom2_LanceText
+	waitbutton
+	closetext
+	end
 
 SilverCaveRoom2Calcium:
 	itemball CALCIUM
@@ -20,11 +38,16 @@ SilverCaveRoom2PPUp:
 SilverCaveRoom2HiddenMaxPotion:
 	hiddenitem MAX_POTION, EVENT_SILVER_CAVE_ROOM_2_HIDDEN_MAX_POTION
 
+SilverCaveRoom2_LanceText:
+	text "This is as far as"
+	line "I can take you."
+	done
+
 SilverCaveRoom2_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 31, SILVER_CAVE_ROOM_1, 2
+	warp_event 13, 34, SILVER_CAVE_ROOM_1, 2
 	warp_event 11,  5, SILVER_CAVE_ROOM_3, 1
 	warp_event 13, 21, SILVER_CAVE_ITEM_ROOMS, 1
 	warp_event 23,  3, SILVER_CAVE_ITEM_ROOMS, 2
@@ -38,3 +61,4 @@ SilverCaveRoom2_MapEvents:
 	object_event 24, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2Calcium, EVENT_SILVER_CAVE_ROOM_2_CALCIUM
 	object_event 22, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2UltraBall, EVENT_SILVER_CAVE_ROOM_2_ULTRA_BALL
 	object_event  4, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2PPUp, EVENT_SILVER_CAVE_ROOM_2_PP_UP
+	object_event 17, 30, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilverCaveRoom2EnterScript, -1

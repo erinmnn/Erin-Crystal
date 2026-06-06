@@ -22,6 +22,7 @@ PewterGymBrockScript:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BROCK
 	setevent EVENT_BEAT_CAMPER_JERRY
+	clearevent EVENT_VIRIDIAN_GYM_BLUE
 	opentext
 	writetext ReceivedBoulderBadgeText
 	playsound SFX_GET_BADGE

@@ -2152,7 +2152,7 @@ SnorlaxEvosAttacks:
 ArticunoEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, POWDER_SNOW
-	db 1, AGILITY
+	db 1, MIRROR_COAT
 	db 1, SKY_ATTACK
 	db 1, WHIRLWIND
 	db 0 ; no more level-up moves
@@ -2217,17 +2217,10 @@ DragoniteEvosAttacks:
 
 MewtwoEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, CONFUSION
-	db 1, DISABLE
-	db 11, BARRIER
-	db 22, SWIFT
-	db 33, PSYCH_UP
-	db 44, FUTURE_SIGHT
-	db 55, MIST
-	db 66, PSYCHIC_M
-	db 77, AMNESIA
-	db 88, RECOVER
-	db 99, SAFEGUARD
+	db 1, FURY_CUTTER
+	db 1, THUNDERBOLT
+	db 1, ICE_BEAM
+	db 1, PSYCHIC_M
 	db 0 ; no more level-up moves
 
 MewEvosAttacks:
@@ -3491,7 +3484,7 @@ HitmontopEvosAttacks:
 	db 27, QUICK_ATTACK
 	db 30, ROLLING_KICK
 	db 32, MACH_PUNCH
-	db 36, TRIPLE_KICK
+	db 36, FLAME_WHEEL
 	db 37, KARATE_CHOP
 	db 40, DETECT
 	db 42, SUBMISSION
@@ -3577,7 +3570,7 @@ EnteiEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, ROAR
 	db 1, FIRE_SPIN
-	db 1, STOMP
+	db 1, ANCIENTPOWER
 	db 1, SWAGGER
 	db 0 ; no more level-up moves
 
@@ -3586,7 +3579,7 @@ SuicuneEvosAttacks:
 	db 1, GUST
 	db 1, ROAR
 	db 1, MIST
-	db 1, MIRROR_COAT
+	db 1, HEAL_BELL
 	db 0 ; no more level-up moves
 
 LarvitarEvosAttacks:

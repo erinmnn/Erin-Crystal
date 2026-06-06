@@ -136,7 +136,7 @@
 	const EVENT_TIN_TOWER_5F_HIDDEN_FULL_RESTORE
 	const EVENT_TIN_TOWER_5F_HIDDEN_CARBOS
 	const EVENT_BURNED_TOWER_1F_HIDDEN_ETHER
-	const_skip ; unused in Crystal
+	const EVENT_TRAIN_ENTHUSIAST
 	const_skip ; unused in Crystal
 	const_skip ; unused in Crystal
 	const EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL
@@ -303,11 +303,11 @@
 	const EVENT_BETH_ASKED_FOR_PHONE_NUMBER
 	const EVENT_SEAFOAM_ISLANDS_ARTICUNO
 	const EVENT_JOSE_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_BEAT_COOLTRAINERM_RUBEN2
 	const EVENT_REENA_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_BEAT_BIKER_NICK2
 	const EVENT_JOEY_ASKED_FOR_PHONE_NUMBER
-	const_skip ; unused in Crystal
+	const EVENT_NICK_AND_RUBEN
 	const EVENT_WADE_ASKED_FOR_PHONE_NUMBER
 	const_skip ; unused in Crystal
 	const EVENT_RALPH_ASKED_FOR_PHONE_NUMBER

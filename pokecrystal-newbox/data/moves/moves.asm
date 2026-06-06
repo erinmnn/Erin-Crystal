@@ -180,7 +180,7 @@ Moves:
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,        100, 10,   0      ;SUBSTITUTE
 	move STRUGGLE,     EFFECT_RECOIL_HIT,         50, NORMAL,        100,  1,   0      ;STRUGGLE
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,        100,  1,   0      ;SKETCH
-	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        15, FIGHTING,      100, 10,   0      ;TRIPLE_KICK
+	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        20, FIGHTING,      100, 10,   0      ;TRIPLE_KICK
 	move THIEF,        EFFECT_THIEF,              75, DARK,          100, 10, 100      ;THIEF
 	move SPIDER_WEB,   EFFECT_MEAN_LOOK,           0, BUG,           100, 10,   0      ;SPIDER_WEB
 	move MIND_READER,  EFFECT_LOCK_ON,             0, NORMAL,        100,  5,   0      ;MIND_READER

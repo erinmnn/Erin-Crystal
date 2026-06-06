@@ -828,7 +828,7 @@ KantoGrassWildMons:
 	db 84, TANGELA
 	db 84, ARBOK
 	db 84, RAPIDASH
-	db 84, PILOSWINE
+	db 84, URSARING
 	db 84, DONPHAN
 	db 84, DODRIO
 	db 84, DODRIO
@@ -838,7 +838,7 @@ KantoGrassWildMons:
 	db 84, POLIWRATH
 	db 84, POLIWRATH
 	db 84, CROBAT
-	db 84, PILOSWINE
+	db 84, DONPHAN
 	db 84, WOBBUFFET
 	end_grass_wildmons
 

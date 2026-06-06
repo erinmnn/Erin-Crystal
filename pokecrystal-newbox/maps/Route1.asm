@@ -8,14 +8,20 @@ Route1_MapScripts:
 
 	def_callbacks
 
-TrainerSchoolboyDanny:
-	trainer SCHOOLBOY, DANNY, EVENT_BEAT_SCHOOLBOY_DANNY, SchoolboyDannySeenText, SchoolboyDannyBeatenText, 0, .Script
-
-.Script:
-	endifjustbattled
+SchoolboyDannyScript:
+	faceplayer
 	opentext
+	checkevent EVENT_BEAT_SCHOOLBOY_DANNY
+	iftrue .GotScopeLens
+	writetext SchoolboyDannySeenText
+	promptbutton
+	verbosegiveitem SCOPE_LENS
+	iffalse .NoRoom
+	setevent EVENT_BEAT_SCHOOLBOY_DANNY
+.GotScopeLens:
 	writetext SchoolboyDannyAfterBattleText
 	waitbutton
+.NoRoom:
 	closetext
 	end
 
@@ -37,9 +43,7 @@ Route1FruitTree:
 	fruittree FRUITTREE_ROUTE_1
 
 SchoolboyDannySeenText:
-	text "If trainers meet,"
-	line "the first thing to"
-	cont "do is battle."
+	text "Check this out!"
 	done
 
 SchoolboyDannyBeatenText:
@@ -48,11 +52,8 @@ SchoolboyDannyBeatenText:
 	done
 
 SchoolboyDannyAfterBattleText:
-	text "For trainers, it's"
-	line "a given that we'll"
-
-	para "battle whenever we"
-	line "meet."
+	text "Sometimes you just"
+	line "need a crit!"
 	done
 
 CooltrainerfQuinnSeenText:
@@ -89,6 +90,6 @@ Route1_MapEvents:
 	bg_event  7, 27, BGEVENT_READ, Route1Sign
 
 	def_object_events
-	object_event  4, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSchoolboyDanny, -1
-	object_event  9, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfQuinn, -1
+	object_event  5,  2, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SchoolboyDannyScript, -1
+	object_event 15, 23, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 7, TrainerCooltrainerfQuinn, -1
 	object_event  3,  7, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route1FruitTree, -1

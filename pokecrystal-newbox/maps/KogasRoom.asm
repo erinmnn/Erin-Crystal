@@ -41,6 +41,8 @@ KogasRoomDoorLocksBehindYouScript:
 	end
 
 KogaScript_Battle:
+	checkevent EVENT_BEAT_BLAINE
+	iftrue KogaScript_Battle2
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_ELITE_4_KOGA
@@ -67,6 +69,37 @@ KogaScript_Battle:
 
 KogaScript_AfterBattle:
 	writetext KogaScript_KogaDefeatText
+	waitbutton
+	closetext
+	end
+
+KogaScript_Battle2:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ELITE_4_KOGA
+	iftrue KogaScript_AfterBattle
+	writetext KogaScript_KogaBeforeText2
+	waitbutton
+	closetext
+	winlosstext KogaScript_KogaBeatenText, 0
+	loadtrainer KOGA, KOGA2
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_ELITE_4_KOGA
+	opentext
+	writetext KogaScript_KogaDefeatText2
+	waitbutton
+	closetext
+	playsound SFX_ENTER_DOOR
+	changeblock 4, 2, $16 ; open door
+	refreshmap
+	closetext
+	setevent EVENT_KOGAS_ROOM_EXIT_OPEN
+	waitsfx
+	end
+
+KogaScript_AfterBattle2:
+	writetext KogaScript_KogaDefeatText2
 	waitbutton
 	closetext
 	end
@@ -125,6 +158,53 @@ KogaScript_KogaDefeatText:
 	para "Go on to the next"
 	line "room, and put your"
 	cont "abilities to test!"
+	done
+
+KogaScript_KogaBeforeText2:
+	text "Fwahahahaha!"
+
+	para "Welcome back,"
+	line "<PLAYER>!."
+
+	para "I heard from"
+	line "my niece that"
+	cont "you put up quite"
+
+	para "the performance at"
+	line "her gym."
+
+	para "I think you know"
+	line "what I have to do"
+	cont "now…"
+
+	para "Evasion, sleep,"
+	line "fraud…"
+
+	para "I've increased"
+	line "my skills tenfold"
+
+	para "since our"
+	line "last match!"
+
+	para "Prepare to be the"
+	line "victim of my sin-"
+	cont "ister sequel!"
+
+	para "Fwahahahaha!"
+	done
+
+KogaScript_KogaDefeatText2:
+	text "I subjected you to"
+	line "everything I could"
+	cont "muster."
+
+	para "But again, I"
+	line "failed. You're"
+	cont "truly a student"
+
+	para "of the devious"
+	line "arts. Go on and"
+	cont "show the rest!"
 	done
 
 KogasRoom_MapEvents:

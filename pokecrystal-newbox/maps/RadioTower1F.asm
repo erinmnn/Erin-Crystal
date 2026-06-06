@@ -71,7 +71,7 @@ RadioTower1FLuckyNumberManScript:
 	playsound SFX_1ST_PLACE
 	waitsfx
 	promptbutton
-	giveitem MASTER_BALL
+	giveitem BRIGHTPOWDER
 	iffalse .BagFull
 	itemnotify
 	setflag ENGINE_LUCKY_NUMBER_SHOW
@@ -266,7 +266,7 @@ RadioTower1FLuckyNumberManPerfectMatchText:
 	line "prize winner!"
 
 	para "You have won a"
-	line "MASTER BALL!"
+	line "BRIGHTPOWDER!"
 	done
 
 RadioTower1FLuckyNumberManOkayMatchText:

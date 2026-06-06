@@ -255,6 +255,7 @@ PokemonPicPointers::
 	dba HoOhFrontpic, HoOhBackpic
 	dba CelebiFrontpic, CelebiBackpic
 	assert_table_length NUM_POKEMON
-	ds 3
+	ds 6
 	dba EggPic
-	assert_table_length EGG - 1
+	ds 3
+	assert_table_length EGG
